@@ -1,0 +1,135 @@
+/* =====================================================
+   AARAV CLINICS — Design System Variables
+   ===================================================== */
+
+:root {
+  /* ── Brand Colors ─────────────────────────────── */
+  --navy:        #0D2F42;
+  --navy-mid:    #123B52;
+  --teal:        #168AAD;
+  --teal-light:  #1AACCA;
+  --aqua-soft:   #EAF7F8;
+  --aqua-mid:    #C8ECF0;
+  --surface:     #F5FAFB;
+  --white:       #FFFFFF;
+  --warm-accent: #C9913A;
+  --warm-light:  #F5E6CC;
+
+  /* ── Text ──────────────────────────────────────── */
+  --text-heading: #0D2F42;
+  --text-body:    #2C4A57;
+  --text-muted:   #5E7A85;
+  --text-faint:   #93ADB8;
+  --text-inverse: #FFFFFF;
+
+  /* ── Borders ───────────────────────────────────── */
+  --border-light: rgba(22, 138, 173, 0.12);
+  --border-mid:   rgba(22, 138, 173, 0.22);
+  --border-card:  rgba(13, 47, 66, 0.08);
+
+  /* ── Shadows ───────────────────────────────────── */
+  --shadow-xs:  0 1px 3px rgba(13, 47, 66, 0.06);
+  --shadow-sm:  0 2px 8px rgba(13, 47, 66, 0.08);
+  --shadow-md:  0 4px 20px rgba(13, 47, 66, 0.10);
+  --shadow-lg:  0 8px 40px rgba(13, 47, 66, 0.12);
+  --shadow-xl:  0 16px 64px rgba(13, 47, 66, 0.14);
+  --shadow-teal: 0 4px 24px rgba(22, 138, 173, 0.20);
+
+  /* ── Gradients ─────────────────────────────────── */
+  --grad-hero:   linear-gradient(135deg, #0A2133 0%, #0D3348 40%, #0E3F5C 100%);
+  --grad-teal:   linear-gradient(135deg, #168AAD 0%, #0D6E8F 100%);
+  --grad-navy:   linear-gradient(135deg, #0D2F42 0%, #123B52 100%);
+  --grad-soft:   linear-gradient(135deg, #EAF7F8 0%, #F5FAFB 100%);
+  --grad-card:   linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(234,247,248,0.6) 100%);
+  --grad-cta:    linear-gradient(135deg, #0D2F42 0%, #168AAD 100%);
+
+  /* ── Typography ────────────────────────────────── */
+  --font-primary:  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display:  'Manrope', 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Type Scale — fluid */
+  --text-xs:   clamp(0.70rem, 0.9vw, 0.75rem);
+  --text-sm:   clamp(0.82rem, 1.0vw, 0.875rem);
+  --text-base: clamp(0.95rem, 1.1vw, 1rem);
+  --text-md:   clamp(1.05rem, 1.2vw, 1.125rem);
+  --text-lg:   clamp(1.15rem, 1.5vw, 1.25rem);
+  --text-xl:   clamp(1.3rem,  2.0vw, 1.5rem);
+  --text-2xl:  clamp(1.5rem,  2.5vw, 1.875rem);
+  --text-3xl:  clamp(1.8rem,  3.0vw, 2.25rem);
+  --text-4xl:  clamp(2.2rem,  4.0vw, 3rem);
+  --text-5xl:  clamp(2.8rem,  5.0vw, 4rem);
+  --text-hero: clamp(3.2rem,  6.5vw, 5.5rem);
+
+  /* Line heights */
+  --leading-tight:  1.15;
+  --leading-snug:   1.30;
+  --leading-normal: 1.55;
+  --leading-loose:  1.75;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.03em;
+  --tracking-normal: -0.01em;
+  --tracking-wide:   0.06em;
+  --tracking-wider:  0.12em;
+
+  /* ── Spacing ───────────────────────────────────── */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+  --space-32:  8rem;
+
+  /* ── Layout ────────────────────────────────────── */
+  --wrap-max:       1280px;
+  --wrap-narrow:    760px;
+  --wrap-wide:      1440px;
+  --wrap-padding:   clamp(1.25rem, 4vw, 3rem);
+
+  /* ── Border Radius ─────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-2xl:  40px;
+  --radius-full: 9999px;
+
+  /* ── Transitions ───────────────────────────────── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast:    180ms;
+  --dur-normal:  280ms;
+  --dur-slow:    420ms;
+  --dur-xslow:   600ms;
+
+  /* ── Z-index ───────────────────────────────────── */
+  --z-below:  -1;
+  --z-base:    0;
+  --z-raised:  10;
+  --z-float:   50;
+  --z-nav:    100;
+  --z-modal:  200;
+  --z-toast:  300;
+
+  /* ── Navbar ────────────────────────────────────── */
+  --navbar-h: 76px;
+  --navbar-h-scroll: 66px;
+}
+
+/* ── Reduced Motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast:   0ms;
+    --dur-normal: 0ms;
+    --dur-slow:   0ms;
+    --dur-xslow:  0ms;
+  }
+}

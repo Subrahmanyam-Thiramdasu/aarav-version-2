@@ -1,0 +1,156 @@
+/* =====================================================
+   AARAV CLINICS — Buttons
+   ===================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.8125rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition:
+    transform var(--dur-normal) var(--ease-spring),
+    box-shadow var(--dur-normal) var(--ease-out),
+    background var(--dur-normal) var(--ease-out),
+    color var(--dur-normal) var(--ease-out),
+    border-color var(--dur-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Arrow icon inside buttons */
+.btn .btn-arrow {
+  transition: transform var(--dur-normal) var(--ease-spring);
+  flex-shrink: 0;
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ── Primary ──────────────────────────────────────── */
+.btn-primary {
+  background: var(--grad-teal);
+  color: var(--white);
+  box-shadow: 0 2px 12px rgba(22, 138, 173, 0.30);
+}
+
+.btn-primary:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(22, 138, 173, 0.40);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(22, 138, 173, 0.25);
+}
+
+/* ── Secondary (outline teal) ─────────────────────── */
+.btn-secondary {
+  background: transparent;
+  color: var(--teal);
+  border: 2px solid var(--teal);
+}
+
+.btn-secondary:hover {
+  color: var(--white);
+  background: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(22, 138, 173, 0.30);
+}
+
+.btn-secondary:active { transform: translateY(0); }
+
+/* ── Navy (dark primary) ──────────────────────────── */
+.btn-navy {
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 2px 12px rgba(13, 47, 66, 0.20);
+}
+
+.btn-navy:hover {
+  color: var(--white);
+  background: var(--navy-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(13, 47, 66, 0.30);
+}
+
+/* ── Ghost (light outline) ────────────────────────── */
+.btn-ghost {
+  background: rgba(255,255,255,0.10);
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.20);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.60);
+  transform: translateY(-2px);
+}
+
+/* ── Ghost dark (on light bg) ─────────────────────── */
+.btn-ghost-dark {
+  background: transparent;
+  color: var(--text-body);
+  border: 1.5px solid var(--border-mid);
+}
+
+.btn-ghost-dark:hover {
+  background: var(--aqua-soft);
+  color: var(--navy);
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* ── WhatsApp ─────────────────────────────────────── */
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--white);
+  box-shadow: 0 2px 12px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+  background: #20c45a;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+}
+
+/* ── Sizes ────────────────────────────────────────── */
+.btn--sm {
+  padding: 0.55rem 1.25rem;
+  font-size: var(--text-xs);
+}
+
+.btn--lg {
+  padding: 1rem 2.25rem;
+  font-size: var(--text-md);
+}
+
+.btn--xl {
+  padding: 1.125rem 2.5rem;
+  font-size: var(--text-lg);
+}
+
+.btn--block {
+  width: 100%;
+}
