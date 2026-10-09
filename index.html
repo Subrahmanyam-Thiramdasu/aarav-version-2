@@ -14,6 +14,7 @@
   <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="js/particle-bg.js" defer></script>
 
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
@@ -28,6 +29,7 @@
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/bg-animations.css">
 </head>
 <body class="premium-theme">
 
@@ -157,11 +159,11 @@
   <!-- ═══════════════════════════════════════════════
        CINEMATIC HERO
        ═══════════════════════════════════════════════ -->
-  <section class="cinematic-hero">
+  <section class="cinematic-hero particle-canvas-container">
     <div class="cinematic-hero-bg">
       <img src="assets/images/hero-clinic.jpg" alt="Aarav Clinics Premium Facility" class="hero-parallax-img">
       <div class="cinematic-overlay"></div>
-      <div class="cinematic-gradient"></div>
+      <div class="cinematic-gradient bg-ambient-gradient"></div>
     </div>
     
     <div class="cinematic-hero-content wrap">
@@ -216,7 +218,7 @@
   <!-- ═══════════════════════════════════════════════
        EDITORIAL ABOUT
        ═══════════════════════════════════════════════ -->
-  <section class="section editorial-about" id="about">
+  <section class="section editorial-about bg-glow-container" id="about">
     <div class="wrap editorial-about-grid">
       <div class="about-visuals gsap-parallax-group">
         <div class="img-frame img-primary gsap-parallax-fast">
@@ -272,7 +274,7 @@
   <!-- ═══════════════════════════════════════════════
        ADVANCED THERAPY SHOWCASE (DARK MODE)
        ═══════════════════════════════════════════════ -->
-  <section class="section advanced-therapy-section" id="advanced-therapy">
+  <section class="section advanced-therapy-section bg-glow-container glow-dark particle-canvas-container" id="advanced-therapy">
     <div class="wrap">
       <div class="section-header-dark gsap-reveal-up">
         <span class="premium-eyebrow accent-teal">Next-Generation Technology</span>

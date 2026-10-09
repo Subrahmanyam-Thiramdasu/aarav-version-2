@@ -1,0 +1,131 @@
+/* =====================================================
+   AARAV CLINICS — Background Animations
+   ===================================================== */
+
+/* ── 1. Ambient Gradient Movement ── */
+.bg-ambient-gradient {
+  background-size: 200% 200% !important;
+  animation: ambientGradientMove 25s ease-in-out infinite alternate !important;
+}
+
+@keyframes ambientGradientMove {
+  0%   { background-position: 50% 0%; }
+  50%  { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+/* ── 2. Soft Blurred Glows (Pseudo-elements) ── */
+.bg-glow-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure foreground content stays above the background glows */
+.bg-glow-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-glow-container::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(22, 138, 173, 0.08) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlow 30s ease-in-out infinite alternate;
+}
+
+.bg-glow-container::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(16, 47, 64, 0.05) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlowReverse 35s ease-in-out infinite alternate;
+}
+
+/* Dark mode glow variants */
+.bg-glow-container.glow-dark::before {
+  background: radial-gradient(circle, rgba(22, 138, 173, 0.12) 0%, transparent 65%);
+}
+.bg-glow-container.glow-dark::after {
+  background: radial-gradient(circle, rgba(0, 142, 155, 0.1) 0%, transparent 65%);
+}
+
+/* ── 3. Subtle Organic Movement ── */
+.bg-organic-shape {
+  position: relative;
+  overflow: hidden;
+}
+.bg-organic-shape > * {
+  position: relative;
+  z-index: 1;
+}
+.bg-organic-shape::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.03) 0%, transparent 60%);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: organicDrift 40s linear infinite;
+}
+
+/* Keyframes for movement */
+@keyframes floatGlow {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(4%, 8%) scale(1.08); }
+  100% { transform: translate(-4%, 4%) scale(0.95); }
+}
+
+@keyframes floatGlowReverse {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-6%, -8%) scale(1.05); }
+  100% { transform: translate(4%, -4%) scale(1); }
+}
+
+@keyframes organicDrift {
+  0%   { transform: translateX(-50%) rotate(0deg) scale(1); }
+  50%  { transform: translateX(-48%) rotate(180deg) scale(1.03); }
+  100% { transform: translateX(-50%) rotate(360deg) scale(1); }
+}
+
+/* ── Reduced Motion Support ── */
+@media (prefers-reduced-motion: reduce) {
+  .bg-ambient-gradient,
+  .bg-glow-container::before,
+  .bg-glow-container::after,
+  .bg-organic-shape::before {
+    animation: none !important;
+  }
+}
+
+/* ── 4. Canvas Particle Background ── */
+.particle-canvas-container {
+  /* Fallback if inline style is missing, but don't force it if already absolute/fixed */
+}
+
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}

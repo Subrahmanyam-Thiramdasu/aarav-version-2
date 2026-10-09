@@ -31,6 +31,7 @@
   <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="js/particle-bg.js" defer></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
@@ -38,6 +39,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/bg-animations.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/inner.css">
@@ -249,7 +251,7 @@
   <main id="main">
 
     <!-- CINEMATIC HERO -->
-    <section class="about-cinematic-hero">
+    <section class="about-cinematic-hero particle-canvas-container">
       <div class="about-hero-bg gsap-parallax" data-speed="0.2"></div>
       <div class="about-hero-gradient"></div>
       <div class="wrap about-hero-content">
@@ -308,7 +310,7 @@
     </section>
 
     <!-- TECHNOLOGY & FACILITIES -->
-    <section class="tech-section">
+    <section class="tech-section bg-glow-container particle-canvas-container">
       <div class="wrap">
         <div style="text-align:center; max-width:700px; margin:0 auto;" class="gsap-reveal-up">
           <span class="eyebrow"
