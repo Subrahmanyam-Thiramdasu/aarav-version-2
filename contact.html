@@ -17,7 +17,7 @@
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -40,78 +40,82 @@
   <link rel="stylesheet" href="css/animations.css">
 
   <style>
-    /* Premium Contact Page Styles */
-    .contact-split-hero {
-      min-height: 100vh;
+    /* Premium Contact Page Scoped Styles */
+    body.premium-theme {
+      background-color: #FAF9F6;
+    }
+    
+    .contact-page-wrapper {
+      padding-top: 100px; /* Fix navbar collision */
+      background: var(--color-navy);
+    }
+    
+    .contact-hero-section {
+      padding: 4rem 2rem 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
+      gap: 3rem;
+      position: relative;
     }
     
-    @media (min-width: 960px) {
-      .contact-split-hero {
+    @media (min-width: 992px) {
+      .contact-page-wrapper {
+        padding-top: 120px;
+      }
+      .contact-hero-section {
         grid-template-columns: 45% 55%;
+        align-items: center;
+        gap: 5rem;
       }
     }
-
+    
+    /* Left Panel: Info */
     .contact-info-panel {
-      background: var(--color-navy);
-      padding: 8rem 3rem 4rem;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      color: #fff;
     }
     
-    /* Background Pattern in Navy Side */
-    .contact-info-panel::before {
-      content: '';
-      position: absolute;
-      inset: -50px;
-      background: radial-gradient(circle at 10% 90%, rgba(0, 142, 155, 0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .contact-header {
-      margin-bottom: 4rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .contact-header-eyebrow {
+    .contact-eyebrow {
       font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       color: var(--color-teal);
       font-weight: 800;
       margin-bottom: 1rem;
-      display: block;
+      display: inline-block;
     }
-
-    .contact-header h1 {
+    
+    .contact-title {
       font-size: clamp(2.5rem, 4vw, 3.5rem);
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       line-height: 1.1;
+      margin-bottom: 1.5rem;
       letter-spacing: -0.02em;
     }
-
-    .contact-detail-list {
+    
+    .contact-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 3rem;
+      max-width: 90%;
+    }
+    
+    .contact-details-grid {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
-      position: relative;
-      z-index: 2;
+      gap: 2rem;
     }
-
-    .contact-detail-item {
+    
+    .contact-detail-row {
       display: flex;
-      gap: 1.25rem;
       align-items: flex-start;
+      gap: 1.25rem;
     }
-
-    .contact-detail-icon {
+    
+    .contact-icon-box {
       width: 48px;
       height: 48px;
       background: rgba(255,255,255,0.05);
@@ -122,202 +126,399 @@
       justify-content: center;
       color: var(--color-champagne);
       flex-shrink: 0;
+      transition: all 0.3s ease;
     }
-
-    .contact-detail-content h3 {
+    
+    .contact-detail-row:hover .contact-icon-box {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    
+    .contact-text-box h4 {
       font-size: 1rem;
       font-weight: 700;
+      color: #fff;
       margin-bottom: 0.25rem;
-      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
-
-    .contact-detail-content p, 
-    .contact-detail-content a {
-      font-size: 1.1rem;
+    
+    .contact-text-box p, .contact-text-box a {
+      font-size: 1.05rem;
       line-height: 1.6;
-      color: #ffffff;
+      color: rgba(255,255,255,0.7);
       text-decoration: none;
+      transition: color 0.3s ease;
     }
-
-    .contact-detail-content a:hover {
+    
+    .contact-text-box a:hover {
       color: var(--color-teal);
     }
-
-    /* Form Side */
-    .contact-form-panel {
-      background: #FAF9F6;
-      padding: 8rem 2rem 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .premium-form-container {
+    
+    /* Right Panel: Form */
+    .contact-form-card {
       background: #ffffff;
       border-radius: 24px;
-      padding: 3.5rem;
-      box-shadow: 0 40px 80px rgba(16,47,64,0.08);
-      width: 100%;
-      max-width: 600px;
-      border: 1px solid rgba(16,47,64,0.05);
+      padding: 3rem;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2);
     }
-
-    .form-title {
+    
+    @media (max-width: 767px) {
+      .contact-form-card {
+        padding: 2rem;
+      }
+    }
+    
+    .contact-form-card h3 {
       font-size: 1.75rem;
       font-weight: 800;
       color: var(--color-navy);
       margin-bottom: 0.5rem;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
-
-    .form-subtitle {
+    
+    .contact-form-card > p {
       color: #6B7A8D;
-      margin-bottom: 2.5rem;
       font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
     }
-
-    /* Map Section */
-    .map-section {
-      height: 600px;
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-input, .form-select, .form-textarea {
       width: 100%;
-      background: #e0e0e0;
-      position: relative;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      color: var(--color-navy);
+      font-family: inherit;
+      transition: all 0.3s ease;
     }
-
-    .map-section iframe {
+    
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-teal);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(0, 142, 155, 0.1);
+    }
+    
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .btn-submit {
+      width: 100%;
+      background: var(--color-teal);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-submit:hover {
+      background: #007682;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 142, 155, 0.2);
+    }
+    
+    /* Map Section */
+    .contact-map-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .map-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .map-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    .map-container-inner {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(16,47,64,0.08);
+      height: 500px;
+      border: 1px solid rgba(16,47,64,0.05);
+    }
+    
+    .map-container-inner iframe {
       width: 100%;
       height: 100%;
       border: none;
-      filter: contrast(1.1) grayscale(20%);
+      filter: contrast(1.05) grayscale(10%);
     }
     
-    .map-overlay-card {
+    .map-directions-card {
       position: absolute;
       top: 50%;
-      left: 5%;
+      left: 3rem;
       transform: translateY(-50%);
-      background: #fff;
+      background: #ffffff;
       padding: 2.5rem;
       border-radius: 16px;
       box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-      max-width: 400px;
+      max-width: 350px;
       z-index: 10;
     }
     
-    @media (max-width: 959px) {
-      .map-overlay-card {
+    .map-directions-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      margin-bottom: 1rem;
+    }
+    
+    .map-directions-card p {
+      color: #6B7A8D;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 991px) {
+      .map-container-inner {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .map-container-inner iframe {
+        height: 400px;
+      }
+      .map-directions-card {
         position: relative;
-        transform: none;
         top: 0;
         left: 0;
-        margin: -100px auto 2rem;
-        width: 90%;
+        transform: none;
+        max-width: 100%;
+        border-radius: 0 0 24px 24px;
+        box-shadow: none;
       }
     }
   </style>
 </head>
-<body class="premium-theme" style="background:#FAF9F6;">
+<body class="premium-theme">
 
-<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Page Loader -->
+<div class="premium-loader" id="pageLoader">
+  <div class="premium-loader-brand">Aarav Clinics</div>
+  <div class="premium-loader-bar"><div class="premium-loader-progress"></div></div>
+</div>
 
-<!-- Header -->
 <header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
-      <img src="assets/images/logo.png" style="filter: brightness(0) invert(1);" alt="Aarav Clinics" class="brand-logo logo-dark" width="200" height="60">
-      <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo logo-light" width="200" height="60" style="display:none;">
+      <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
     </a>
 
     <!-- Desktop Nav -->
     <nav class="main-nav" aria-label="Primary navigation">
       <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
         <li class="nav-item">
           <a href="services.html" class="nav-link" aria-haspopup="true">
             Services
             <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
+          <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
+            <div class="mega-cols">
+              <div>
+                <p class="mega-group-title">Physiotherapy</p>
+                <a href="physiotherapy.html" class="nav-drop-link">Physiotherapy</a>
+                <a href="sports-rehabilitation.html" class="nav-drop-link">Sports Rehabilitation</a>
+                <a href="post-surgical-rehabilitation.html" class="nav-drop-link">Post-Surgical Rehab</a>
+                <a href="stroke-rehabilitation.html" class="nav-drop-link">Stroke Rehabilitation</a>
+                <a href="chiropractic.html" class="nav-drop-link">Chiropractic Care</a>
+                <a href="laser-therapy.html" class="nav-drop-link">Laser Therapy</a>
+              </div>
+              <div>
+                <p class="mega-group-title">Child Development</p>
+                <a href="pediatric-physiotherapy.html" class="nav-drop-link">Pediatric Physiotherapy</a>
+                <a href="speech-therapy.html" class="nav-drop-link">Speech Therapy</a>
+                <a href="occupational-therapy.html" class="nav-drop-link">Occupational Therapy</a>
+                <a href="autism-therapy.html" class="nav-drop-link">Autism Therapy</a>
+                <a href="child-development.html" class="nav-drop-link">Child Development Centre</a>
+              </div>
+              <div>
+                <p class="mega-group-title">Flexible Care</p>
+                <a href="home-physiotherapy.html" class="nav-drop-link">Home Physiotherapy</a>
+                <a href="video-consultation.html" class="nav-drop-link">Video Consultation</a>
+                <a href="services.html" class="nav-drop-link">All Services</a>
+              </div>
+            </div>
+          </div>
         </li>
-        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
-        <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
-        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link is-active">Contact</a></li>
+        <li class="nav-item">
+          <a href="child-development.html" class="nav-link">Child Development</a>
+        </li>
+        <li class="nav-item">
+          <a href="team.html" class="nav-link">Our Team</a>
+        </li>
+        <li class="nav-item">
+          <a href="blog.html" class="nav-link">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link is-active">Contact</a>
+        </li>
       </ul>
     </nav>
 
-    <a href="#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
+    <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
       Book Appointment
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
+    <!-- Mobile toggle -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Main -->
-<main id="main">
+<!-- Mobile Menu -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
 
-  <section class="contact-split-hero">
-    
-    <!-- Left: Info -->
-    <div class="contact-info-panel">
-      <div class="contact-header gsap-reveal-up">
-        <span class="contact-header-eyebrow">Connect With Us</span>
-        <h1>We're here to <br><span style="color:var(--color-champagne);">help you heal.</span></h1>
+    <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
+      Services
+      <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div id="mobileServSub" class="mobile-nav-sub">
+      <a href="physiotherapy.html">Physiotherapy</a>
+      <a href="sports-rehabilitation.html">Sports Rehabilitation</a>
+      <a href="post-surgical-rehabilitation.html">Post-Surgical Rehab</a>
+      <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
+      <a href="chiropractic.html">Chiropractic Care</a>
+      <a href="laser-therapy.html">Laser Therapy</a>
+      <a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a>
+      <a href="speech-therapy.html">Speech Therapy</a>
+      <a href="occupational-therapy.html">Occupational Therapy</a>
+      <a href="autism-therapy.html">Autism Therapy</a>
+      <a href="child-development.html">Child Development Centre</a>
+      <a href="home-physiotherapy.html">Home Physiotherapy</a>
+      <a href="video-consultation.html">Video Consultation</a>
+    </div>
+
+    <a href="child-development.html" class="mobile-nav-link">Child Development</a>
+    <a href="team.html" class="mobile-nav-link">Our Team</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link" style="color:var(--teal);">Contact</a>
+  </div>
+  <div class="mobile-menu-ctas">
+    <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
+    <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="contact-page-wrapper">
+    <!-- Hero / Form Section -->
+    <section class="contact-hero-section">
+      <div class="contact-info-panel">
+        <span class="contact-eyebrow gsap-reveal-up">Connect With Us</span>
+        <h1 class="contact-title gsap-reveal-up">Let's Get You <br><span class="text-champagne">Moving Again</span></h1>
+        <p class="contact-subtitle gsap-reveal-up">
+          Experience world-class physiotherapy, rehabilitation, and child development services. Schedule an appointment or reach out for inquiries.
+        </p>
+        
+        <div class="contact-details-grid">
+          <div class="contact-detail-row gsap-reveal-up" style="transition-delay: 0.1s;">
+            <div class="contact-icon-box"><i data-lucide="map-pin"></i></div>
+            <div class="contact-text-box">
+              <h4>Visit Our Clinic</h4>
+              <p>HIG, 2nd Floor, Sai Sadan Enclave, H.No. 23/82/2<br>Plot No. 22 &amp; 3, Sy No. 203, Jyothi Nagar<br>Opp. Spashta Eye Hospital, Ashok Nagar<br>Hyderabad, Telangana 502032</p>
+            </div>
+          </div>
+          <div class="contact-detail-row gsap-reveal-up" style="transition-delay: 0.2s;">
+            <div class="contact-icon-box"><i data-lucide="clock"></i></div>
+            <div class="contact-text-box">
+              <h4>Operating Hours</h4>
+              <p>Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: By Appointment Only</p>
+            </div>
+          </div>
+          <div class="contact-detail-row gsap-reveal-up" style="transition-delay: 0.3s;">
+            <div class="contact-icon-box"><i data-lucide="phone"></i></div>
+            <div class="contact-text-box">
+              <h4>Direct Contact</h4>
+              <a href="tel:+916302882910">+91 63028 82910</a><br>
+              <a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a>
+            </div>
+          </div>
+        </div>
       </div>
       
-      <div class="contact-detail-list">
-        <div class="contact-detail-item gsap-reveal-up" style="transition-delay:0.1s">
-          <div class="contact-detail-icon"><i data-lucide="map-pin"></i></div>
-          <div class="contact-detail-content">
-            <h3>Visit Our Clinic</h3>
-            <p>HIG, 2nd Floor, Sai Sadan Enclave, H.No. 23/82/2<br>Plot No. 22 &amp; 3, Sy No. 203, Jyothi Nagar<br>Opp. Spashta Eye Hospital, Ashok Nagar<br>Hyderabad, Telangana 502032</p>
-          </div>
-        </div>
+      <div class="contact-form-card gsap-reveal-left" id="appointment">
+        <h3>Request an Appointment</h3>
+        <p>Fill out your details below and our team will confirm your slot via WhatsApp immediately.</p>
         
-        <div class="contact-detail-item gsap-reveal-up" style="transition-delay:0.2s">
-          <div class="contact-detail-icon"><i data-lucide="clock"></i></div>
-          <div class="contact-detail-content">
-            <h3>Operating Hours</h3>
-            <p>Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: By Appointment Only</p>
-          </div>
-        </div>
-        
-        <div class="contact-detail-item gsap-reveal-up" style="transition-delay:0.3s">
-          <div class="contact-detail-icon"><i data-lucide="phone"></i></div>
-          <div class="contact-detail-content">
-            <h3>Direct Contact</h3>
-            <p><a href="tel:+916302882910">+91 63028 82910</a><br><a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Right: Form -->
-    <div class="contact-form-panel" id="appointment">
-      <div class="premium-form-container gsap-reveal-left">
-        <h2 class="form-title">Request an Appointment</h2>
-        <p class="form-subtitle">Fill out your details below and our team will confirm your slot via WhatsApp immediately.</p>
-        
-        <form class="appt-form" id="apptForm" novalidate>
+        <form id="apptForm" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="name" class="form-label">Full Name *</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+              <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
             </div>
             <div class="form-group">
               <label for="phone" class="form-label">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder="10-digit number" required>
+              <input type="tel" id="phone" class="form-input" placeholder="10-digit number" required>
             </div>
           </div>
-
+          
           <div class="form-group">
             <label for="service" class="form-label">Consultation Type</label>
-            <select id="service" name="service" class="form-select">
+            <select id="service" class="form-select">
               <option value="Physiotherapy">Physiotherapy / Orthopedic</option>
               <option value="Neuro Rehabilitation">Neurological Rehabilitation</option>
               <option value="Pediatric Care">Child Development &amp; Therapy</option>
@@ -326,107 +527,109 @@
               <option value="Other">Other / General Inquiry</option>
             </select>
           </div>
-
+          
           <div class="form-group">
             <label for="message" class="form-label">Brief Description (Optional)</label>
-            <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Tell us about the symptoms or condition..."></textarea>
+            <textarea id="message" class="form-textarea" placeholder="Tell us about the symptoms or condition..."></textarea>
           </div>
-
-          <button type="submit" class="btn btn-primary btn--block btn--lg" style="margin-top:1rem;">
-            Send via WhatsApp <i data-lucide="send" style="margin-left:8px; width:18px;"></i>
+          
+          <button type="submit" class="btn-submit">
+            <i data-lucide="message-circle"></i> Send via WhatsApp
           </button>
         </form>
-        
-        <!-- Success State -->
-        <div id="apptSuccess" class="form-success" style="display:none; text-align:center; padding:3rem 0;">
-          <div style="width:64px; height:64px; background:rgba(34,197,94,0.1); color:#22c55e; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
-            <i data-lucide="check" style="width:32px; height:32px;"></i>
-          </div>
-          <h3 style="font-size:1.5rem; font-weight:800; color:var(--color-navy); margin-bottom:0.5rem;">Redirecting...</h3>
-          <p style="color:#6B7A8D;">Your request has been formulated. Please send the message in the WhatsApp window that just opened.</p>
-        </div>
-        
       </div>
+    </section>
+  </div>
+  
+  <!-- Map Section -->
+  <section class="contact-map-section">
+    <div class="map-header gsap-reveal-up">
+      <h2>Find Our Clinic</h2>
     </div>
-    
-  </section>
-
-  <section class="map-section">
-    <iframe
-      title="Google Maps location of Aarav Clinics"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9!2d78.4914!3d17.4036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x91e80a0f7cf70091!2sAarav+Clinics!5e0!3m2!1sen!2sin!4v1"
-      allowfullscreen>
-    </iframe>
-    
-    <div class="map-overlay-card gsap-reveal-up">
-      <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:1rem;">Get Directions</h3>
-      <p style="color:#6B7A8D; font-size:0.95rem; margin-bottom:1.5rem; line-height:1.6;">Located near Ramachandrapuram, opposite Spashta Eye Hospital. Ample parking available.</p>
-      <a href="https://www.google.com/maps?cid=10521016619599487601" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%; justify-content:center;">Open in Google Maps</a>
+    <div class="map-container-inner gsap-reveal-up">
+      <iframe
+        title="Google Maps location of Aarav Clinics"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9!2d78.4914!3d17.4036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x91e80a0f7cf70091!2sAarav+Clinics!5e0!3m2!1sen!2sin!4v1"
+        allowfullscreen>
+      </iframe>
+      <div class="map-directions-card">
+        <h3>Get Directions</h3>
+        <p>Located near Ramachandrapuram, opposite Spashta Eye Hospital. Ample parking available.</p>
+        <a href="https://www.google.com/maps?cid=10521016619599487601" target="_blank" rel="noopener noreferrer" class="btn btn-premium-outline" style="width:100%; justify-content:center;">Open in Google Maps</a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="site-footer">
+<!-- ═══════════════════════════════════════════════
+     PREMIUM FOOTER
+     ═══════════════════════════════════════════════ -->
+<footer class="premium-footer">
+  <div class="footer-ambient-glow"></div>
   <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <a href="index.html" aria-label="Aarav Clinics — Home">
-        <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo" width="160" height="52" loading="lazy">
-      </a>
-      <p>Complete family therapy care — physiotherapy, rehabilitation and child development services in Ashok Nagar, Hyderabad.</p>
-      <div class="footer-contact-links">
-        <a href="tel:+916302882910"><i data-lucide="phone"></i> +91 63028 82910</a>
-        <a href="mailto:aaravphysioclinics@gmail.com"><i data-lucide="mail"></i> aaravphysioclinics@gmail.com</a>
+    <div class="footer-brand-col">
+      <img src="assets/images/logo.png" alt="Aarav Clinics" width="180">
+      <p class="footer-desc">Advanced physiotherapy, rehabilitation, and pediatric therapy in Hyderabad, delivering evidence-based clinical excellence.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i data-lucide="instagram"></i></a>
+        <a href="#" class="social-btn"><i data-lucide="facebook"></i></a>
+        <a href="#" class="social-btn"><i data-lucide="youtube"></i></a>
       </div>
     </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="physiotherapy.html">Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
-        <li><a href="stroke-rehabilitation.html">Stroke Rehabilitation</a></li>
-        <li><a href="laser-therapy.html">Laser Therapy</a></li>
-      </ul>
+    
+    <div class="footer-links-col">
+      <h4>Clinical Services</h4>
+      <a href="physiotherapy.html">Physiotherapy</a>
+      <a href="stroke-rehabilitation.html">Neurological Rehab</a>
+      <a href="laser-therapy.html">Laser Therapy</a>
+      <a href="speech-therapy.html">Speech Therapy</a>
+      <a href="occupational-therapy.html">Occupational Therapy</a>
     </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="services.html">All Services</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
+    
+    <div class="footer-links-col">
+      <h4>Patient Resources</h4>
+      <a href="about.html">Our Philosophy</a>
+      <a href="team.html">Clinical Team</a>
+      <a href="blog.html">Health Articles</a>
+      <a href="contact.html">Contact &amp; Location</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
     </div>
-
-    <div class="footer-col footer-col--hours">
-      <h4>Clinic Hours</h4>
+    
+    <div class="footer-contact-col">
+      <h4>Reach Us</h4>
+      <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Hyderabad - 502032</p>
+      <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
+      <a href="mailto:aaravphysioclinics@gmail.com" class="footer-contact-link"><i data-lucide="mail"></i> aaravphysioclinics@gmail.com</a>
       <div class="footer-hours">
-        <div class="footer-hours-row"><span class="footer-hours-day">Mon – Sat</span><span class="footer-hours-time">9:00 AM – 6:00 PM</span></div>
-        <div class="footer-hours-row"><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">By Appointment</span></div>
+        <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+        <span>Sunday: By Appointment</span>
       </div>
     </div>
   </div>
-
-  <div class="wrap footer-bottom">
-    <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Hyderabad.</p>
-    <div class="footer-legal-links">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-    </div>
+  
+  <div class="footer-bottom wrap">
+    <p>&copy; 2026 Aarav Clinics. All rights reserved.</p>
   </div>
 </footer>
 
-<!-- Scripts -->
+<!-- JS Initialization -->
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
-<script src="js/forms.js"></script>
+<script>
+  // Init Lucide
+  lucide.createIcons();
+
+  // Handle WhatsApp Form Submit
+  document.getElementById('apptForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const service = document.getElementById('service').value;
+    const msg = `Hi Aarav Clinics, I am ${name}. I would like to book an appointment for ${service}.`;
+    const url = `https://wa.me/916302882910?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  });
+</script>
 
 </body>
 </html>
