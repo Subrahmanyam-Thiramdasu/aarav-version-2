@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aarav Clinics – Premium Physiotherapy &amp; Child Development</title>
-  <meta name="description" content="Aarav Clinics in Ashok Nagar, Hyderabad offers advanced physiotherapy, neuro-rehab, and child development services.">
+  <meta name="description"
+    content="Aarav Clinics in Ashok Nagar, Hyderabad offers advanced physiotherapy, neuro-rehab, and child development services.">
   <link rel="canonical" href="https://aaravhealthcare.com/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -24,643 +28,682 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="css/navbar.css">
-  
+
   <!-- Redesigned CSS -->
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/bg-animations.css">
 </head>
+
 <body class="premium-theme">
 
-<!-- Page Loader -->
-<div class="premium-loader" id="pageLoader">
-  <div class="premium-loader-brand">Aarav Clinics</div>
-  <div class="premium-loader-bar"><div class="premium-loader-progress"></div></div>
-</div>
-
-<header class="site-header" id="siteHeader">
-  <div class="wrap header-inner">
-    <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
-      <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
-    </a>
-
-    <!-- Desktop Nav -->
-    <nav class="main-nav" aria-label="Primary navigation">
-      <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link is-active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="services.html" class="nav-link" aria-haspopup="true">
-            Services
-            <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </a>
-          <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
-            <div class="mega-cols">
-              <div>
-                <p class="mega-group-title">Physiotherapy</p>
-                <a href="physiotherapy.html" class="nav-drop-link">Physiotherapy</a>
-                <a href="sports-rehabilitation.html" class="nav-drop-link">Sports Rehabilitation</a>
-                <a href="post-surgical-rehabilitation.html" class="nav-drop-link">Post-Surgical Rehab</a>
-                <a href="stroke-rehabilitation.html" class="nav-drop-link">Stroke Rehabilitation</a>
-                <a href="chiropractic.html" class="nav-drop-link">Chiropractic Care</a>
-                <a href="laser-therapy.html" class="nav-drop-link">Laser Therapy</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Child Development</p>
-                <a href="pediatric-physiotherapy.html" class="nav-drop-link">Pediatric Physiotherapy</a>
-                <a href="speech-therapy.html" class="nav-drop-link">Speech Therapy</a>
-                <a href="occupational-therapy.html" class="nav-drop-link">Occupational Therapy</a>
-                <a href="autism-therapy.html" class="nav-drop-link">Autism Therapy</a>
-                <a href="child-development.html" class="nav-drop-link">Child Development Centre</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Flexible Care</p>
-                <a href="home-physiotherapy.html" class="nav-drop-link">Home Physiotherapy</a>
-                <a href="video-consultation.html" class="nav-drop-link">Video Consultation</a>
-                <a href="services.html" class="nav-drop-link">All Services</a>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="child-development.html" class="nav-link">Child Development</a>
-        </li>
-        <li class="nav-item">
-          <a href="team.html" class="nav-link">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a href="blog.html" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
-        </li>
-      </ul>
-    </nav>
-
-    <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
-      Book Appointment
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <!-- Mobile toggle -->
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- Page Loader -->
+  <div class="premium-loader" id="pageLoader">
+    <div class="premium-loader-brand">Aarav Clinics</div>
+    <div class="premium-loader-bar">
+      <div class="premium-loader-progress"></div>
+    </div>
   </div>
-</header>
 
-<!-- Mobile Menu -->
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-  <div class="mobile-menu-inner">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="about.html" class="mobile-nav-link" style="color:var(--teal);">About</a>
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
+        <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo"
+          width="200" height="60">
+      </a>
 
-    <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
-      Services
-      <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div id="mobileServSub" class="mobile-nav-sub">
-      <a href="physiotherapy.html">Physiotherapy</a>
-      <a href="sports-rehabilitation.html">Sports Rehabilitation</a>
-      <a href="post-surgical-rehabilitation.html">Post-Surgical Rehab</a>
-      <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
-      <a href="chiropractic.html">Chiropractic Care</a>
-      <a href="laser-therapy.html">Laser Therapy</a>
-      <a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a>
-      <a href="speech-therapy.html">Speech Therapy</a>
-      <a href="occupational-therapy.html">Occupational Therapy</a>
-      <a href="autism-therapy.html">Autism Therapy</a>
-      <a href="child-development.html">Child Development Centre</a>
-      <a href="home-physiotherapy.html">Home Physiotherapy</a>
-      <a href="video-consultation.html">Video Consultation</a>
-    </div>
-
-    <a href="child-development.html" class="mobile-nav-link">Child Development</a>
-    <a href="team.html" class="mobile-nav-link">Our Team</a>
-    <a href="blog.html" class="mobile-nav-link">Blog</a>
-    <a href="contact.html" class="mobile-nav-link">Contact</a>
-  </div>
-  <div class="mobile-menu-ctas">
-    <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
-    <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      WhatsApp Us
-    </a>
-  </div>
-</nav>
-
-<main id="main">
-
-  <!-- ═══════════════════════════════════════════════
-       CINEMATIC HERO
-       ═══════════════════════════════════════════════ -->
-  <section class="cinematic-hero particle-canvas-container">
-    <div class="cinematic-hero-bg">
-      <img src="assets/images/hero-clinic.jpg" alt="Aarav Clinics Premium Facility" class="hero-parallax-img">
-      <div class="cinematic-overlay"></div>
-      <div class="cinematic-gradient bg-ambient-gradient"></div>
-    </div>
-    
-    <div class="cinematic-hero-content wrap">
-      <div class="hero-text-block">
-        <div class="hero-badge gsap-reveal-up">
-          <i data-lucide="map-pin"></i> Ashok Nagar, Hyderabad
-        </div>
-        
-        <h1 class="hero-giant-title">
-          <span class="mask-line"><span class="gsap-title-reveal">Advanced Care.</span></span>
-          <span class="mask-line"><span class="gsap-title-reveal text-champagne">Restored Motion.</span></span>
-        </h1>
-        
-        <p class="hero-editorial-desc gsap-reveal-up">
-          Experience world-class physiotherapy, neuro-rehabilitation, and child development in an environment designed for ultimate recovery.
-        </p>
-        
-        <div class="hero-cta-group gsap-reveal-up">
-          <a href="contact.html#appointment" class="btn btn-premium-solid btn-large">
-            Start Your Recovery <i data-lucide="arrow-right"></i>
-          </a>
-          <a href="tel:+916302882910" class="btn btn-premium-outline btn-large">
-            <i data-lucide="phone"></i> +91 63028 82910
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Floating Bottom Navigation -->
-    <div class="hero-floating-nav gsap-reveal-up">
-      <div class="wrap floating-nav-inner">
-        <a href="#services" class="floating-nav-item">
-          <span class="fn-icon"><i data-lucide="activity"></i></span>
-          <span class="fn-text">Physiotherapy</span>
-        </a>
-        <a href="#advanced-therapy" class="floating-nav-item">
-          <span class="fn-icon"><i data-lucide="cpu"></i></span>
-          <span class="fn-text">Advanced Tech</span>
-        </a>
-        <a href="#child-dev" class="floating-nav-item">
-          <span class="fn-icon"><i data-lucide="baby"></i></span>
-          <span class="fn-text">Child Development</span>
-        </a>
-        <a href="video-consultation.html" class="floating-nav-item">
-          <span class="fn-icon"><i data-lucide="video"></i></span>
-          <span class="fn-text">Video Consult</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       EDITORIAL ABOUT
-       ═══════════════════════════════════════════════ -->
-  <section class="section editorial-about bg-glow-container" id="about">
-    <div class="wrap editorial-about-grid">
-      <div class="about-visuals gsap-parallax-group">
-        <div class="img-frame img-primary gsap-parallax-fast">
-          <img src="assets/images/physiotherapy-session.jpg" alt="Expert Assessment">
-        </div>
-        <div class="img-frame img-secondary gsap-parallax-slow">
-          <img src="assets/images/clinic-interior.jpg" alt="Premium Facility">
-        </div>
-        <div class="experience-badge gsap-scale-up">
-          <span class="exp-number">12+</span>
-          <span class="exp-text">Years of<br>Excellence</span>
-        </div>
-      </div>
-      
-      <div class="about-content">
-        <span class="premium-eyebrow gsap-reveal-up">The Aarav Standard</span>
-        <h2 class="editorial-title gsap-reveal-up">Precision care meets human compassion.</h2>
-        <p class="editorial-lead gsap-reveal-up">
-          We don't just treat symptoms. We analyze biomechanics, neurological patterns, and developmental stages to design a recovery architecture unique to you.
-        </p>
-        
-        <ul class="editorial-benefits gsap-stagger-list">
-          <li>
-            <i data-lucide="circle-check"></i>
-            <div>
-              <strong>Evidence-Based Protocols</strong>
-              <span>Internationally recognized treatment methodologies.</span>
+      <!-- Desktop Nav -->
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link is-active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="services.html" class="nav-link" aria-haspopup="true">
+              Services
+              <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </a>
+            <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
+              <div class="mega-cols">
+                <div>
+                  <p class="mega-group-title">Physiotherapy</p>
+                  <a href="physiotherapy.html" class="nav-drop-link">Physiotherapy</a>
+                  <a href="sports-rehabilitation.html" class="nav-drop-link">Sports Rehabilitation</a>
+                  <a href="post-surgical-rehabilitation.html" class="nav-drop-link">Post-Surgical Rehab</a>
+                  <a href="stroke-rehabilitation.html" class="nav-drop-link">Stroke Rehabilitation</a>
+                  <a href="chiropractic.html" class="nav-drop-link">Chiropractic Care</a>
+                  <a href="laser-therapy.html" class="nav-drop-link">Laser Therapy</a>
+                </div>
+                <div>
+                  <p class="mega-group-title">Child Development</p>
+                  <a href="pediatric-physiotherapy.html" class="nav-drop-link">Pediatric Physiotherapy</a>
+                  <a href="speech-therapy.html" class="nav-drop-link">Speech Therapy</a>
+                  <a href="occupational-therapy.html" class="nav-drop-link">Occupational Therapy</a>
+                  <a href="autism-therapy.html" class="nav-drop-link">Autism Therapy</a>
+                  <a href="child-development.html" class="nav-drop-link">Child Development Centre</a>
+                </div>
+                <div>
+                  <p class="mega-group-title">Flexible Care</p>
+                  <a href="home-physiotherapy.html" class="nav-drop-link">Home Physiotherapy</a>
+                  <a href="video-consultation.html" class="nav-drop-link">Video Consultation</a>
+                  <a href="services.html" class="nav-drop-link">All Services</a>
+                </div>
+              </div>
             </div>
           </li>
-          <li>
-            <i data-lucide="circle-check"></i>
-            <div>
-              <strong>Multidisciplinary Expertise</strong>
-              <span>Physiotherapists, Speech Pathologists, and OTs under one roof.</span>
-            </div>
+          <li class="nav-item">
+            <a href="child-development.html" class="nav-link">Child Development</a>
           </li>
-          <li>
-            <i data-lucide="circle-check"></i>
-            <div>
-              <strong>Premium Healing Environment</strong>
-              <span>A space engineered to reduce clinical anxiety and promote wellness.</span>
-            </div>
+          <li class="nav-item">
+            <a href="team.html" class="nav-link">Our Team</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
           </li>
         </ul>
-        
-        <div class="gsap-reveal-up" style="margin-top: 3rem;">
-          <a href="about.html" class="link-arrow">Discover our philosophy <i data-lucide="arrow-right"></i></a>
+      </nav>
+
+      <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
+        Book Appointment
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          class="btn-arrow" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+
+      <!-- Mobile toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link" style="color:var(--teal);">About</a>
+
+      <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false"
+        style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
+        Services
+        <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div id="mobileServSub" class="mobile-nav-sub">
+        <a href="physiotherapy.html">Physiotherapy</a>
+        <a href="sports-rehabilitation.html">Sports Rehabilitation</a>
+        <a href="post-surgical-rehabilitation.html">Post-Surgical Rehab</a>
+        <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
+        <a href="chiropractic.html">Chiropractic Care</a>
+        <a href="laser-therapy.html">Laser Therapy</a>
+        <a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a>
+        <a href="speech-therapy.html">Speech Therapy</a>
+        <a href="occupational-therapy.html">Occupational Therapy</a>
+        <a href="autism-therapy.html">Autism Therapy</a>
+        <a href="child-development.html">Child Development Centre</a>
+        <a href="home-physiotherapy.html">Home Physiotherapy</a>
+        <a href="video-consultation.html">Video Consultation</a>
+      </div>
+
+      <a href="child-development.html" class="mobile-nav-link">Child Development</a>
+      <a href="team.html" class="mobile-nav-link">Our Team</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-menu-ctas">
+      <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
+      <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment"
+        target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z" />
+        </svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ═══════════════════════════════════════════════
+       CINEMATIC HERO
+       ═══════════════════════════════════════════════ -->
+    <section class="cinematic-hero particle-canvas-container">
+      <div class="cinematic-hero-bg">
+        <img src="assets/images/hero-clinic.jpg" alt="Aarav Clinics Premium Facility" class="hero-parallax-img">
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-gradient bg-ambient-gradient"></div>
+      </div>
+
+      <div class="cinematic-hero-content wrap">
+        <div class="hero-text-block">
+          <div class="hero-badge gsap-reveal-up">
+            <i data-lucide="map-pin"></i> Ashok Nagar, Hyderabad
+          </div>
+
+          <h1 class="hero-giant-title">
+            <span class="mask-line"><span class="gsap-title-reveal">Advanced Care.</span></span>
+            <span class="mask-line"><span class="gsap-title-reveal text-champagne">Restored Motion.</span></span>
+          </h1>
+
+          <p class="hero-editorial-desc gsap-reveal-up">
+            Experience world-class physiotherapy, neuro-rehabilitation, and child development in an environment designed
+            for ultimate recovery.
+          </p>
+
+          <div class="hero-cta-group gsap-reveal-up">
+            <a href="contact.html#appointment" class="btn btn-premium-solid btn-large">
+              Start Your Recovery <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="tel:+916302882910" class="btn btn-premium-outline btn-large">
+              <i data-lucide="phone"></i> +91 63028 82910
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════
+      <!-- Floating Bottom Navigation -->
+      <div class="hero-floating-nav gsap-reveal-up">
+        <div class="wrap floating-nav-inner">
+          <a href="#services" class="floating-nav-item">
+            <span class="fn-icon"><i data-lucide="activity"></i></span>
+            <span class="fn-text">Physiotherapy</span>
+          </a>
+          <a href="#advanced-therapy" class="floating-nav-item">
+            <span class="fn-icon"><i data-lucide="cpu"></i></span>
+            <span class="fn-text">Advanced Tech</span>
+          </a>
+          <a href="#child-dev" class="floating-nav-item">
+            <span class="fn-icon"><i data-lucide="baby"></i></span>
+            <span class="fn-text">Child Development</span>
+          </a>
+          <a href="video-consultation.html" class="floating-nav-item">
+            <span class="fn-icon"><i data-lucide="video"></i></span>
+            <span class="fn-text">Video Consult</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       EDITORIAL ABOUT
+       ═══════════════════════════════════════════════ -->
+    <section class="section editorial-about bg-glow-container" id="about">
+      <div class="wrap editorial-about-grid">
+        <div class="about-visuals gsap-parallax-group">
+          <div class="img-frame img-primary gsap-parallax-fast">
+            <img src="assets/images/physiotherapy-session.jpg" alt="Expert Assessment">
+          </div>
+          <div class="img-frame img-secondary gsap-parallax-slow">
+            <img src="assets/images/clinic-interior.jpg" alt="Premium Facility">
+          </div>
+          <div class="experience-badge gsap-scale-up">
+            <span class="exp-number">12+</span>
+            <span class="exp-text">Years of<br>Excellence</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="premium-eyebrow gsap-reveal-up">The Aarav Standard</span>
+          <h2 class="editorial-title gsap-reveal-up">Precision care meets human compassion.</h2>
+          <p class="editorial-lead gsap-reveal-up">
+            We don't just treat symptoms. We analyze biomechanics, neurological patterns, and developmental stages to
+            design a recovery architecture unique to you.
+          </p>
+
+          <ul class="editorial-benefits gsap-stagger-list">
+            <li>
+              <i data-lucide="circle-check"></i>
+              <div>
+                <strong>Evidence-Based Protocols</strong>
+                <span>Internationally recognized treatment methodologies.</span>
+              </div>
+            </li>
+            <li>
+              <i data-lucide="circle-check"></i>
+              <div>
+                <strong>Multidisciplinary Expertise</strong>
+                <span>Physiotherapists, Speech Pathologists, and OTs under one roof.</span>
+              </div>
+            </li>
+            <li>
+              <i data-lucide="circle-check"></i>
+              <div>
+                <strong>Premium Healing Environment</strong>
+                <span>A space engineered to reduce clinical anxiety and promote wellness.</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="gsap-reveal-up" style="margin-top: 3rem;">
+            <a href="about.html" class="link-arrow">Discover our philosophy <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
        ADVANCED THERAPY SHOWCASE (DARK MODE)
        ═══════════════════════════════════════════════ -->
-  <section class="section advanced-therapy-section bg-glow-container glow-dark particle-canvas-container" id="advanced-therapy">
-    <div class="wrap">
-      <div class="section-header-dark gsap-reveal-up">
-        <span class="premium-eyebrow accent-teal">Next-Generation Technology</span>
-        <h2 class="editorial-title text-white">Accelerate healing with advanced medical technology.</h2>
-        <p class="text-gray-400">Our facility is equipped with state-of-the-art non-invasive rehabilitation systems that operate at the cellular level.</p>
-      </div>
-      
-      <div class="tech-bento-grid">
-        
-        <div class="tech-card large-card gsap-reveal-up">
-          <div class="tech-card-bg"></div>
-          <div class="tech-content">
-            <div class="tech-icon"><i data-lucide="zap"></i></div>
-            <h3>Class 4 Laser Therapy</h3>
-            <p>Deep tissue photobiomodulation for rapid pain relief, reduced inflammation, and accelerated cellular repair for acute injuries.</p>
-            <a href="laser-therapy.html" class="link-arrow accent-teal">Learn more</a>
-          </div>
-        </div>
-        
-        <div class="tech-card gsap-reveal-up" style="transition-delay: 0.1s;">
-          <div class="tech-content">
-            <div class="tech-icon"><i data-lucide="activity"></i></div>
-            <h3>Shockwave Therapy</h3>
-            <p>Acoustic waves to stimulate metabolism, enhance blood circulation, and break down calcified deposits in chronic joint issues.</p>
-          </div>
-        </div>
-        
-        <div class="tech-card gsap-reveal-up" style="transition-delay: 0.2s;">
-          <div class="tech-content">
-            <div class="tech-icon"><i data-lucide="git-commit"></i></div>
-            <h3>Spinal Decompression</h3>
-            <p>Computer-controlled traction to gently relieve spinal pressure, treating herniated discs and severe sciatica without surgery.</p>
-          </div>
+    <section class="section advanced-therapy-section bg-glow-container glow-dark particle-canvas-container"
+      id="advanced-therapy">
+      <div class="wrap">
+        <div class="section-header-dark gsap-reveal-up">
+          <span class="premium-eyebrow accent-teal">Next-Generation Technology</span>
+          <h2 class="editorial-title text-white">Accelerate healing with advanced medical technology.</h2>
+          <p class="text-gray-400">Our facility is equipped with state-of-the-art non-invasive rehabilitation systems
+            that operate at the cellular level.</p>
         </div>
 
-      </div>
-    </div>
-  </section>
+        <div class="tech-bento-grid">
 
-  <!-- ═══════════════════════════════════════════════
+          <div class="tech-card large-card gsap-reveal-up">
+            <div class="tech-card-bg"></div>
+            <div class="tech-content">
+              <div class="tech-icon"><i data-lucide="zap"></i></div>
+              <h3>Class 4 Laser Therapy</h3>
+              <p>Deep tissue photobiomodulation for rapid pain relief, reduced inflammation, and accelerated cellular
+                repair for acute injuries.</p>
+              <a href="laser-therapy.html" class="link-arrow accent-teal">Learn more</a>
+            </div>
+          </div>
+
+          <div class="tech-card gsap-reveal-up" style="transition-delay: 0.1s;">
+            <div class="tech-content">
+              <div class="tech-icon"><i data-lucide="activity"></i></div>
+              <h3>Shockwave Therapy</h3>
+              <p>Acoustic waves to stimulate metabolism, enhance blood circulation, and break down calcified deposits in
+                chronic joint issues.</p>
+            </div>
+          </div>
+
+          <div class="tech-card gsap-reveal-up" style="transition-delay: 0.2s;">
+            <div class="tech-content">
+              <div class="tech-icon"><i data-lucide="git-commit"></i></div>
+              <h3>Spinal Decompression</h3>
+              <p>Computer-controlled traction to gently relieve spinal pressure, treating herniated discs and severe
+                sciatica without surgery.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
        SERVICES BENTO GRID
        ═══════════════════════════════════════════════ -->
-  <section class="section services-bento-section" id="services">
-    <div class="wrap">
-      <div class="section-header-centered gsap-reveal-up">
-        <span class="premium-eyebrow">Comprehensive Care</span>
-        <h2 class="editorial-title">Rehabilitation Specialties</h2>
+    <section class="section services-bento-section" id="services">
+      <div class="wrap">
+        <div class="section-header-centered gsap-reveal-up">
+          <span class="premium-eyebrow">Comprehensive Care</span>
+          <h2 class="editorial-title">Rehabilitation Specialties</h2>
+        </div>
+
+        <div class="services-bento">
+
+          <!-- Large Featured Card -->
+          <a href="physiotherapy.html" class="bento-card bento-large gsap-scale-up">
+            <img src="assets/images/physiotherapy-session.jpg" alt="Physiotherapy" class="bento-bg">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+              <span class="bento-tag">Flagship</span>
+              <h3>Orthopaedic &amp; Sports Physiotherapy</h3>
+              <p>Targeted manual therapy and exercise protocols to restore joint function and athletic performance.</p>
+              <div class="bento-action"><i data-lucide="arrow-up-right"></i></div>
+            </div>
+          </a>
+
+          <!-- Medium Cards -->
+          <a href="stroke-rehabilitation.html" class="bento-card gsap-scale-up" style="animation-delay: 0.1s;">
+            <div class="bento-content-solid">
+              <i data-lucide="brain" class="bento-icon"></i>
+              <h3>Neurological &amp; Stroke Rehab</h3>
+              <p>Rewiring neural pathways for mobility and independence.</p>
+            </div>
+          </a>
+
+          <a href="post-surgical-rehabilitation.html" class="bento-card gsap-scale-up" style="animation-delay: 0.2s;">
+            <div class="bento-content-solid">
+              <i data-lucide="bandage" class="bento-icon"></i>
+              <h3>Post-Surgical Recovery</h3>
+              <p>Safe, structured return to function after orthopaedic procedures.</p>
+            </div>
+          </a>
+
+          <!-- Small Cards Row -->
+          <a href="chiropractic.html" class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.3s;">
+            <div class="bento-content-solid">
+              <i data-lucide="bone" class="bento-icon"></i>
+              <h4>Chiropractic</h4>
+            </div>
+          </a>
+
+          <a href="home-physiotherapy.html" class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.4s;">
+            <div class="bento-content-solid">
+              <i data-lucide="home" class="bento-icon"></i>
+              <h4>Home Care</h4>
+            </div>
+          </a>
+
+          <a href="video-consultation.html" class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.5s;">
+            <div class="bento-content-solid">
+              <i data-lucide="video" class="bento-icon"></i>
+              <h4>Tele-Rehab</h4>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="text-center" style="margin-top: 4rem;">
+          <a href="services.html" class="btn btn-premium-outline">View All Specialties</a>
+        </div>
       </div>
+    </section>
 
-      <div class="services-bento">
-        
-        <!-- Large Featured Card -->
-        <a href="physiotherapy.html" class="bento-card bento-large gsap-scale-up">
-          <img src="assets/images/physiotherapy-session.jpg" alt="Physiotherapy" class="bento-bg">
-          <div class="bento-overlay"></div>
-          <div class="bento-content">
-            <span class="bento-tag">Flagship</span>
-            <h3>Orthopaedic &amp; Sports Physiotherapy</h3>
-            <p>Targeted manual therapy and exercise protocols to restore joint function and athletic performance.</p>
-            <div class="bento-action"><i data-lucide="arrow-up-right"></i></div>
-          </div>
-        </a>
-        
-        <!-- Medium Cards -->
-        <a href="stroke-rehabilitation.html" class="bento-card gsap-scale-up" style="animation-delay: 0.1s;">
-          <div class="bento-content-solid">
-            <i data-lucide="brain" class="bento-icon"></i>
-            <h3>Neurological &amp; Stroke Rehab</h3>
-            <p>Rewiring neural pathways for mobility and independence.</p>
-          </div>
-        </a>
-
-        <a href="post-surgical-rehabilitation.html" class="bento-card gsap-scale-up" style="animation-delay: 0.2s;">
-          <div class="bento-content-solid">
-            <i data-lucide="bandage" class="bento-icon"></i>
-            <h3>Post-Surgical Recovery</h3>
-            <p>Safe, structured return to function after orthopaedic procedures.</p>
-          </div>
-        </a>
-
-        <!-- Small Cards Row -->
-        <a href="chiropractic.html" class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.3s;">
-          <div class="bento-content-solid">
-            <i data-lucide="bone" class="bento-icon"></i>
-            <h4>Chiropractic</h4>
-          </div>
-        </a>
-        
-        <a href="home-physiotherapy.html" class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.4s;">
-          <div class="bento-content-solid">
-            <i data-lucide="home" class="bento-icon"></i>
-            <h4>Home Care</h4>
-          </div>
-        </a>
-        
-        <a href="video-consultation.html" class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.5s;">
-          <div class="bento-content-solid">
-            <i data-lucide="video" class="bento-icon"></i>
-            <h4>Tele-Rehab</h4>
-          </div>
-        </a>
-
-      </div>
-      
-      <div class="text-center" style="margin-top: 4rem;">
-        <a href="services.html" class="btn btn-premium-outline">View All Specialties</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════
        IMMERSIVE CHILD DEVELOPMENT
        ═══════════════════════════════════════════════ -->
-  <section class="section child-dev-immersive" id="child-dev">
-    <div class="child-dev-bg-shape gsap-spin-slow"></div>
-    <div class="wrap child-dev-grid">
-      
-      <div class="child-dev-content">
-        <span class="premium-eyebrow accent-purple gsap-reveal-up">Aarav Child Development Centre</span>
-        <h2 class="editorial-title gsap-reveal-up">Nurturing potential through play and science.</h2>
-        <p class="editorial-lead gsap-reveal-up">
-          Early intervention shapes a lifetime. Our specialized pediatric wing provides a colorful, safe, and stimulating environment for children to overcome developmental challenges.
-        </p>
-        
-        <div class="pediatric-services-list gsap-stagger-list">
-          <a href="pediatric-physiotherapy.html" class="pediatric-item">
-            <div class="ped-icon"><i data-lucide="baby"></i></div>
-            <span>Pediatric Physio</span>
-          </a>
-          <a href="speech-therapy.html" class="pediatric-item">
-            <div class="ped-icon"><i data-lucide="mic"></i></div>
-            <span>Speech Therapy</span>
-          </a>
-          <a href="occupational-therapy.html" class="pediatric-item">
-            <div class="ped-icon"><i data-lucide="puzzle"></i></div>
-            <span>Occupational Therapy</span>
-          </a>
-          <a href="autism-therapy.html" class="pediatric-item">
-            <div class="ped-icon"><i data-lucide="heart-handshake"></i></div>
-            <span>Autism Support</span>
-          </a>
-        </div>
-        
-        <a href="child-development.html" class="btn btn-premium-solid btn-purple gsap-reveal-up">Explore Pediatric Care</a>
-      </div>
-      
-      <div class="child-dev-visual gsap-reveal-left">
-        <div class="child-image-mask">
-          <img src="assets/images/child-therapy.jpg" alt="Child Therapy Session">
-        </div>
-        <div class="floating-bubble bubble-1"></div>
-        <div class="floating-bubble bubble-2"></div>
-      </div>
-      
-    </div>
-  </section>
+    <section class="section child-dev-immersive" id="child-dev">
+      <div class="child-dev-bg-shape gsap-spin-slow"></div>
+      <div class="wrap child-dev-grid">
 
-  <!-- ═══════════════════════════════════════════════
+        <div class="child-dev-content">
+          <span class="premium-eyebrow accent-purple gsap-reveal-up">Aarav Child Development Centre</span>
+          <h2 class="editorial-title gsap-reveal-up">Nurturing potential through play and science.</h2>
+          <p class="editorial-lead gsap-reveal-up">
+            Early intervention shapes a lifetime. Our specialized pediatric wing provides a colorful, safe, and
+            stimulating environment for children to overcome developmental challenges.
+          </p>
+
+          <div class="pediatric-services-list gsap-stagger-list">
+            <a href="pediatric-physiotherapy.html" class="pediatric-item">
+              <div class="ped-icon"><i data-lucide="baby"></i></div>
+              <span>Pediatric Physio</span>
+            </a>
+            <a href="speech-therapy.html" class="pediatric-item">
+              <div class="ped-icon"><i data-lucide="mic"></i></div>
+              <span>Speech Therapy</span>
+            </a>
+            <a href="occupational-therapy.html" class="pediatric-item">
+              <div class="ped-icon"><i data-lucide="puzzle"></i></div>
+              <span>Occupational Therapy</span>
+            </a>
+            <a href="autism-therapy.html" class="pediatric-item">
+              <div class="ped-icon"><i data-lucide="heart-handshake"></i></div>
+              <span>Autism Support</span>
+            </a>
+          </div>
+
+          <a href="child-development.html" class="btn btn-premium-solid btn-purple gsap-reveal-up">Explore Pediatric
+            Care</a>
+        </div>
+
+        <div class="child-dev-visual gsap-reveal-left">
+          <div class="child-image-mask">
+            <img src="assets/images/child-therapy.jpg" alt="Child Therapy Session">
+          </div>
+          <div class="floating-bubble bubble-1"></div>
+          <div class="floating-bubble bubble-2"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
        EDITORIAL WHY CHOOSE US
        ═══════════════════════════════════════════════ -->
-  <section class="section benefits-editorial">
-    <div class="wrap">
-      <div class="benefits-layout">
-        <div class="benefits-header gsap-reveal-up">
-          <h2 class="giant-editorial-text">Why families <br>trust Aarav.</h2>
-          <img src="assets/images/logo.png" alt="Aarav" width="120" style="opacity:0.3; margin-top:2rem;">
-        </div>
-        
-        <div class="benefits-accordion gsap-stagger-group">
-          <div class="benefit-row gsap-item">
-            <div class="benefit-number">01</div>
-            <div class="benefit-desc">
-              <h3>World-Class Expertise</h3>
-              <p>Highly qualified therapists continuously trained in the latest rehabilitation science and clinical practices.</p>
-            </div>
+    <section class="section benefits-editorial">
+      <div class="wrap">
+        <div class="benefits-layout">
+          <div class="benefits-header gsap-reveal-up">
+            <h2 class="giant-editorial-text">Why families <br>trust Aarav.</h2>
+            <img src="assets/images/logo.png" alt="Aarav" width="120" style="opacity:0.3; margin-top:2rem;">
           </div>
-          <div class="benefit-row gsap-item">
-            <div class="benefit-number">02</div>
-            <div class="benefit-desc">
-              <h3>Transparent Care</h3>
-              <p>Clear communication regarding your diagnosis, realistic recovery timelines, and upfront treatment costs.</p>
+
+          <div class="benefits-accordion gsap-stagger-group">
+            <div class="benefit-row gsap-item">
+              <div class="benefit-number">01</div>
+              <div class="benefit-desc">
+                <h3>World-Class Expertise</h3>
+                <p>Highly qualified therapists continuously trained in the latest rehabilitation science and clinical
+                  practices.</p>
+              </div>
             </div>
-          </div>
-          <div class="benefit-row gsap-item">
-            <div class="benefit-number">03</div>
-            <div class="benefit-desc">
-              <h3>Holistic Ecosystem</h3>
-              <p>Seamless collaboration between physiotherapy, speech, and OT departments for complex multi-faceted cases.</p>
+            <div class="benefit-row gsap-item">
+              <div class="benefit-number">02</div>
+              <div class="benefit-desc">
+                <h3>Transparent Care</h3>
+                <p>Clear communication regarding your diagnosis, realistic recovery timelines, and upfront treatment
+                  costs.</p>
+              </div>
+            </div>
+            <div class="benefit-row gsap-item">
+              <div class="benefit-number">03</div>
+              <div class="benefit-desc">
+                <h3>Holistic Ecosystem</h3>
+                <p>Seamless collaboration between physiotherapy, speech, and OT departments for complex multi-faceted
+                  cases.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════
        PREMIUM TEAM SHOWCASE
        ═══════════════════════════════════════════════ -->
-  <section class="section team-showcase-section bg-surface">
-    <div class="wrap">
-      <div class="section-header-centered gsap-reveal-up">
-        <span class="premium-eyebrow">Clinical Leadership</span>
-        <h2 class="editorial-title">Meet the Specialists</h2>
-      </div>
-      
-      <div class="team-premium-grid">
-        <div class="team-premium-card gsap-reveal-up">
-          <div class="team-portrait-frame">
-            <div class="team-placeholder">SR</div>
-          </div>
-          <div class="team-info">
-            <h3>Dr. Sneha Reddy</h3>
-            <span class="team-role">Lead Physiotherapist (MPT Neuro)</span>
-            <p>Expertise in neuro-rehab, stroke recovery, and complex orthopaedic conditions.</p>
-            <a href="dr-sneha-reddy.html" class="link-arrow" style="margin-top: 1rem; display: inline-block;">View Profile <i data-lucide="arrow-right"></i></a>
-          </div>
+    <section class="section team-showcase-section bg-surface">
+      <div class="wrap">
+        <div class="section-header-centered gsap-reveal-up">
+          <span class="premium-eyebrow">Clinical Leadership</span>
+          <h2 class="editorial-title">Meet the Specialists</h2>
         </div>
-        
-        <div class="team-premium-card gsap-reveal-up" style="transition-delay: 0.1s;">
-          <div class="team-portrait-frame">
-            <div class="team-placeholder">KV</div>
-          </div>
-          <div class="team-info">
-            <h3>Dr. Karthik Varma</h3>
-            <span class="team-role">Speech-Language Pathologist</span>
-            <p>Specializes in pediatric speech delay and adult neurogenic communication.</p>
-            <a href="dr-karthik-varma.html" class="link-arrow" style="margin-top: 1rem; display: inline-block;">View Profile <i data-lucide="arrow-right"></i></a>
-          </div>
-        </div>
-        
-        <div class="team-premium-card gsap-reveal-up" style="transition-delay: 0.2s;">
-          <div class="team-portrait-frame">
-            <div class="team-placeholder">AI</div>
-          </div>
-          <div class="team-info">
-            <h3>Dr. Ananya Iyer</h3>
-            <span class="team-role">Occupational Therapist</span>
-            <p>Focuses on sensory integration and fine motor skills for children on the spectrum.</p>
-            <a href="dr-ananya-iyer.html" class="link-arrow" style="margin-top: 1rem; display: inline-block;">View Profile <i data-lucide="arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center" style="margin-top: 3rem;">
-        <a href="team.html" class="link-arrow">View full team credentials <i data-lucide="arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════
+        <div class="team-premium-grid">
+          <div class="team-premium-card gsap-reveal-up">
+            <div class="team-portrait-frame">
+              <div class="team-placeholder">SR</div>
+            </div>
+            <div class="team-info">
+              <h3>Dr. Sneha Reddy</h3>
+              <span class="team-role">Lead Physiotherapist (MPT Neuro)</span>
+              <p>Expertise in neuro-rehab, stroke recovery, and complex orthopaedic conditions.</p>
+              <a href="dr-sneha-reddy.html" class="link-arrow" style="margin-top: 1rem; display: inline-block;">View
+                Profile <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="team-premium-card gsap-reveal-up" style="transition-delay: 0.1s;">
+            <div class="team-portrait-frame">
+              <div class="team-placeholder">KV</div>
+            </div>
+            <div class="team-info">
+              <h3>Dr. Karthik Varma</h3>
+              <span class="team-role">Speech-Language Pathologist</span>
+              <p>Specializes in pediatric speech delay and adult neurogenic communication.</p>
+              <a href="dr-karthik-varma.html" class="link-arrow" style="margin-top: 1rem; display: inline-block;">View
+                Profile <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="team-premium-card gsap-reveal-up" style="transition-delay: 0.2s;">
+            <div class="team-portrait-frame">
+              <div class="team-placeholder">AI</div>
+            </div>
+            <div class="team-info">
+              <h3>Dr. Ananya Iyer</h3>
+              <span class="team-role">Occupational Therapist</span>
+              <p>Focuses on sensory integration and fine motor skills for children on the spectrum.</p>
+              <a href="dr-ananya-iyer.html" class="link-arrow" style="margin-top: 1rem; display: inline-block;">View
+                Profile <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 3rem;">
+          <a href="team.html" class="link-arrow">View full team credentials <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
        CINEMATIC APPOINTMENT FORM
        ═══════════════════════════════════════════════ -->
-  <section class="section appointment-cinematic" id="appointment">
-    <div class="wrap appointment-split">
-      <div class="appointment-visual gsap-reveal-right">
-        <h2>Begin your <br>recovery journey.</h2>
-        <p>Schedule a detailed clinical assessment with our specialists. We offer immediate availability for urgent cases.</p>
-        
-        <div class="contact-methods">
-          <div class="contact-method">
-            <i data-lucide="map-pin"></i>
-            <div>
-              <strong>Visit Us</strong>
-              <span>Ashok Nagar, Hyderabad</span>
+    <section class="section appointment-cinematic" id="appointment">
+      <div class="wrap appointment-split">
+        <div class="appointment-visual gsap-reveal-right">
+          <h2>Begin your <br>recovery journey.</h2>
+          <p>Schedule a detailed clinical assessment with our specialists. We offer immediate availability for urgent
+            cases.</p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i data-lucide="map-pin"></i>
+              <div>
+                <strong>Visit Us</strong>
+                <span>Ashok Nagar, Hyderabad</span>
+              </div>
             </div>
-          </div>
-          <div class="contact-method">
-            <i data-lucide="phone"></i>
-            <div>
-              <strong>Call Us directly</strong>
-              <span>+91 63028 82910</span>
+            <div class="contact-method">
+              <i data-lucide="phone"></i>
+              <div>
+                <strong>Call Us directly</strong>
+                <span>+91 63028 82910</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div class="appointment-form-container gsap-reveal-left">
-        <form class="premium-form" id="apptForm">
-          <h3 class="form-title">Request Consultation</h3>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Patient Name</label>
-              <input type="text" id="name" class="premium-input" placeholder="Enter full name" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Mobile Number</label>
-              <input type="tel" id="phone" class="premium-input" placeholder="10-digit number" required>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="service">Select Department</label>
-            <select id="service" class="premium-input">
-              <option>Physiotherapy & Rehabilitation</option>
-              <option>Child Development (Speech/OT)</option>
-              <option>Advanced Therapy (Laser/Shockwave)</option>
-              <option>Home Visit</option>
-              <option>Video Consultation</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Brief Description (Optional)</label>
-            <textarea id="message" class="premium-input" rows="3" placeholder="Describe your symptoms or requirements"></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn-whatsapp-solid btn-block">
-            <i data-lucide="message-circle"></i> Continue to WhatsApp Booking
-          </button>
-          <p class="form-disclaimer">Your details are secure. This will open a WhatsApp chat with our front desk to instantly confirm your slot.</p>
-        </form>
-      </div>
-    </div>
-  </section>
 
-</main>
+        <div class="appointment-form-container gsap-reveal-left">
+          <form class="premium-form" id="apptForm">
+            <h3 class="form-title">Request Consultation</h3>
 
-<!-- ═══════════════════════════════════════════════
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Patient Name</label>
+                <input type="text" id="name" class="premium-input" placeholder="Enter full name" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" id="phone" class="premium-input" placeholder="10-digit number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Select Department</label>
+              <select id="service" class="premium-input">
+                <option>Physiotherapy & Rehabilitation</option>
+                <option>Child Development (Speech/OT)</option>
+                <option>Advanced Therapy (Laser/Shockwave)</option>
+                <option>Home Visit</option>
+                <option>Video Consultation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Brief Description (Optional)</label>
+              <textarea id="message" class="premium-input" rows="3"
+                placeholder="Describe your symptoms or requirements"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-whatsapp-solid btn-block">
+              <i data-lucide="message-circle"></i> Continue to WhatsApp Booking
+            </button>
+            <p class="form-disclaimer">Your details are secure. This will open a WhatsApp chat with our front desk to
+              instantly confirm your slot.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
      PREMIUM FOOTER
      ═══════════════════════════════════════════════ -->
-<footer class="premium-footer">
-  <div class="footer-ambient-glow"></div>
-  <div class="wrap footer-grid">
-    <div class="footer-brand-col">
-      <img src="assets/images/logo.png" alt="Aarav Clinics" width="180">
-      <p class="footer-desc">Advanced physiotherapy, rehabilitation, and pediatric therapy in Hyderabad, delivering evidence-based clinical excellence.</p>
-      <div class="footer-social">
-        <a href="#" class="social-btn"><i data-lucide="instagram"></i></a>
-        <a href="#" class="social-btn"><i data-lucide="facebook"></i></a>
-        <a href="#" class="social-btn"><i data-lucide="youtube"></i></a>
+  <footer class="premium-footer">
+    <div class="footer-ambient-glow"></div>
+    <div class="wrap footer-grid">
+      <div class="footer-brand-col">
+        <img src="assets/images/logo.png" alt="Aarav Clinics" width="180">
+        <p class="footer-desc">Advanced physiotherapy, rehabilitation, and pediatric therapy in Hyderabad, delivering
+          evidence-based clinical excellence.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn"><i data-lucide="instagram"></i></a>
+          <a href="#" class="social-btn"><i data-lucide="facebook"></i></a>
+          <a href="#" class="social-btn"><i data-lucide="youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Clinical Services</h4>
+        <a href="physiotherapy.html">Physiotherapy</a>
+        <a href="stroke-rehabilitation.html">Neurological Rehab</a>
+        <a href="laser-therapy.html">Laser Therapy</a>
+        <a href="speech-therapy.html">Speech Therapy</a>
+        <a href="occupational-therapy.html">Occupational Therapy</a>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Patient Resources</h4>
+        <a href="about.html">Our Philosophy</a>
+        <a href="team.html">Clinical Team</a>
+        <a href="blog.html">Health Articles</a>
+        <a href="contact.html">Contact &amp; Location</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+
+      <div class="footer-contact-col">
+        <h4>Reach Us</h4>
+        <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Hyderabad - 502032</p>
+        <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
+        <a href="mailto:aaravphysioclinics@gmail.com" class="footer-contact-link"><i data-lucide="mail"></i>
+          aaravphysioclinics@gmail.com</a>
+        <div class="footer-hours">
+          <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+          <span>Sunday: By Appointment</span>
+        </div>
       </div>
     </div>
-    
-    <div class="footer-links-col">
-      <h4>Clinical Services</h4>
-      <a href="physiotherapy.html">Physiotherapy</a>
-      <a href="stroke-rehabilitation.html">Neurological Rehab</a>
-      <a href="laser-therapy.html">Laser Therapy</a>
-      <a href="speech-therapy.html">Speech Therapy</a>
-      <a href="occupational-therapy.html">Occupational Therapy</a>
-    </div>
-    
-    <div class="footer-links-col">
-      <h4>Patient Resources</h4>
-      <a href="about.html">Our Philosophy</a>
-      <a href="team.html">Clinical Team</a>
-      <a href="blog.html">Health Articles</a>
-      <a href="contact.html">Contact &amp; Location</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-    </div>
-    
-    <div class="footer-contact-col">
-      <h4>Reach Us</h4>
-      <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Hyderabad - 502032</p>
-      <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
-      <a href="mailto:aaravphysioclinics@gmail.com" class="footer-contact-link"><i data-lucide="mail"></i> aaravphysioclinics@gmail.com</a>
-      <div class="footer-hours">
-        <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
-        <span>Sunday: By Appointment</span>
-      </div>
-    </div>
-  </div>
-  
-  <div class="footer-bottom wrap">
-    <p>&copy; 2026 Aarav Clinics. All rights reserved.</p>
-    <p>Redesigned for Excellence.</p>
-  </div>
-</footer>
 
-<!-- JS Initialization -->
-<script src="js/animations.js"></script>
-<script>
-  // Init Lucide
-  lucide.createIcons();
+    <div class="footer-bottom wrap">
+      <p>&copy; 2026 Aarav Clinics. All rights reserved.</p>
+      <p>Redesigned for Excellence.</p>
+    </div>
+  </footer>
 
-  // Handle WhatsApp Form Submit
-  document.getElementById('apptForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const service = document.getElementById('service').value;
-    const msg = `Hi Aarav Clinics, I am ${name}. I would like to book an appointment for ${service}.`;
-    const url = `https://wa.me/916302882910?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-  });
-</script>
+  <!-- JS Initialization -->
+  <script src="js/animations.js"></script>
+  <script>
+    // Init Lucide
+    lucide.createIcons();
+
+    // Handle WhatsApp Form Submit
+    document.getElementById('apptForm')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const service = document.getElementById('service').value;
+      const msg = `Hi Aarav Clinics, I am ${name}. I would like to book an appointment for ${service}.`;
+      const url = `https://wa.me/916302882910?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    });
+  </script>
 
 </body>
+
 </html>
