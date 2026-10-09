@@ -14,12 +14,6 @@
   <meta property="og:description" content="Reach our clinic in Ashok Nagar, Hyderabad opposite Spashta Eye Hospital. Phone, WhatsApp, directions and appointment request.">
   <meta property="og:image" content="https://aaravhealthcare.com/assets/images/clinic-interior.jpg">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Aarav Clinics Hyderabad">
-  <meta name="twitter:description" content="Appointment booking and directions to Aarav Clinics in Ashok Nagar, Hyderabad.">
-  <meta name="twitter:image" content="https://aaravhealthcare.com/assets/images/clinic-interior.jpg">
-
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +21,11 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
@@ -40,359 +39,329 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/animations.css">
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "Aarav Clinics",
-    "url": "https://aaravhealthcare.com/contact.html",
-    "telephone": "+916302882910",
-    "email": "aaravphysioclinics@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "HIG, 2nd Floor, Sai Sadan Enclave, H.No. 23/82/2, Plot No. 22 & 3, Sy No. 203, Opposite Spashta Eye Hospital, Jyothi Nagar, Ashok Nagar",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana",
-      "postalCode": "502032",
-      "addressCountry": "IN"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-        "opens": "09:00",
-        "closes": "18:00"
+  <style>
+    /* Premium Contact Page Styles */
+    .contact-split-hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    
+    @media (min-width: 960px) {
+      .contact-split-hero {
+        grid-template-columns: 45% 55%;
       }
-    ]
-  }
-  </script>
-</head>
-<body>
+    }
 
-<!-- Skip link -->
+    .contact-info-panel {
+      background: var(--color-navy);
+      padding: 8rem 3rem 4rem;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Background Pattern in Navy Side */
+    .contact-info-panel::before {
+      content: '';
+      position: absolute;
+      inset: -50px;
+      background: radial-gradient(circle at 10% 90%, rgba(0, 142, 155, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .contact-header {
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-header-eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-teal);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .contact-header h1 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .contact-detail-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-champagne);
+      flex-shrink: 0;
+    }
+
+    .contact-detail-content h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .contact-detail-content p, 
+    .contact-detail-content a {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .contact-detail-content a:hover {
+      color: var(--color-teal);
+    }
+
+    /* Form Side */
+    .contact-form-panel {
+      background: #FAF9F6;
+      padding: 8rem 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .premium-form-container {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 3.5rem;
+      box-shadow: 0 40px 80px rgba(16,47,64,0.08);
+      width: 100%;
+      max-width: 600px;
+      border: 1px solid rgba(16,47,64,0.05);
+    }
+
+    .form-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      margin-bottom: 0.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .form-subtitle {
+      color: #6B7A8D;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Map Section */
+    .map-section {
+      height: 600px;
+      width: 100%;
+      background: #e0e0e0;
+      position: relative;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: contrast(1.1) grayscale(20%);
+    }
+    
+    .map-overlay-card {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      max-width: 400px;
+      z-index: 10;
+    }
+    
+    @media (max-width: 959px) {
+      .map-overlay-card {
+        position: relative;
+        transform: none;
+        top: 0;
+        left: 0;
+        margin: -100px auto 2rem;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body class="premium-theme" style="background:#FAF9F6;">
+
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- Announcement Bar -->
-<div class="announce-bar" role="region" aria-label="Site announcement">
-  Video Consultations Now Available — Connect with our therapists from home.
-  <a href="video-consultation.html">Book Now &rarr;</a>
-</div>
-
 <!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
-      <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
+      <img src="assets/images/logo.png" style="filter: brightness(0) invert(1);" alt="Aarav Clinics" class="brand-logo logo-dark" width="200" height="60">
+      <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo logo-light" width="200" height="60" style="display:none;">
     </a>
 
     <!-- Desktop Nav -->
     <nav class="main-nav" aria-label="Primary navigation">
       <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
-        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
         <li class="nav-item">
           <a href="services.html" class="nav-link" aria-haspopup="true">
             Services
             <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
-          <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
-            <div class="mega-cols">
-              <div>
-                <p class="mega-group-title">Physiotherapy</p>
-                <a href="physiotherapy.html" class="nav-drop-link">Physiotherapy</a>
-                <a href="sports-rehabilitation.html" class="nav-drop-link">Sports Rehabilitation</a>
-                <a href="post-surgical-rehabilitation.html" class="nav-drop-link">Post-Surgical Rehab</a>
-                <a href="stroke-rehabilitation.html" class="nav-drop-link">Stroke Rehabilitation</a>
-                <a href="chiropractic.html" class="nav-drop-link">Chiropractic Care</a>
-                <a href="laser-therapy.html" class="nav-drop-link">Laser Therapy</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Child Development</p>
-                <a href="pediatric-physiotherapy.html" class="nav-drop-link">Pediatric Physiotherapy</a>
-                <a href="speech-therapy.html" class="nav-drop-link">Speech Therapy</a>
-                <a href="occupational-therapy.html" class="nav-drop-link">Occupational Therapy</a>
-                <a href="autism-therapy.html" class="nav-drop-link">Autism Therapy</a>
-                <a href="child-development.html" class="nav-drop-link">Child Development Centre</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Flexible Care</p>
-                <a href="home-physiotherapy.html" class="nav-drop-link">Home Physiotherapy</a>
-                <a href="video-consultation.html" class="nav-drop-link">Video Consultation</a>
-                <a href="services.html" class="nav-drop-link">All Services</a>
-              </div>
-            </div>
-          </div>
         </li>
-        <li class="nav-item">
-          <a href="child-development.html" class="nav-link">Child Development</a>
-        </li>
-        <li class="nav-item">
-          <a href="team.html" class="nav-link">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a href="blog.html" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link is-active">Contact</a>
-        </li>
+        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link is-active">Contact</a></li>
       </ul>
     </nav>
 
-    <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
+    <a href="#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
       Book Appointment
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
-    <!-- Mobile toggle -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Mobile Menu -->
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-  <div class="mobile-menu-inner">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="about.html" class="mobile-nav-link">About</a>
-
-    <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
-      Services
-      <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div id="mobileServSub" class="mobile-nav-sub">
-      <a href="physiotherapy.html">Physiotherapy</a>
-      <a href="sports-rehabilitation.html">Sports Rehabilitation</a>
-      <a href="post-surgical-rehabilitation.html">Post-Surgical Rehab</a>
-      <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
-      <a href="chiropractic.html">Chiropractic Care</a>
-      <a href="laser-therapy.html">Laser Therapy</a>
-      <a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a>
-      <a href="speech-therapy.html">Speech Therapy</a>
-      <a href="occupational-therapy.html">Occupational Therapy</a>
-      <a href="autism-therapy.html">Autism Therapy</a>
-      <a href="child-development.html">Child Development Centre</a>
-      <a href="home-physiotherapy.html">Home Physiotherapy</a>
-      <a href="video-consultation.html">Video Consultation</a>
-    </div>
-
-    <a href="child-development.html" class="mobile-nav-link">Child Development</a>
-    <a href="team.html" class="mobile-nav-link">Our Team</a>
-    <a href="blog.html" class="mobile-nav-link">Blog</a>
-    <a href="contact.html" class="mobile-nav-link" style="color:var(--teal);">Contact</a>
-  </div>
-  <div class="mobile-menu-ctas">
-    <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
-    <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      WhatsApp Us
-    </a>
-  </div>
-</nav>
-
 <!-- Main -->
 <main id="main">
 
-  <!-- Page Hero -->
-  <section class="page-hero" aria-label="Contact Aarav Clinics">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Contact Us</span>
-      </nav>
-
-      <div class="page-hero-badge">Convenient Appointments</div>
-      <h1 class="page-hero-title">Connect With Aarav Clinics Hyderabad</h1>
-      <p class="page-hero-lead">
-        We are here to assist with appointment slots, pediatric consultations, home visit scheduling, or questions about our clinical care.
-      </p>
-
-      <div class="page-hero-actions">
-        <a href="#appointment" class="btn btn-primary">Book an Appointment</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20have%20an%20inquiry" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          Chat on WhatsApp
-        </a>
+  <section class="contact-split-hero">
+    
+    <!-- Left: Info -->
+    <div class="contact-info-panel">
+      <div class="contact-header gsap-reveal-up">
+        <span class="contact-header-eyebrow">Connect With Us</span>
+        <h1>We're here to <br><span style="color:var(--color-champagne);">help you heal.</span></h1>
       </div>
-
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Phone &amp; WhatsApp: +91 63028 82910
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Mon – Sat: 9 AM – 6 PM
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Appointment Form Section -->
-  <section class="section appt-section" id="appointment">
-    <div class="wrap">
-      <div class="appt-wrap">
-        <div class="appt-intro reveal-left">
-          <span class="eyebrow">Request A Booking</span>
-          <h2 class="section-title">Schedule your consultation with our therapy team</h2>
-          <p class="lead">Fill out your details below and our team will immediately follow up to confirm a time that suits your schedule.</p>
-
-          <div class="appt-perks" style="margin-top:var(--space-6);">
-            <div class="appt-perk">
-              <div class="appt-perk-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <div class="appt-perk-text">
-                <strong>Same-Day Slots Often Available</strong>
-                <span>Quick response during active clinic hours</span>
-              </div>
-            </div>
-            <div class="appt-perk">
-              <div class="appt-perk-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <div class="appt-perk-text">
-                <strong>In-Clinic, Home &amp; Video Options</strong>
-                <span>Flexible healthcare tailored to your needs</span>
-              </div>
-            </div>
+      
+      <div class="contact-detail-list">
+        <div class="contact-detail-item gsap-reveal-up" style="transition-delay:0.1s">
+          <div class="contact-detail-icon"><i data-lucide="map-pin"></i></div>
+          <div class="contact-detail-content">
+            <h3>Visit Our Clinic</h3>
+            <p>HIG, 2nd Floor, Sai Sadan Enclave, H.No. 23/82/2<br>Plot No. 22 &amp; 3, Sy No. 203, Jyothi Nagar<br>Opp. Spashta Eye Hospital, Ashok Nagar<br>Hyderabad, Telangana 502032</p>
           </div>
         </div>
-
-        <div class="appt-form-card reveal-right">
-          <form class="appt-form" id="apptForm" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name" class="form-label">Full Name *</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
-              </div>
-              <div class="form-group">
-                <label for="phone" class="form-label">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" class="form-input" placeholder="10-digit mobile number" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="service" class="form-label">Select Service Needed</label>
-              <select id="service" name="service" class="form-select">
-                <option value="Physiotherapy">Physiotherapy (Spine, Joint, Muscle Pain)</option>
-                <option value="Pediatric Physiotherapy">Pediatric Physiotherapy (Motor Delays)</option>
-                <option value="Speech Therapy">Speech &amp; Language Therapy</option>
-                <option value="Occupational Therapy">Occupational Therapy &amp; Sensory Integration</option>
-                <option value="Autism Therapy">Autism &amp; Early Intervention</option>
-                <option value="Child Development Centre">Child Development Program</option>
-                <option value="Stroke Rehabilitation">Stroke Rehabilitation</option>
-                <option value="Post-Surgical Rehab">Post-Surgical Rehabilitation</option>
-                <option value="Sports Rehabilitation">Sports Injury Rehabilitation</option>
-                <option value="Chiropractic Care">Chiropractic Care</option>
-                <option value="Laser Therapy">Laser Therapy</option>
-                <option value="Home Physiotherapy">Home Physiotherapy Visit</option>
-                <option value="Video Consultation">Online Video Consultation</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message" class="form-label">Brief Description of Concern (Optional)</label>
-              <textarea id="message" name="message" class="form-textarea" rows="3" placeholder="Tell us briefly about your symptoms or child's milestones"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn--block btn--lg">
-              Continue to Confirm on WhatsApp
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-            <p class="form-note">Your details will be formatted directly into WhatsApp for instant confirmation by our clinic staff.</p>
-          </form>
-
-          <div id="apptSuccess" class="form-success" role="alert">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--teal);margin-bottom:var(--space-3);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <h3 style="color:var(--text-heading);margin-bottom:var(--space-2);">Message Sent</h3>
-            <p style="color:var(--text-muted);font-size:var(--text-sm);">Our team has received your appointment request and will confirm your slot shortly.</p>
+        
+        <div class="contact-detail-item gsap-reveal-up" style="transition-delay:0.2s">
+          <div class="contact-detail-icon"><i data-lucide="clock"></i></div>
+          <div class="contact-detail-content">
+            <h3>Operating Hours</h3>
+            <p>Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: By Appointment Only</p>
+          </div>
+        </div>
+        
+        <div class="contact-detail-item gsap-reveal-up" style="transition-delay:0.3s">
+          <div class="contact-detail-icon"><i data-lucide="phone"></i></div>
+          <div class="contact-detail-content">
+            <h3>Direct Contact</h3>
+            <p><a href="tel:+916302882910">+91 63028 82910</a><br><a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a></p>
           </div>
         </div>
       </div>
     </div>
+    
+    <!-- Right: Form -->
+    <div class="contact-form-panel" id="appointment">
+      <div class="premium-form-container gsap-reveal-left">
+        <h2 class="form-title">Request an Appointment</h2>
+        <p class="form-subtitle">Fill out your details below and our team will confirm your slot via WhatsApp immediately.</p>
+        
+        <form class="appt-form" id="apptForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="10-digit number" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service" class="form-label">Consultation Type</label>
+            <select id="service" name="service" class="form-select">
+              <option value="Physiotherapy">Physiotherapy / Orthopedic</option>
+              <option value="Neuro Rehabilitation">Neurological Rehabilitation</option>
+              <option value="Pediatric Care">Child Development &amp; Therapy</option>
+              <option value="Speech Therapy">Speech-Language Pathology</option>
+              <option value="Home Visit">Home Physiotherapy Request</option>
+              <option value="Other">Other / General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Brief Description (Optional)</label>
+            <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Tell us about the symptoms or condition..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn--block btn--lg" style="margin-top:1rem;">
+            Send via WhatsApp <i data-lucide="send" style="margin-left:8px; width:18px;"></i>
+          </button>
+        </form>
+        
+        <!-- Success State -->
+        <div id="apptSuccess" class="form-success" style="display:none; text-align:center; padding:3rem 0;">
+          <div style="width:64px; height:64px; background:rgba(34,197,94,0.1); color:#22c55e; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+            <i data-lucide="check" style="width:32px; height:32px;"></i>
+          </div>
+          <h3 style="font-size:1.5rem; font-weight:800; color:var(--color-navy); margin-bottom:0.5rem;">Redirecting...</h3>
+          <p style="color:#6B7A8D;">Your request has been formulated. Please send the message in the WhatsApp window that just opened.</p>
+        </div>
+        
+      </div>
+    </div>
+    
   </section>
 
-  <!-- Location, Map & Clinic Details -->
-  <section class="section section--surface" id="location">
-    <div class="wrap">
-      <div class="section-head reveal" style="text-align:left;max-width:none;margin-inline:0;">
-        <span class="eyebrow">Our Clinic Location</span>
-        <h2 class="section-title">Visit Us in Ashok Nagar, Hyderabad</h2>
-        <p class="lead">Conveniently situated in Sai Sadan Enclave with dedicated therapy facilities and patient parking.</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-info reveal-left">
-          <div class="contact-block">
-            <div class="contact-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="contact-block-text">
-              <strong>Clinic Address</strong>
-              <p>HIG, 2nd Floor, Sai Sadan Enclave, H.No. 23/82/2, Plot No. 22 &amp; 3, Sy No. 203, Opposite Spashta Eye Hospital, Near Ramachandrapuram, Jyothi Nagar, Ashok Nagar, Hyderabad, Telangana 502032</p>
-            </div>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="contact-block-text">
-              <strong>Phone &amp; WhatsApp</strong>
-              <a href="tel:+916302882910">+91 63028 82910</a>
-            </div>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="contact-block-text">
-              <strong>Email</strong>
-              <a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <div class="contact-block-text">
-              <strong>Clinic Hours</strong>
-              <p>Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: By appointment</p>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-4);">
-            <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Get Google Directions
-            </a>
-            <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20need%20directions%20to%20your%20clinic" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg>
-              WhatsApp Us
-            </a>
-          </div>
-        </div>
-
-        <!-- Google Map iframe -->
-        <div class="map-frame reveal-right">
-          <iframe
-            title="Google Maps location of Aarav Clinics in Ashok Nagar, Hyderabad"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9!2d78.4914!3d17.4036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x91e80a0f7cf70091!2sAarav+Clinics!5e0!3m2!1sen!2sin!4v1"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
+  <section class="map-section">
+    <iframe
+      title="Google Maps location of Aarav Clinics"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.9!2d78.4914!3d17.4036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x91e80a0f7cf70091!2sAarav+Clinics!5e0!3m2!1sen!2sin!4v1"
+      allowfullscreen>
+    </iframe>
+    
+    <div class="map-overlay-card gsap-reveal-up">
+      <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:1rem;">Get Directions</h3>
+      <p style="color:#6B7A8D; font-size:0.95rem; margin-bottom:1.5rem; line-height:1.6;">Located near Ramachandrapuram, opposite Spashta Eye Hospital. Ample parking available.</p>
+      <a href="https://www.google.com/maps?cid=10521016619599487601" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%; justify-content:center;">Open in Google Maps</a>
     </div>
   </section>
 
@@ -407,14 +376,8 @@
       </a>
       <p>Complete family therapy care — physiotherapy, rehabilitation and child development services in Ashok Nagar, Hyderabad.</p>
       <div class="footer-contact-links">
-        <a href="tel:+916302882910">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +91 63028 82910
-        </a>
-        <a href="mailto:aaravphysioclinics@gmail.com">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          aaravphysioclinics@gmail.com
-        </a>
+        <a href="tel:+916302882910"><i data-lucide="phone"></i> +91 63028 82910</a>
+        <a href="mailto:aaravphysioclinics@gmail.com"><i data-lucide="mail"></i> aaravphysioclinics@gmail.com</a>
       </div>
     </div>
 
@@ -427,19 +390,6 @@
         <li><a href="autism-therapy.html">Autism Therapy</a></li>
         <li><a href="stroke-rehabilitation.html">Stroke Rehabilitation</a></li>
         <li><a href="laser-therapy.html">Laser Therapy</a></li>
-        <li><a href="home-physiotherapy.html">Home Physiotherapy</a></li>
-        <li><a href="video-consultation.html">Video Consultation</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Child Development</h4>
-      <ul>
-        <li><a href="child-development.html">Child Development Centre</a></li>
-        <li><a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
       </ul>
     </div>
 
@@ -450,7 +400,7 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="team.html">Our Team</a></li>
         <li><a href="services.html">All Services</a></li>
-        <li><a href="blog.html">Blog &amp; Articles</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
@@ -458,17 +408,8 @@
     <div class="footer-col footer-col--hours">
       <h4>Clinic Hours</h4>
       <div class="footer-hours">
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Mon – Sat</span>
-          <span class="footer-hours-time">9:00 AM – 6:00 PM</span>
-        </div>
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Sunday</span>
-          <span class="footer-hours-time">By Appointment</span>
-        </div>
-      </div>
-      <div style="margin-top:var(--space-5);">
-        <a href="contact.html#appointment" class="btn btn-primary btn--sm">Book Appointment</a>
+        <div class="footer-hours-row"><span class="footer-hours-day">Mon – Sat</span><span class="footer-hours-time">9:00 AM – 6:00 PM</span></div>
+        <div class="footer-hours-row"><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">By Appointment</span></div>
       </div>
     </div>
   </div>
@@ -479,32 +420,8 @@
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
     </div>
-    <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      </a>
-      <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      </a>
-    </div>
   </div>
 </footer>
-
-<!-- Mobile FAB -->
-<div class="mobile-fab-bar" aria-label="Quick contact actions">
-  <a href="tel:+916302882910" class="mobile-fab-btn mobile-fab-btn--call" aria-label="Call Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call
-  </a>
-  <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="mobile-fab-btn mobile-fab-btn--wa" aria-label="WhatsApp Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-    WhatsApp
-  </a>
-  <a href="contact.html#appointment" class="mobile-fab-btn mobile-fab-btn--book" aria-label="Book appointment">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Book
-  </a>
-</div>
 
 <!-- Scripts -->
 <script src="js/navigation.js"></script>

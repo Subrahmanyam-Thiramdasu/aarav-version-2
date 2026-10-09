@@ -3,59 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stroke Rehabilitation in Hyderabad – Neurological Recovery | Aarav Clinics</title>
+  <title>Stroke Rehabilitation in Hyderabad | Aarav Clinics</title>
   <meta name="description" content="Comprehensive stroke rehabilitation in Ashok Nagar, Hyderabad. Evidence-based neuro-physiotherapy, neuroplasticity training, gait re-education, and spasticity management.">
   <link rel="canonical" href="https://aaravhealthcare.com/stroke-rehabilitation.html">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aaravhealthcare.com/stroke-rehabilitation.html">
-  <meta property="og:title" content="Stroke Rehabilitation – Aarav Clinics Hyderabad">
-  <meta property="og:description" content="Personalized neurological rehabilitation for post-stroke recovery, mobility regaining, and daily functional independence.">
-  <meta property="og:image" content="https://aaravhealthcare.com/assets/images/clinic-interior.jpg">
-
-  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
-  <!-- CSS -->
+  <!-- Core CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="css/navbar.css">
+  
+  <!-- Redesigned CSS -->
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/inner.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/animations.css">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    "name": "Stroke Rehabilitation at Aarav Clinics",
-    "url": "https://aaravhealthcare.com/stroke-rehabilitation.html",
-    "description": "Multidisciplinary post-stroke rehabilitation emphasizing neuroplasticity, gait retraining, and motor recovery in Ashok Nagar, Hyderabad.",
-    "medicalSpecialty": "Physiotherapy"
-  }
-  </script>
 </head>
-<body>
+<body class="premium-theme">
 
-<a class="skip-link" href="#main">Skip to main content</a>
-
-<div class="announce-bar" role="region" aria-label="Site announcement">
-  Video Consultations Now Available — Connect with our therapists from home.
-  <a href="video-consultation.html">Book Now &rarr;</a>
+<div class="premium-loader" id="pageLoader">
+  <div class="premium-loader-brand">Aarav Clinics</div>
+  <div class="premium-loader-bar"><div class="premium-loader-progress"></div></div>
 </div>
 
-<!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
       <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
@@ -71,7 +52,7 @@
           <a href="about.html" class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a href="services.html" class="nav-link is-active" aria-haspopup="true">
+          <a href="services.html" class="nav-link" aria-haspopup="true">
             Services
             <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
@@ -134,7 +115,7 @@
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
   <div class="mobile-menu-inner">
     <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="about.html" class="mobile-nav-link" style="color:var(--teal);">About</a>
 
     <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
       Services
@@ -163,380 +144,192 @@
   </div>
   <div class="mobile-menu-ctas">
     <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
-    <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20inquire%20about%20stroke%20rehabilitation" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
+    <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
       WhatsApp Us
     </a>
   </div>
 </nav>
 
-<!-- Main -->
 <main id="main">
 
-  <section class="page-hero" aria-label="Stroke Rehabilitation">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="services.html">Services</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Stroke Rehabilitation</span>
-      </nav>
-
-      <div class="page-hero-badge">Neurological Physiotherapy</div>
-      <h1 class="page-hero-title">Comprehensive Stroke Rehabilitation in Hyderabad</h1>
-      <p class="page-hero-lead">
-        Rebuilding neural pathways, restoring movement symmetry, retraining gait balance, and reclaiming independence with certified neuro-rehabilitation specialists.
-      </p>
-
-      <div class="page-hero-actions">
-        <a href="contact.html#appointment" class="btn btn-primary">Book Clinical Assessment</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20consult%20about%20post-stroke%20rehabilitation" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          Chat on WhatsApp
-        </a>
-      </div>
-
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Neuroplasticity-Driven Training
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Gait &amp; Balance Re-education
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Ashok Nagar, Hyderabad
-        </span>
+  <!-- CINEMATIC HERO: Calm & Refined -->
+  <section class="cinematic-hero hero--dark">
+    <div class="cinematic-hero-bg">
+      <img src="assets/images/clinic-interior.jpg" alt="Stroke Rehab Center" class="hero-parallax-img" style="filter: brightness(0.7) contrast(1.05) saturate(0.8);">
+      <div class="cinematic-overlay" style="background: linear-gradient(180deg, rgba(15,23,42,0.7) 0%, #0f172a 100%);"></div>
+    </div>
+    
+    <div class="cinematic-hero-content wrap" style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+      <div class="hero-text-block" style="max-width: 800px; padding: 4rem 0;">
+        <div class="hero-badge gsap-reveal-up" style="margin:0 auto 1.5rem auto; border-color:rgba(255,255,255,0.2); color:white;">
+          <i data-lucide="activity"></i> Neurological Physiotherapy
+        </div>
+        
+        <h1 class="hero-giant-title text-white">
+          <span class="mask-line"><span class="gsap-title-reveal">Every Step Forward.</span></span>
+          <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-champagne);">Reclaiming Independence.</span></span>
+        </h1>
+        
+        <p class="hero-editorial-desc gsap-reveal-up" style="margin: 0 auto 2.5rem auto; color:#e2e8f0; font-weight:450; ">
+          Rebuilding neural pathways, restoring movement symmetry, retraining gait balance, and reclaiming independence with certified neuro-rehabilitation specialists.
+        </p>
+        
+        <div class="hero-cta-group gsap-reveal-up" style="justify-content:center;">
+          <a href="contact.html#appointment" class="btn btn-premium-solid btn-large" style="background:var(--color-champagne); color:var(--color-navy);">
+            Book Clinical Assessment <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Content & Sidebar Layout -->
-  <section class="section section--white">
+  <!-- OVERVIEW -->
+  <section class="editorial-about" style="padding-top:2rem;">
+    <div class="wrap editorial-about-grid">
+      <div class="about-content">
+        <span class="premium-eyebrow gsap-reveal-left" style="color:var(--color-champagne);">Harnessing Neuroplasticity</span>
+        <h2 class="editorial-title gsap-word-reveal" style="color:var(--color-navy);">The human brain has an extraordinary capacity to rewire and recover.</h2>
+        <p class="editorial-lead gsap-text-progress">
+          A stroke disrupts neural signalling between the brain and muscular system. However, through structured, task-specific, high-repetition physiotherapy, undamaged brain regions can form new synaptic pathways to restore motor function.
+        </p>
+        <p class="gsap-reveal-up" style="color:#64748b; font-size:clamp(0.875rem, 1vw, 1rem); margin-bottom:2rem;">
+          At Aarav Clinics, our stroke rehabilitation program is led by experienced neuro-physiotherapists who understand that recovery does not stop at hospital discharge. Whether you are in the acute post-stroke window or managing chronic impairments years later, our focused protocols help rebuild strength, posture, and self-reliance.
+        </p>
+      </div>
+      
+      <div class="about-visuals gsap-clip-reveal">
+        <div class="img-frame img-primary" style="box-shadow: 0 30px 60px rgba(0,0,0,0.05); border-radius: 12px;">
+          <img src="assets/images/physiotherapy-session.jpg" alt="Neuro Physiotherapy" onerror="this.src='assets/images/clinic-interior.jpg'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONDITIONS TREATED BENTO -->
+  <section class="services-bento-section" style="background:#f8fafc;">
     <div class="wrap">
-      <div class="service-layout">
-
-        <div class="service-main">
-
-          <!-- Overview -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Harnessing Neuroplasticity</span>
-              <h2 class="content-block-title">The human brain has an extraordinary capacity to rewire and recover.</h2>
-              <p class="content-block-lead">
-                A stroke disrupts neural signalling between the brain and muscular system. However, through structured, task-specific, high-repetition physiotherapy, undamaged brain regions can form new synaptic pathways to restore motor function.
-              </p>
-            </div>
-            <p>
-              At Aarav Clinics, our stroke rehabilitation program is led by experienced neuro-physiotherapists who understand that recovery does not stop at hospital discharge. Whether you are in the acute post-stroke window (first 3 to 6 months) or managing chronic impairments years later, our focused protocols help rebuild strength, posture, and self-reliance.
-            </p>
+      <div class="section-header-centered gsap-reveal-up">
+        <span class="premium-eyebrow accent-teal">Deficits Addressed</span>
+        <h2 class="editorial-title">Targeted neurological symptoms we treat</h2>
+      </div>
+      
+      <div class="services-bento gsap-stagger-group">
+        <div class="bento-card bento-small gsap-item" style="background:white; border:1px solid #e2e8f0; border-top:3px solid var(--color-champagne);">
+          <div class="bento-content-solid" style="background:transparent;">
+            <i data-lucide="person-standing" class="bento-icon" style="color:var(--color-navy);"></i>
+            <h4 style="color:var(--color-navy);">Hemiparesis</h4>
+            <p style="font-size: 0.875rem;">Unilateral weakness or paralysis affecting the upper limb, trunk, or leg on one side of the body.</p>
           </div>
-
-          <!-- Conditions Treated -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Deficits Addressed</span>
-              <h3 class="content-block-title">Targeted neurological symptoms we treat</h3>
-            </div>
-
-            <div class="condition-grid">
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Hemiparesis &amp; Hemiplegia</h4>
-                  <p>Unilateral weakness or paralysis affecting the upper limb, trunk, or leg on one side of the body.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Spasticity &amp; Muscle Rigidity</h4>
-                  <p>Involuntary muscle tightness and hypertonia that restrict joint mobility and cause painful contractures.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Gait &amp; Balance Impairment</h4>
-                  <p>Asymmetrical walking patterns, circumduction gait, foot drop, and heightened fear of falls.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Upper Limb Coordination Loss</h4>
-                  <p>Loss of fine motor control, hand grip weakness, and difficulty grasping or manipulating eating utensils.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Clinical Approach -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Our Methodology</span>
-              <h3 class="content-block-title">Evidence-based neurological rehabilitation protocol</h3>
-            </div>
-
-            <div class="approach-grid">
-              <div class="approach-card">
-                <div class="approach-num">01</div>
-                <h4>Task-Specific Motor Practice</h4>
-                <p>Repetitive, goal-directed actions such as reaching, grasping, sitting-to-standing, and stepping to forge new neurological wiring.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">02</div>
-                <h4>Spasticity &amp; Tone Modulation</h4>
-                <p>PNF stretching, manual neuromuscular release, positioning techniques, and therapeutic splint guidance to suppress abnormal synergy patterns.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">03</div>
-                <h4>Supported Gait &amp; Balance Training</h4>
-                <p>Parallel bar training, body-weight supported step cycles, obstacle stepping, and sensory perturbation for balance confidence.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">04</div>
-                <h4>ADL Independence Coaching</h4>
-                <p>Training family caregivers and patients in bed mobility, safe transfer techniques, and adaptive self-care methods for daily living.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Benefits -->
-          <div class="content-block reveal">
-            <div class="benefits-box">
-              <h3 class="benefits-title">Measurable Outcomes of Neuro-Rehabilitation</h3>
-              <ul class="benefits-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Improved Mobility:</strong> Transition from wheelchair or bedbound status to assisted or independent ambulation.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Reduced Spastic Stiffness:</strong> Release of involuntary muscle contractions, relieving discomfort and preventing deformities.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Enhanced Upper Limb Use:</strong> Functional retraining of the affected arm and hand for feeding, grooming, and dressing.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Decreased Fall Risk:</strong> Restored postural reflexes and core stability to protect against recurrent injuries.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- FAQ -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Common Questions</span>
-              <h3 class="content-block-title">Frequently Asked Questions About Stroke Recovery</h3>
-            </div>
-
-            <div class="faq-list">
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>How soon after a stroke should physiotherapy begin?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Physiotherapy should commence as soon as the patient is medically stabilized by their neurologist—often within 24 to 48 hours of stroke onset in the hospital, and continuously following discharge. The first 3 to 6 months represent the most rapid window of neuroplasticity, although meaningful recovery can continue for years with focused therapy.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Can a stroke patient recover if several months have already passed?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Yes. While initial recovery is fastest, neuroplastic changes remain possible throughout life. Chronic stroke patients frequently make significant gains in walking cadence, muscle tone reduction, joint flexibility, and functional independence under structured neuro-physiotherapy.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Do you offer home visits for bedridden stroke patients in Hyderabad?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Yes. For patients who cannot travel comfortably to our clinic in Ashok Nagar, we provide dedicated Home Physiotherapy visits across Hyderabad. Our therapists bring essential rehabilitation aids directly to the patient's bedside.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        <!-- Sticky Sidebar -->
-        <aside class="service-aside">
-          <div class="aside-card aside-card--highlight reveal">
-            <h3 class="aside-card-title">Book a Consultation</h3>
-            <p class="aside-card-lead">Meet our neuro-physiotherapists for a thorough baseline motor &amp; functional assessment.</p>
-            <ul class="aside-details">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div>
-                  <strong>Phone Support</strong>
-                  <a href="tel:+916302882910">+91 63028 82910</a>
-                </div>
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Clinic Hours</strong>
-                  <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
-                </div>
-              </li>
-            </ul>
-            <div class="aside-card-actions">
-              <a href="contact.html#appointment" class="btn btn-primary btn--block">Request Appointment</a>
-              <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20a%20stroke%20rehab%20session" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-                WhatsApp Inquiry
-              </a>
-            </div>
+        <div class="bento-card bento-small gsap-item" style="background:white; border:1px solid #e2e8f0; border-top:3px solid var(--color-champagne);">
+          <div class="bento-content-solid" style="background:transparent;">
+            <i data-lucide="activity" class="bento-icon" style="color:var(--color-navy);"></i>
+            <h4 style="color:var(--color-navy);">Spasticity</h4>
+            <p style="font-size: 0.875rem;">Involuntary muscle tightness and hypertonia that restrict joint mobility and cause painful contractures.</p>
           </div>
+        </div>
 
-          <div class="aside-card reveal">
-            <h3 class="aside-card-title">Related Services</h3>
-            <ul class="aside-nav-list">
-              <li><a href="physiotherapy.html" class="aside-nav-link">Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="stroke-rehabilitation.html" class="aside-nav-link is-active">Stroke Rehabilitation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="post-surgical-rehabilitation.html" class="aside-nav-link">Post-Surgical Rehab <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="home-physiotherapy.html" class="aside-nav-link">Home Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="laser-therapy.html" class="aside-nav-link">Laser Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-            </ul>
+        <div class="bento-card bento-small gsap-item" style="background:white; border:1px solid #e2e8f0; border-top:3px solid var(--color-champagne);">
+          <div class="bento-content-solid" style="background:transparent;">
+            <i data-lucide="footprints" class="bento-icon" style="color:var(--color-navy);"></i>
+            <h4 style="color:var(--color-navy);">Gait Impairment</h4>
+            <p style="font-size: 0.875rem;">Asymmetrical walking patterns, circumduction gait, foot drop, and heightened fear of falls.</p>
           </div>
-        </aside>
+        </div>
 
+        <div class="bento-card bento-small gsap-item" style="background:white; border:1px solid #e2e8f0; border-top:3px solid var(--color-champagne);">
+          <div class="bento-content-solid" style="background:transparent;">
+            <i data-lucide="hand" class="bento-icon" style="color:var(--color-navy);"></i>
+            <h4 style="color:var(--color-navy);">Coordination Loss</h4>
+            <p style="font-size: 0.875rem;">Loss of fine motor control, hand grip weakness, and difficulty manipulating eating utensils.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY / ADVANCED THERAPY (DARK MODE) -->
+  <section class="advanced-therapy-section" style="background:#0f172a;">
+    <div class="wrap">
+      <div class="section-header-dark gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--color-champagne);">Our Methodology</span>
+        <h2 class="editorial-title text-white gsap-word-reveal">Evidence-based neurological rehabilitation</h2>
+      </div>
+      
+      <div class="tech-bento-grid gsap-stagger-group">
+        <div class="tech-card gsap-item">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="brain"></i></div>
+            <h3>1. Motor Practice</h3>
+            <p>Repetitive, goal-directed actions such as reaching, grasping, and stepping to forge new neurological wiring.</p>
+          </div>
+        </div>
+        
+        <div class="tech-card gsap-item">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="move"></i></div>
+            <h3>2. Tone Modulation</h3>
+            <p>PNF stretching, manual neuromuscular release, and therapeutic splint guidance to suppress abnormal synergy patterns.</p>
+          </div>
+        </div>
+
+        <div class="tech-card gsap-item">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="footprints"></i></div>
+            <h3>3. Balance Training</h3>
+            <p>Parallel bar training, body-weight supported step cycles, obstacle stepping, and sensory perturbation.</p>
+          </div>
+        </div>
+
+        <div class="tech-card gsap-item">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="home"></i></div>
+            <h3>4. ADL Independence</h3>
+            <p>Training family caregivers and patients in bed mobility, safe transfer techniques, and adaptive self-care methods.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="site-footer">
+<!-- PREMIUM FOOTER -->
+<footer class="premium-footer">
   <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <a href="index.html" aria-label="Aarav Clinics — Home">
-        <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo" width="160" height="52" loading="lazy">
-      </a>
-      <p>Complete family therapy care — physiotherapy, rehabilitation and child development services in Ashok Nagar, Hyderabad.</p>
-      <div class="footer-contact-links">
-        <a href="tel:+916302882910">+91 63028 82910</a>
-        <a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a>
-      </div>
+    <div class="footer-brand-col">
+      <img src="assets/images/logo.png" alt="Aarav Clinics" width="180">
+      <p class="footer-desc">Advanced physiotherapy, rehabilitation, and pediatric therapy in Hyderabad, delivering evidence-based clinical excellence.</p>
     </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="physiotherapy.html">Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
-        <li><a href="stroke-rehabilitation.html">Stroke Rehabilitation</a></li>
-        <li><a href="laser-therapy.html">Laser Therapy</a></li>
-        <li><a href="home-physiotherapy.html">Home Physiotherapy</a></li>
-        <li><a href="video-consultation.html">Video Consultation</a></li>
-      </ul>
+    
+    <div class="footer-links-col">
+      <h4>Clinical Services</h4>
+      <a href="physiotherapy.html">Physiotherapy</a>
+      <a href="stroke-rehabilitation.html">Neurological Rehab</a>
+      <a href="laser-therapy.html">Laser Therapy</a>
+      <a href="speech-therapy.html">Speech Therapy</a>
+      <a href="occupational-therapy.html">Occupational Therapy</a>
     </div>
-
-    <div class="footer-col">
-      <h4>Child Development</h4>
-      <ul>
-        <li><a href="child-development.html">Child Development Centre</a></li>
-        <li><a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
-      </ul>
+    
+    <div class="footer-links-col">
+      <h4>Patient Resources</h4>
+      <a href="about.html">Our Philosophy</a>
+      <a href="contact.html">Contact &amp; Location</a>
     </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="services.html">All Services</a></li>
-        <li><a href="blog.html">Blog &amp; Articles</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col footer-col--hours">
-      <h4>Clinic Hours</h4>
-      <div class="footer-hours">
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Mon – Sat</span>
-          <span class="footer-hours-time">9:00 AM – 6:00 PM</span>
-        </div>
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Sunday</span>
-          <span class="footer-hours-time">By Appointment</span>
-        </div>
-      </div>
-      <div style="margin-top:var(--space-5);">
-        <a href="contact.html#appointment" class="btn btn-primary btn--sm">Book Appointment</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap footer-bottom">
-    <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Hyderabad.</p>
-    <div class="footer-legal-links">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      </a>
-      <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      </a>
+    
+    <div class="footer-contact-col">
+      <h4>Reach Us</h4>
+      <p>Ashok Nagar, Hyderabad - 502032</p>
+      <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
     </div>
   </div>
 </footer>
 
-<div class="mobile-fab-bar" aria-label="Quick contact actions">
-  <a href="tel:+916302882910" class="mobile-fab-btn mobile-fab-btn--call" aria-label="Call Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call
-  </a>
-  <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="mobile-fab-btn mobile-fab-btn--wa" aria-label="WhatsApp Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-    WhatsApp
-  </a>
-  <a href="contact.html#appointment" class="mobile-fab-btn mobile-fab-btn--book" aria-label="Book appointment">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Book
-  </a>
-</div>
-
+<script>lucide.createIcons();</script>
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
-<script src="js/faq.js"></script>
 
 </body>
 </html>

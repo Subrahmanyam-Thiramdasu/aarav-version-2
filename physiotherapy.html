@@ -7,57 +7,37 @@
   <meta name="description" content="Expert physiotherapy clinic in Ashok Nagar, Hyderabad. Evidence-based treatment for back pain, neck stiffness, shoulder impingement, arthritis, and sciatica.">
   <link rel="canonical" href="https://aaravhealthcare.com/physiotherapy.html">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aaravhealthcare.com/physiotherapy.html">
-  <meta property="og:title" content="Physiotherapy Treatment in Hyderabad – Aarav Clinics">
-  <meta property="og:description" content="Personalized physiotherapy for back pain, joint stiffness, and musculoskeletal recovery in Ashok Nagar, Hyderabad.">
-  <meta property="og:image" content="https://aaravhealthcare.com/assets/images/physiotherapy-session.jpg">
-
-  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
-  <!-- CSS -->
+  <!-- Core CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="css/navbar.css">
+  
+  <!-- Redesigned CSS -->
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/inner.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/animations.css">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    "name": "Physiotherapy Treatment at Aarav Clinics",
-    "url": "https://aaravhealthcare.com/physiotherapy.html",
-    "description": "Comprehensive physical therapy assessment and evidence-based rehabilitation for musculoskeletal conditions in Hyderabad.",
-    "medicalSpecialty": "Physiotherapy"
-  }
-  </script>
 </head>
-<body>
+<body class="premium-theme">
 
-<a class="skip-link" href="#main">Skip to main content</a>
-
-<!-- Announcement Bar -->
-<div class="announce-bar" role="region" aria-label="Site announcement">
-  Video Consultations Now Available — Connect with our therapists from home.
-  <a href="video-consultation.html">Book Now &rarr;</a>
+<!-- Page Loader -->
+<div class="premium-loader" id="pageLoader">
+  <div class="premium-loader-brand">Aarav Clinics</div>
+  <div class="premium-loader-bar"><div class="premium-loader-progress"></div></div>
 </div>
 
-<!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
       <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
@@ -73,7 +53,7 @@
           <a href="about.html" class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a href="services.html" class="nav-link is-active" aria-haspopup="true">
+          <a href="services.html" class="nav-link" aria-haspopup="true">
             Services
             <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
@@ -136,7 +116,7 @@
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
   <div class="mobile-menu-inner">
     <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="about.html" class="mobile-nav-link" style="color:var(--teal);">About</a>
 
     <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
       Services
@@ -172,452 +152,323 @@
   </div>
 </nav>
 
-<!-- Main -->
 <main id="main">
 
-  <!-- Page Hero -->
-  <section class="page-hero" aria-label="Physiotherapy Services">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="services.html">Services</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Physiotherapy</span>
-      </nav>
-
-      <div class="page-hero-badge">Physical Rehabilitation</div>
-      <h1 class="page-hero-title">Expert Physiotherapy in Ashok Nagar, Hyderabad</h1>
-      <p class="page-hero-lead">
-        Targeted pain relief, manual therapy, and active functional rehabilitation designed to treat the root cause of spinal and musculoskeletal conditions.
-      </p>
-
-      <div class="page-hero-actions">
-        <a href="contact.html#appointment" class="btn btn-primary">Book Consultation</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20a%20physiotherapy%20session" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          WhatsApp Us
-        </a>
-      </div>
-
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          In-Clinic &amp; Home Visits
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Certified Physiotherapists (MPT/BPT)
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Modern Electro &amp; Laser Therapy
-        </span>
+  <!-- CINEMATIC HERO -->
+  <section class="cinematic-hero hero--dark">
+    <div class="cinematic-hero-bg">
+      <img src="assets/images/physiotherapy-session.jpg" alt="Physiotherapy Session" class="hero-parallax-img" onerror="this.src='assets/images/hero-clinic.jpg'">
+      <div class="cinematic-overlay"></div>
+      <div class="cinematic-gradient"></div>
+    </div>
+    
+    <div class="cinematic-hero-content wrap">
+      <div class="hero-text-block">
+        <div class="hero-badge gsap-reveal-up">
+          <i data-lucide="activity"></i> Physical Rehabilitation
+        </div>
+        
+        <h1 class="hero-giant-title">
+          <span class="mask-line"><span class="gsap-title-reveal">Expert Physiotherapy.</span></span>
+          <span class="mask-line"><span class="gsap-title-reveal text-champagne">Targeted Pain Relief.</span></span>
+        </h1>
+        
+        <p class="hero-editorial-desc gsap-reveal-up">
+          Root-cause physical rehabilitation, not temporary fixes. Manual therapy and active functional rehabilitation designed to treat spinal and musculoskeletal conditions.
+        </p>
+        
+        <div class="hero-cta-group gsap-reveal-up">
+          <a href="contact.html#appointment" class="btn btn-premium-solid btn-large">
+            Book Consultation <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="https://wa.me/916302882910" target="_blank" class="btn btn-premium-outline btn-large">
+            <i data-lucide="message-circle"></i> WhatsApp Us
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Service Detail Section (2-Column Layout) -->
-  <section class="section section--white">
+  <!-- ABOUT / OVERVIEW -->
+  <section class="editorial-about">
+    <div class="wrap editorial-about-grid">
+      <div class="about-content gsap-reveal-up">
+        <span class="premium-eyebrow accent-teal">Our Approach</span>
+        <h2 class="editorial-title">Root-cause physical rehabilitation, not temporary fixes.</h2>
+        <p class="editorial-lead">
+          Physiotherapy at Aarav Clinics goes beyond superficial heating pads or generic exercise printouts. We analyze joint biomechanics, neural tension, muscular imbalances, and daily ergonomic habits to create a structured recovery protocol.
+        </p>
+        <p style="color:#64748b; font-size:1.125rem; line-height:1.6; margin-bottom:2rem;">
+          Whether you are suffering from acute disc herniation, frozen shoulder, chronic knee osteoarthritis, or desk-induced postural strain, our goal is lasting functional relief. By pairing hands-on manual techniques with guided strengthening, we eliminate pain while protecting against future re-injury.
+        </p>
+        
+        <a href="#methodology" class="link-arrow">View Treatment Pathway <i data-lucide="arrow-right"></i></a>
+      </div>
+      
+      <div class="about-visuals gsap-scale-up">
+        <div class="img-frame img-primary">
+          <img src="assets/images/physiotherapy-session.jpg" alt="Manual Therapy" onerror="this.src='assets/images/hero-clinic.jpg'">
+        </div>
+        <div class="experience-badge" style="background:var(--color-navy);">
+          <span class="exp-number" style="color:var(--color-champagne);">4</span>
+          <span class="exp-text">Phase<br>Pathway</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONDITIONS TREATED BENTO -->
+  <section class="services-bento-section">
     <div class="wrap">
-      <div class="service-layout">
-
-        <!-- Main Column -->
-        <div class="service-main">
-
-          <!-- Block 1: What is the Service -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Overview</span>
-              <h2 class="content-block-title">Root-cause physical rehabilitation, not temporary fixes.</h2>
-              <p class="content-block-lead">
-                Physiotherapy at Aarav Clinics goes beyond superficial heating pads or generic exercise printouts. We analyze joint biomechanics, neural tension, muscular imbalances, and daily ergonomic habits to create a structured recovery protocol.
-              </p>
-            </div>
-            <p>
-              Whether you are suffering from acute disc herniation, frozen shoulder, chronic knee osteoarthritis, or desk-induced postural strain, our goal is lasting functional relief. By pairing hands-on manual techniques with guided strengthening, we eliminate pain while protecting against future re-injury.
-            </p>
+      <div class="section-header-centered gsap-reveal-up">
+        <span class="premium-eyebrow accent-teal">Conditions Treated</span>
+        <h2 class="editorial-title">Common concerns we resolve daily</h2>
+      </div>
+      
+      <div class="services-bento">
+        
+        <div class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.1s;">
+          <div class="bento-content-solid">
+            <i data-lucide="activity" class="bento-icon"></i>
+            <h4>Lower Back Pain &amp; Sciatica</h4>
+            <p style="font-size: 0.875rem;">Herniated discs, lumbar spondylosis, piriformis syndrome.</p>
           </div>
-
-          <!-- Block 2: Conditions Treated -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Conditions Treated</span>
-              <h3 class="content-block-title">Common concerns we resolve daily</h3>
-            </div>
-
-            <div class="condition-grid">
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Lower Back Pain &amp; Sciatica</h4>
-                  <p>Herniated discs, lumbar spondylosis, piriformis syndrome, and radiating nerve pain.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Neck Pain &amp; Cervical Spondylosis</h4>
-                  <p>Tech neck stiffness, cervical nerve compression, and posture-induced tension headaches.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Frozen Shoulder &amp; Impingement</h4>
-                  <p>Adhesive capsulitis, rotator cuff tendinitis, and painful overhead movement restrictions.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Knee &amp; Joint Osteoarthritis</h4>
-                  <p>Cartilage wear, joint stiffness, patellofemoral pain, and weight-bearing discomfort.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Block 3: Treatment Approach -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Our Methodology</span>
-              <h3 class="content-block-title">A 4-phase clinical rehabilitation pathway</h3>
-            </div>
-
-            <div class="approach-grid">
-              <div class="approach-card">
-                <span class="approach-number">01</span>
-                <div class="approach-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                </div>
-                <h4>Thorough Assessment</h4>
-                <p>Postural mapping, range of motion measurements, and joint palpatory testing to pinpoint tissue origin.</p>
-              </div>
-
-              <div class="approach-card">
-                <span class="approach-number">02</span>
-                <div class="approach-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <h4>Hands-On Manual Therapy</h4>
-                <p>Joint mobilization, myofascial release, and passive stretching to release spasm and restore joint play.</p>
-              </div>
-
-              <div class="approach-card">
-                <span class="approach-number">03</span>
-                <div class="approach-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                </div>
-                <h4>Advanced Modalities</h4>
-                <p>Class IV therapeutic laser, interferential therapy (IFT), and ultrasound for deep cellular inflammation control.</p>
-              </div>
-
-              <div class="approach-card">
-                <span class="approach-number">04</span>
-                <div class="approach-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                </div>
-                <h4>Active Strengthening</h4>
-                <p>Customized progressive load resistance exercises stabilizing deep postural stabilizers to prevent relapse.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Block 4: What to Expect On Your First Session -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Your First Visit</span>
-              <h3 class="content-block-title">What to expect during evaluation</h3>
-            </div>
-
-            <div class="timeline-list">
-              <div class="timeline-item">
-                <div class="timeline-badge">1</div>
-                <div class="timeline-content">
-                  <h4>Clinical Interview &amp; History Review</h4>
-                  <p>We review prior scans (MRI, X-Rays), discuss symptom triggers, pain timeline, and daily functional limitations.</p>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-badge">2</div>
-                <div class="timeline-content">
-                  <h4>Physical Examination &amp; Testing</h4>
-                  <p>Detailed evaluation of joint mobility, nerve conduction tension tests, gait analysis, and strength balances.</p>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-badge">3</div>
-                <div class="timeline-content">
-                  <h4>Initial Relief Treatment</h4>
-                  <p>We do not make you wait; your first session includes immediate manual decompression and pain-relieving therapy.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Block 5: Benefits Box -->
-          <div class="benefits-box reveal">
-            <h3 class="benefits-box-title">Measurable Outcomes You Can Expect</h3>
-            <ul class="benefits-checklist">
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Rapid relief from acute radiating nerve pain
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Restoration of full joint range of motion
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Reduction in dependence on painkiller medications
-              </li>
-              <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Safe return to desk work, driving, and fitness routines
-              </li>
-            </ul>
-          </div>
-
-          <!-- Block 6: Service FAQ -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">FAQ</span>
-              <h3 class="content-block-title">Frequently asked questions about physiotherapy</h3>
-            </div>
-
-            <div class="faq-list">
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  How many physiotherapy sessions will I need?
-                  <div class="faq-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
-                  </div>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-inner">
-                    Acute muscle spasms or mild strains often improve significantly within 4–6 sessions. Chronic disc issues, frozen shoulder, or post-operative rehabilitation generally require 10–15 sessions with progressive home exercise maintenance.
-                  </div>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  Do I need a doctor's prescription before visiting?
-                  <div class="faq-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
-                  </div>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-inner">
-                    No prescription is strictly required; our licensed physiotherapists perform complete primary assessments. However, if you already have MRI reports, X-rays, or orthopedist notes, please bring them to your appointment.
-                  </div>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  Do you provide home physiotherapy visits in Hyderabad?
-                  <div class="faq-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
-                  </div>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-inner">
-                    Yes. We provide scheduled home physiotherapy visits across Hyderabad for elderly patients, those in severe pain, or recovering post-surgery.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        <!-- Sticky Sidebar Column -->
-        <aside class="service-aside">
+        <div class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.2s;">
+          <div class="bento-content-solid">
+            <i data-lucide="user-check" class="bento-icon"></i>
+            <h4>Neck Pain &amp; Cervical</h4>
+            <p style="font-size: 0.875rem;">Tech neck stiffness, cervical nerve compression, tension headaches.</p>
+          </div>
+        </div>
 
-          <!-- Card 1: Fast Booking Card -->
-          <div class="aside-card aside-card--featured reveal">
-            <h3 class="aside-card-title">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Book Physiotherapy
-            </h3>
-            <p>Schedule your evaluation with our physical therapy team in Ashok Nagar, Hyderabad.</p>
+        <div class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.3s;">
+          <div class="bento-content-solid">
+            <i data-lucide="crosshair" class="bento-icon"></i>
+            <h4>Frozen Shoulder</h4>
+            <p style="font-size: 0.875rem;">Adhesive capsulitis, rotator cuff tendinitis, overhead restriction.</p>
+          </div>
+        </div>
 
-            <ul class="aside-info-list">
-              <li class="aside-info-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div>
-                  <strong>Direct Line</strong>
-                  <a href="tel:+916302882910">+91 63028 82910</a>
-                </div>
-              </li>
-              <li class="aside-info-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                <div>
-                  <strong>Clinic Hours</strong>
-                  <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
-                </div>
-              </li>
-              <li class="aside-info-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div>
-                  <strong>Location</strong>
-                  <span>Sai Sadan Enclave, Ashok Nagar</span>
-                </div>
-              </li>
-            </ul>
+        <div class="bento-card bento-small gsap-scale-up" style="animation-delay: 0.4s;">
+          <div class="bento-content-solid">
+            <i data-lucide="footprints" class="bento-icon"></i>
+            <h4>Knee &amp; Joint Arthritis</h4>
+            <p style="font-size: 0.875rem;">Cartilage wear, joint stiffness, patellofemoral pain.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
 
-            <div class="aside-card-actions">
-              <a href="contact.html#appointment" class="btn btn-primary btn--block">Request Appointment</a>
-              <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20a%20physiotherapy%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-                WhatsApp Inquiry
-              </a>
+  <!-- METHODOLOGY / ADVANCED THERAPY (DARK MODE) -->
+  <section id="methodology" class="advanced-therapy-section">
+    <div class="wrap">
+      <div class="section-header-dark gsap-reveal-up">
+        <span class="premium-eyebrow">Our Methodology</span>
+        <h2 class="editorial-title text-white">A 4-phase clinical rehabilitation pathway</h2>
+        <p class="editorial-lead text-gray-400">Structured for precise assessment, immediate relief, and long-term functional restoration.</p>
+      </div>
+      
+      <div class="tech-bento-grid">
+        <div class="tech-card gsap-reveal-up" style="transition-delay: 0s;">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="search"></i></div>
+            <h3>1. Thorough Assessment</h3>
+            <p>Postural mapping, range of motion measurements, and joint palpatory testing to pinpoint tissue origin.</p>
+          </div>
+        </div>
+        
+        <div class="tech-card gsap-reveal-up" style="transition-delay: 0.1s;">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="hand"></i></div>
+            <h3>2. Manual Therapy</h3>
+            <p>Joint mobilization, myofascial release, and passive stretching to release spasm and restore joint play.</p>
+          </div>
+        </div>
+
+        <div class="tech-card gsap-reveal-up" style="transition-delay: 0.2s;">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="zap"></i></div>
+            <h3>3. Advanced Modalities</h3>
+            <p>Class IV therapeutic laser, interferential therapy (IFT), and ultrasound for deep cellular inflammation control.</p>
+          </div>
+        </div>
+
+        <div class="tech-card gsap-reveal-up" style="transition-delay: 0.3s;">
+          <div class="tech-content">
+            <div class="tech-icon"><i data-lucide="dumbbell"></i></div>
+            <h3>4. Active Strengthening</h3>
+            <p>Customized progressive load resistance exercises stabilizing deep postural stabilizers to prevent relapse.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS EDITORIAL -->
+  <section class="benefits-editorial">
+    <div class="wrap benefits-layout">
+      <div class="benefits-intro gsap-reveal-up">
+        <span class="premium-eyebrow accent-teal">Outcomes</span>
+        <h2 class="giant-editorial-text">Measurable results you can expect.</h2>
+      </div>
+      
+      <div class="benefits-list gsap-stagger-list">
+        <div class="benefit-row">
+          <div class="benefit-number">01</div>
+          <div class="benefit-desc">
+            <h3>Rapid Pain Relief</h3>
+            <p>Immediate relief from acute radiating nerve pain through targeted manual decompression.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-number">02</div>
+          <div class="benefit-desc">
+            <h3>Restored Mobility</h3>
+            <p>Restoration of full joint range of motion and flexibility.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-number">03</div>
+          <div class="benefit-desc">
+            <h3>Medication Reduction</h3>
+            <p>Reduction in dependence on painkiller medications and anti-inflammatories.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CINEMATIC APPOINTMENT -->
+  <section class="appointment-cinematic">
+    <div class="appointment-split">
+      <div class="appointment-visual gsap-reveal-up" style="padding-left:10%;">
+        <span class="premium-eyebrow">Ready for recovery?</span>
+        <h2>Begin your healing journey today.</h2>
+        <p>Book your initial assessment at our Ashok Nagar clinic or request a home visit.</p>
+        
+        <div class="contact-methods">
+          <div class="contact-method">
+            <i data-lucide="phone"></i>
+            <div>
+              <strong>+91 63028 82910</strong>
+              <span>Direct Clinic Line</span>
             </div>
           </div>
-
-          <!-- Card 2: Other Services Navigation -->
-          <div class="aside-card reveal">
-            <h3 class="aside-card-title">Other Therapy Services</h3>
-            <ul class="aside-nav-list">
-              <li><a href="physiotherapy.html" class="aside-nav-link is-active">Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="sports-rehabilitation.html" class="aside-nav-link">Sports Rehabilitation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="post-surgical-rehabilitation.html" class="aside-nav-link">Post-Surgical Rehab <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="stroke-rehabilitation.html" class="aside-nav-link">Stroke Rehabilitation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="chiropractic.html" class="aside-nav-link">Chiropractic Care <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="laser-therapy.html" class="aside-nav-link">Laser Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="pediatric-physiotherapy.html" class="aside-nav-link">Pediatric Physio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="home-physiotherapy.html" class="aside-nav-link">Home Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-            </ul>
+          <div class="contact-method">
+            <i data-lucide="map-pin"></i>
+            <div>
+              <strong>Sai Sadan Enclave, Ashok Nagar</strong>
+              <span>Hyderabad</span>
+            </div>
           </div>
-
-        </aside>
-
+        </div>
+      </div>
+      
+      <div class="appointment-form-container gsap-scale-up">
+        <form class="premium-form" id="apptForm">
+          <h3 class="form-title">Request an Appointment</h3>
+          
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="premium-input" placeholder="John Doe" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Select Service</label>
+            <select id="service" class="premium-input">
+              <option>Physiotherapy Evaluation</option>
+              <option>Post-Surgical Rehab</option>
+              <option>Sports Injury Rehab</option>
+              <option>Home Physiotherapy Visit</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Brief Description (Optional)</label>
+            <textarea id="message" class="premium-input" rows="3" placeholder="Describe your symptoms"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-whatsapp-solid btn-block" style="width:100%;">
+            <i data-lucide="message-circle"></i> Continue to WhatsApp
+          </button>
+          <p class="form-disclaimer">This will open a WhatsApp chat with our front desk to instantly confirm your slot.</p>
+        </form>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="site-footer">
+<!-- PREMIUM FOOTER -->
+<footer class="premium-footer">
+  <div class="footer-ambient-glow"></div>
   <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <a href="index.html" aria-label="Aarav Clinics — Home">
-        <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo" width="160" height="52" loading="lazy">
-      </a>
-      <p>Complete family therapy care — physiotherapy, rehabilitation and child development services in Ashok Nagar, Hyderabad.</p>
-      <div class="footer-contact-links">
-        <a href="tel:+916302882910">+91 63028 82910</a>
-        <a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a>
+    <div class="footer-brand-col">
+      <img src="assets/images/logo.png" alt="Aarav Clinics" width="180">
+      <p class="footer-desc">Advanced physiotherapy, rehabilitation, and pediatric therapy in Hyderabad, delivering evidence-based clinical excellence.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i data-lucide="instagram"></i></a>
+        <a href="#" class="social-btn"><i data-lucide="facebook"></i></a>
+        <a href="#" class="social-btn"><i data-lucide="youtube"></i></a>
       </div>
     </div>
-
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="physiotherapy.html">Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
-        <li><a href="stroke-rehabilitation.html">Stroke Rehabilitation</a></li>
-        <li><a href="laser-therapy.html">Laser Therapy</a></li>
-        <li><a href="home-physiotherapy.html">Home Physiotherapy</a></li>
-        <li><a href="video-consultation.html">Video Consultation</a></li>
-      </ul>
+    
+    <div class="footer-links-col">
+      <h4>Clinical Services</h4>
+      <a href="physiotherapy.html">Physiotherapy</a>
+      <a href="stroke-rehabilitation.html">Neurological Rehab</a>
+      <a href="laser-therapy.html">Laser Therapy</a>
+      <a href="speech-therapy.html">Speech Therapy</a>
+      <a href="occupational-therapy.html">Occupational Therapy</a>
     </div>
-
-    <div class="footer-col">
-      <h4>Child Development</h4>
-      <ul>
-        <li><a href="child-development.html">Child Development Centre</a></li>
-        <li><a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
-      </ul>
+    
+    <div class="footer-links-col">
+      <h4>Patient Resources</h4>
+      <a href="about.html">Our Philosophy</a>
+      <a href="team.html">Clinical Team</a>
+      <a href="blog.html">Health Articles</a>
+      <a href="contact.html">Contact &amp; Location</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
     </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="services.html">All Services</a></li>
-        <li><a href="blog.html">Blog &amp; Articles</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col footer-col--hours">
-      <h4>Clinic Hours</h4>
+    
+    <div class="footer-contact-col">
+      <h4>Reach Us</h4>
+      <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Hyderabad - 502032</p>
+      <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
+      <a href="mailto:aaravphysioclinics@gmail.com" class="footer-contact-link"><i data-lucide="mail"></i> aaravphysioclinics@gmail.com</a>
       <div class="footer-hours">
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Mon – Sat</span>
-          <span class="footer-hours-time">9:00 AM – 6:00 PM</span>
-        </div>
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Sunday</span>
-          <span class="footer-hours-time">By Appointment</span>
-        </div>
-      </div>
-      <div style="margin-top:var(--space-5);">
-        <a href="contact.html#appointment" class="btn btn-primary btn--sm">Book Appointment</a>
+        <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+        <span>Sunday: By Appointment</span>
       </div>
     </div>
   </div>
-
-  <div class="wrap footer-bottom">
-    <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Hyderabad.</p>
-    <div class="footer-legal-links">
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      </a>
-      <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      </a>
-    </div>
+  
+  <div class="footer-bottom wrap">
+    <p>&copy; 2026 Aarav Clinics. All rights reserved.</p>
+    <p>Redesigned for Excellence.</p>
   </div>
 </footer>
 
-<!-- Mobile FAB -->
-<div class="mobile-fab-bar" aria-label="Quick contact actions">
-  <a href="tel:+916302882910" class="mobile-fab-btn mobile-fab-btn--call" aria-label="Call Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call
-  </a>
-  <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="mobile-fab-btn mobile-fab-btn--wa" aria-label="WhatsApp Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-    WhatsApp
-  </a>
-  <a href="contact.html#appointment" class="mobile-fab-btn mobile-fab-btn--book" aria-label="Book appointment">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Book
-  </a>
-</div>
-
-<script src="js/navigation.js"></script>
+<!-- JS Initialization -->
 <script src="js/animations.js"></script>
-<script src="js/faq.js"></script>
+<script>
+  // Init Lucide
+  lucide.createIcons();
+
+  // Handle WhatsApp Form Submit
+  document.getElementById('apptForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const service = document.getElementById('service').value;
+    const msg = `Hi Aarav Clinics, I am ${name}. I would like to book an appointment for ${service}.`;
+    const url = `https://wa.me/916302882910?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  });
+</script>
 
 </body>
 </html>

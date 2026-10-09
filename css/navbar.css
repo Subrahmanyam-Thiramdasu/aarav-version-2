@@ -40,11 +40,41 @@
     background var(--dur-normal) var(--ease-out);
 }
 
+.site-header.theme-transparent {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 .site-header.is-scrolled {
   height: var(--navbar-h-scroll);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 1px 20px rgba(13, 47, 66, 0.08);
   border-bottom-color: var(--border-light);
 }
+
+/* ── Header Themes ───────────────────────────────── */
+.site-header.theme-light .nav-link { color: var(--navy); }
+.site-header.theme-dark .nav-link { color: rgba(255,255,255,0.85); }
+.site-header.theme-dark .nav-link:hover, .site-header.theme-dark .nav-link.is-active { color: var(--white); }
+
+.site-header.theme-light .brand-logo { filter: none; }
+.site-header.theme-dark .brand-logo { filter: brightness(0) invert(1); }
+.site-header.theme-dark .nav-caret { color: rgba(255,255,255,0.85); }
+
+/* Force dark text and normal logo on scroll */
+.site-header.theme-transparent.is-scrolled .nav-link { color: var(--text-body) !important; }
+.site-header.theme-transparent.is-scrolled .nav-link:hover, .site-header.theme-transparent.is-scrolled .nav-link.is-active { color: var(--teal) !important; }
+.site-header.theme-transparent.is-scrolled .brand-logo { filter: none !important; }
+.site-header.theme-transparent.is-scrolled .nav-caret { color: currentColor !important; }
+
+/* Mobile toggle colors */
+.site-header.theme-dark:not(.is-scrolled) .nav-toggle span { background: var(--white); }
+.site-header.theme-dark:not(.is-scrolled) .nav-toggle { border-color: rgba(255,255,255,0.5); }
 
 .header-inner {
   display: flex;

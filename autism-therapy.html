@@ -22,6 +22,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -44,8 +49,209 @@
     "medicalSpecialty": "Pediatrics"
   }
   </script>
+
+  <style>
+    /* ── Autism Page Palette: Calm Lavender × Teal — Accessible, Gentle ── */
+    :root {
+      --at-indigo: #4F46E5;
+      --at-indigo-light: rgba(79,70,229,0.09);
+      --at-soft: rgba(79,70,229,0.15);
+      --at-sage: #059669;
+      --at-sage-light: rgba(5,150,105,0.09);
+    }
+
+    /* Autism page uses restrained motion — no spinning orbs, no intense gradients */
+
+    /* Hero grid */
+    .at-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 960px) {
+      .at-hero-grid { grid-template-columns: 58% 42%; gap: 4rem; }
+    }
+
+    /* Visual panel — calm framed image */
+    .at-visual-panel {
+      position: relative;
+    }
+    .at-img-frame {
+      border-radius: 28px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      max-height: 480px;
+      box-shadow: 0 24px 60px rgba(16,47,64,0.12);
+    }
+    .at-img-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    /* Floating spectrum badge */
+    .at-spectrum-badge {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.1rem 1.3rem;
+      box-shadow: 0 14px 38px rgba(16,47,64,0.13);
+      border: 1px solid rgba(79,70,229,0.15);
+      z-index: 3;
+    }
+    .at-spectrum-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .at-spectrum-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    /* Affirmation pill */
+    .at-affirm-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Pillar cards */
+    .at-pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) { .at-pillar-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .at-pillar-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .at-pillar {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.75rem 1.5rem;
+      border: 1px solid rgba(79,70,229,0.10);
+      box-shadow: 0 4px 18px rgba(16,47,64,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .at-pillar:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(16,47,64,0.10);
+    }
+    .at-pillar-icon {
+      width: 50px; height: 50px;
+      border-radius: 15px;
+      background: var(--at-indigo-light);
+      color: var(--at-indigo);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+
+    /* Phase steps — calm linear layout */
+    .at-phases {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .at-phase {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1.25rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid rgba(16,47,64,0.07);
+    }
+    .at-phase:last-child { border-bottom: none; }
+    .at-phase-num {
+      width: 50px; height: 50px;
+      border-radius: 14px;
+      background: var(--color-navy);
+      color: #ffffff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* Promise cards */
+    .at-promise-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .at-promise-grid { grid-template-columns: 1fr 1fr; } }
+
+    .at-promise-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.4rem 1.25rem;
+      border: 1px solid rgba(79,70,229,0.10);
+      box-shadow: 0 2px 10px rgba(16,47,64,0.05);
+    }
+    .at-promise-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 12px;
+      background: var(--at-sage-light);
+      color: var(--at-sage);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Principles band */
+    .at-principles-band {
+      background: linear-gradient(135deg, rgba(79,70,229,0.05) 0%, rgba(5,150,105,0.05) 100%);
+      border: 1px solid rgba(79,70,229,0.10);
+      border-radius: 22px;
+      padding: 2.5rem 2rem;
+    }
+    .at-principles-list {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+    @media (min-width: 640px) { .at-principles-list { grid-template-columns: 1fr 1fr; } }
+
+    .at-principles-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.93rem;
+      color: #374151;
+      line-height: 1.55;
+    }
+    .at-tick {
+      width: 20px; height: 20px; flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--at-indigo-light);
+      color: var(--at-indigo);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* CTA band */
+    .at-cta-band {
+      background: linear-gradient(135deg, #1E1B4B 0%, #312E81 60%, #1a4a63 100%);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    /* Sections */
+    .at-section { padding: 5rem 0; }
+    .at-section--alt { background: #F8F7FF; }
+  </style>
 </head>
-<body>
+<body class="premium-theme" style="background:#fdfcff;">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -55,21 +261,15 @@
 </div>
 
 <!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-light" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
       <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
     </a>
-
-    <!-- Desktop Nav -->
     <nav class="main-nav" aria-label="Primary navigation">
       <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
-        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
         <li class="nav-item">
           <a href="services.html" class="nav-link is-active" aria-haspopup="true">
             Services
@@ -103,27 +303,16 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="child-development.html" class="nav-link">Child Development</a>
-        </li>
-        <li class="nav-item">
-          <a href="team.html" class="nav-link">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a href="blog.html" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
-        </li>
+        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
-
     <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
       Book Appointment
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-
-    <!-- Mobile toggle -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -135,7 +324,6 @@
   <div class="mobile-menu-inner">
     <a href="index.html" class="mobile-nav-link">Home</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-
     <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
       Services
       <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
@@ -155,7 +343,6 @@
       <a href="home-physiotherapy.html">Home Physiotherapy</a>
       <a href="video-consultation.html">Video Consultation</a>
     </div>
-
     <a href="child-development.html" class="mobile-nav-link">Child Development</a>
     <a href="team.html" class="mobile-nav-link">Our Team</a>
     <a href="blog.html" class="mobile-nav-link">Blog</a>
@@ -173,260 +360,422 @@
 <!-- Main -->
 <main id="main">
 
-  <section class="page-hero" aria-label="Autism Therapy">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="child-development.html">Child Development</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Autism Therapy</span>
-      </nav>
+  <!-- CINEMATIC HERO: Autism Therapy — Calm, Accessible, Neurodiversity-Affirming -->
+  <!-- NOTE: Intentionally minimal motion. No fast animations. Soft transitions only. -->
+  <section style="background:#F8F7FF; min-height:88vh; padding-top:7rem; padding-bottom:5rem; position:relative; overflow:hidden; display:flex; align-items:center;">
 
-      <div class="page-hero-badge">Neurodiversity &amp; Early Intervention</div>
-      <h1 class="page-hero-title">Multidisciplinary Autism Therapy in Hyderabad</h1>
-      <p class="page-hero-lead">
-        A compassionate, neurodiversity-affirming early intervention program unifying speech therapy, sensory integration, and behavioral regulation in a nurturing environment.
-      </p>
+    <!-- Very subtle ambient wash — no rotating orbs -->
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 80% 20%, rgba(79,70,229,0.05) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(5,150,105,0.04) 0%, transparent 60%); pointer-events:none; z-index:0;"></div>
 
-      <div class="page-hero-actions">
-        <a href="contact.html#appointment" class="btn btn-primary">Book Autism Assessment</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20consult%20about%20autism%20therapy" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          Chat on WhatsApp
-        </a>
-      </div>
+    <div class="wrap" style="position:relative; z-index:2; width:100%;">
+      <div class="at-hero-grid">
 
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Integrated 3-in-1 Care Model
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Affirming &amp; Child-Led Play
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Ashok Nagar, Hyderabad
-        </span>
+        <!-- Left: Content -->
+        <div class="hero-text-block">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb gsap-reveal-left" aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
+            <a href="index.html" style="color:#6B7A8D; font-size:0.8rem;">Home</a>
+            <span style="color:#CBD5E0; margin:0 0.4rem;">/</span>
+            <a href="child-development.html" style="color:#6B7A8D; font-size:0.8rem;">Child Development</a>
+            <span style="color:#CBD5E0; margin:0 0.4rem;">/</span>
+            <span style="color:var(--at-indigo); font-size:0.8rem; font-weight:600;">Autism Therapy</span>
+          </nav>
+
+          <!-- Neurodiversity-affirming badge -->
+          <div class="hero-badge gsap-reveal-left" style="background:rgba(255,255,255,0.95); border:1px solid rgba(79,70,229,0.22); color:var(--color-navy); box-shadow:0 2px 12px rgba(79,70,229,0.08); margin-bottom:1.75rem;">
+            <i data-lucide="rainbow" style="color:var(--at-indigo);"></i> Neurodiversity-Affirming Early Intervention
+          </div>
+
+          <h1 class="hero-giant-title" style="color:var(--color-navy); margin-bottom:1.5rem; font-size:clamp(2.1rem, 3.2vw, 2.65rem); line-height:1.18; ">
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-navy);">Multidisciplinary</span></span>
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--at-indigo);">Autism Therapy</span></span>
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-navy);">in Hyderabad.</span></span>
+          </h1>
+
+          <p class="gsap-reveal-up" style="color:#374151; font-size:clamp(0.92rem, 1.1vw, 1.02rem); font-weight:450; margin-bottom:1.75rem; max-width:560px;">
+            A compassionate, child-led program unifying speech therapy, sensory integration, and behavioral support — designed to honor each child's unique strengths, not to force conformity.
+          </p>
+
+          <!-- Affirming tags -->
+          <div class="gsap-reveal-up" style="display:flex; flex-wrap:wrap; gap:0.55rem; margin-bottom:2.25rem;">
+            <span class="at-affirm-pill" style="background:var(--at-indigo-light); color:var(--at-indigo);">
+              <i data-lucide="heart" style="width:13px;height:13px;"></i> Child-Led Play
+            </span>
+            <span class="at-affirm-pill" style="background:var(--at-sage-light); color:var(--at-sage);">
+              <i data-lucide="users" style="width:13px;height:13px;"></i> Integrated 3-in-1 Care
+            </span>
+            <span class="at-affirm-pill" style="background:rgba(16,47,64,0.07); color:var(--color-navy);">
+              <i data-lucide="shield-check" style="width:13px;height:13px;"></i> No Diagnosis Required to Start
+            </span>
+            <span class="at-affirm-pill" style="background:rgba(208,167,106,0.12); color:#926829;">
+              <i data-lucide="map-pin" style="width:13px;height:13px;"></i> Ashok Nagar, Hyderabad
+            </span>
+          </div>
+
+          <div class="hero-cta-group gsap-reveal-up" style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="contact.html#appointment" class="btn btn-premium-solid btn-large" style="background:var(--at-indigo); color:#ffffff; border:1px solid var(--at-indigo); box-shadow:0 8px 24px rgba(79,70,229,0.28); font-weight:700;">
+              Book Autism Assessment <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20consult%20about%20autism%20therapy" target="_blank" rel="noopener noreferrer" class="btn btn-premium-outline btn-large" style="border:1.5px solid var(--color-navy); color:var(--color-navy); background:transparent; font-weight:600;">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Visual Panel -->
+        <div class="at-visual-panel gsap-clip-reveal">
+          <div class="at-img-frame">
+            <img src="assets/images/child-therapy.jpg" alt="Autism Therapy Session at Aarav Clinics Child Development Centre" loading="eager">
+          </div>
+
+          <!-- Floating spectrum colours badge -->
+          <div class="at-spectrum-badge gsap-reveal-right">
+            <div class="at-spectrum-row">
+              <div class="at-spectrum-dot" style="background:#4F46E5;"></div>
+              <div class="at-spectrum-dot" style="background:#059669;"></div>
+              <div class="at-spectrum-dot" style="background:#D97706;"></div>
+              <div class="at-spectrum-dot" style="background:#EC4899;"></div>
+              <div class="at-spectrum-dot" style="background:#0EA5E9;"></div>
+            </div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--color-navy); margin-bottom:0.15rem;">Every Child Is Unique</div>
+            <div style="font-size:0.72rem; color:#6B7A8D; font-weight:500;">We celebrate neurodiversity</div>
+          </div>
+
+          <!-- Top-left corner accent -->
+          <div class="gsap-reveal-left" style="position:absolute; top:-14px; left:-10px; background:#fff; padding:0.6rem 1.1rem; border-radius:14px; box-shadow:0 12px 28px rgba(16,47,64,0.12); border:1px solid rgba(79,70,229,0.15); display:flex; align-items:center; gap:0.5rem; z-index:3;">
+            <i data-lucide="baby" style="color:var(--at-indigo); width:18px;height:18px;"></i>
+            <span style="font-size:0.775rem; font-weight:700; color:var(--color-navy);">Early Intervention Experts</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Content & Sidebar Layout -->
-  <section class="section section--white">
+  <!-- PHILOSOPHY: Understanding the Spectrum -->
+  <section class="at-section" style="background:#ffffff;">
     <div class="wrap">
-      <div class="service-layout">
+      <div style="display:grid; grid-template-columns:1fr; gap:3.5rem; align-items:start;">
 
-        <div class="service-main">
-
-          <!-- Overview -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Understanding the Spectrum</span>
-              <h2 class="content-block-title">Every autistic child possesses unique strengths, perspectives, and potential.</h2>
-              <p class="content-block-lead">
-                Autism Spectrum Disorder (ASD) is not a disease to cure; it is a neurological divergence in how an individual processes sensory signals, communicates thoughts, and experiences their environment.
-              </p>
-            </div>
-            <p>
-              At Aarav Clinics Child Development Centre, our autism intervention program is designed around the child's individuality rather than rigid conformity. Instead of forcing unnatural behaviors, we unite pediatric speech pathologists, occupational therapists, and physiotherapists under one roof. We help each child regulate sensory overstimulation, build functional communication (verbal or AAC), navigate peer interactions, and thrive in daily school and family routines.
-            </p>
-          </div>
-
-          <!-- Conditions Treated -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Areas of Intervention</span>
-              <h3 class="content-block-title">Core areas addressed in our Autism program</h3>
-            </div>
-
-            <div class="condition-grid">
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Functional Communication &amp; Speech</h4>
-                  <p>Expanding expressive language, alternative communication (PECS/AAC), echolalia modulation, and conversational turn-taking.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Sensory Overload &amp; Regulation</h4>
-                  <p>De-escalating sensory meltdowns triggered by loud noise, tactile defensiveness, bright lighting, or crowd stimulation.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Social Engagement &amp; Joint Attention</h4>
-                  <p>Encouraging shared eye gaze, interactive floor-time games, empathy development, and peer parallel play.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Rigid Routines &amp; Transition Anxiety</h4>
-                  <p>Easing distress when shifting between activities, leaving home, trying unfamiliar foods, or adapting to new school schedules.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Clinical Approach -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Comprehensive Protocol</span>
-              <h3 class="content-block-title">Our integrated 4-phase Autism intervention model</h3>
-            </div>
-
-            <div class="approach-grid">
-              <div class="approach-card">
-                <div class="approach-num">01</div>
-                <h4>Multidisciplinary Baseline Mapping</h4>
-                <p>Collaborative assessment by our speech pathologist, occupational therapist, and pediatric physiotherapist assessing sensory profiles and developmental scores.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">02</div>
-                <h4>Sensory Diet &amp; Calming Gym Setup</h4>
-                <p>Creating individualized vestibular and proprioceptive schedules to stabilize the child's nervous system and eliminate fight-or-flight panic.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">03</div>
-                <h4>Child-Led Relationship Development</h4>
-                <p>Utilizing natural interest motifs—trains, numbers, music, animals—to engage the child in reciprocal verbal and gestural interactions.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">04</div>
-                <h4>Parent Empowerment &amp; Home Strategies</h4>
-                <p>Guiding parents with positive behavioral reinforcement techniques, visual schedule boards, and mealtime sensory adaptations at home.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Benefits -->
-          <div class="content-block reveal">
-            <div class="benefits-box">
-              <h3 class="benefits-title">Lasting Growth in Our Autism Support Program</h3>
-              <ul class="benefits-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Spontaneous Expressive Needs:</strong> Moving from tantrums to expressing hunger, thirst, preferences, and emotions clearly.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Drastically Reduced Meltdowns:</strong> Sensory calming strategies that prevent sensory overload before it erupts.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Joyful Family Connections:</strong> Meaningful joint play, warm reciprocal smiles, and comfortable family outings.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>School &amp; Classroom Integration:</strong> Sitting comfortably, understanding visual prompts, and interacting gently with peers.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- FAQ -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Parent Questions</span>
-              <h3 class="content-block-title">Frequently Asked Questions About Autism Support</h3>
-            </div>
-
-            <div class="faq-list">
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>At what age should autism intervention begin?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>As early as 18 months to 2 years. Research consistently demonstrates that early neuroplastic intervention—before age 5—generates the most profound leaps in communication, social relating, and sensory independence.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Does my child need a formal medical diagnosis before starting therapy?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>No. You do not have to wait months for a formal diagnostic panel to begin supportive therapy. If your child exhibits speech delay, lack of eye contact, or sensory dysregulation, our clinical team can initiate targeted developmental therapies immediately while you pursue medical consultations.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Why is a multidisciplinary clinic better than visiting independent therapists?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>At Aarav Clinics, your child's speech therapist, occupational therapist, and physiotherapist communicate daily and coordinate every goal together. This avoids conflicting advice, eliminates exhausting multi-clinic travel across Hyderabad, and gives your child consistent, reinforcing care.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div style="max-width:700px; margin:0 auto; text-align:center;" class="gsap-reveal-up">
+          <span class="premium-eyebrow" style="color:var(--at-indigo);">Understanding the Spectrum</span>
+          <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem; margin-bottom:1.25rem;">
+            Every autistic child possesses unique strengths, perspectives, and potential.
+          </h2>
+          <p style="color:#4B5563; font-size:0.96rem; line-height:1.72; max-width:640px; margin:0 auto 1rem;">
+            Autism Spectrum Disorder (ASD) is a neurological divergence — not a disease. At Aarav Clinics, our program is built around each child's individuality. We unite speech pathologists, occupational therapists, and physiotherapists to help children regulate sensory overwhelm, build functional communication, and thrive in daily school and family life.
+          </p>
         </div>
 
-        <!-- Sticky Sidebar -->
-        <aside class="service-aside">
-          <div class="aside-card aside-card--highlight reveal">
-            <h3 class="aside-card-title">Book an Autism Evaluation</h3>
-            <p class="aside-card-lead">Meet our multidisciplinary child development team for an affirming, comprehensive evaluation.</p>
-            <ul class="aside-details">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div>
-                  <strong>Phone Support</strong>
-                  <a href="tel:+916302882910">+91 63028 82910</a>
-                </div>
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Clinic Hours</strong>
-                  <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
-                </div>
-              </li>
-            </ul>
-            <div class="aside-card-actions">
-              <a href="contact.html#appointment" class="btn btn-primary btn--block">Request Appointment</a>
-              <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20autism%20therapy%20session" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-                WhatsApp Inquiry
-              </a>
+        <!-- 3 Core Pillars -->
+        <div class="at-pillar-grid">
+          <div class="at-pillar gsap-reveal-up">
+            <div class="at-pillar-icon">
+              <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Speech Therapy</h3>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Expanding expressive language, AAC communication, echolalia modulation, and conversational turn-taking through play.</p>
+          </div>
+          <div class="at-pillar gsap-reveal-up">
+            <div class="at-pillar-icon">
+              <i data-lucide="brain" style="width:22px;height:22px;"></i>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Sensory Regulation</h3>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Occupational therapy for sensory processing, vestibular integration, and meltdown prevention using calming gym activities.</p>
+          </div>
+          <div class="at-pillar gsap-reveal-up">
+            <div class="at-pillar-icon">
+              <i data-lucide="users" style="width:22px;height:22px;"></i>
+            </div>
+            <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Social &amp; Behavioral</h3>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Child-led floor time, joint attention, peer parallel play, and positive behavioral reinforcement strategies for families.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS OF INTERVENTION -->
+  <section class="at-section at-section--alt">
+    <div class="wrap">
+      <div style="max-width:580px; margin-bottom:3rem;" class="gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--at-sage);">Areas of Intervention</span>
+        <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+          Core challenges addressed in our Autism program
+        </h2>
+      </div>
+
+      <div class="condition-grid">
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--at-indigo-light); color:var(--at-indigo);">
+            <i data-lucide="message-circle" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Functional Communication &amp; Speech</h4>
+            <p>Expanding expressive language, alternative communication (PECS/AAC), echolalia modulation, and conversational turn-taking.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--at-indigo-light); color:var(--at-indigo);">
+            <i data-lucide="zap-off" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Sensory Overload &amp; Regulation</h4>
+            <p>De-escalating sensory meltdowns triggered by loud noise, tactile defensiveness, bright lighting, or crowd stimulation.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--at-indigo-light); color:var(--at-indigo);">
+            <i data-lucide="heart-handshake" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Social Engagement &amp; Joint Attention</h4>
+            <p>Encouraging shared eye gaze, interactive floor-time games, empathy development, and peer parallel play.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--at-indigo-light); color:var(--at-indigo);">
+            <i data-lucide="calendar-check" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Rigid Routines &amp; Transition Anxiety</h4>
+            <p>Easing distress when shifting between activities, leaving home, trying unfamiliar foods, or adapting to new school schedules.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--at-indigo-light); color:var(--at-indigo);">
+            <i data-lucide="eye" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Eye Contact &amp; Imitation</h4>
+            <p>Building reciprocal gaze, social referencing, gestural imitation, and shared enjoyment in play through natural learning environments.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--at-indigo-light); color:var(--at-indigo);">
+            <i data-lucide="utensils" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Feeding &amp; Mealtime Sensory Aversions</h4>
+            <p>Addressing selective eating, texture aversions, and mealtime rituals through gradual sensory exposure and behavioral strategies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-PHASE MODEL -->
+  <section class="at-section" style="background:#ffffff;">
+    <div class="wrap">
+      <div style="display:grid; grid-template-columns:1fr; gap:3.5rem; align-items:start;">
+        <div class="gsap-reveal-up">
+          <span class="premium-eyebrow" style="color:var(--at-indigo);">Comprehensive Protocol</span>
+          <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem; margin-bottom:1rem;">
+            Our integrated 4-phase Autism intervention model
+          </h2>
+          <p style="color:#4B5563; font-size:0.93rem; line-height:1.68; max-width:560px;">
+            We begin with understanding your child — not with rigid protocols. Each phase is adapted to the child's current developmental level and the family's priorities.
+          </p>
+        </div>
+
+        <div class="at-phases">
+          <div class="at-phase gsap-reveal-up">
+            <div class="at-phase-num">01</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Multidisciplinary Baseline Mapping</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.65;">Collaborative assessment by our speech pathologist, occupational therapist, and pediatric physiotherapist evaluating sensory profiles and developmental scores.</p>
             </div>
           </div>
-
-          <div class="aside-card reveal">
-            <h3 class="aside-card-title">Child Development Wing</h3>
-            <ul class="aside-nav-list">
-              <li><a href="child-development.html" class="aside-nav-link">Child Development Hub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="autism-therapy.html" class="aside-nav-link is-active">Autism Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="speech-therapy.html" class="aside-nav-link">Speech Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="occupational-therapy.html" class="aside-nav-link">Occupational Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="pediatric-physiotherapy.html" class="aside-nav-link">Pediatric Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-            </ul>
+          <div class="at-phase gsap-reveal-up">
+            <div class="at-phase-num">02</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Sensory Diet &amp; Calming Environment</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.65;">Creating individualized vestibular and proprioceptive schedules to stabilize the child's nervous system and eliminate fight-or-flight panic through calm sensory gym activities.</p>
+            </div>
           </div>
-        </aside>
+          <div class="at-phase gsap-reveal-up">
+            <div class="at-phase-num">03</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Child-Led Relationship Development</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.65;">Utilizing natural interest motifs — trains, numbers, music, animals — to engage the child in reciprocal verbal and gestural interactions at their own pace.</p>
+            </div>
+          </div>
+          <div class="at-phase gsap-reveal-up">
+            <div class="at-phase-num">04</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Parent Empowerment &amp; Home Strategies</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.65;">Guiding parents with positive behavioral reinforcement techniques, visual schedule boards, AAC introduction, and mealtime sensory adaptations for home and school.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- OUR PROMISES TO YOUR FAMILY -->
+  <section class="at-section at-section--alt">
+    <div class="wrap">
+      <div style="text-align:center; max-width:580px; margin:0 auto 3rem;" class="gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--at-sage);">Lasting Growth</span>
+        <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+          What families experience over time
+        </h2>
+      </div>
+
+      <div class="at-promise-grid">
+        <div class="at-promise-card gsap-reveal-up">
+          <div class="at-promise-icon">
+            <i data-lucide="message-square" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Spontaneous Expression</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Moving from tantrums to expressing hunger, thirst, preferences, and emotions clearly — verbally or through AAC.</p>
+          </div>
+        </div>
+        <div class="at-promise-card gsap-reveal-up">
+          <div class="at-promise-icon">
+            <i data-lucide="shield" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Drastically Reduced Meltdowns</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Sensory calming strategies that prevent sensory overload before it erupts into full meltdowns at home or school.</p>
+          </div>
+        </div>
+        <div class="at-promise-card gsap-reveal-up">
+          <div class="at-promise-icon">
+            <i data-lucide="smile" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Joyful Family Connections</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Meaningful joint play, warm reciprocal smiles, and comfortable family outings that feel possible again.</p>
+          </div>
+        </div>
+        <div class="at-promise-card gsap-reveal-up">
+          <div class="at-promise-icon">
+            <i data-lucide="book-open" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">School &amp; Classroom Integration</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Sitting comfortably, understanding visual prompts, and interacting gently with peers in everyday classroom settings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES BAND -->
+  <section class="at-section" style="background:#ffffff;">
+    <div class="wrap">
+      <div class="at-principles-band gsap-reveal-up">
+        <div style="margin-bottom:2rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <div style="width:48px;height:48px; border-radius:14px; background:var(--at-indigo-light); color:var(--at-indigo); display:flex;align-items:center;justify-content:center; flex-shrink:0;">
+            <i data-lucide="shield-check" style="width:22px;height:22px;"></i>
+          </div>
+          <h2 style="font-size:clamp(1.35rem,2vw,1.75rem); font-weight:800; color:var(--color-navy); margin:0;">Our Guiding Principles for Autism Support</h2>
+        </div>
+        <ul class="at-principles-list">
+          <li class="gsap-reveal-up">
+            <span class="at-tick"><i data-lucide="check" style="width:11px;height:11px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Neurodiversity is not a deficit.</strong> We celebrate how each child processes and experiences the world.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="at-tick"><i data-lucide="check" style="width:11px;height:11px;"></i></span>
+            <span><strong style="color:var(--color-navy);">No diagnosis needed to start.</strong> We begin supportive therapy while families pursue medical consultations.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="at-tick"><i data-lucide="check" style="width:11px;height:11px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Calm environments always.</strong> Our clinic is designed for sensory safety — soft lighting, quiet zones, and minimal overwhelm.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="at-tick"><i data-lucide="check" style="width:11px;height:11px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Family as co-therapists.</strong> Parents are trained and empowered to extend therapy outcomes at home every day.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="at-tick"><i data-lucide="check" style="width:11px;height:11px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Child-paced, never forced.</strong> We follow the child's interests and comfort — therapy never feels punishing.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="at-tick"><i data-lucide="check" style="width:11px;height:11px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Integrated under one roof.</strong> No multi-clinic travel — speech, OT, and physio coordinate daily on one plan.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="at-section at-section--alt">
+    <div class="wrap">
+      <div style="max-width:660px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:2.75rem;" class="gsap-reveal-up">
+          <span class="premium-eyebrow" style="color:var(--at-indigo);">Parent Questions</span>
+          <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+            Frequently Asked Questions About Autism Support
+          </h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>At what age should autism intervention begin?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>As early as 18 months to 2 years. Research consistently demonstrates that early neuroplastic intervention — before age 5 — generates the most profound leaps in communication, social relating, and sensory independence. However, we support children across all ages.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>Does my child need a formal medical diagnosis before starting therapy?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>No. You do not have to wait months for a formal diagnostic panel to begin supportive therapy. If your child exhibits speech delay, lack of eye contact, or sensory dysregulation, our clinical team can initiate targeted developmental therapies immediately while you pursue medical consultations.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>Why is a multidisciplinary clinic better than visiting independent therapists?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>At Aarav Clinics, your child's speech therapist, occupational therapist, and physiotherapist communicate daily and coordinate every goal together. This avoids conflicting advice, eliminates exhausting multi-clinic travel across Hyderabad, and gives your child consistent, reinforcing care.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>Is ABA (Applied Behavior Analysis) the approach used at Aarav Clinics?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>We use a multidisciplinary, naturalistic, and neurodiversity-affirming approach rather than traditional drill-based ABA. Our therapies are child-led, play-based, and drawn from evidence-based frameworks including DIR/Floortime, PECS, sensory integration theory, and positive behavioral support — all adapted to each child's individual profile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="at-section" style="background:#F8F7FF;">
+    <div class="wrap">
+      <div class="at-cta-band gsap-reveal-up">
+        <div style="display:inline-flex; align-items:center; gap:0.6rem; background:rgba(255,255,255,0.12); border-radius:50px; padding:0.4rem 1rem; margin-bottom:1.5rem; font-size:0.82rem; font-weight:600; letter-spacing:0.05em; color:rgba(255,255,255,0.85);">
+          <i data-lucide="map-pin" style="width:14px;height:14px;"></i> Ashok Nagar, Hyderabad &nbsp;|&nbsp; Mon – Sat: 9 AM – 6 PM
+        </div>
+        <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem); font-weight:800; color:#fff; margin-bottom:1rem; line-height:1.25;">
+          Take the first step toward understanding your child's world.
+        </h2>
+        <p style="color:rgba(255,255,255,0.78); font-size:0.97rem; margin-bottom:2rem; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.65;">
+          Meet our compassionate multidisciplinary team for a no-pressure developmental consultation. Every child's journey begins with being truly seen.
+        </p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="contact.html#appointment" class="btn btn-primary btn-large" style="background:#ffffff; color:#312E81; border:none; font-weight:700;">
+            Book Autism Assessment <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20autism%20therapy%20session" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-large">
+            WhatsApp Inquiry
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -446,7 +795,6 @@
         <a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a>
       </div>
     </div>
-
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
@@ -460,7 +808,6 @@
         <li><a href="video-consultation.html">Video Consultation</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4>Child Development</h4>
       <ul>
@@ -471,7 +818,6 @@
         <li><a href="autism-therapy.html">Autism Therapy</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul>
@@ -483,7 +829,6 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
-
     <div class="footer-col footer-col--hours">
       <h4>Clinic Hours</h4>
       <div class="footer-hours">
@@ -501,7 +846,6 @@
       </div>
     </div>
   </div>
-
   <div class="wrap footer-bottom">
     <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Hyderabad.</p>
     <div class="footer-legal-links">
@@ -509,11 +853,11 @@
       <a href="terms.html">Terms of Service</a>
     </div>
     <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
+      <a href="https://www.google.com/maps?cid=10521016619599487601" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       </a>
       <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
       </a>
     </div>
   </div>

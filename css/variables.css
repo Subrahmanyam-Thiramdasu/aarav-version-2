@@ -1,47 +1,59 @@
 /* =====================================================
-   AARAV CLINICS — Design System Variables
+   AARAV CLINICS — Premium Design System Variables
    ===================================================== */
 
 :root {
-  /* ── Brand Colors ─────────────────────────────── */
-  --navy:        #0D2F42;
-  --navy-mid:    #123B52;
-  --teal:        #168AAD;
-  --teal-light:  #1AACCA;
-  --aqua-soft:   #EAF7F8;
-  --aqua-mid:    #C8ECF0;
-  --surface:     #F5FAFB;
-  --white:       #FFFFFF;
-  --warm-accent: #C9913A;
-  --warm-light:  #F5E6CC;
+  /* ── Brand Colors (Premium Medical Luxury) ──────────────── */
+  --navy:        #102F40;  /* Primary deep navy */
+  --navy-mid:    #18455C;  /* Lighter navy for hover/gradients */
+  --midnight:    #071D2C;  /* Rich midnight */
+  --teal:        #008E9B;  /* Refined medical teal */
+  --teal-light:  #00A8B5;  /* Brighter teal for highlights */
+  --aqua-soft:   #EAF7F8;  /* Very soft teal/aqua */
+  --aqua-mid:    #BCE0E2;
+  --surface:     #F2F8F8;  /* Soft medical-blue background */
+  --white:       #FFFFFF;  /* Premium white */
+  --champagne:   #D0A76A;  /* Subtle champagne accent */
+  --champagne-light: #DFBE8F;
+
+  /* ── Universal Aliases ──────────────────────────── */
+  --color-navy:      #102F40;
+  --color-teal:      #008E9B;
+  --color-champagne: #D0A76A;
+  --color-surface:   #F8FAFC;
+  --color-dark:      #071D2C;
+  --color-purple:    #7C3AED;
+  --color-purple-light: #8B5CF6;
+  --color-purple-soft: #F5F3FF;
 
   /* ── Text ──────────────────────────────────────── */
-  --text-heading: #0D2F42;
-  --text-body:    #2C4A57;
-  --text-muted:   #5E7A85;
-  --text-faint:   #93ADB8;
+  --text-heading: #102F40;
+  --text-body:    #3A4A52; /* Slightly darker than muted for contrast */
+  --text-muted:   #607784; /* Muted secondary text */
+  --text-faint:   #9BAEB8;
   --text-inverse: #FFFFFF;
 
   /* ── Borders ───────────────────────────────────── */
-  --border-light: rgba(22, 138, 173, 0.12);
-  --border-mid:   rgba(22, 138, 173, 0.22);
-  --border-card:  rgba(13, 47, 66, 0.08);
+  --border-light: rgba(0, 142, 155, 0.12); /* Teal base */
+  --border-mid:   rgba(0, 142, 155, 0.22);
+  --border-card:  rgba(16, 47, 64, 0.08);  /* Navy base */
 
   /* ── Shadows ───────────────────────────────────── */
-  --shadow-xs:  0 1px 3px rgba(13, 47, 66, 0.06);
-  --shadow-sm:  0 2px 8px rgba(13, 47, 66, 0.08);
-  --shadow-md:  0 4px 20px rgba(13, 47, 66, 0.10);
-  --shadow-lg:  0 8px 40px rgba(13, 47, 66, 0.12);
-  --shadow-xl:  0 16px 64px rgba(13, 47, 66, 0.14);
-  --shadow-teal: 0 4px 24px rgba(22, 138, 173, 0.20);
+  --shadow-xs:  0 1px 3px rgba(7, 29, 44, 0.04);
+  --shadow-sm:  0 2px 8px rgba(7, 29, 44, 0.06);
+  --shadow-md:  0 4px 20px rgba(7, 29, 44, 0.08);
+  --shadow-lg:  0 8px 40px rgba(7, 29, 44, 0.10);
+  --shadow-xl:  0 16px 64px rgba(7, 29, 44, 0.12);
+  --shadow-teal: 0 4px 24px rgba(0, 142, 155, 0.15);
 
   /* ── Gradients ─────────────────────────────────── */
-  --grad-hero:   linear-gradient(135deg, #0A2133 0%, #0D3348 40%, #0E3F5C 100%);
-  --grad-teal:   linear-gradient(135deg, #168AAD 0%, #0D6E8F 100%);
-  --grad-navy:   linear-gradient(135deg, #0D2F42 0%, #123B52 100%);
-  --grad-soft:   linear-gradient(135deg, #EAF7F8 0%, #F5FAFB 100%);
-  --grad-card:   linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(234,247,248,0.6) 100%);
-  --grad-cta:    linear-gradient(135deg, #0D2F42 0%, #168AAD 100%);
+  --grad-hero:   linear-gradient(135deg, #071D2C 0%, #102F40 50%, #18455C 100%);
+  --grad-teal:   linear-gradient(135deg, #00A8B5 0%, #008E9B 100%);
+  --grad-navy:   linear-gradient(135deg, #071D2C 0%, #102F40 100%);
+  --grad-soft:   linear-gradient(135deg, #FFFFFF 0%, #F2F8F8 100%);
+  --grad-card:   linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(242,248,248,0.7) 100%);
+  --grad-cta:    linear-gradient(135deg, #102F40 0%, #008E9B 100%);
+  --grad-aurora: linear-gradient(120deg, rgba(16,47,64,0.03) 0%, rgba(0,142,155,0.05) 50%, rgba(16,47,64,0.03) 100%);
 
   /* ── Typography ────────────────────────────────── */
   --font-primary:  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
@@ -72,43 +84,44 @@
   --tracking-wide:   0.06em;
   --tracking-wider:  0.12em;
 
-  /* ── Spacing ───────────────────────────────────── */
-  --space-1:   0.25rem;
-  --space-2:   0.5rem;
-  --space-3:   0.75rem;
-  --space-4:   1rem;
-  --space-5:   1.25rem;
-  --space-6:   1.5rem;
-  --space-8:   2rem;
-  --space-10:  2.5rem;
-  --space-12:  3rem;
-  --space-16:  4rem;
-  --space-20:  5rem;
-  --space-24:  6rem;
-  --space-32:  8rem;
+  /* ── Spacing (8px based) ───────────────────────── */
+  --space-1:   0.25rem;  /* 4px */
+  --space-2:   0.5rem;   /* 8px */
+  --space-3:   0.75rem;  /* 12px */
+  --space-4:   1rem;     /* 16px */
+  --space-5:   1.25rem;  /* 20px */
+  --space-6:   1.5rem;   /* 24px */
+  --space-8:   2rem;     /* 32px */
+  --space-10:  2.5rem;   /* 40px */
+  --space-12:  3rem;     /* 48px */
+  --space-16:  4rem;     /* 64px */
+  --space-20:  5rem;     /* 80px */
+  --space-24:  6rem;     /* 96px */
+  --space-32:  8rem;     /* 128px */
+  --space-40:  10rem;    /* 160px */
 
   /* ── Layout ────────────────────────────────────── */
-  --wrap-max:       1280px;
+  --wrap-max:       1360px; /* Premium wide container */
   --wrap-narrow:    760px;
   --wrap-wide:      1440px;
-  --wrap-padding:   clamp(1.25rem, 4vw, 3rem);
+  --wrap-padding:   clamp(1.25rem, 5vw, 4rem);
 
   /* ── Border Radius ─────────────────────────────── */
-  --radius-sm:   6px;
-  --radius-md:   12px;
-  --radius-lg:   20px;
-  --radius-xl:   28px;
-  --radius-2xl:  40px;
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-xl:   32px;
+  --radius-2xl:  48px;
   --radius-full: 9999px;
 
   /* ── Transitions ───────────────────────────────── */
   --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --dur-fast:    180ms;
-  --dur-normal:  280ms;
-  --dur-slow:    420ms;
-  --dur-xslow:   600ms;
+  --dur-fast:    180ms; /* Micro-interactions */
+  --dur-normal:  300ms; /* Buttons/cards */
+  --dur-slow:    500ms; /* Section reveals */
+  --dur-xslow:   800ms; /* Hero reveals */
 
   /* ── Z-index ───────────────────────────────────── */
   --z-below:  -1;
@@ -120,8 +133,8 @@
   --z-toast:  300;
 
   /* ── Navbar ────────────────────────────────────── */
-  --navbar-h: 76px;
-  --navbar-h-scroll: 66px;
+  --navbar-h: 88px;
+  --navbar-h-scroll: 72px;
 }
 
 /* ── Reduced Motion ───────────────────────────────── */

@@ -22,6 +22,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -45,7 +50,7 @@
   }
   </script>
 </head>
-<body>
+<body class="premium-theme">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -55,7 +60,7 @@
 </div>
 
 <!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
       <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
@@ -71,7 +76,7 @@
           <a href="about.html" class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a href="services.html" class="nav-link is-active" aria-haspopup="true">
+          <a href="services.html" class="nav-link" aria-haspopup="true">
             Services
             <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
@@ -171,214 +176,142 @@
 </nav>
 
 <!-- Main -->
+<!-- Main -->
 <main id="main">
 
-  <section class="page-hero" aria-label="Pediatric Physiotherapy">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="child-development.html">Child Development</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Pediatric Physiotherapy</span>
-      </nav>
-
-      <div class="page-hero-badge">Child Development Centre</div>
-      <h1 class="page-hero-title">Pediatric Physiotherapy in Hyderabad</h1>
-      <p class="page-hero-lead">
-        Empowering infants and children to achieve critical gross motor milestones—rolling, sitting, crawling, and walking—through joyful, play-based physical rehabilitation.
-      </p>
-
-      <div class="page-hero-actions">
-        <a href="contact.html#appointment" class="btn btn-primary">Book Developmental Evaluation</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20consult%20about%20pediatric%20physiotherapy" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          Chat on WhatsApp
-        </a>
-      </div>
-
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Gross Motor Milestone Support
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Sensory-Rich Child Gym
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Ashok Nagar, Hyderabad
-        </span>
+  <!-- CINEMATIC HERO: Pediatric Physiotherapy (Energetic, Refined) -->
+  <section class="cinematic-hero hero--dark" style="background:var(--color-navy); overflow:hidden;">
+    <div class="cinematic-hero-bg">
+      <img src="assets/images/physiotherapy-session.jpg" alt="Pediatric Physiotherapy" class="hero-parallax-img" style="opacity: 0.6; filter: contrast(1.1) brightness(0.8) saturate(1.1);">
+      <div class="cinematic-overlay" style="background: linear-gradient(90deg, #102F40 30%, rgba(16, 47, 64, 0.7) 60%, transparent 100%);"></div>
+    </div>
+    
+    <!-- Movement-inspired contour lines -->
+    <div style="position:absolute; top:-10%; right:-10%; width:80vw; height:80vw; border:2px solid rgba(0,142,155,0.1); border-radius:40% 60% 70% 30% / 40% 50% 60% 50%; animation: pulse 12s infinite linear; z-index:1; pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-20%; left:-10%; width:60vw; height:60vw; border:1px solid rgba(255,255,255,0.05); border-radius:50%; z-index:1; pointer-events:none;"></div>
+    
+    <div class="cinematic-hero-content wrap" style="position:relative; z-index:2;">
+      <div class="hero-text-block" style="max-width: 720px; padding:4rem 0;">
+        <div class="hero-badge gsap-reveal-up" style="color:var(--color-teal); border-color:rgba(0,142,155,0.4); background:rgba(255,255,255,0.1); backdrop-filter:blur(8px);">
+          <i data-lucide="person-standing"></i> Child Development Centre
+        </div>
+        
+        <h1 class="hero-giant-title text-white">
+          <span class="mask-line"><span class="gsap-title-reveal">Strength in Motion.</span></span>
+          <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-teal);">Joy in Play.</span></span>
+        </h1>
+        
+        <p class="hero-editorial-desc gsap-reveal-up" style="color:#e2e8f0; font-weight:450; ">
+          Empowering infants and children to achieve critical gross motor milestones—rolling, sitting, crawling, and walking—through purposeful, joyful physical rehabilitation in our sensory-rich clinical gym.
+        </p>
+        
+        <div class="hero-cta-group gsap-reveal-up">
+          <a href="contact.html#appointment" class="btn btn-premium-solid btn-large" style="background:var(--color-teal); color:white;">
+            Book Developmental Evaluation <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Content & Sidebar Layout -->
-  <section class="section section--white">
+  <!-- CONTENT SECTION -->
+  <section class="section section--white" style="padding: 6rem 0;">
     <div class="wrap">
-      <div class="service-layout">
-
+      <div class="service-layout" style="display:grid; grid-template-columns: 1fr 380px; gap:4rem; align-items:start;">
+        
+        <!-- MAIN EDITORIAL CONTENT -->
         <div class="service-main">
-
-          <!-- Overview -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Playful, Milestone-Centered Therapy</span>
-              <h2 class="content-block-title">Every child develops at their own pace, but early support creates lasting leaps.</h2>
-              <p class="content-block-lead">
-                Movement is how children explore the world, build neural pathways, and gain confidence. When a child experiences low muscle tone, tightness, or delayed motor milestones, gentle intervention helps guide their body toward natural movement patterns.
-              </p>
-            </div>
-            <p>
+          
+          <div class="content-block gsap-reveal-up" style="margin-bottom: 4rem;">
+            <span class="premium-eyebrow accent-teal">Playful, Milestone-Centered Therapy</span>
+            <h2 class="editorial-title">Every child develops at their own pace, but early support creates lasting leaps.</h2>
+            <p class="editorial-lead">
+              Movement is how children explore the world, build neural pathways, and gain confidence. When a child experiences low muscle tone, tightness, or delayed motor milestones, gentle intervention helps guide their body toward natural movement patterns.
+            </p>
+            <p style="color:#475569; line-height:1.7;">
               At Aarav Clinics Child Development Centre, our pediatric physiotherapists work in a dedicated, warmly equipped pediatric gym featuring soft-play mats, therapy balls, balance beams, and climbing wedges. We disguise rigorous developmental therapy inside games, sensory obstacle courses, and play, so children look forward to every session while gaining measurable physical strength.
             </p>
           </div>
 
-          <!-- Conditions Treated -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Conditions We Address</span>
-              <h3 class="content-block-title">Pediatric motor and orthopedic concerns</h3>
-            </div>
-
-            <div class="condition-grid">
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Gross Motor Delays</h4>
-                  <p>Babies and toddlers delayed in rolling over, sitting unassisted, crawling, or independent walking.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Cerebral Palsy (CP)</h4>
-                  <p>Spasticity management, functional mobility training, postural positioning, and contracture prevention.</p>
+          <!-- BENTO CONDITIONS -->
+          <div class="content-block gsap-reveal-up" style="margin-bottom: 4rem;">
+            <h3 class="editorial-title" style="font-size:1.75rem; margin-bottom: 2rem;">Pediatric motor and orthopedic concerns we address</h3>
+            
+            <div class="services-bento gsap-stagger-group" style="grid-template-columns: 1fr; gap: 1rem;">
+              
+              <div class="bento-card bento-small gsap-item" style="background:#f8fafc; border-left:4px solid var(--color-teal); padding: 2rem;">
+                <div style="display:flex; align-items:flex-start; gap:1.5rem;">
+                  <div style="background:white; padding:1rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.03); color:var(--color-teal);">
+                    <i data-lucide="footprints" style="width:24px; height:24px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-size:1.25rem; color:var(--color-navy); margin-bottom:0.5rem;">Gross Motor Delays</h4>
+                    <p style="color:#475569; font-size:0.95rem; line-height:1.6;">Assistance for babies who are late to roll over, sit independently, pull to stand, or take their first steps.</p>
+                  </div>
                 </div>
               </div>
 
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Torticollis &amp; Plagiocephaly</h4>
-                  <p>Infant head tilt preference, sternocleidomastoid tightness, and positional head flattening.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Hypotonia &amp; Joint Laxity</h4>
-                  <p>"Floppy" infant syndrome, weak trunk stability, frequent falls, toe walking, and flat feet.</p>
+              <div class="bento-card bento-small gsap-item" style="background:#f8fafc; border-left:4px solid var(--color-teal); padding: 2rem;">
+                <div style="display:flex; align-items:flex-start; gap:1.5rem;">
+                  <div style="background:white; padding:1rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.03); color:var(--color-teal);">
+                    <i data-lucide="activity" style="width:24px; height:24px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-size:1.25rem; color:var(--color-navy); margin-bottom:0.5rem;">Muscle Tone Disorders</h4>
+                    <p style="color:#475569; font-size:0.95rem; line-height:1.6;">Therapy for hypotonia (floppy infant syndrome) or hypertonia (stiffness), often associated with Cerebral Palsy or genetic conditions.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Clinical Approach -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Therapeutic Methodology</span>
-              <h3 class="content-block-title">How we guide your child's physical development</h3>
-            </div>
-
-            <div class="approach-grid">
-              <div class="approach-card">
-                <div class="approach-num">01</div>
-                <h4>Standardized Motor Assessment</h4>
-                <p>Evaluating age-normed developmental scales (GMFM, PDMS-2), muscle tone, joint ranges, and primitive reflex integration.</p>
+              <div class="bento-card bento-small gsap-item" style="background:#f8fafc; border-left:4px solid var(--color-teal); padding: 2rem;">
+                <div style="display:flex; align-items:flex-start; gap:1.5rem;">
+                  <div style="background:white; padding:1rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.03); color:var(--color-teal);">
+                    <i data-lucide="user-check" style="width:24px; height:24px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-size:1.25rem; color:var(--color-navy); margin-bottom:0.5rem;">Torticollis & Plagiocephaly</h4>
+                    <p style="color:#475569; font-size:0.95rem; line-height:1.6;">Gentle neck stretching and repositioning strategies for infants with a head tilt or flat spot on the skull.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bento-card bento-small gsap-item" style="background:#f8fafc; border-left:4px solid var(--color-teal); padding: 2rem;">
+                <div style="display:flex; align-items:flex-start; gap:1.5rem;">
+                  <div style="background:white; padding:1rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.03); color:var(--color-teal);">
+                    <i data-lucide="move" style="width:24px; height:24px;"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-size:1.25rem; color:var(--color-navy); margin-bottom:0.5rem;">Gait Abnormalities</h4>
+                    <p style="color:#475569; font-size:0.95rem; line-height:1.6;">Correction of toe walking, in-toeing (pigeon toes), out-toeing, and frequent tripping or clumsiness.</p>
+                  </div>
+                </div>
               </div>
 
-              <div class="approach-card">
-                <div class="approach-num">02</div>
-                <h4>Play-Based Neurodevelopmental Therapy (NDT)</h4>
-                <p>Facilitating natural righting and equilibrium reactions using therapeutic Swiss balls, bolster swings, and wedges.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">03</div>
-                <h4>Gait &amp; Balance Retraining</h4>
-                <p>Correcting toe-walking habits, strengthening foot arches, improving stride symmetry, and balance obstacle courses.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">04</div>
-                <h4>Home Play Coaching for Parents</h4>
-                <p>Equipping parents with fun positioning techniques, tummy time routines, and daily play games to practice at home.</p>
-              </div>
             </div>
           </div>
 
-          <!-- Benefits -->
-          <div class="content-block reveal">
-            <div class="benefits-box">
-              <h3 class="benefits-title">Key Milestones Achieved Through Pediatric Therapy</h3>
-              <ul class="benefits-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Independent Mobility:</strong> Gaining trunk stability and leg power to sit, stand, and walk with confidence.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Correct Posture &amp; Alignment:</strong> Relieving infant torticollis and correcting scoliosis or gait deviations early.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Enhanced Coordination &amp; Stamina:</strong> Building stamina so children can run, jump, and play alongside peers effortlessly.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Emotional Confidence:</strong> Removing movement anxiety and watching your child celebrate every new physical milestone.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- FAQ -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Parent Questions</span>
-              <h3 class="content-block-title">Frequently Asked Questions by Parents</h3>
-            </div>
-
-            <div class="faq-list">
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>When should I consult a pediatric physiotherapist for my baby?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          <!-- FAQ INSIDE CONTENT -->
+          <div class="content-block gsap-reveal-up">
+            <h3 class="editorial-title" style="font-size:1.75rem; margin-bottom: 2rem;">Frequently Asked Questions</h3>
+            
+            <div class="faq-accordion gsap-stagger-group">
+              <div class="faq-card gsap-item" style="background:transparent; border-bottom:1px solid #e2e8f0; padding:1rem 0;">
+                <button class="faq-toggle" aria-expanded="false" style="padding-left:0; padding-right:0;">
+                  <span style="font-weight:600; color:var(--color-navy);">Will physiotherapy hurt my baby?</span>
+                  <i data-lucide="chevron-down" class="faq-icon" style="color:var(--color-teal);"></i>
                 </button>
-                <div class="faq-answer">
-                  <p>You should consult if your baby consistently tilts their head to one side, feels unusually floppy or stiff, cannot hold their head up by 4 months, cannot sit without support by 9 months, or is not standing/stepping by 14 to 15 months. Early intervention produces the fastest, most lasting progress.</p>
+                <div class="faq-content" style="padding-left:0;">
+                  <p style="color:#475569;">No. Pediatric physiotherapy is extremely gentle. We use play, toys, and careful positioning to encourage your baby to use their muscles naturally. If a stretch is required (like in torticollis), we ensure it is done within your child's tolerance limit and teach you how to do it comfortably at home.</p>
                 </div>
               </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Will the sessions distress or upset my child?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              
+              <div class="faq-card gsap-item" style="background:transparent; border-bottom:1px solid #e2e8f0; padding:1rem 0;">
+                <button class="faq-toggle" aria-expanded="false" style="padding-left:0; padding-right:0;">
+                  <span style="font-weight:600; color:var(--color-navy);">How do you keep toddlers engaged during therapy?</span>
+                  <i data-lucide="chevron-down" class="faq-icon" style="color:var(--color-teal);"></i>
                 </button>
-                <div class="faq-answer">
-                  <p>No. Our therapy gym is designed to feel like a cheerful, welcoming play zone. Our therapists use bubbles, colorful toys, songs, and sensory textures to keep children engaged and happy throughout their physical exercises.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Can pediatric physiotherapy be combined with speech and OT?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Yes, absolutely. In fact, motor skills and speech/sensory development are deeply intertwined. At Aarav Clinics, our pediatric physiotherapists, speech therapists, and occupational therapists collaborate under one roof to coordinate cohesive care plans.</p>
+                <div class="faq-content" style="padding-left:0;">
+                  <p style="color:#475569;">We disguise all therapeutic exercises as play. Whether it's "rescuing toys" while balancing on a wobble board, or navigating a colorful obstacle course to build core strength, our sessions are highly dynamic and child-led.</p>
                 </div>
               </div>
             </div>
@@ -386,43 +319,41 @@
 
         </div>
 
-        <!-- Sticky Sidebar -->
-        <aside class="service-aside">
-          <div class="aside-card aside-card--highlight reveal">
-            <h3 class="aside-card-title">Schedule a Milestone Check</h3>
-            <p class="aside-card-lead">Book a gentle physical development evaluation with our pediatric team in Ashok Nagar.</p>
-            <ul class="aside-details">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div>
-                  <strong>Phone Support</strong>
-                  <a href="tel:+916302882910">+91 63028 82910</a>
+        <!-- STICKY SIDEBAR -->
+        <aside class="service-aside" style="position:sticky; top:120px;">
+          <div class="bento-card gsap-reveal-up" style="background:var(--color-surface); border:1px solid rgba(16,47,64,0.05); padding:2rem; margin-bottom:2rem;">
+            <h3 style="font-size:1.25rem; color:var(--color-navy); margin-bottom:1rem;">Schedule a Milestone Check</h3>
+            <p style="color:#475569; font-size:0.95rem; margin-bottom:1.5rem;">Book a gentle physical development evaluation with our pediatric team in Ashok Nagar.</p>
+            
+            <ul style="list-style:none; padding:0; margin:0 0 1.5rem 0; display:flex; flex-direction:column; gap:1rem;">
+              <li style="display:flex; gap:1rem; align-items:center;">
+                <div style="background:white; padding:0.5rem; border-radius:8px; color:var(--color-teal);"><i data-lucide="phone" style="width:18px; height:18px;"></i></div>
+                <div style="font-size:0.9rem;">
+                  <strong style="display:block; color:var(--color-navy);">Phone Support</strong>
+                  <a href="tel:+916302882910" style="color:#475569; text-decoration:none;">+91 63028 82910</a>
                 </div>
               </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Clinic Hours</strong>
-                  <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
+              <li style="display:flex; gap:1rem; align-items:center;">
+                <div style="background:white; padding:0.5rem; border-radius:8px; color:var(--color-teal);"><i data-lucide="clock" style="width:18px; height:18px;"></i></div>
+                <div style="font-size:0.9rem;">
+                  <strong style="display:block; color:var(--color-navy);">Clinic Hours</strong>
+                  <span style="color:#475569;">Mon – Sat: 9:00 AM – 6:00 PM</span>
                 </div>
               </li>
             </ul>
-            <div class="aside-card-actions">
-              <a href="contact.html#appointment" class="btn btn-primary btn--block">Request Appointment</a>
-              <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20a%20pediatric%20physiotherapy%20session" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-                WhatsApp Inquiry
-              </a>
-            </div>
+            
+            <a href="contact.html#appointment" class="btn btn-premium-solid" style="background:var(--color-navy); color:white; width:100%; margin-bottom:0.75rem; text-align:center;">Request Appointment</a>
+            <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics" target="_blank" rel="noopener noreferrer" class="btn btn-premium-outline" style="border-color:rgba(16,47,64,0.2); color:var(--color-navy); width:100%; text-align:center;">WhatsApp Inquiry</a>
           </div>
 
-          <div class="aside-card reveal">
-            <h3 class="aside-card-title">Child Development Wing</h3>
-            <ul class="aside-nav-list">
-              <li><a href="child-development.html" class="aside-nav-link">Child Development Hub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="pediatric-physiotherapy.html" class="aside-nav-link is-active">Pediatric Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="speech-therapy.html" class="aside-nav-link">Speech Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="occupational-therapy.html" class="aside-nav-link">Occupational Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="autism-therapy.html" class="aside-nav-link">Autism Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
+          <div class="bento-card gsap-reveal-up" style="background:white; border:1px solid rgba(16,47,64,0.05); padding:2rem;">
+            <h3 style="font-size:1.1rem; color:var(--color-navy); margin-bottom:1rem;">Child Development Wing</h3>
+            <ul class="aside-nav-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem;">
+              <li><a href="child-development.html" class="aside-nav-link" style="display:flex; justify-content:space-between; padding:0.75rem; border-radius:6px; color:#475569; text-decoration:none;">Child Development Hub <i data-lucide="chevron-right" style="width:16px;"></i></a></li>
+              <li><a href="pediatric-physiotherapy.html" class="aside-nav-link is-active" style="display:flex; justify-content:space-between; padding:0.75rem; border-radius:6px; color:var(--color-teal); background:rgba(0,142,155,0.05); font-weight:600; text-decoration:none;">Pediatric Physiotherapy <i data-lucide="chevron-right" style="width:16px;"></i></a></li>
+              <li><a href="speech-therapy.html" class="aside-nav-link" style="display:flex; justify-content:space-between; padding:0.75rem; border-radius:6px; color:#475569; text-decoration:none;">Speech Therapy <i data-lucide="chevron-right" style="width:16px;"></i></a></li>
+              <li><a href="occupational-therapy.html" class="aside-nav-link" style="display:flex; justify-content:space-between; padding:0.75rem; border-radius:6px; color:#475569; text-decoration:none;">Occupational Therapy <i data-lucide="chevron-right" style="width:16px;"></i></a></li>
+              <li><a href="autism-therapy.html" class="aside-nav-link" style="display:flex; justify-content:space-between; padding:0.75rem; border-radius:6px; color:#475569; text-decoration:none;">Autism Therapy <i data-lucide="chevron-right" style="width:16px;"></i></a></li>
             </ul>
           </div>
         </aside>
@@ -432,6 +363,7 @@
   </section>
 
 </main>
+
 
 <!-- Footer -->
 <footer class="site-footer">
@@ -538,5 +470,6 @@
 <script src="js/animations.js"></script>
 <script src="js/faq.js"></script>
 
+<script>lucide.createIcons();</script>
 </body>
 </html>

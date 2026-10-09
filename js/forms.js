@@ -81,11 +81,21 @@
       const url = 'https://wa.me/' + WHATSAPP_NUM + '?text=' + text;
       window.open(url, '_blank', 'noopener,noreferrer');
 
-      // Show success state
+      // GA4/GTM event hook (no sensitive data included)
+      if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({
+          'event': 'whatsapp_lead_initiated',
+          'form_type': 'appointment',
+          'service_category': service || 'general'
+        });
+      }
+
+      // Show success state (clarify it's a WhatsApp handoff)
       const successEl = document.getElementById('apptSuccess');
       if (successEl) {
         form.style.display = 'none';
         successEl.classList.add('is-visible');
+        successEl.innerHTML = '<h3 style="font-size:1.5rem; color:var(--color-navy); margin-bottom:0.5rem;">Connecting to WhatsApp</h3><p style="color:#4B5563;">Your WhatsApp should open shortly to send your request. If it didn\'t open, <a href="' + url + '" target="_blank" style="color:var(--color-teal); text-decoration:underline; font-weight:600;">click here to message us directly</a>.</p>';
       }
     });
   });

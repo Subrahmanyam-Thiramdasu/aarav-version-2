@@ -22,6 +22,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -44,8 +49,177 @@
     "medicalSpecialty": "OccupationalTherapy"
   }
   </script>
+
+  <style>
+    /* ── OT Page Palette: Refined Amber/Champagne × Teal ── */
+    :root {
+      --ot-warm: #C79F65; /* Refined champagne/amber */
+      --ot-warm-light: rgba(199, 159, 101, 0.12);
+      --ot-warm-mid: rgba(199, 159, 101, 0.22);
+    }
+
+    /* Hero grid */
+    .ot-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 960px) {
+      .ot-hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    /* Visual card */
+    .ot-visual-wrap {
+      position: relative;
+    }
+    .ot-img-card {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 32px 72px rgba(16,47,64,0.15);
+      aspect-ratio: 4/5;
+      max-height: 500px;
+    }
+    .ot-img-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .ot-float-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      left: -1.5rem;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 16px 40px rgba(16,47,64,0.14);
+      border: 1px solid rgba(0,142,155,0.14);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 3;
+    }
+    .ot-float-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--ot-warm-light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ot-warm);
+      flex-shrink: 0;
+    }
+    .ot-float-label { font-size: 0.78rem; font-weight: 700; color: var(--color-navy); line-height: 1.3; }
+    .ot-float-sub { font-size: 0.72rem; color: #6B7A8D; font-weight: 500; }
+
+    /* Tag pills */
+    .ot-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.38rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.78rem; font-weight: 600;
+    }
+
+    /* Feature grid */
+    .ot-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .ot-feature-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 960px) {
+      .ot-feature-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .ot-feature-card {
+      background: #ffffff;
+      border: 1px solid rgba(16,47,64,0.08);
+      border-radius: 18px;
+      padding: 1.75rem 1.4rem;
+      box-shadow: 0 4px 16px rgba(16,47,64,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ot-feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(16,47,64,0.12);
+    }
+    .ot-feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      background: var(--ot-warm-light);
+      color: var(--ot-warm);
+    }
+
+    /* Approach steps */
+    .ot-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .ot-steps { grid-template-columns: 1fr 1fr; }
+    }
+    .ot-step {
+      display: flex; gap: 1.25rem;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(16,47,64,0.07);
+      box-shadow: 0 2px 12px rgba(16,47,64,0.05);
+    }
+    .ot-step-num {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 12px;
+      background: var(--color-navy);
+      color: #ffffff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 800;
+    }
+
+    /* Benefits box */
+    .ot-benefits {
+      background: linear-gradient(135deg, rgba(16,47,64,0.04) 0%, rgba(0,142,155,0.06) 100%);
+      border: 1px solid rgba(0,142,155,0.12);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .ot-benefits ul {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: grid; gap: 1rem;
+    }
+    .ot-benefits ul li {
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      font-size: 0.95rem; color: #374151;
+    }
+    .ot-check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(0,142,155,0.12);
+      color: var(--color-teal);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* CTA band */
+    .ot-cta-band {
+      background: linear-gradient(135deg, var(--color-navy) 0%, #1a4a63 100%);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    /* Section spacing */
+    .ot-section { padding: 5rem 0; }
+    .ot-section--alt { background: #F8F6F2; }
+  </style>
 </head>
-<body>
+<body class="premium-theme" style="background:#faf9f6;">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -55,7 +229,7 @@
 </div>
 
 <!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-light" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
       <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
@@ -64,12 +238,8 @@
     <!-- Desktop Nav -->
     <nav class="main-nav" aria-label="Primary navigation">
       <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
-        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
         <li class="nav-item">
           <a href="services.html" class="nav-link is-active" aria-haspopup="true">
             Services
@@ -103,18 +273,10 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="child-development.html" class="nav-link">Child Development</a>
-        </li>
-        <li class="nav-item">
-          <a href="team.html" class="nav-link">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a href="blog.html" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
-        </li>
+        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
 
@@ -123,7 +285,6 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
-    <!-- Mobile toggle -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -135,7 +296,6 @@
   <div class="mobile-menu-inner">
     <a href="index.html" class="mobile-nav-link">Home</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-
     <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
       Services
       <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
@@ -155,7 +315,6 @@
       <a href="home-physiotherapy.html">Home Physiotherapy</a>
       <a href="video-consultation.html">Video Consultation</a>
     </div>
-
     <a href="child-development.html" class="mobile-nav-link">Child Development</a>
     <a href="team.html" class="mobile-nav-link">Our Team</a>
     <a href="blog.html" class="mobile-nav-link">Blog</a>
@@ -173,260 +332,373 @@
 <!-- Main -->
 <main id="main">
 
-  <section class="page-hero" aria-label="Occupational Therapy">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="child-development.html">Child Development</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Occupational Therapy</span>
-      </nav>
+  <!-- CINEMATIC HERO: Occupational Therapy — Warm Skill-Focused Editorial -->
+  <section class="cinematic-hero hero--pediatric" style="background:#FAF8F4; min-height:88vh; padding-top:7rem; padding-bottom:5rem; position:relative; overflow:hidden;">
 
-      <div class="page-hero-badge">Sensory Integration &amp; Independence</div>
-      <h1 class="page-hero-title">Pediatric Occupational Therapy in Hyderabad</h1>
-      <p class="page-hero-lead">
-        Supporting sensory regulation, fine motor precision, pencil grip, bilateral coordination, and daily self-care under Dr. Ananya Iyer and our specialized pediatric therapy team.
-      </p>
+    <!-- Ambient orbs -->
+    <div style="position:absolute; top:-80px; right:-60px; width:480px; height:480px; border-radius:50%; background:radial-gradient(circle, rgba(217,119,6,0.07) 0%, rgba(0,142,155,0.04) 55%, transparent 70%); filter:blur(50px); pointer-events:none; z-index:0;"></div>
+    <div style="position:absolute; bottom:-100px; left:5%; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, rgba(0,142,155,0.05) 0%, rgba(16,47,64,0.03) 60%, transparent 70%); filter:blur(60px); pointer-events:none; z-index:0;"></div>
 
-      <div class="page-hero-actions">
-        <a href="contact.html#appointment" class="btn btn-primary">Book OT Evaluation</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20consult%20about%20occupational%20therapy" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          Chat on WhatsApp
-        </a>
-      </div>
+    <!-- Decorative grid dots -->
+    <div style="position:absolute; top:20%; left:2%; opacity:0.05; pointer-events:none; z-index:0;">
+      <svg width="120" height="120" viewBox="0 0 120 120"><defs><pattern id="dots-ot" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#102F40"/></pattern></defs><rect width="120" height="120" fill="url(#dots-ot)"/></svg>
+    </div>
 
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Sensory Integration Therapy
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Handwriting &amp; Fine Motor
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Ashok Nagar, Hyderabad
-        </span>
+    <div class="wrap" style="position:relative; z-index:2; width:100%;">
+      <div class="ot-hero-grid">
+
+        <!-- Left: Content -->
+        <div class="hero-text-block">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb gsap-reveal-left" aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
+            <a href="index.html" style="color:#6B7A8D; font-size:0.8rem;">Home</a>
+            <span style="color:#CBD5E0; margin:0 0.4rem;">/</span>
+            <a href="child-development.html" style="color:#6B7A8D; font-size:0.8rem;">Child Development</a>
+            <span style="color:#CBD5E0; margin:0 0.4rem;">/</span>
+            <span style="color:var(--ot-warm); font-size:0.8rem; font-weight:600;">Occupational Therapy</span>
+          </nav>
+
+          <div class="hero-badge gsap-reveal-left" style="background:rgba(255,255,255,0.95); border:1px solid rgba(217,119,6,0.25); color:var(--color-navy); box-shadow:0 2px 12px rgba(217,119,6,0.08); margin-bottom:1.75rem;">
+            <i data-lucide="hand" style="color:var(--ot-warm);"></i> Sensory Integration &amp; Independence
+          </div>
+
+          <h1 class="hero-giant-title" style="color:var(--color-navy); margin-bottom:1.5rem; font-size:clamp(2.1rem, 3.2vw, 2.65rem); line-height:1.18; ">
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-navy);">Pediatric Occupational</span></span>
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--ot-warm);">Therapy in Hyderabad.</span></span>
+          </h1>
+
+          <p class="gsap-reveal-up" style="color:#374151; font-size:clamp(0.92rem, 1.1vw, 1.02rem); font-weight:450; margin-bottom:1.75rem; max-width:540px;">
+            Empowering children with sensory integration, fine motor precision, handwriting skills, and the independence of daily self-care — guided by <a href="dr-ananya-iyer.html" style="color:var(--color-navy);text-decoration:underline;font-weight:600;">Dr. Ananya Iyer</a> and our specialist pediatric OT team.
+          </p>
+
+          <!-- Specialty tags -->
+          <div class="gsap-reveal-up" style="display:flex; flex-wrap:wrap; gap:0.55rem; margin-bottom:2.25rem;">
+            <span class="ot-pill" style="background:var(--ot-warm-light); color:var(--ot-warm);">
+              <i data-lucide="check-circle" style="width:13px;height:13px;"></i> Sensory Integration
+            </span>
+            <span class="ot-pill" style="background:rgba(0,142,155,0.08); color:var(--color-teal);">
+              <i data-lucide="check-circle" style="width:13px;height:13px;"></i> Fine Motor &amp; Handwriting
+            </span>
+            <span class="ot-pill" style="background:rgba(16,47,64,0.07); color:var(--color-navy);">
+              <i data-lucide="check-circle" style="width:13px;height:13px;"></i> Self-Care Mastery
+            </span>
+            <span class="ot-pill" style="background:rgba(208,167,106,0.12); color:#926829;">
+              <i data-lucide="check-circle" style="width:13px;height:13px;"></i> Ashok Nagar, Hyderabad
+            </span>
+          </div>
+
+          <div class="hero-cta-group gsap-reveal-up" style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="contact.html#appointment" class="btn btn-premium-solid btn-large" style="background:var(--ot-warm); color:#ffffff; border:1px solid var(--ot-warm); box-shadow:0 8px 24px rgba(217,119,6,0.30); font-weight:700;">
+              Book OT Evaluation <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20consult%20about%20occupational%20therapy" target="_blank" rel="noopener noreferrer" class="btn btn-premium-outline btn-large" style="border:1.5px solid var(--color-navy); color:var(--color-navy); background:transparent; font-weight:600;">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div class="ot-visual-wrap gsap-clip-reveal">
+          <div class="ot-img-card">
+            <img src="assets/images/child-therapy.jpg" alt="Occupational Therapy Session at Aarav Clinics" loading="eager">
+          </div>
+
+          <!-- Float badge bottom-left -->
+          <div class="ot-float-badge gsap-reveal-left">
+            <div class="ot-float-icon">
+              <i data-lucide="sparkles" style="width:20px;height:20px;"></i>
+            </div>
+            <div>
+              <div class="ot-float-label">Play-Based OT Therapy</div>
+              <div class="ot-float-sub">Sensory Gym &amp; Fine Motor Lab</div>
+            </div>
+          </div>
+
+          <!-- Float badge top-right -->
+          <div class="gsap-reveal-right" style="position:absolute; top:-14px; right:-10px; background:#fff; padding:0.6rem 1.1rem; border-radius:14px; box-shadow:0 12px 28px rgba(16,47,64,0.12); border:1px solid rgba(199,159,101,0.25); display:flex; align-items:center; gap:0.5rem; z-index:3;">
+            <i data-lucide="award" style="color:var(--ot-warm); width:18px;height:18px;"></i>
+            <span style="font-size:0.775rem; font-weight:700; color:var(--color-navy);">BOT Certified OT</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Content & Sidebar Layout -->
-  <section class="section section--white">
+  <!-- OVERVIEW STRIP: What is OT -->
+  <section class="ot-section" style="background:#ffffff;">
     <div class="wrap">
-      <div class="service-layout">
+      <div style="max-width:720px; margin:0 auto; text-align:center;" class="gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--ot-warm);">Mastering the "Occupations" of Childhood</span>
+        <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.6rem,2.4vw,2.2rem); margin-top:0.6rem; margin-bottom:1.25rem;">
+          A child's occupation is to play, learn, explore, and become self-reliant.
+        </h2>
+        <p style="color:#4B5563; font-size:0.97rem; line-height:1.7; max-width:640px; margin:0 auto 2.5rem;">
+          When sensory processing challenges, motor dyspraxia, or hand weakness interfere with holding a pencil, tying shoelaces, or sitting in a classroom, our Occupational Therapy team bridges that gap — through play, structured sensory challenges, and evidence-guided precision.
+        </p>
+      </div>
 
-        <div class="service-main">
-
-          <!-- Overview -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Mastering the "Occupations" of Childhood</span>
-              <h2 class="content-block-title">A child's occupation is to play, learn, explore, and become self-reliant.</h2>
-              <p class="content-block-lead">
-                When sensory processing challenges, motor dyspraxia, or hand weakness interfere with holding a pencil, tying shoelaces, buttoning clothes, or sitting quietly in a classroom, pediatric occupational therapy bridges the gap.
-              </p>
-            </div>
-            <p>
-              At Aarav Clinics, our Occupational Therapy department is anchored by Dr. Ananya Iyer (BOT / MOT). We operate an expansive sensory integration gym equipped with vestibular swings, climbing structures, tactile texture paths, and weighted resistance zones. Our therapy helps organize children's nervous systems so they can regulate their attention, coordinate their small hand muscles, and thrive in daily school and family life.
-            </p>
+      <!-- Feature cards -->
+      <div class="ot-feature-grid">
+        <div class="ot-feature-card gsap-reveal-up">
+          <div class="ot-feature-icon">
+            <i data-lucide="brain" style="width:22px;height:22px;"></i>
           </div>
-
-          <!-- Conditions Treated -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Challenges Addressed</span>
-              <h3 class="content-block-title">Common concerns treated in Occupational Therapy</h3>
-            </div>
-
-            <div class="condition-grid">
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Sensory Processing Sensitivity</h4>
-                  <p>Extreme distress with loud sounds, clothing tags, messy textures, or constant craving for intense spinning and jumping.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Handwriting &amp; Fine Motor Weakness</h4>
-                  <p>Awkward pencil grasp, messy writing, hand fatigue when coloring, and difficulty manipulating scissors or blocks.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Self-Care &amp; Daily Living Difficulties</h4>
-                  <p>Inability to independently button shirts, manage zippers, brush teeth, or handle eating spoons cleanly.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Motor Planning &amp; Dyspraxia</h4>
-                  <p>Clumsiness, frequent bumping into furniture, difficulty coordinating both hands together during play.</p>
-                </div>
-              </div>
-            </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Sensory Integration</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Vestibular, proprioceptive, and tactile processing — helping children feel regulated, calm, and focused.</p>
+        </div>
+        <div class="ot-feature-card gsap-reveal-up">
+          <div class="ot-feature-icon">
+            <i data-lucide="pencil" style="width:22px;height:22px;"></i>
           </div>
-
-          <!-- Clinical Approach -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Evidence-Guided Approach</span>
-              <h3 class="content-block-title">How our Occupational Therapists structure care</h3>
-            </div>
-
-            <div class="approach-grid">
-              <div class="approach-card">
-                <div class="approach-num">01</div>
-                <h4>Sensory Profile &amp; Motor Evaluation</h4>
-                <p>Comprehensive standardized evaluation of sensory processing thresholds, hand strength, visual-motor skills, and classroom habits.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">02</div>
-                <h4>Vestibular &amp; Proprioceptive Input</h4>
-                <p>Using suspended swings, climbing nets, and deep pressure "heavy work" activities to help children's brains organize sensory input.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">03</div>
-                <h4>Intrinsic Hand Muscle Strengthening</h4>
-                <p>Therapy putty games, precision pinch exercises, tweezer play, and adaptive pencil grip training for effortless writing.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">04</div>
-                <h4>Sensory Diet &amp; Routine Design</h4>
-                <p>Providing parents and educators with tailored "sensory diets"—calming strategies and movement breaks throughout school and home routines.</p>
-              </div>
-            </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Handwriting &amp; Fine Motor</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Precision pinch, tripod grasp, and intrinsic hand muscle training for fluent, fatigue-free writing.</p>
+        </div>
+        <div class="ot-feature-card gsap-reveal-up">
+          <div class="ot-feature-icon">
+            <i data-lucide="shirt" style="width:22px;height:22px;"></i>
           </div>
-
-          <!-- Benefits -->
-          <div class="content-block reveal">
-            <div class="benefits-box">
-              <h3 class="benefits-title">Measurable Gains in Child Occupational Therapy</h3>
-              <ul class="benefits-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Improved Self-Regulation &amp; Focus:</strong> Staying seated, attentive, and calm during classroom study and dining.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Fluent Handwriting Mechanics:</strong> Producing legible letters without wrist pain or premature hand exhaustion.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Daily Self-Care Mastery:</strong> Proudly dressing, buttoning, putting on shoes, and eating independently.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Decreased Meltdowns:</strong> Desensitizing touch, sound, and movement sensitivities that trigger fight-or-flight reactions.</span>
-                </li>
-              </ul>
-            </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Daily Living Skills</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Dressing, feeding, hygiene, and self-care independence through step-by-step functional skill building.</p>
+        </div>
+        <div class="ot-feature-card gsap-reveal-up">
+          <div class="ot-feature-icon">
+            <i data-lucide="activity" style="width:22px;height:22px;"></i>
           </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Motor Planning</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Bilateral coordination, praxis, and sequencing exercises for smoother, more confident movement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- FAQ -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Parent Inquiries</span>
-              <h3 class="content-block-title">Frequently Asked Questions About Occupational Therapy</h3>
-            </div>
+  <!-- CONDITIONS TREATED -->
+  <section class="ot-section ot-section--alt">
+    <div class="wrap">
+      <div style="max-width:580px; margin-bottom:3rem;" class="gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--color-teal);">Challenges Addressed</span>
+        <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+          Common concerns we treat in Occupational Therapy
+        </h2>
+      </div>
 
-            <div class="faq-list">
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>What is the difference between Physical Therapy and Occupational Therapy for a child?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Pediatric Physiotherapy primarily focuses on gross motor milestones—walking, jumping, posture, balance, and leg strength. Occupational Therapy focuses on fine motor dexterity (fingers, hands), sensory processing regulation, visual-motor integration, and daily living skills like handwriting, feeding, and dressing.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>How can I tell if my child has sensory processing issues?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Signs include intense reactions to specific clothing textures or seam tags, fear of playground swings or elevated surfaces, extreme distress with loud noises, refusal to touch finger paints/sand, or conversely, constantly crashing into walls, biting objects, and being unable to sit still.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Can Occupational Therapy help with handwriting difficulties?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Yes. Handwriting issues are rarely just lack of practice; they often stem from poor hand arch development, weak shoulder stability, finger fatigue, or dyspraxia. Our OT program builds core stability, refines tripod grasp, and teaches motor spacing strategies.</p>
-                </div>
-              </div>
-            </div>
+      <div class="condition-grid">
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--ot-warm-light); color:var(--ot-warm);">
+            <i data-lucide="zap" style="width:20px;height:20px;"></i>
           </div>
+          <div class="condition-body">
+            <h4>Sensory Processing Sensitivity</h4>
+            <p>Extreme distress with loud sounds, clothing tags, messy textures, or constant craving for intense spinning and jumping.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--ot-warm-light); color:var(--ot-warm);">
+            <i data-lucide="pen-tool" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Handwriting &amp; Fine Motor Weakness</h4>
+            <p>Awkward pencil grasp, messy writing, hand fatigue when coloring, and difficulty manipulating scissors or blocks.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--ot-warm-light); color:var(--ot-warm);">
+            <i data-lucide="user-check" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Self-Care &amp; Daily Living Difficulties</h4>
+            <p>Inability to independently button shirts, manage zippers, brush teeth, or handle eating spoons cleanly.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--ot-warm-light); color:var(--ot-warm);">
+            <i data-lucide="move" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Motor Planning &amp; Dyspraxia</h4>
+            <p>Clumsiness, frequent bumping into furniture, difficulty coordinating both hands together during play.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--ot-warm-light); color:var(--ot-warm);">
+            <i data-lucide="eye" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Visual-Motor Integration</h4>
+            <p>Poor eye-hand coordination, struggles with puzzles, letter reversals, and difficulty copying from the board.</p>
+          </div>
+        </div>
+        <div class="condition-card gsap-reveal-up">
+          <div class="condition-icon" style="background:var(--ot-warm-light); color:var(--ot-warm);">
+            <i data-lucide="book-open" style="width:20px;height:20px;"></i>
+          </div>
+          <div class="condition-body">
+            <h4>Classroom Attention &amp; Focus</h4>
+            <p>Difficulty sitting still, emotional dysregulation, fidgeting, and sensory-driven distractibility during studies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- OUR APPROACH: 4 Steps -->
+  <section class="ot-section" style="background:#ffffff;">
+    <div class="wrap">
+      <div style="display:grid; grid-template-columns:1fr; gap:3.5rem; align-items:start;" class="editorial-approach-grid">
+        <div class="gsap-reveal-up">
+          <span class="premium-eyebrow" style="color:var(--ot-warm);">Evidence-Guided Approach</span>
+          <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem; margin-bottom:1.1rem;">
+            How our Occupational Therapists structure care
+          </h2>
+          <p style="color:#4B5563; font-size:0.93rem; line-height:1.68; max-width:520px;">
+            Every child's OT journey begins with a thorough evaluation and ends with measurable functional milestones — dressing independently, writing comfortably, and regulating emotions with confidence.
+          </p>
         </div>
 
-        <!-- Sticky Sidebar -->
-        <aside class="service-aside">
-          <div class="aside-card aside-card--highlight reveal">
-            <h3 class="aside-card-title">Book an OT Evaluation</h3>
-            <p class="aside-card-lead">Consult Dr. Ananya Iyer and our pediatric occupational team in Ashok Nagar.</p>
-            <ul class="aside-details">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div>
-                  <strong>Phone Support</strong>
-                  <a href="tel:+916302882910">+91 63028 82910</a>
-                </div>
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Clinic Hours</strong>
-                  <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
-                </div>
-              </li>
-            </ul>
-            <div class="aside-card-actions">
-              <a href="contact.html#appointment" class="btn btn-primary btn--block">Request Appointment</a>
-              <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20occupational%20therapy%20session" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-                WhatsApp Inquiry
-              </a>
+        <div class="ot-steps">
+          <div class="ot-step gsap-reveal-up">
+            <div class="ot-step-num">01</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Sensory Profile &amp; Motor Evaluation</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Comprehensive standardized evaluation of sensory processing thresholds, hand strength, visual-motor skills, and classroom habits.</p>
             </div>
           </div>
-
-          <div class="aside-card reveal">
-            <h3 class="aside-card-title">Child Development Wing</h3>
-            <ul class="aside-nav-list">
-              <li><a href="child-development.html" class="aside-nav-link">Child Development Hub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="occupational-therapy.html" class="aside-nav-link is-active">Occupational Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="speech-therapy.html" class="aside-nav-link">Speech Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="autism-therapy.html" class="aside-nav-link">Autism Therapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="pediatric-physiotherapy.html" class="aside-nav-link">Pediatric Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-            </ul>
+          <div class="ot-step gsap-reveal-up">
+            <div class="ot-step-num">02</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Vestibular &amp; Proprioceptive Input</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Using suspended swings, climbing nets, and deep pressure "heavy work" activities to help children's brains organize sensory input.</p>
+            </div>
           </div>
-        </aside>
+          <div class="ot-step gsap-reveal-up">
+            <div class="ot-step-num">03</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Intrinsic Hand Muscle Strengthening</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Therapy putty games, precision pinch exercises, tweezer play, and adaptive pencil grip training for effortless writing.</p>
+            </div>
+          </div>
+          <div class="ot-step gsap-reveal-up">
+            <div class="ot-step-num">04</div>
+            <div>
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Sensory Diet &amp; Routine Design</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Tailored "sensory diets" — calming strategies and movement breaks throughout school and home routines, shared with parents and teachers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- BENEFITS -->
+  <section class="ot-section ot-section--alt">
+    <div class="wrap">
+      <div class="ot-benefits gsap-reveal-up">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.75rem; flex-wrap:wrap;">
+          <div style="width:48px;height:48px; border-radius:14px; background:rgba(0,142,155,0.1); color:var(--color-teal); display:flex;align-items:center;justify-content:center; flex-shrink:0;">
+            <i data-lucide="trending-up" style="width:24px;height:24px;"></i>
+          </div>
+          <h2 style="font-size:clamp(1.35rem,2vw,1.75rem); font-weight:800; color:var(--color-navy); margin:0;">Measurable Gains in Child Occupational Therapy</h2>
+        </div>
+        <ul>
+          <li class="gsap-reveal-up">
+            <span class="ot-check"><i data-lucide="check" style="width:13px;height:13px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Improved Self-Regulation &amp; Focus:</strong> Staying seated, attentive, and calm during classroom study and dining.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="ot-check"><i data-lucide="check" style="width:13px;height:13px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Fluent Handwriting Mechanics:</strong> Producing legible letters without wrist pain or premature hand exhaustion.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="ot-check"><i data-lucide="check" style="width:13px;height:13px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Daily Self-Care Mastery:</strong> Proudly dressing, buttoning, putting on shoes, and eating independently.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="ot-check"><i data-lucide="check" style="width:13px;height:13px;"></i></span>
+            <span><strong style="color:var(--color-navy);">Decreased Meltdowns:</strong> Desensitizing touch, sound, and movement sensitivities that trigger fight-or-flight reactions.</span>
+          </li>
+          <li class="gsap-reveal-up">
+            <span class="ot-check"><i data-lucide="check" style="width:13px;height:13px;"></i></span>
+            <span><strong style="color:var(--color-navy);">School Participation:</strong> Sitting comfortably, completing written tasks, and engaging positively with peers in classroom activities.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ot-section" style="background:#ffffff;">
+    <div class="wrap">
+      <div style="max-width:660px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:2.75rem;" class="gsap-reveal-up">
+          <span class="premium-eyebrow" style="color:var(--color-teal);">Parent Inquiries</span>
+          <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+            Frequently Asked Questions About Occupational Therapy
+          </h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is the difference between Physical Therapy and Occupational Therapy for a child?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Pediatric Physiotherapy primarily focuses on gross motor milestones—walking, jumping, posture, balance, and leg strength. Occupational Therapy focuses on fine motor dexterity (fingers, hands), sensory processing regulation, visual-motor integration, and daily living skills like handwriting, feeding, and dressing.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>How can I tell if my child has sensory processing issues?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Signs include intense reactions to specific clothing textures or seam tags, fear of playground swings or elevated surfaces, extreme distress with loud noises, refusal to touch finger paints/sand, or conversely, constantly crashing into walls, biting objects, and being unable to sit still.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can Occupational Therapy help with handwriting difficulties?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Handwriting issues are rarely just lack of practice; they often stem from poor hand arch development, weak shoulder stability, finger fatigue, or dyspraxia. Our OT program builds core stability, refines tripod grasp, and teaches motor spacing strategies.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>At what age should we start Occupational Therapy?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>OT can begin as early as 18 months when developmental delays are observed. The earlier intervention starts, the greater the benefit due to the brain's neuroplasticity. We see children from toddlers through school age and adapt our techniques to each developmental stage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="ot-section" style="background:#F8F6F2;">
+    <div class="wrap">
+      <div class="ot-cta-band gsap-reveal-up">
+        <div style="display:inline-flex; align-items:center; gap:0.6rem; background:rgba(255,255,255,0.1); border-radius:50px; padding:0.4rem 1rem; margin-bottom:1.5rem; font-size:0.82rem; font-weight:600; letter-spacing:0.05em; color:rgba(255,255,255,0.85);">
+          <i data-lucide="phone" style="width:14px;height:14px;"></i> Ashok Nagar, Hyderabad &nbsp;|&nbsp; Mon – Sat: 9 AM – 6 PM
+        </div>
+        <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem); font-weight:800; color:#fff; margin-bottom:1rem; line-height:1.25;">
+          Ready to start your child's OT journey?
+        </h2>
+        <p style="color:rgba(255,255,255,0.78); font-size:0.97rem; margin-bottom:2rem; max-width:540px; margin-left:auto; margin-right:auto; line-height:1.65;">
+          Meet <a href="dr-ananya-iyer.html" style="color:var(--color-navy);text-decoration:underline;font-weight:600;">Dr. Ananya Iyer</a> and our pediatric occupational therapy team for a comprehensive evaluation and personalized sensory-motor program.
+        </p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="contact.html#appointment" class="btn btn-primary btn-large" style="background:#ffffff; color:var(--color-navy); border:none; font-weight:700;">
+            Book OT Evaluation <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20occupational%20therapy%20session" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-large">
+            WhatsApp Inquiry
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -509,7 +781,7 @@
       <a href="terms.html">Terms of Service</a>
     </div>
     <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
+      <a href="https://www.google.com/maps?cid=10521016619599487601" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       </a>
       <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -537,6 +809,11 @@
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/faq.js"></script>
+<script>
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+</script>
 
 </body>
 </html>

@@ -14,12 +14,6 @@
   <meta property="og:description" content="Dedicated multidisciplinary therapy clinic in Ashok Nagar, Hyderabad providing personalized rehabilitation for children and adults.">
   <meta property="og:image" content="https://aaravhealthcare.com/assets/images/clinic-interior.jpg">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Aarav Clinics – Hyderabad">
-  <meta name="twitter:description" content="Personalized physiotherapy, neuro rehabilitation and child development services in Ashok Nagar, Hyderabad.">
-  <meta name="twitter:image" content="https://aaravhealthcare.com/assets/images/clinic-interior.jpg">
-
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +21,11 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
@@ -40,358 +39,327 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/animations.css">
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "Aarav Clinics",
-    "url": "https://aaravhealthcare.com/about.html",
-    "logo": "https://aaravhealthcare.com/assets/images/logo.png",
-    "telephone": "+916302882910",
-    "email": "aaravphysioclinics@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "HIG, 2nd Floor, Sai Sadan Enclave, H.No. 23/82/2, Plot No. 22 & 3, Sy No. 203, Opposite Spashta Eye Hospital, Jyothi Nagar, Ashok Nagar",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana",
-      "postalCode": "502032",
-      "addressCountry": "IN"
+  <style>
+    /* Premium About Page Styles */
+    .about-cinematic-hero {
+      min-height: 85vh;
+      background: var(--color-navy);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding-top: 100px; /* Header clearance */
+      padding-bottom: 4rem;
     }
-  }
-  </script>
-</head>
-<body>
 
-<!-- Skip link -->
+    .about-hero-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.2;
+      background-image: url('assets/images/clinic-interior.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      filter: grayscale(50%) contrast(1.2);
+    }
+
+    .about-hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--color-navy) 40%, rgba(16,47,64,0.4) 100%);
+      z-index: 1;
+    }
+
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+      max-width: 900px;
+    }
+
+    .about-hero-eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-champagne);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .about-hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .about-hero-lead {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* History & Philosophy Grid */
+    .editorial-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 6rem 0;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .editorial-split {
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+      }
+    }
+
+    .editorial-text h2 {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      color: var(--color-navy);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .editorial-text p {
+      color: #4B5563;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .editorial-image-frame {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(16,47,64,0.15);
+      aspect-ratio: 4/5;
+    }
+
+    .editorial-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Technology Section */
+    .tech-section {
+      background: #FAF9F6;
+      padding: 6rem 0;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .tech-card {
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(16,47,64,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(16,47,64,0.08);
+      border-color: var(--color-teal);
+    }
+
+    .tech-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0,142,155,0.1);
+      color: var(--color-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Team Section Styles Updates */
+    .team-showcase-section {
+      padding: 6rem 0;
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body class="premium-theme" style="background:#ffffff;">
+
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- Announcement Bar -->
-<div class="announce-bar" role="region" aria-label="Site announcement">
-  Video Consultations Now Available — Connect with our therapists from home.
-  <a href="video-consultation.html">Book Now &rarr;</a>
-</div>
-
 <!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
-      <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
+      <img src="assets/images/logo.png" style="filter: brightness(0) invert(1);" alt="Aarav Clinics" class="brand-logo logo-dark" width="200" height="60" style="display:none;">
+      <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo logo-light" width="200" height="60">
     </a>
 
     <!-- Desktop Nav -->
     <nav class="main-nav" aria-label="Primary navigation">
       <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link is-active">About</a>
-        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link is-active">About</a></li>
         <li class="nav-item">
           <a href="services.html" class="nav-link" aria-haspopup="true">
             Services
             <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
-          <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
-            <div class="mega-cols">
-              <div>
-                <p class="mega-group-title">Physiotherapy</p>
-                <a href="physiotherapy.html" class="nav-drop-link">Physiotherapy</a>
-                <a href="sports-rehabilitation.html" class="nav-drop-link">Sports Rehabilitation</a>
-                <a href="post-surgical-rehabilitation.html" class="nav-drop-link">Post-Surgical Rehab</a>
-                <a href="stroke-rehabilitation.html" class="nav-drop-link">Stroke Rehabilitation</a>
-                <a href="chiropractic.html" class="nav-drop-link">Chiropractic Care</a>
-                <a href="laser-therapy.html" class="nav-drop-link">Laser Therapy</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Child Development</p>
-                <a href="pediatric-physiotherapy.html" class="nav-drop-link">Pediatric Physiotherapy</a>
-                <a href="speech-therapy.html" class="nav-drop-link">Speech Therapy</a>
-                <a href="occupational-therapy.html" class="nav-drop-link">Occupational Therapy</a>
-                <a href="autism-therapy.html" class="nav-drop-link">Autism Therapy</a>
-                <a href="child-development.html" class="nav-drop-link">Child Development Centre</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Flexible Care</p>
-                <a href="home-physiotherapy.html" class="nav-drop-link">Home Physiotherapy</a>
-                <a href="video-consultation.html" class="nav-drop-link">Video Consultation</a>
-                <a href="services.html" class="nav-drop-link">All Services</a>
-              </div>
-            </div>
-          </div>
         </li>
-        <li class="nav-item">
-          <a href="child-development.html" class="nav-link">Child Development</a>
-        </li>
-        <li class="nav-item">
-          <a href="team.html" class="nav-link">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a href="blog.html" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
-        </li>
+        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
 
     <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
       Book Appointment
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
-    <!-- Mobile toggle -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Mobile Menu -->
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-  <div class="mobile-menu-inner">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="about.html" class="mobile-nav-link" style="color:var(--teal);">About</a>
-
-    <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
-      Services
-      <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div id="mobileServSub" class="mobile-nav-sub">
-      <a href="physiotherapy.html">Physiotherapy</a>
-      <a href="sports-rehabilitation.html">Sports Rehabilitation</a>
-      <a href="post-surgical-rehabilitation.html">Post-Surgical Rehab</a>
-      <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
-      <a href="chiropractic.html">Chiropractic Care</a>
-      <a href="laser-therapy.html">Laser Therapy</a>
-      <a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a>
-      <a href="speech-therapy.html">Speech Therapy</a>
-      <a href="occupational-therapy.html">Occupational Therapy</a>
-      <a href="autism-therapy.html">Autism Therapy</a>
-      <a href="child-development.html">Child Development Centre</a>
-      <a href="home-physiotherapy.html">Home Physiotherapy</a>
-      <a href="video-consultation.html">Video Consultation</a>
-    </div>
-
-    <a href="child-development.html" class="mobile-nav-link">Child Development</a>
-    <a href="team.html" class="mobile-nav-link">Our Team</a>
-    <a href="blog.html" class="mobile-nav-link">Blog</a>
-    <a href="contact.html" class="mobile-nav-link">Contact</a>
-  </div>
-  <div class="mobile-menu-ctas">
-    <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
-    <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      WhatsApp Us
-    </a>
-  </div>
-</nav>
-
 <!-- Main -->
 <main id="main">
 
-  <!-- Page Hero -->
-  <section class="page-hero" aria-label="About Aarav Clinics">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">About Us</span>
-      </nav>
-
-      <div class="page-hero-badge">Clinical Excellence &amp; Compassion</div>
-      <h1 class="page-hero-title">Dedicated to Whole-Family Rehabilitation &amp; Development</h1>
-      <p class="page-hero-lead">
-        Aarav Clinics was founded with a singular conviction: recovery and developmental care must be individualized, evidence-based, and delivered with genuine human empathy.
+  <!-- CINEMATIC HERO -->
+  <section class="about-cinematic-hero">
+    <div class="about-hero-bg gsap-parallax" data-speed="0.2"></div>
+    <div class="about-hero-gradient"></div>
+    <div class="wrap about-hero-content">
+      <span class="about-hero-eyebrow gsap-reveal-up">Our Story &amp; Philosophy</span>
+      <h1 class="about-hero-title">
+        <span class="mask-line"><span class="gsap-title-reveal">Redefining Recovery</span></span><br>
+        <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-champagne);">Through Empathy.</span></span>
+      </h1>
+      <p class="about-hero-lead gsap-reveal-up">
+        Aarav Clinics was founded with a singular conviction: recovery and developmental care must be individualized, evidence-based, and delivered with genuine human compassion.
       </p>
-
-      <div class="page-hero-actions">
-        <a href="contact.html#appointment" class="btn btn-primary">Book Consultation</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          WhatsApp Us
+      <div class="gsap-reveal-up">
+        <a href="#story" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3); color:#fff;">
+          Discover Our Approach <i data-lucide="arrow-down" style="margin-left:8px;"></i>
         </a>
       </div>
-
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Multidisciplinary Clinic
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Adult &amp; Pediatric Care
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Ashok Nagar, Hyderabad
-        </span>
-      </div>
     </div>
   </section>
 
-  <!-- Clinic Story & Philosophy -->
-  <section class="section section--white">
-    <div class="wrap split">
-      <div class="about-image-wrap reveal-left">
-        <div class="about-image-main img-reveal">
-          <img src="assets/images/clinic-interior.jpg" alt="Aarav Clinics treatment facility in Ashok Nagar, Hyderabad" width="600" height="750" loading="lazy">
-        </div>
-      </div>
-
-      <div class="about-copy reveal-right">
-        <span class="eyebrow">Our Story</span>
-        <h2 class="section-title">Where rehabilitation meets compassionate healthcare.</h2>
+  <!-- STORY SECTION -->
+  <section id="story" style="background:#ffffff;">
+    <div class="wrap editorial-split">
+      <div class="editorial-text gsap-reveal-left">
+        <span class="eyebrow" style="color:var(--color-teal); font-weight:800; text-transform:uppercase; letter-spacing:0.1em;">The Aarav Standard</span>
+        <h2>Where Clinical Excellence Meets Compassionate Care.</h2>
         <p>
-          Located in Ashok Nagar, Hyderabad, Aarav Clinics brings together specialized physiotherapy, neurological rehabilitation, and comprehensive child development therapies under one roof.
+          Located in Ashok Nagar, Hyderabad, Aarav Clinics brings together specialized physiotherapy, neurological rehabilitation, and comprehensive child development therapies under a single, highly integrated roof.
         </p>
         <p>
-          Too often, patients and parents find themselves shuttling between isolated clinics for physical rehabilitation, speech therapy, and occupational support. We built Aarav Clinics as an integrated sanctuary where multidisciplinary specialists collaborate directly on each patient's care plan.
+          Too often, patients and parents find themselves shuttling between isolated clinics for physical rehabilitation, speech therapy, and occupational support. We built Aarav Clinics as a sanctuary where multidisciplinary specialists collaborate directly on each patient's tailored care plan.
         </p>
-        <div class="benefits-box" style="margin-top:var(--space-6);margin-bottom:0;">
-          <h3 class="benefits-box-title" style="font-size:var(--text-lg);margin-bottom:var(--space-3);">Our Care Commitments</h3>
-          <ul class="benefits-checklist">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Evidence-based clinical protocols
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Child-friendly, stress-free space
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Measurable progress tracking
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Transparent communication &amp; fees
-            </li>
-          </ul>
+        <div style="margin-top:2rem; display:flex; gap:2rem;">
+          <div>
+            <div style="font-size:2rem; font-weight:800; color:var(--color-navy);">15+</div>
+            <div style="font-size:0.85rem; font-weight:700; color:#6B7A8D; text-transform:uppercase;">Specialties</div>
+          </div>
+          <div>
+            <div style="font-size:2rem; font-weight:800; color:var(--color-navy);">100%</div>
+            <div style="font-size:0.85rem; font-weight:700; color:#6B7A8D; text-transform:uppercase;">Tailored Plans</div>
+          </div>
+        </div>
+      </div>
+      <div class="editorial-image-frame gsap-clip-reveal">
+        <img src="assets/images/clinic-interior.jpg" alt="Aarav Clinics interior facility" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY & FACILITIES -->
+  <section class="tech-section">
+    <div class="wrap">
+      <div style="text-align:center; max-width:700px; margin:0 auto;" class="gsap-reveal-up">
+        <span class="eyebrow" style="color:var(--color-teal); font-weight:800; text-transform:uppercase; letter-spacing:0.1em;">Verified Facilities</span>
+        <h2 style="font-size:clamp(2rem, 3vw, 2.75rem); color:var(--color-navy); margin-bottom:1rem; font-weight:800; letter-spacing:-0.02em;">Advanced Treatment Technology</h2>
+        <p style="color:#6B7A8D; font-size:1.1rem; line-height:1.7;">From specialized pediatric sensory gyms to Class IV laser therapy for adults, we invest in the precise tools required to accelerate your healing and development.</p>
+      </div>
+      
+      <div class="tech-grid">
+        <div class="tech-card gsap-reveal-up">
+          <div class="tech-icon"><i data-lucide="zap"></i></div>
+          <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:0.75rem;">Class IV Laser Therapy</h3>
+          <p style="color:#4B5563; font-size:0.95rem; line-height:1.6;">Cutting-edge photobiomodulation for rapid pain relief and cellular tissue repair, significantly reducing recovery times.</p>
+        </div>
+        <div class="tech-card gsap-reveal-up" style="transition-delay:0.1s">
+          <div class="tech-icon"><i data-lucide="activity"></i></div>
+          <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:0.75rem;">Sensory Integration Gym</h3>
+          <p style="color:#4B5563; font-size:0.95rem; line-height:1.6;">A fully equipped, safe, and engaging environment designed specifically for pediatric occupational and autism therapies.</p>
+        </div>
+        <div class="tech-card gsap-reveal-up" style="transition-delay:0.2s">
+          <div class="tech-icon"><i data-lucide="users"></i></div>
+          <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:0.75rem;">Multidisciplinary Collaboration</h3>
+          <p style="color:#4B5563; font-size:0.95rem; line-height:1.6;">Our speech, physio, and occupational therapists meet weekly to synchronize treatment modalities for complex cases.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Core Pillars -->
-  <section class="section section--surface">
+  <!-- TEAM SHOWCASE -->
+  <section class="team-showcase-section">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Our Pillars</span>
-        <h2 class="section-title">Four foundations of our clinical practice</h2>
-        <p class="lead">Every therapy program at Aarav Clinics is guided by four uncompromising standards.</p>
+      <div style="text-align:center; margin-bottom:4rem;" class="gsap-reveal-up">
+        <span class="eyebrow" style="color:var(--color-teal); font-weight:800; text-transform:uppercase; letter-spacing:0.1em;">Clinical Leadership</span>
+        <h2 style="font-size:clamp(2rem, 3vw, 2.75rem); color:var(--color-navy); font-weight:800; letter-spacing:-0.02em;">Meet The Specialists</h2>
       </div>
-
-      <div class="grid-4 stagger">
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>Multidisciplinary Sync</h3>
-          <p>Our physiotherapists, speech therapists, and occupational therapists meet regularly to ensure each patient's therapies reinforce one another.</p>
-        </div>
-
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <h3>Objective Assessments</h3>
-          <p>We do not guess. Standardized clinical evaluations and ongoing milestone assessments guide every treatment milestone.</p>
-        </div>
-
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Modern Technology</h3>
-          <p>From Class IV laser therapy to sensory integration equipment and electrotherapy, we invest in tools that speed recovery.</p>
-        </div>
-
-        <div class="why-card reveal">
-          <div class="why-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3>Flexible Access</h3>
-          <p>We believe therapy should fit your life: clinic appointments, home visit physiotherapy across Hyderabad, or secure video consults.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clinic Team Teaser -->
-  <section class="section section--white">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Our Specialists</span>
-        <h2 class="section-title">Lead therapists guiding your care</h2>
-        <p class="lead">Qualified clinical professionals dedicated to patient outcomes and developmental milestones.</p>
-      </div>
-
-      <div class="grid-3" style="margin-top:var(--space-8);">
-        <div class="team-profile-card reveal">
-          <div class="team-profile-header">
-            <div class="team-avatar">SR</div>
-            <div class="team-header-meta">
-              <h3>Dr. Sneha Reddy</h3>
-              <span class="team-badge-tag">Physiotherapy</span>
-            </div>
-          </div>
-          <div class="team-profile-body">
-            <div class="team-credential-line">Lead Physiotherapist (MPT Neuro)</div>
-            <p class="team-bio">Specialising in neuro and orthopedic rehabilitation, stroke recovery, and post-surgical movement restoration.</p>
+      
+      <div class="team-premium-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2.5rem;">
+        
+        <!-- Dr. Sneha Reddy -->
+        <div class="team-premium-card gsap-reveal-up" style="background:#FAF9F6; border-radius:16px; overflow:hidden; border:1px solid rgba(16,47,64,0.05);">
+          <div style="aspect-ratio:1; background:linear-gradient(135deg, var(--color-navy), #1A4A63); display:flex; align-items:center; justify-content:center; color:#fff; font-size:3rem; font-weight:800; opacity:0.9;">SR</div>
+          <div style="padding:2rem;">
+            <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:0.25rem;">Dr. Sneha Reddy</h3>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--color-teal); display:block; margin-bottom:1rem;">Lead Physiotherapist (MPT Neuro)</span>
+            <p style="color:#4B5563; font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">Expertise in neuro-rehab, stroke recovery, and complex orthopaedic conditions.</p>
+            <a href="dr-sneha-reddy.html" class="btn btn-outline" style="width:100%; justify-content:center;">View Full Profile</a>
           </div>
         </div>
 
-        <div class="team-profile-card reveal">
-          <div class="team-profile-header">
-            <div class="team-avatar">KV</div>
-            <div class="team-header-meta">
-              <h3>Dr. Karthik Varma</h3>
-              <span class="team-badge-tag">Speech &amp; Language</span>
-            </div>
-          </div>
-          <div class="team-profile-body">
-            <div class="team-credential-line">Speech-Language Pathologist (MASLP)</div>
-            <p class="team-bio">Helping children and adults overcome speech delay, articulation hurdles, stammering, and swallowing difficulties.</p>
+        <!-- Dr. Karthik Varma -->
+        <div class="team-premium-card gsap-reveal-up" style="transition-delay:0.1s; background:#FAF9F6; border-radius:16px; overflow:hidden; border:1px solid rgba(16,47,64,0.05);">
+          <div style="aspect-ratio:1; background:linear-gradient(135deg, var(--color-navy), #1A4A63); display:flex; align-items:center; justify-content:center; color:#fff; font-size:3rem; font-weight:800; opacity:0.9;">KV</div>
+          <div style="padding:2rem;">
+            <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:0.25rem;">Dr. Karthik Varma</h3>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--color-teal); display:block; margin-bottom:1rem;">Speech-Language Pathologist</span>
+            <p style="color:#4B5563; font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">Specializes in pediatric speech delay and adult neurogenic communication.</p>
+            <a href="dr-karthik-varma.html" class="btn btn-outline" style="width:100%; justify-content:center;">View Full Profile</a>
           </div>
         </div>
 
-        <div class="team-profile-card reveal">
-          <div class="team-profile-header">
-            <div class="team-avatar">AI</div>
-            <div class="team-header-meta">
-              <h3>Dr. Ananya Iyer</h3>
-              <span class="team-badge-tag">Child Development</span>
-            </div>
-          </div>
-          <div class="team-profile-body">
-            <div class="team-credential-line">Pediatric &amp; Occupational Therapist</div>
-            <p class="team-bio">Expert in sensory processing, fine motor skills, and individualized developmental programs for autistic children.</p>
+        <!-- Dr. Ananya Iyer -->
+        <div class="team-premium-card gsap-reveal-up" style="transition-delay:0.2s; background:#FAF9F6; border-radius:16px; overflow:hidden; border:1px solid rgba(16,47,64,0.05);">
+          <div style="aspect-ratio:1; background:linear-gradient(135deg, var(--color-navy), #1A4A63); display:flex; align-items:center; justify-content:center; color:#fff; font-size:3rem; font-weight:800; opacity:0.9;">AI</div>
+          <div style="padding:2rem;">
+            <h3 style="font-size:1.25rem; font-weight:800; color:var(--color-navy); margin-bottom:0.25rem;">Dr. Ananya Iyer</h3>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--color-teal); display:block; margin-bottom:1rem;">Occupational Therapist</span>
+            <p style="color:#4B5563; font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">Focuses on sensory integration and fine motor skills for children on the spectrum.</p>
+            <a href="dr-ananya-iyer.html" class="btn btn-outline" style="width:100%; justify-content:center;">View Full Profile</a>
           </div>
         </div>
-      </div>
 
-      <div style="text-align:center;margin-top:var(--space-8);">
-        <a href="team.html" class="btn btn-secondary">Learn More About Our Team</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section cta-section" aria-label="Book an appointment">
-    <div class="wrap">
-      <div class="cta-inner reveal">
-        <span class="eyebrow">Start Your Journey</span>
-        <h2>Experience personalized therapy care at Aarav Clinics.</h2>
-        <p>Book your clinical evaluation or reach out directly over WhatsApp for appointment timings.</p>
-        <div class="cta-actions">
-          <a href="contact.html#appointment" class="btn btn-primary btn--lg">Book an Appointment</a>
-          <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-            WhatsApp Us
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -407,14 +375,8 @@
       </a>
       <p>Complete family therapy care — physiotherapy, rehabilitation and child development services in Ashok Nagar, Hyderabad.</p>
       <div class="footer-contact-links">
-        <a href="tel:+916302882910">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +91 63028 82910
-        </a>
-        <a href="mailto:aaravphysioclinics@gmail.com">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          aaravphysioclinics@gmail.com
-        </a>
+        <a href="tel:+916302882910"><i data-lucide="phone"></i> +91 63028 82910</a>
+        <a href="mailto:aaravphysioclinics@gmail.com"><i data-lucide="mail"></i> aaravphysioclinics@gmail.com</a>
       </div>
     </div>
 
@@ -427,19 +389,6 @@
         <li><a href="autism-therapy.html">Autism Therapy</a></li>
         <li><a href="stroke-rehabilitation.html">Stroke Rehabilitation</a></li>
         <li><a href="laser-therapy.html">Laser Therapy</a></li>
-        <li><a href="home-physiotherapy.html">Home Physiotherapy</a></li>
-        <li><a href="video-consultation.html">Video Consultation</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Child Development</h4>
-      <ul>
-        <li><a href="child-development.html">Child Development Centre</a></li>
-        <li><a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
       </ul>
     </div>
 
@@ -450,7 +399,7 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="team.html">Our Team</a></li>
         <li><a href="services.html">All Services</a></li>
-        <li><a href="blog.html">Blog &amp; Articles</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
@@ -458,16 +407,10 @@
     <div class="footer-col footer-col--hours">
       <h4>Clinic Hours</h4>
       <div class="footer-hours">
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Mon – Sat</span>
-          <span class="footer-hours-time">9:00 AM – 6:00 PM</span>
-        </div>
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Sunday</span>
-          <span class="footer-hours-time">By Appointment</span>
-        </div>
+        <div class="footer-hours-row"><span class="footer-hours-day">Mon – Sat</span><span class="footer-hours-time">9:00 AM – 6:00 PM</span></div>
+        <div class="footer-hours-row"><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">By Appointment</span></div>
       </div>
-      <div style="margin-top:var(--space-5);">
+      <div style="margin-top:1.5rem;">
         <a href="contact.html#appointment" class="btn btn-primary btn--sm">Book Appointment</a>
       </div>
     </div>
@@ -479,32 +422,8 @@
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
     </div>
-    <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      </a>
-      <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg>
-      </a>
-    </div>
   </div>
 </footer>
-
-<!-- Mobile FAB -->
-<div class="mobile-fab-bar" aria-label="Quick contact actions">
-  <a href="tel:+916302882910" class="mobile-fab-btn mobile-fab-btn--call" aria-label="Call Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call
-  </a>
-  <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="mobile-fab-btn mobile-fab-btn--wa" aria-label="WhatsApp Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24z"/></svg>
-    WhatsApp
-  </a>
-  <a href="contact.html#appointment" class="mobile-fab-btn mobile-fab-btn--book" aria-label="Book appointment">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Book
-  </a>
-</div>
 
 <!-- Scripts -->
 <script src="js/navigation.js"></script>

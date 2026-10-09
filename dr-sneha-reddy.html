@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Sneha Reddy – Lead Physiotherapist | Aarav Clinics</title>
+  <meta name="description" content="Profile of Dr. Sneha Reddy, MPT (Neuro), Lead Physiotherapist at Aarav Clinics. Specializing in stroke rehabilitation, spine recovery, and post-surgical protocols.">
+  <link rel="canonical" href="https://aaravhealthcare.com/dr-sneha-reddy.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://aaravhealthcare.com/dr-sneha-reddy.html">
+  <meta property="og:title" content="Dr. Sneha Reddy – Physiotherapy & Rehab">
+  <meta property="og:description" content="Lead Physiotherapist specializing in Neurological and Orthopedic Physical Therapy.">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/inner.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Schema.org for Professional -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Sneha Reddy",
+    "jobTitle": "Lead Physiotherapist",
+    "description": "Lead Physiotherapist specializing in Neurological and Orthopedic Physical Therapy.",
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "Aarav Clinics",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ashok Nagar",
+        "addressRegion": "Hyderabad"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    /* Profile Page Specific Variables */
+    :root {
+      --profile-bg: #FAF9F6;
+      --profile-border: rgba(16, 47, 64, 0.08);
+      --profile-accent: rgba(208, 167, 106, 0.15); /* Champagne accent */
+    }
+
+    /* Profile Hero Grid */
+    .profile-hero {
+      background: var(--profile-bg);
+      min-height: 85vh;
+      padding-top: 7.5rem;
+      padding-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    
+    .profile-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 960px) {
+      .profile-hero-grid {
+        grid-template-columns: 45% 55%;
+        gap: 4.5rem;
+      }
+    }
+
+    /* Image Wrapper */
+    .profile-img-wrap {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .profile-img-box {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 32px 72px rgba(16,47,64,0.12);
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--color-navy) 0%, #1A4A63 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .profile-placeholder-text {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 2rem;
+      font-weight: 500;
+    }
+
+    .profile-placeholder-initials {
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.2);
+      position: absolute;
+    }
+    
+    .profile-badge {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 16px 40px rgba(16,47,64,0.12);
+      border: 1px solid rgba(0,142,155,0.14);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 3;
+    }
+    
+    .profile-badge-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(0,142,155,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-teal);
+      flex-shrink: 0;
+    }
+
+    /* Info Grid */
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--profile-border);
+    }
+    
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6B7A8D;
+      font-weight: 700;
+    }
+    
+    .stat-value {
+      font-size: 1.05rem;
+      color: var(--color-navy);
+      font-weight: 600;
+    }
+
+    /* Content Layout */
+    .profile-content-section {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+    
+    .profile-content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    @media (min-width: 960px) {
+      .profile-content-grid {
+        grid-template-columns: 2fr 1fr;
+        gap: 5rem;
+      }
+    }
+    
+    /* Section Headings */
+    .profile-h3 {
+      font-size: clamp(1.3rem, 2vw, 1.6rem);
+      color: var(--color-navy);
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .profile-h3 i {
+      color: var(--color-teal);
+    }
+
+    /* Experience Timeline */
+    .timeline-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .timeline-item {
+      padding-left: 1.75rem;
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-teal);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px rgba(0,142,155,0.2);
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 20px;
+      bottom: -1.5rem;
+      width: 2px;
+      background: rgba(0,142,155,0.15);
+    }
+    
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    /* Qualifications Card */
+    .qual-card {
+      background: var(--profile-bg);
+      border-radius: 16px;
+      padding: 1.75rem;
+      border: 1px solid var(--profile-border);
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .qual-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: #ffffff;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-champagne);
+      box-shadow: 0 4px 12px rgba(16,47,64,0.05);
+      flex-shrink: 0;
+    }
+
+    /* Expertise Tags */
+    .expertise-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    
+    .expertise-tag {
+      background: #ffffff;
+      border: 1px solid var(--profile-border);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
+    }
+    
+    .expertise-tag:hover {
+      border-color: var(--color-teal);
+      color: var(--color-teal);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,142,155,0.08);
+    }
+
+    /* Side Panel */
+    .profile-sidebar {
+      background: var(--profile-bg);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid var(--profile-border);
+      position: sticky;
+      top: 100px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(16, 47, 64, 0.06);
+    }
+    
+    .sidebar-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body class="premium-theme" style="background:#ffffff;">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Header -->
+<header class="site-header theme-transparent theme-light" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
+      <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo" width="200" height="60">
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="main-nav" aria-label="Primary navigation">
+      <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item">
+          <a href="services.html" class="nav-link" aria-haspopup="true">
+            Services
+            <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+        </li>
+        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link is-active">Our Team</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
+      Book Appointment
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Main -->
+<main id="main">
+
+  <!-- PROFILE HERO -->
+  <section class="profile-hero">
+    <!-- Ambient subtle background motion -->
+    <div style="position:absolute; top:-100px; right:5%; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(0,142,155,0.06) 0%, transparent 70%); filter:blur(40px); pointer-events:none; z-index:0;"></div>
+    
+    <div class="wrap" style="position:relative; z-index:2; width:100%;">
+      <div class="profile-hero-grid">
+        
+        <!-- Left: Image Reveal -->
+        <div class="profile-img-wrap gsap-clip-reveal">
+          <div class="profile-img-box">
+            <!-- PENDING VERIFIED PHOTO. Using a branded placeholder per instructions. -->
+            <div class="profile-placeholder-initials">SR</div>
+            <div class="profile-placeholder-text">
+              <i data-lucide="image" style="width:24px;height:24px; opacity:0.5; margin-bottom:0.5rem;"></i><br>
+              Photo pending verification
+            </div>
+          </div>
+          
+          <div class="profile-badge gsap-reveal-left">
+            <div class="profile-badge-icon">
+              <i data-lucide="activity" style="width:20px;height:20px;"></i>
+            </div>
+            <div>
+              <div style="font-size:0.75rem; font-weight:800; color:var(--color-navy); line-height:1.2;">Lead Physiotherapist</div>
+              <div style="font-size:0.7rem; color:#6B7A8D; font-weight:600;">Aarav Clinics</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Professional Credentials -->
+        <div class="hero-text-block">
+          <nav class="breadcrumb gsap-reveal-left" aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
+            <a href="index.html" style="color:#6B7A8D; font-size:0.8rem;">Home</a>
+            <span style="color:#CBD5E0; margin:0 0.4rem;">/</span>
+            <a href="team.html" style="color:#6B7A8D; font-size:0.8rem;">Our Team</a>
+            <span style="color:#CBD5E0; margin:0 0.4rem;">/</span>
+            <span style="color:var(--color-navy); font-size:0.8rem; font-weight:600;">Dr. Sneha Reddy</span>
+          </nav>
+
+          <h1 class="hero-giant-title" style="color:var(--color-navy); margin-bottom:0.5rem; font-size:clamp(2.4rem, 3.5vw, 3rem); line-height:1.15; ">
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-navy);">Dr. Sneha Reddy</span></span>
+          </h1>
+          
+          <div class="gsap-reveal-up" style="font-size:1.15rem; color:var(--color-teal); font-weight:700; margin-bottom:1.5rem;">
+            MPT (Neuro)
+          </div>
+
+          <p class="gsap-reveal-up" style="color:#374151; font-size:clamp(0.95rem, 1.1vw, 1.05rem); max-width:540px; margin-bottom:0;">
+            With advanced post-graduate specialization in neurological and orthopedic physical therapy, Dr. Sneha Reddy guides patient recovery across complex stroke rehabilitation, spinal disc injuries, joint restoration, and post-operative mobility protocols.
+          </p>
+
+          <div class="profile-stats gsap-reveal-up">
+            <div class="stat-item">
+              <span class="stat-label">Specialization</span>
+              <span class="stat-value">Physiotherapy & Rehab</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Status</span>
+              <span class="stat-value" style="display:flex; align-items:center; gap:0.4rem;">
+                <span style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></span> Accepting Patients
+              </span>
+            </div>
+          </div>
+          
+          <div class="hero-cta-group gsap-reveal-up" style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2.5rem;">
+            <a href="contact.html#appointment" class="btn btn-primary btn-large">
+              Book Consultation <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20consult%20with%20Dr.%20Sneha%20Reddy" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-large">
+              WhatsApp Inquiry
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="profile-content-section">
+    <div class="wrap">
+      <div class="profile-content-grid">
+        
+        <!-- Left: Main Details -->
+        <div class="profile-main-content">
+          
+          <!-- Bio -->
+          <div style="margin-bottom:4rem;" class="gsap-reveal-up">
+            <h2 class="profile-h3"><i data-lucide="user"></i> Professional Biography</h2>
+            <div style="color:#4B5563; line-height:1.75; font-size:0.98rem; display:flex; flex-direction:column; gap:1rem;">
+              <p>Dr. Sneha Reddy is the Lead Physiotherapist at Aarav Clinics, bringing a wealth of specialized knowledge in neurological and orthopedic rehabilitation. She is deeply committed to evidence-based practice and utilizes a patient-first approach to restore mobility, alleviate pain, and improve overall quality of life.</p>
+              <p>Her clinical philosophy centers on the understanding that every patient's recovery journey is unique. Whether addressing the complexities of post-stroke neural recovery or facilitating safe rehabilitation after orthopedic surgery, Dr. Reddy designs highly individualized protocols that integrate manual therapy, targeted exercise, and modern modalities.</p>
+            </div>
+          </div>
+
+          <!-- Clinical Expertise -->
+          <div style="margin-bottom:4rem;" class="gsap-reveal-up">
+            <h2 class="profile-h3"><i data-lucide="target"></i> Clinical Expertise</h2>
+            <p style="color:#6B7A8D; font-size:0.9rem; margin-bottom:1.5rem;">Verified areas of specialized practice and treatment focus.</p>
+            <div class="expertise-grid">
+              <span class="expertise-tag"><i data-lucide="activity"></i> Stroke Recovery</span>
+              <span class="expertise-tag"><i data-lucide="move"></i> Spine Rehabilitation</span>
+              <span class="expertise-tag"><i data-lucide="scissors"></i> Post-Surgical Protocols</span>
+              <span class="expertise-tag"><i data-lucide="zap"></i> Laser Therapy</span>
+              <span class="expertise-tag"><i data-lucide="bone"></i> Joint Restoration</span>
+              <span class="expertise-tag"><i data-lucide="user-check"></i> Neurological Physiotherapy</span>
+            </div>
+          </div>
+
+          <!-- Qualifications -->
+          <div style="margin-bottom:4rem;" class="gsap-reveal-up">
+            <h2 class="profile-h3"><i data-lucide="award"></i> Qualifications & Credentials</h2>
+            <div class="qual-card">
+              <div class="qual-icon"><i data-lucide="graduation-cap"></i></div>
+              <div>
+                <h4 style="font-size:1.05rem; font-weight:700; color:var(--color-navy); margin-bottom:0.25rem;">Master of Physiotherapy (MPT)</h4>
+                <p style="font-size:0.875rem; color:#6B7A8D; margin:0;">Specialization in Neurological Physiotherapy</p>
+              </div>
+            </div>
+            <div class="qual-card">
+              <div class="qual-icon"><i data-lucide="file-badge"></i></div>
+              <div>
+                <h4 style="font-size:1.05rem; font-weight:700; color:var(--color-navy); margin-bottom:0.25rem;">Registered Physiotherapist</h4>
+                <p style="font-size:0.875rem; color:#6B7A8D; margin:0;">Verified professional licensure.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Sidebar -->
+        <aside>
+          <div class="profile-sidebar gsap-reveal-up">
+            
+            <div class="sidebar-section">
+              <h4 style="font-size:0.95rem; font-weight:800; color:var(--color-navy); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1.25rem;">Consultation Options</h4>
+              
+              <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:1rem;">
+                <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+                  <i data-lucide="map-pin" style="color:var(--color-teal); width:18px;height:18px; flex-shrink:0; margin-top:2px;"></i>
+                  <div>
+                    <div style="font-weight:700; font-size:0.9rem; color:var(--color-navy);">In-Clinic Assessment</div>
+                    <div style="font-size:0.8rem; color:#6B7A8D;">Ashok Nagar, Hyderabad</div>
+                  </div>
+                </li>
+                <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+                  <i data-lucide="video" style="color:var(--color-teal); width:18px;height:18px; flex-shrink:0; margin-top:2px;"></i>
+                  <div>
+                    <div style="font-weight:700; font-size:0.9rem; color:var(--color-navy);">Video Consultation</div>
+                    <div style="font-size:0.8rem; color:#6B7A8D;">Available for follow-ups & exercise review</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="sidebar-section">
+              <h4 style="font-size:0.95rem; font-weight:800; color:var(--color-navy); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:1.25rem;">Related Services</h4>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <a href="physiotherapy.html" style="font-size:0.85rem; font-weight:600; color:#4B5563; text-decoration:none; display:flex; justify-content:space-between; align-items:center; padding:0.5rem; border-radius:8px; transition:background 0.2s;">
+                  Physiotherapy <i data-lucide="chevron-right" style="width:14px;height:14px;"></i>
+                </a>
+                <a href="stroke-rehabilitation.html" style="font-size:0.85rem; font-weight:600; color:#4B5563; text-decoration:none; display:flex; justify-content:space-between; align-items:center; padding:0.5rem; border-radius:8px; transition:background 0.2s;">
+                  Stroke Rehabilitation <i data-lucide="chevron-right" style="width:14px;height:14px;"></i>
+                </a>
+                <a href="post-surgical-rehabilitation.html" style="font-size:0.85rem; font-weight:600; color:#4B5563; text-decoration:none; display:flex; justify-content:space-between; align-items:center; padding:0.5rem; border-radius:8px; transition:background 0.2s;">
+                  Post-Surgical Rehab <i data-lucide="chevron-right" style="width:14px;height:14px;"></i>
+                </a>
+              </div>
+            </div>
+
+            <a href="contact.html#appointment" class="btn btn-primary" style="width:100%; justify-content:center;">Book Appointment</a>
+            
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+
+</body>
+</html>

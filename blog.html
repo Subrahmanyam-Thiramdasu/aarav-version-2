@@ -14,12 +14,6 @@
   <meta property="og:description" content="Practical health advice and developmental therapy guides written by qualified therapists in Hyderabad.">
   <meta property="og:image" content="https://aaravhealthcare.com/assets/images/blog-back-pain.jpg">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Health &amp; Rehabilitation Blog – Aarav Clinics">
-  <meta name="twitter:description" content="Expert insights on physiotherapy, stroke recovery, speech delay and pediatric developmental milestones.">
-  <meta name="twitter:image" content="https://aaravhealthcare.com/assets/images/blog-back-pain.jpg">
-
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +21,11 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
@@ -50,293 +49,395 @@
     "description": "Evidence-based articles on physiotherapy, neuro recovery, and child milestones from Aarav Clinics specialists."
   }
   </script>
-</head>
-<body>
 
-<!-- Skip link -->
+  <style>
+    /* Premium Editorial Blog Styles */
+    .blog-hero {
+      padding: 10rem 0 6rem;
+      background: var(--color-navy);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(0, 142, 155, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .blog-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* Category Filter */
+    .blog-categories {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .category-pill {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      color: #ffffff;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .category-pill:hover,
+    .category-pill.active {
+      background: var(--color-teal);
+      border-color: var(--color-teal);
+      color: var(--color-navy);
+    }
+
+    /* Featured Article Layout */
+    .featured-editorial {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 6rem 0;
+    }
+
+    @media (min-width: 960px) {
+      .featured-editorial {
+        grid-template-columns: 55% 45%;
+      }
+    }
+
+    .featured-media {
+      position: relative;
+      aspect-ratio: 16/10;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(16,47,64,0.15);
+    }
+
+    .featured-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .featured-editorial:hover .featured-media img {
+      transform: scale(1.03);
+    }
+
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .featured-tag {
+      color: var(--color-teal);
+    }
+
+    .featured-time {
+      color: #6B7A8D;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .featured-editorial h2 {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--color-navy);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    
+    .featured-editorial h2 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Standard Grid Layout */
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 3rem;
+      padding-top: 2rem;
+    }
+
+    .editorial-card {
+      display: flex;
+      flex-direction: column;
+      group;
+      text-decoration: none;
+    }
+
+    .editorial-card-media {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      position: relative;
+      background: #f1f5f9;
+    }
+
+    .editorial-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .editorial-card:hover .editorial-card-media img {
+      transform: scale(1.05);
+    }
+
+    .editorial-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .editorial-card-tag {
+      color: var(--color-teal);
+    }
+    
+    .editorial-card-date {
+      color: #6B7A8D;
+    }
+
+    .editorial-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .editorial-card:hover h3 {
+      color: var(--color-teal);
+    }
+
+    .editorial-card p {
+      color: #4B5563;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .editorial-author-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    
+    .editorial-author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    
+    .editorial-author-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-navy);
+    }
+  </style>
+</head>
+<body class="premium-theme" style="background:#ffffff;">
+
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- Announcement Bar -->
-<div class="announce-bar" role="region" aria-label="Site announcement">
-  Video Consultations Now Available — Connect with our therapists from home.
-  <a href="video-consultation.html">Book Now &rarr;</a>
-</div>
-
 <!-- Header -->
-<header class="site-header" id="siteHeader">
+<header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
-      <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
+      <img src="assets/images/logo.png" style="filter: brightness(0) invert(1);" alt="Aarav Clinics" class="brand-logo logo-dark" width="200" height="60" style="display:none;">
+      <img src="assets/images/logo.png" alt="Aarav Clinics" class="brand-logo logo-light" width="200" height="60">
     </a>
 
     <!-- Desktop Nav -->
     <nav class="main-nav" aria-label="Primary navigation">
       <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
-        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
         <li class="nav-item">
           <a href="services.html" class="nav-link" aria-haspopup="true">
             Services
             <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
-          <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
-            <div class="mega-cols">
-              <div>
-                <p class="mega-group-title">Physiotherapy</p>
-                <a href="physiotherapy.html" class="nav-drop-link">Physiotherapy</a>
-                <a href="sports-rehabilitation.html" class="nav-drop-link">Sports Rehabilitation</a>
-                <a href="post-surgical-rehabilitation.html" class="nav-drop-link">Post-Surgical Rehab</a>
-                <a href="stroke-rehabilitation.html" class="nav-drop-link">Stroke Rehabilitation</a>
-                <a href="chiropractic.html" class="nav-drop-link">Chiropractic Care</a>
-                <a href="laser-therapy.html" class="nav-drop-link">Laser Therapy</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Child Development</p>
-                <a href="pediatric-physiotherapy.html" class="nav-drop-link">Pediatric Physiotherapy</a>
-                <a href="speech-therapy.html" class="nav-drop-link">Speech Therapy</a>
-                <a href="occupational-therapy.html" class="nav-drop-link">Occupational Therapy</a>
-                <a href="autism-therapy.html" class="nav-drop-link">Autism Therapy</a>
-                <a href="child-development.html" class="nav-drop-link">Child Development Centre</a>
-              </div>
-              <div>
-                <p class="mega-group-title">Flexible Care</p>
-                <a href="home-physiotherapy.html" class="nav-drop-link">Home Physiotherapy</a>
-                <a href="video-consultation.html" class="nav-drop-link">Video Consultation</a>
-                <a href="services.html" class="nav-drop-link">All Services</a>
-              </div>
-            </div>
-          </div>
         </li>
-        <li class="nav-item">
-          <a href="child-development.html" class="nav-link">Child Development</a>
-        </li>
-        <li class="nav-item">
-          <a href="team.html" class="nav-link">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a href="blog.html" class="nav-link is-active">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
-        </li>
+        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link is-active">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
 
     <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
       Book Appointment
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
-    <!-- Mobile toggle -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Mobile Menu -->
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-  <div class="mobile-menu-inner">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="about.html" class="mobile-nav-link">About</a>
-
-    <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
-      Services
-      <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div id="mobileServSub" class="mobile-nav-sub">
-      <a href="physiotherapy.html">Physiotherapy</a>
-      <a href="sports-rehabilitation.html">Sports Rehabilitation</a>
-      <a href="post-surgical-rehabilitation.html">Post-Surgical Rehab</a>
-      <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
-      <a href="chiropractic.html">Chiropractic Care</a>
-      <a href="laser-therapy.html">Laser Therapy</a>
-      <a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a>
-      <a href="speech-therapy.html">Speech Therapy</a>
-      <a href="occupational-therapy.html">Occupational Therapy</a>
-      <a href="autism-therapy.html">Autism Therapy</a>
-      <a href="child-development.html">Child Development Centre</a>
-      <a href="home-physiotherapy.html">Home Physiotherapy</a>
-      <a href="video-consultation.html">Video Consultation</a>
-    </div>
-
-    <a href="child-development.html" class="mobile-nav-link">Child Development</a>
-    <a href="team.html" class="mobile-nav-link">Our Team</a>
-    <a href="blog.html" class="mobile-nav-link" style="color:var(--teal);">Blog</a>
-    <a href="contact.html" class="mobile-nav-link">Contact</a>
-  </div>
-  <div class="mobile-menu-ctas">
-    <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
-    <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      WhatsApp Us
-    </a>
-  </div>
-</nav>
-
 <!-- Main -->
 <main id="main">
 
-  <!-- Page Hero -->
-  <section class="page-hero" aria-label="Health Blog">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Blog</span>
-      </nav>
-
-      <div class="page-hero-badge">Clinical Knowledge &amp; Wellness</div>
-      <h1 class="page-hero-title">Health Education From Our Therapists</h1>
-      <p class="page-hero-lead">
-        Practical, medically responsible advice on spine protection, stroke recovery roadmaps, and pediatric developmental milestones written by our clinicians in Hyderabad.
+  <section class="blog-hero">
+    <div class="wrap blog-hero-content">
+      <span class="eyebrow gsap-reveal-up" style="color:var(--color-champagne); font-weight:800; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:1rem;">Clinical Insights</span>
+      <h1 class="gsap-title-reveal" style="display:block;">Evidence-based <span style="color:var(--color-teal);">Health Education.</span></h1>
+      <p class="gsap-reveal-up" style="font-size:1.15rem; color:rgba(255,255,255,0.8); max-width:600px; ">
+        Written by qualified Aarav Clinics specialists to help you navigate rehabilitation, injury prevention, and child developmental milestones.
       </p>
-
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Evidence-Based Guidance
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Written by Clinical Specialists
-        </span>
+      
+      <div class="blog-categories gsap-reveal-up" style="transition-delay:0.2s">
+        <span class="category-pill active">All Topics</span>
+        <span class="category-pill">Physiotherapy</span>
+        <span class="category-pill">Child Development</span>
+        <span class="category-pill">Neuro Rehab</span>
+        <span class="category-pill">Speech Therapy</span>
       </div>
     </div>
   </section>
 
-  <!-- Featured Article Spotlight -->
-  <section class="section section--white">
+  <!-- Featured Spotlight -->
+  <section style="background:#FAF9F6;">
     <div class="wrap">
-      <div class="featured-service reveal" style="margin-bottom:0;">
-        <div class="featured-service-media">
-          <img src="assets/images/blog-back-pain.jpg" alt="Protecting your spine at a desk job" width="600" height="400" loading="lazy">
+      <div class="featured-editorial">
+        <div class="featured-media gsap-clip-reveal">
+          <img src="assets/images/blog-back-pain.jpg" alt="Protecting your spine at a desk job" loading="lazy">
         </div>
-        <div class="featured-service-copy">
-          <span class="eyebrow">Featured Guide</span>
-          <h2 class="section-title">7 Simple Habits to Protect Your Spine at a Desk Job</h2>
-          <p>
-            With prolonged sitting in IT corridors across Hyderabad, chronic lower back and cervical strain have reached epidemic levels. Learn practical ergonomic adjustments and micro-movements that decompress your spinal discs throughout the workday.
+        <div class="gsap-reveal-right">
+          <div class="featured-meta">
+            <span class="featured-tag">Spine Health</span>
+            <span class="featured-time"><i data-lucide="clock" style="width:14px; height:14px;"></i> 5 min read</span>
+          </div>
+          <h2><a href="blog/back-pain-desk-job.html">7 Simple Habits to Protect Your Spine at a Desk Job</a></h2>
+          <p style="font-size:1.05rem; color:#4B5563; line-height:1.7; margin-bottom:2rem;">
+            With prolonged sitting in IT corridors across Hyderabad, chronic lower back and cervical strain have reached epidemic levels. Learn practical ergonomic adjustments and micro-movements that decompress your spinal discs.
           </p>
-          <div style="margin-top:var(--space-6);">
-            <a href="blog/back-pain-desk-job.html" class="btn btn-primary">
-              Read Full Guide
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <div class="editorial-author-avatar">SR</div>
+              <div>
+                <div style="font-size:0.85rem; font-weight:700; color:var(--color-navy);">Dr. Sneha Reddy</div>
+                <div style="font-size:0.75rem; color:#6B7A8D;">Lead Physiotherapist</div>
+              </div>
+            </div>
+            <a href="blog/back-pain-desk-job.html" class="btn btn-outline">Read Article</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Full Articles Grid -->
-  <section class="section section--surface">
+  <!-- Recent Articles Grid -->
+  <section class="section" style="padding:6rem 0;">
     <div class="wrap">
-      <div class="section-head reveal" style="text-align:left;max-width:none;margin-inline:0;">
-        <span class="eyebrow">All Articles</span>
-        <h2 class="section-title">Recent Clinical Articles &amp; Parent Resources</h2>
-      </div>
-
-      <div class="blog-grid" style="margin-top:var(--space-8);">
-
+      <h3 class="gsap-reveal-up" style="font-size:1.75rem; font-weight:800; color:var(--color-navy); margin-bottom:1rem; padding-bottom:1rem; border-bottom:2px solid #f1f5f9;">Latest Publications</h3>
+      
+      <div class="editorial-grid">
+        
         <!-- Article 1 -->
-        <a class="blog-card reveal" href="blog/back-pain-desk-job.html">
-          <div class="blog-img">
-            <img src="assets/images/blog-back-pain.jpg" alt="7 simple habits to protect your spine at a desk job" width="400" height="225" loading="lazy">
+        <a href="blog/stroke-recovery.html" class="editorial-card gsap-reveal-up">
+          <div class="editorial-card-media">
+            <img src="assets/images/blog-stroke.jpg" alt="Stroke recovery roadmap" loading="lazy">
           </div>
-          <div class="blog-body">
-            <div class="blog-meta">
-              <span class="blog-tag">Spine Health</span>
-              <span class="blog-date">5 min read</span>
-            </div>
-            <h3>7 Simple Habits to Protect Your Spine at a Desk Job</h3>
-            <p>Practical ergonomic fixes, posture resets, and seated mobility routines tailored for corporate and IT professionals.</p>
-            <span class="blog-read">
-              Read Article
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+          <div class="editorial-card-meta">
+            <span class="editorial-card-tag">Stroke Recovery</span>
+            <span class="editorial-card-date">6 min read</span>
+          </div>
+          <h3>The First 90 Days After a Stroke: A Recovery Roadmap</h3>
+          <p>Why the neuroplastic golden window matters, how specialized physical therapy restores gait, and realistic milestone goals for families.</p>
+          <div class="editorial-author-row">
+            <div class="editorial-author-avatar">SR</div>
+            <span class="editorial-author-name">Dr. Sneha Reddy</span>
           </div>
         </a>
 
         <!-- Article 2 -->
-        <a class="blog-card reveal" href="blog/stroke-recovery.html">
-          <div class="blog-img">
-            <img src="assets/images/blog-stroke.jpg" alt="The first 90 days after a stroke — a recovery roadmap" width="400" height="225" loading="lazy">
+        <a href="blog/child-development-milestones.html" class="editorial-card gsap-reveal-up" style="transition-delay:0.1s">
+          <div class="editorial-card-media">
+            <img src="assets/images/blog-child-milestones.jpg" alt="Development milestones" loading="lazy">
           </div>
-          <div class="blog-body">
-            <div class="blog-meta">
-              <span class="blog-tag">Stroke Recovery</span>
-              <span class="blog-date">6 min read</span>
-            </div>
-            <h3>The First 90 Days After a Stroke: A Recovery Roadmap</h3>
-            <p>Why the neuroplastic golden window matters, how specialized physical therapy restores gait, and realistic milestone goals for families.</p>
-            <span class="blog-read">
-              Read Article
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+          <div class="editorial-card-meta">
+            <span class="editorial-card-tag">Child Development</span>
+            <span class="editorial-card-date">7 min read</span>
+          </div>
+          <h3>Developmental Milestones: What to Expect From 0–5 Years</h3>
+          <p>A parent's comprehensive guide to motor development, speech markers, and sensory readiness from infancy through kindergarten.</p>
+          <div class="editorial-author-row">
+            <div class="editorial-author-avatar">AI</div>
+            <span class="editorial-author-name">Dr. Ananya Iyer</span>
           </div>
         </a>
 
         <!-- Article 3 -->
-        <a class="blog-card reveal" href="blog/child-development-milestones.html">
-          <div class="blog-img">
-            <img src="assets/images/blog-child-milestones.jpg" alt="Developmental milestones — what to expect from 0 to 5 years" width="400" height="225" loading="lazy">
+        <a href="blog/speech-delay.html" class="editorial-card gsap-reveal-up" style="transition-delay:0.2s">
+          <div class="editorial-card-media">
+            <img src="assets/images/child-therapy.jpg" alt="Speech delay support" loading="lazy">
           </div>
-          <div class="blog-body">
-            <div class="blog-meta">
-              <span class="blog-tag">Child Development</span>
-              <span class="blog-date">7 min read</span>
-            </div>
-            <h3>Developmental Milestones: What to Expect From 0–5 Years</h3>
-            <p>A parent's comprehensive guide to motor development, speech markers, and sensory readiness from infancy through kindergarten.</p>
-            <span class="blog-read">
-              Read Article
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+          <div class="editorial-card-meta">
+            <span class="editorial-card-tag">Speech Therapy</span>
+            <span class="editorial-card-date">5 min read</span>
+          </div>
+          <h3>Understanding Speech Delay in Toddlers: When to Seek Support</h3>
+          <p>Clear red flags versus normal developmental variance, how speech therapy works, and everyday speech stimulation games at home.</p>
+          <div class="editorial-author-row">
+            <div class="editorial-author-avatar">KV</div>
+            <span class="editorial-author-name">Dr. Karthik Varma</span>
           </div>
         </a>
 
-        <!-- Article 4 -->
-        <a class="blog-card reveal" href="blog/speech-delay.html">
-          <div class="blog-img">
-            <img src="assets/images/child-therapy.jpg" alt="Understanding speech delay in toddlers" width="400" height="225" loading="lazy">
-          </div>
-          <div class="blog-body">
-            <div class="blog-meta">
-              <span class="blog-tag">Speech Therapy</span>
-              <span class="blog-date">5 min read</span>
-            </div>
-            <h3>Understanding Speech Delay in Toddlers: When to Seek Support</h3>
-            <p>Clear red flags versus normal developmental variance, how speech therapy works, and everyday speech stimulation games at home.</p>
-            <span class="blog-read">
-              Read Article
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section cta-section" aria-label="Book appointment">
-    <div class="wrap">
-      <div class="cta-inner reveal">
-        <span class="eyebrow">Have Specific Health Concerns?</span>
-        <h2>Consult directly with our therapy specialists.</h2>
-        <p>Book an in-person assessment in Ashok Nagar, Hyderabad, or request a video consultation.</p>
-        <div class="cta-actions">
-          <a href="contact.html#appointment" class="btn btn-primary btn--lg">Book an Appointment</a>
-          <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20have%20a%20question%20about%20a%20therapy%20condition" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-            Ask on WhatsApp
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -352,14 +453,8 @@
       </a>
       <p>Complete family therapy care — physiotherapy, rehabilitation and child development services in Ashok Nagar, Hyderabad.</p>
       <div class="footer-contact-links">
-        <a href="tel:+916302882910">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +91 63028 82910
-        </a>
-        <a href="mailto:aaravphysioclinics@gmail.com">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          aaravphysioclinics@gmail.com
-        </a>
+        <a href="tel:+916302882910"><i data-lucide="phone"></i> +91 63028 82910</a>
+        <a href="mailto:aaravphysioclinics@gmail.com"><i data-lucide="mail"></i> aaravphysioclinics@gmail.com</a>
       </div>
     </div>
 
@@ -372,19 +467,6 @@
         <li><a href="autism-therapy.html">Autism Therapy</a></li>
         <li><a href="stroke-rehabilitation.html">Stroke Rehabilitation</a></li>
         <li><a href="laser-therapy.html">Laser Therapy</a></li>
-        <li><a href="home-physiotherapy.html">Home Physiotherapy</a></li>
-        <li><a href="video-consultation.html">Video Consultation</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Child Development</h4>
-      <ul>
-        <li><a href="child-development.html">Child Development Centre</a></li>
-        <li><a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a></li>
-        <li><a href="speech-therapy.html">Speech Therapy</a></li>
-        <li><a href="occupational-therapy.html">Occupational Therapy</a></li>
-        <li><a href="autism-therapy.html">Autism Therapy</a></li>
       </ul>
     </div>
 
@@ -395,7 +477,7 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="team.html">Our Team</a></li>
         <li><a href="services.html">All Services</a></li>
-        <li><a href="blog.html">Blog &amp; Articles</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
@@ -403,17 +485,8 @@
     <div class="footer-col footer-col--hours">
       <h4>Clinic Hours</h4>
       <div class="footer-hours">
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Mon – Sat</span>
-          <span class="footer-hours-time">9:00 AM – 6:00 PM</span>
-        </div>
-        <div class="footer-hours-row">
-          <span class="footer-hours-day">Sunday</span>
-          <span class="footer-hours-time">By Appointment</span>
-        </div>
-      </div>
-      <div style="margin-top:var(--space-5);">
-        <a href="contact.html#appointment" class="btn btn-primary btn--sm">Book Appointment</a>
+        <div class="footer-hours-row"><span class="footer-hours-day">Mon – Sat</span><span class="footer-hours-time">9:00 AM – 6:00 PM</span></div>
+        <div class="footer-hours-row"><span class="footer-hours-day">Sunday</span><span class="footer-hours-time">By Appointment</span></div>
       </div>
     </div>
   </div>
@@ -424,36 +497,15 @@
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
     </div>
-    <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      </a>
-      <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-      </a>
-    </div>
   </div>
 </footer>
-
-<!-- Mobile FAB -->
-<div class="mobile-fab-bar" aria-label="Quick contact actions">
-  <a href="tel:+916302882910" class="mobile-fab-btn mobile-fab-btn--call" aria-label="Call Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Call
-  </a>
-  <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="mobile-fab-btn mobile-fab-btn--wa" aria-label="WhatsApp Aarav Clinics">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-    WhatsApp
-  </a>
-  <a href="contact.html#appointment" class="mobile-fab-btn mobile-fab-btn--book" aria-label="Book appointment">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Book
-  </a>
-</div>
 
 <!-- Scripts -->
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
+<script>
+  lucide.createIcons();
+</script>
 
 </body>
 </html>

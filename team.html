@@ -20,7 +20,9 @@
   <meta name="twitter:description" content="Experienced physiotherapists, speech therapists, and occupational therapists at Aarav Clinics.">
   <meta name="twitter:image" content="https://aaravhealthcare.com/assets/images/clinic-interior.jpg">
 
-  <!-- Preconnect -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -224,16 +226,16 @@
   <!-- Team Member Profiles Grid -->
   <section class="section section--white">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head gsap-reveal-up">
         <span class="eyebrow">Our Clinical Specialists</span>
         <h2 class="section-title">Department Leadership &amp; Therapists</h2>
         <p class="lead">Each specialist brings concentrated training to deliver structured, goal-oriented therapy.</p>
       </div>
 
-      <div class="grid-3 stagger">
+      <div class="grid-3 gsap-stagger-group">
 
         <!-- Dr. Sneha Reddy -->
-        <div class="team-profile-card reveal">
+        <div class="team-profile-card gsap-reveal-up">
           <div class="team-profile-header">
             <div class="team-avatar">SR</div>
             <div class="team-header-meta">
@@ -255,11 +257,14 @@
                 <span class="specialty-tag">Laser Therapy</span>
               </div>
             </div>
+            <div style="margin-top:1.5rem;">
+              <a href="dr-sneha-reddy.html" class="btn btn-outline" style="width:100%; justify-content:center;">View Full Profile</a>
+            </div>
           </div>
         </div>
 
         <!-- Dr. Karthik Varma -->
-        <div class="team-profile-card reveal">
+        <div class="team-profile-card gsap-reveal-up">
           <div class="team-profile-header">
             <div class="team-avatar">KV</div>
             <div class="team-header-meta">
@@ -281,11 +286,14 @@
                 <span class="specialty-tag">Oral-Motor Feeding</span>
               </div>
             </div>
+            <div style="margin-top:1.5rem;">
+              <a href="dr-karthik-varma.html" class="btn btn-outline" style="width:100%; justify-content:center;">View Full Profile</a>
+            </div>
           </div>
         </div>
 
         <!-- Dr. Ananya Iyer -->
-        <div class="team-profile-card reveal">
+        <div class="team-profile-card gsap-reveal-up">
           <div class="team-profile-header">
             <div class="team-avatar">AI</div>
             <div class="team-header-meta">
@@ -307,6 +315,9 @@
                 <span class="specialty-tag">ADHD Behavioral Support</span>
               </div>
             </div>
+            <div style="margin-top:1.5rem;">
+              <a href="dr-ananya-iyer.html" class="btn btn-outline" style="width:100%; justify-content:center;">View Full Profile</a>
+            </div>
           </div>
         </div>
 
@@ -317,13 +328,13 @@
   <!-- How Our Team Works Together -->
   <section class="section section--surface">
     <div class="wrap split">
-      <div class="about-image-wrap reveal-left">
-        <div class="about-image-main img-reveal">
+      <div class="about-image-wrap gsap-reveal-left">
+        <div class="about-image-main gsap-clip-reveal">
           <img src="assets/images/physiotherapy-session.jpg" alt="Clinical consultation at Aarav Clinics Hyderabad" width="600" height="750" loading="lazy">
         </div>
       </div>
 
-      <div class="about-copy reveal-right">
+      <div class="about-copy gsap-reveal-right">
         <span class="eyebrow">Collaborative Care</span>
         <h2 class="section-title">The power of a synchronized clinical team.</h2>
         <p>
@@ -359,7 +370,7 @@
   <!-- CTA -->
   <section class="section cta-section" aria-label="Book appointment">
     <div class="wrap">
-      <div class="cta-inner reveal">
+      <div class="cta-inner gsap-reveal-up">
         <span class="eyebrow">Consult With Our Team</span>
         <h2>Ready to meet our specialists?</h2>
         <p>Schedule your evaluation at our Ashok Nagar clinic or request a convenient home therapy visit.</p>

@@ -22,6 +22,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
+  <!-- Lucide & GSAP -->
+  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -44,8 +49,291 @@
     "medicalSpecialty": "Physiotherapy"
   }
   </script>
+
+  <style>
+    /* ── Video Consultation: Navy × Teal × Tech-Forward ── */
+    :root {
+      --vc-teal: #00899C;
+      --vc-teal-light: rgba(0,137,156,0.10);
+      --vc-teal-mid: rgba(0,137,156,0.20);
+      --vc-navy-deep: #0A2233;
+    }
+
+    /* DARK HERO for technology-forward feel */
+    .vc-hero {
+      background: linear-gradient(135deg, #0A2233 0%, #102F40 50%, #0E3A4D 100%);
+      min-height: 90vh;
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Animated grid lines background */
+    .vc-hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,137,156,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,137,156,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Teal glow orbs */
+    .vc-glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Hero content grid */
+    .vc-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 960px) {
+      .vc-hero-grid { grid-template-columns: 55% 45%; gap: 4rem; }
+    }
+
+    /* Video frame mockup */
+    .vc-screen-mockup {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,137,156,0.3);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 0 40px rgba(0,137,156,0.12) inset;
+      position: relative;
+    }
+    .vc-screen-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .vc-screen-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .vc-screen-title {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Manrope', monospace;
+      letter-spacing: 0.05em;
+      flex: 1;
+      text-align: center;
+    }
+    .vc-video-area {
+      background: linear-gradient(135deg, rgba(0,137,156,0.08) 0%, rgba(16,47,64,0.6) 100%);
+      border-radius: 14px;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0,137,156,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .vc-video-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(0,137,156,0.2);
+      border: 2px solid rgba(0,137,156,0.5);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--vc-teal);
+    }
+
+    /* Live indicator */
+    .vc-live-dot {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 20px;
+      padding: 0.25rem 0.65rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 700;
+      color: #ffffff;
+    }
+    .vc-live-pulse {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22C55E;
+      animation: pulse-live 1.5s infinite;
+    }
+    @keyframes pulse-live {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    /* Stat chips on hero */
+    .vc-stat-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .vc-stat-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,137,156,0.25);
+      border-radius: 10px;
+      padding: 0.65rem 1rem;
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+    }
+    .vc-stat-num {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--vc-teal);
+      display: block;
+    }
+    .vc-stat-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+    }
+
+    /* Feature badge strip */
+    .vc-feat-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border-radius: 50px;
+      border: 1px solid rgba(0,137,156,0.3);
+      background: rgba(0,137,156,0.06);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* What you can do sections */
+    .vc-use-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) { .vc-use-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .vc-use-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .vc-use-card {
+      background: #ffffff;
+      border: 1px solid rgba(16,47,64,0.08);
+      border-radius: 18px;
+      padding: 1.75rem 1.4rem;
+      box-shadow: 0 4px 16px rgba(16,47,64,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .vc-use-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(16,47,64,0.11);
+      border-color: rgba(0,137,156,0.20);
+    }
+    .vc-use-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: var(--vc-teal-light);
+      color: var(--vc-teal);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+
+    /* Process steps timeline */
+    .vc-timeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .vc-timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--vc-teal) 0%, rgba(0,137,156,0.15) 100%);
+    }
+    .vc-timeline-step {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 1.5rem;
+      padding: 0 0 2.5rem 0;
+      position: relative;
+    }
+    .vc-timeline-step:last-child { padding-bottom: 0; }
+    .vc-tl-num {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: var(--color-navy);
+      color: #ffffff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 800;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--vc-teal);
+    }
+    .vc-tl-content {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(16,47,64,0.07);
+      box-shadow: 0 2px 10px rgba(16,47,64,0.05);
+    }
+
+    /* Trust badges */
+    .vc-trust-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .vc-trust-grid { grid-template-columns: 1fr 1fr; } }
+
+    .vc-trust-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.4rem;
+      border: 1px solid rgba(16,47,64,0.07);
+    }
+    .vc-trust-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 12px;
+      background: var(--vc-teal-light);
+      color: var(--vc-teal);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Dark CTA band */
+    .vc-cta-band {
+      background: linear-gradient(135deg, #0A2233 0%, #0E3A4D 100%);
+      border-radius: 24px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+    .vc-cta-band::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(0,137,156,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Sections */
+    .vc-section { padding: 5rem 0; }
+    .vc-section--alt { background: #F5FAFB; }
+  </style>
 </head>
-<body>
+<body class="premium-theme" style="background:#f4fafb;">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -54,22 +342,16 @@
   <a href="video-consultation.html">Book Now &rarr;</a>
 </div>
 
-<!-- Header -->
-<header class="site-header" id="siteHeader">
+<!-- Header — dark theme for dark hero -->
+<header class="site-header theme-transparent theme-dark" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
       <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo" width="200" height="60">
     </a>
-
-    <!-- Desktop Nav -->
     <nav class="main-nav" aria-label="Primary navigation">
       <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
-        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
         <li class="nav-item">
           <a href="services.html" class="nav-link is-active" aria-haspopup="true">
             Services
@@ -103,27 +385,16 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="child-development.html" class="nav-link">Child Development</a>
-        </li>
-        <li class="nav-item">
-          <a href="team.html" class="nav-link">Our Team</a>
-        </li>
-        <li class="nav-item">
-          <a href="blog.html" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
-        </li>
+        <li class="nav-item"><a href="child-development.html" class="nav-link">Child Development</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Our Team</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
-
     <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
-      Book Appointment
+      Book Session
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-
-    <!-- Mobile toggle -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -135,7 +406,6 @@
   <div class="mobile-menu-inner">
     <a href="index.html" class="mobile-nav-link">Home</a>
     <a href="about.html" class="mobile-nav-link">About</a>
-
     <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
       Services
       <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
@@ -155,14 +425,13 @@
       <a href="home-physiotherapy.html">Home Physiotherapy</a>
       <a href="video-consultation.html">Video Consultation</a>
     </div>
-
     <a href="child-development.html" class="mobile-nav-link">Child Development</a>
     <a href="team.html" class="mobile-nav-link">Our Team</a>
     <a href="blog.html" class="mobile-nav-link">Blog</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
   </div>
   <div class="mobile-menu-ctas">
-    <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
+    <a href="contact.html#appointment" class="btn btn-primary btn--block">Book Video Session</a>
     <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20a%20video%20consultation" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
       WhatsApp Us
@@ -173,260 +442,361 @@
 <!-- Main -->
 <main id="main">
 
-  <section class="page-hero" aria-label="Video Consultation">
-    <div class="wrap page-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="services.html">Services</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current">Video Consultation</span>
-      </nav>
+  <!-- CINEMATIC DARK HERO: Video Consultation — Technology-Forward -->
+  <section class="vc-hero" aria-label="Video Consultation">
+    <div class="vc-hero-grid-lines"></div>
 
-      <div class="page-hero-badge">Tele-Rehabilitation &amp; Expert Consults</div>
-      <h1 class="page-hero-title">Online Video Consultation from Anywhere</h1>
-      <p class="page-hero-lead">
-        Connect securely with senior physiotherapists, speech therapists, and developmental specialists. Expert posture analysis, MRI second opinions, and customized home exercise plans.
-      </p>
+    <!-- Glow orbs -->
+    <div class="vc-glow-orb" style="top:-100px; right:-60px; width:500px; height:500px; background:radial-gradient(circle, rgba(0,137,156,0.18) 0%, transparent 65%);"></div>
+    <div class="vc-glow-orb" style="bottom:-80px; left:-60px; width:400px; height:400px; background:radial-gradient(circle, rgba(0,137,156,0.10) 0%, transparent 65%);"></div>
 
-      <div class="page-hero-actions">
-        <a href="contact.html#appointment" class="btn btn-primary">Book Video Session</a>
-        <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20schedule%20an%20online%20video%20consultation" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z"/></svg>
-          Chat on WhatsApp
-        </a>
-      </div>
+    <div class="wrap" style="position:relative; z-index:2; width:100%;">
+      <div class="vc-hero-grid">
 
-      <div class="page-hero-pills">
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Secure HD Video Platform
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Ergonomic &amp; Scan Reviews
-        </span>
-        <span class="hero-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Available Globally &amp; Pan-India
-        </span>
+        <!-- Left: Text -->
+        <div class="hero-text-block">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb gsap-reveal-left" aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
+            <a href="index.html" style="color:rgba(255,255,255,0.5); font-size:0.8rem;">Home</a>
+            <span style="color:rgba(255,255,255,0.25); margin:0 0.4rem;">/</span>
+            <a href="services.html" style="color:rgba(255,255,255,0.5); font-size:0.8rem;">Services</a>
+            <span style="color:rgba(255,255,255,0.25); margin:0 0.4rem;">/</span>
+            <span style="color:var(--vc-teal); font-size:0.8rem; font-weight:600;">Video Consultation</span>
+          </nav>
+
+          <div class="hero-badge gsap-reveal-left" style="background:rgba(0,137,156,0.12); border:1px solid rgba(0,137,156,0.35); color:rgba(255,255,255,0.95); margin-bottom:1.75rem;">
+            <i data-lucide="video" style="color:var(--vc-teal);"></i> Tele-Rehabilitation &amp; Expert Consults
+          </div>
+
+          <h1 class="hero-giant-title" style="color:#ffffff; margin-bottom:1.5rem; font-size:clamp(2.1rem, 3.2vw, 2.7rem); line-height:1.18; ">
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:#ffffff;">Expert Clinical Care.</span></span>
+            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--vc-teal);">From Anywhere.</span></span>
+          </h1>
+
+          <p class="gsap-reveal-up" style="color:rgba(255,255,255,0.72); font-size:clamp(0.92rem, 1.1vw, 1.02rem); margin-bottom:1.75rem; max-width:520px;">
+            Connect securely with senior physiotherapists, speech therapists, and developmental specialists. Expert posture analysis, MRI second opinions, and customized home exercise plans — no clinic visit required.
+          </p>
+
+          <!-- Feature strips -->
+          <div class="gsap-reveal-up" style="display:flex; flex-wrap:wrap; gap:0.55rem; margin-bottom:2.25rem;">
+            <div class="vc-feat-strip">
+              <i data-lucide="shield-check" style="width:14px;height:14px; color:var(--vc-teal);"></i> Secure HD Video
+            </div>
+            <div class="vc-feat-strip">
+              <i data-lucide="globe" style="width:14px;height:14px; color:var(--vc-teal);"></i> Pan-India &amp; Overseas
+            </div>
+            <div class="vc-feat-strip">
+              <i data-lucide="file-scan" style="width:14px;height:14px; color:var(--vc-teal);"></i> MRI &amp; Scan Reviews
+            </div>
+            <div class="vc-feat-strip">
+              <i data-lucide="clock" style="width:14px;height:14px; color:var(--vc-teal);"></i> Flexible Slots
+            </div>
+          </div>
+
+          <div class="hero-cta-group gsap-reveal-up" style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="contact.html#appointment" class="btn btn-large" style="background:var(--vc-teal); color:#ffffff; border:1px solid var(--vc-teal); font-weight:700; box-shadow:0 8px 28px rgba(0,137,156,0.35);">
+              Book Video Session <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20schedule%20an%20online%20video%20consultation" target="_blank" rel="noopener noreferrer" class="btn btn-large" style="background:transparent; color:rgba(255,255,255,0.9); border:1.5px solid rgba(255,255,255,0.3); font-weight:600;">
+              <i data-lucide="message-circle" style="width:18px;height:18px;"></i> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Video UI Mockup -->
+        <div class="gsap-clip-reveal">
+          <div class="vc-screen-mockup">
+            <div class="vc-screen-header">
+              <div class="vc-screen-dot" style="background:#FF5F57;"></div>
+              <div class="vc-screen-dot" style="background:#FFBD2E;"></div>
+              <div class="vc-screen-dot" style="background:#28C840;"></div>
+              <span class="vc-screen-title">aaravhealthcare.com — Secure Session</span>
+            </div>
+
+            <div class="vc-video-area">
+              <div class="vc-video-icon">
+                <i data-lucide="video" style="width:28px;height:28px;"></i>
+              </div>
+              <div class="vc-live-dot">
+                <div class="vc-live-pulse"></div>
+                SECURE
+              </div>
+            </div>
+
+            <!-- Stats row -->
+            <div class="vc-stat-row">
+              <div class="vc-stat-chip gsap-reveal-up">
+                <span class="vc-stat-num">HD</span>
+                <span class="vc-stat-label">Video Quality</span>
+              </div>
+              <div class="vc-stat-chip gsap-reveal-up">
+                <span class="vc-stat-num">1:1</span>
+                <span class="vc-stat-label">Private Session</span>
+              </div>
+              <div class="vc-stat-chip gsap-reveal-up">
+                <span class="vc-stat-num">PDF</span>
+                <span class="vc-stat-label">Report Delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Content & Sidebar Layout -->
-  <section class="section section--white">
+  <!-- OVERVIEW: Why Video -->
+  <section class="vc-section" style="background:#ffffff;">
     <div class="wrap">
-      <div class="service-layout">
+      <div style="max-width:720px; margin:0 auto; text-align:center;" class="gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--vc-teal);">Expert Therapy, No Boundaries</span>
+        <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem; margin-bottom:1.25rem;">
+          Access senior clinical guidance without geographical limits.
+        </h2>
+        <p style="color:#4B5563; font-size:0.97rem; line-height:1.72; max-width:640px; margin:0 auto;">
+          Busy schedules, travel constraints, living overseas — none of these should keep you from gold-standard clinical advice. Our tele-rehabilitation platform provides live visual assessment, posture analysis, and customized rehab programs through a one-click, secure video call.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <div class="service-main">
+  <!-- WHAT CAN BE DONE ONLINE -->
+  <section class="vc-section vc-section--alt">
+    <div class="wrap">
+      <div style="max-width:600px; margin-bottom:3rem;" class="gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--vc-teal);">Ideal Consultation Scenarios</span>
+        <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+          What can be addressed effectively over video
+        </h2>
+      </div>
 
-          <!-- Overview -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Expert Therapy, No Boundaries</span>
-              <h2 class="content-block-title">Access senior clinical guidance without geographical limits.</h2>
-              <p class="content-block-lead">
-                Busy corporate schedules, travel constraints, living outside Hyderabad, or residing overseas should not keep you or your child from receiving gold-standard clinical advice.
-              </p>
-            </div>
-            <p>
-              Aarav Clinics provides structured tele-rehabilitation and online video consultations. Through live visual assessment, our clinicians evaluate posture, joint mobility, active movement patterns, and ergonomic setups. We also review uploaded MRI or diagnostic imaging reports to deliver clear, unbiased second opinions and actionable exercise regimens.
-            </p>
+      <div class="vc-use-grid">
+        <div class="vc-use-card gsap-reveal-up">
+          <div class="vc-use-icon">
+            <i data-lucide="monitor" style="width:22px;height:22px;"></i>
           </div>
-
-          <!-- Conditions Treated -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Ideal Consultation Scenarios</span>
-              <h3 class="content-block-title">What can be addressed effectively over video</h3>
-            </div>
-
-            <div class="condition-grid">
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Workstation Ergonomics &amp; Desk Pain</h4>
-                  <p>Real-time visual assessment of your chair height, monitor distance, neck angle, and lumbar support.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>MRI, CT &amp; X-Ray Second Opinions</h4>
-                  <p>In-depth clinical interpretation of imaging reports regarding disc bulges, meniscus tears, or surgery need.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Parent Milestone Screening</h4>
-                  <p>Guiding parents on toddler speech development, walking delays, or sensory concerns using pre-recorded video clips.</p>
-                </div>
-              </div>
-
-              <div class="condition-card">
-                <div class="condition-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2"/></svg>
-                </div>
-                <div class="condition-body">
-                  <h4>Exercise Form Correction</h4>
-                  <p>Live visual feedback ensuring home rehab routines and strengthening drills are executed with safe biomechanics.</p>
-                </div>
-              </div>
-            </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Workstation Ergonomics</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Real-time assessment of chair height, monitor distance, neck angle, and lumbar support to eliminate desk-related pain.</p>
+        </div>
+        <div class="vc-use-card gsap-reveal-up">
+          <div class="vc-use-icon">
+            <i data-lucide="scan-search" style="width:22px;height:22px;"></i>
           </div>
-
-          <!-- Clinical Approach -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Consultation Workflow</span>
-              <h3 class="content-block-title">Simple 4-step virtual appointment process</h3>
-            </div>
-
-            <div class="approach-grid">
-              <div class="approach-card">
-                <div class="approach-num">01</div>
-                <h4>Select Slot &amp; Confirm</h4>
-                <p>Book your convenient date and time via WhatsApp or our web form. You receive an instant appointment calendar confirmation.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">02</div>
-                <h4>Upload Records Digitally</h4>
-                <p>Share doctor prescriptions, X-rays, MRI reports, or short videos of symptoms beforehand for clinician review.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">03</div>
-                <h4>1-on-1 Secure Video Session</h4>
-                <p>Join a one-click video call with your specialist for live physical assessment, movement tests, and clear diagnostic explanation.</p>
-              </div>
-
-              <div class="approach-card">
-                <div class="approach-num">04</div>
-                <h4>Digital Exercise Prescription</h4>
-                <p>Receive a clear PDF rehabilitation plan with HD video demonstration links sent directly to your WhatsApp and email.</p>
-              </div>
-            </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">MRI, CT &amp; X-Ray Reviews</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">In-depth clinical interpretation of imaging reports — disc bulges, meniscus tears, or surgery decisions explained clearly.</p>
+        </div>
+        <div class="vc-use-card gsap-reveal-up">
+          <div class="vc-use-icon">
+            <i data-lucide="baby" style="width:22px;height:22px;"></i>
           </div>
-
-          <!-- Benefits -->
-          <div class="content-block reveal">
-            <div class="benefits-box">
-              <h3 class="benefits-title">Why Patients Choose Our Video Consultations</h3>
-              <ul class="benefits-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Accessible from Anywhere:</strong> Consult top Hyderabad therapists whether you are in Telangana, Bangalore, or overseas.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Immediate Clarity &amp; Peace of Mind:</strong> Stop worrying about conflicting advice with an authoritative clinical second opinion.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Time-Efficient Scheduling:</strong> Flexible early morning or evening consultation slots that fit easily around your work hours.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Detailed Video Demonstrations:</strong> Clear visual exercises ensuring you execute movements safely with zero guesswork.</span>
-                </li>
-              </ul>
-            </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Pediatric Milestone Screening</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Guidance on toddler speech development, walking delays, or sensory concerns using parent-captured video clips.</p>
+        </div>
+        <div class="vc-use-card gsap-reveal-up">
+          <div class="vc-use-icon">
+            <i data-lucide="activity" style="width:22px;height:22px;"></i>
           </div>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">Exercise Form Correction</h3>
+          <p style="font-size:0.875rem; color:#4B5563; line-height:1.6;">Live visual feedback ensuring home rehab routines and strengthening drills are executed with safe biomechanics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- FAQ -->
-          <div class="content-block reveal">
-            <div class="content-block-header">
-              <span class="eyebrow">Common Questions</span>
-              <h3 class="content-block-title">Frequently Asked Questions About Tele-Rehabilitation</h3>
-            </div>
+  <!-- HOW IT WORKS: Timeline -->
+  <section class="vc-section" style="background:#ffffff;">
+    <div class="wrap">
+      <div style="display:grid; grid-template-columns:1fr; gap:4rem; align-items:start;" class="editorial-approach-grid">
 
-            <div class="faq-list">
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>How effective is physiotherapy conducted online compared to in-person visits?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>For posture correction, exercise progression, ergonomic assessments, and milestone evaluations, tele-physiotherapy has proven remarkably effective in clinical studies. If our therapist determines that hands-on manual adjustment or electrotherapy is mandatory, we will advise you to visit the clinic.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>What device and setup do I need for the video session?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Any smartphone, tablet, or laptop with a working camera and stable internet connection is sufficient. We recommend wearing comfortable clothing and setting up in a well-lit room with 6 to 8 feet of clear space so the therapist can observe your movement patterns.</p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                  <span>Can parents consult about child speech or motor milestones over video?</span>
-                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                  <p>Yes. Video consults are exceptional for parent coaching. Parents can record 1 to 2 minute clips of their child playing, speaking, or walking at home. Our specialists review these clips live, provide developmental feedback, and demonstrate interactive home stimulation techniques.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div class="gsap-reveal-up">
+          <span class="premium-eyebrow" style="color:var(--color-teal);">Consultation Workflow</span>
+          <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem; margin-bottom:1rem;">
+            Your 4-step virtual appointment process
+          </h2>
+          <p style="color:#4B5563; font-size:0.93rem; line-height:1.68; max-width:500px;">
+            From booking to your personalized exercise plan — the entire process is designed to be effortless and professional.
+          </p>
         </div>
 
-        <!-- Sticky Sidebar -->
-        <aside class="service-aside">
-          <div class="aside-card aside-card--highlight reveal">
-            <h3 class="aside-card-title">Book a Video Session</h3>
-            <p class="aside-card-lead">Select your preferred date and time for an online clinical consultation.</p>
-            <ul class="aside-details">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <div>
-                  <strong>Phone Support</strong>
-                  <a href="tel:+916302882910">+91 63028 82910</a>
-                </div>
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Session Availability</strong>
-                  <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
-                </div>
-              </li>
-            </ul>
-            <div class="aside-card-actions">
-              <a href="contact.html#appointment" class="btn btn-primary btn--block">Request Video Slot</a>
-              <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20a%20video%20consultation" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
-                WhatsApp Inquiry
-              </a>
+        <div class="vc-timeline">
+          <div class="vc-timeline-step gsap-reveal-up">
+            <div class="vc-tl-num">01</div>
+            <div class="vc-tl-content">
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Select Slot &amp; Confirm</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Book via WhatsApp or our web form. Receive an instant appointment calendar confirmation with session link.</p>
             </div>
           </div>
-
-          <div class="aside-card reveal">
-            <h3 class="aside-card-title">Flexible &amp; Clinical Services</h3>
-            <ul class="aside-nav-list">
-              <li><a href="video-consultation.html" class="aside-nav-link is-active">Video Consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="home-physiotherapy.html" class="aside-nav-link">Home Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="physiotherapy.html" class="aside-nav-link">Physiotherapy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="child-development.html" class="aside-nav-link">Child Development <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-              <li><a href="services.html" class="aside-nav-link">All Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></li>
-            </ul>
+          <div class="vc-timeline-step gsap-reveal-up">
+            <div class="vc-tl-num">02</div>
+            <div class="vc-tl-content">
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Upload Records Digitally</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Share doctor prescriptions, X-rays, MRI reports, or short videos of symptoms beforehand for clinician pre-review.</p>
+            </div>
           </div>
-        </aside>
+          <div class="vc-timeline-step gsap-reveal-up">
+            <div class="vc-tl-num">03</div>
+            <div class="vc-tl-content">
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">1-on-1 Secure Video Session</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Join a one-click HD video call with your specialist for live physical assessment, movement tests, and clear diagnostic discussion.</p>
+            </div>
+          </div>
+          <div class="vc-timeline-step gsap-reveal-up">
+            <div class="vc-tl-num">04</div>
+            <div class="vc-tl-content">
+              <h4 style="font-size:1rem; font-weight:700; color:var(--color-navy); margin-bottom:0.4rem;">Digital Exercise Prescription</h4>
+              <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Receive a clear PDF rehabilitation plan with HD video demonstration links sent directly to your WhatsApp and email.</p>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE VIDEO -->
+  <section class="vc-section vc-section--alt">
+    <div class="wrap">
+      <div style="text-align:center; max-width:560px; margin:0 auto 3rem;" class="gsap-reveal-up">
+        <span class="premium-eyebrow" style="color:var(--vc-teal);">Why Patients Choose Us</span>
+        <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+          Why patients choose our Video Consultations
+        </h2>
+      </div>
+
+      <div class="vc-trust-grid">
+        <div class="vc-trust-item gsap-reveal-up">
+          <div class="vc-trust-icon">
+            <i data-lucide="globe" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Accessible from Anywhere</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Consult Hyderabad's top therapists whether you are in Telangana, Bangalore, or overseas — time zones accommodated.</p>
+          </div>
+        </div>
+        <div class="vc-trust-item gsap-reveal-up">
+          <div class="vc-trust-icon">
+            <i data-lucide="lightbulb" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Immediate Clarity &amp; Peace of Mind</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Stop worrying about conflicting advice with an authoritative clinical second opinion from a licensed specialist.</p>
+          </div>
+        </div>
+        <div class="vc-trust-item gsap-reveal-up">
+          <div class="vc-trust-icon">
+            <i data-lucide="clock" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Time-Efficient Scheduling</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Flexible early morning and evening consultation slots that fit easily around your work hours and family schedule.</p>
+          </div>
+        </div>
+        <div class="vc-trust-item gsap-reveal-up">
+          <div class="vc-trust-icon">
+            <i data-lucide="file-video" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Detailed Video Demonstrations</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Your exercise plan comes with clear video demonstrations — ensuring you execute every movement safely with zero guesswork.</p>
+          </div>
+        </div>
+        <div class="vc-trust-item gsap-reveal-up">
+          <div class="vc-trust-icon">
+            <i data-lucide="shield-check" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Private &amp; Confidential</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">End-to-end secure video connection. All consultation records and medical data handled with strict privacy and discretion.</p>
+          </div>
+        </div>
+        <div class="vc-trust-item gsap-reveal-up">
+          <div class="vc-trust-icon">
+            <i data-lucide="users" style="width:20px;height:20px;"></i>
+          </div>
+          <div>
+            <strong style="font-size:0.95rem; color:var(--color-navy); display:block; margin-bottom:0.3rem;">Senior Clinicians Only</strong>
+            <p style="font-size:0.875rem; color:#4B5563; line-height:1.6; margin:0;">Every video session is conducted by an experienced, registered specialist — not junior staff or automated chatbots.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="vc-section" style="background:#ffffff;">
+    <div class="wrap">
+      <div style="max-width:680px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:2.75rem;" class="gsap-reveal-up">
+          <span class="premium-eyebrow" style="color:var(--vc-teal);">Common Questions</span>
+          <h2 class="editorial-title" style="color:var(--color-navy); font-size:clamp(1.55rem,2.2vw,2.1rem); margin-top:0.6rem;">
+            Frequently Asked Questions About Tele-Rehabilitation
+          </h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>How effective is physiotherapy conducted online compared to in-person visits?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>For posture correction, exercise progression, ergonomic assessments, and milestone evaluations, tele-physiotherapy has proven remarkably effective in clinical studies. If our therapist determines that hands-on manual adjustment or electrotherapy is mandatory, we will advise you to visit the clinic.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>What device and setup do I need for the video session?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Any smartphone, tablet, or laptop with a working camera and stable internet connection is sufficient. We recommend wearing comfortable clothing and setting up in a well-lit room with 6 to 8 feet of clear space so the therapist can observe your movement patterns clearly.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can parents consult about child speech or motor milestones over video?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Video consults are exceptional for parent coaching. Parents can record 1 to 2 minute clips of their child playing, speaking, or walking at home. Our specialists review these clips live, provide developmental feedback, and demonstrate interactive home stimulation techniques during the session.</p>
+            </div>
+          </div>
+          <div class="faq-item gsap-reveal-up">
+            <button class="faq-question" aria-expanded="false">
+              <span>What happens after my video consultation?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Within 24 hours of your session, you receive a comprehensive PDF report summarizing the assessment findings, diagnosis, and a structured exercise or therapy plan with video links. Your therapist remains available for follow-up clarifications via WhatsApp for 7 days post-consultation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK CTA BAND -->
+  <section class="vc-section vc-section--alt">
+    <div class="wrap">
+      <div class="vc-cta-band gsap-reveal-up">
+        <div style="position:relative; z-index:1;">
+          <div style="display:inline-flex; align-items:center; gap:0.6rem; background:rgba(0,137,156,0.18); border-radius:50px; padding:0.4rem 1.1rem; margin-bottom:1.5rem; font-size:0.82rem; font-weight:600; color:rgba(255,255,255,0.85); border:1px solid rgba(0,137,156,0.3);">
+            <i data-lucide="video" style="width:14px;height:14px; color:var(--vc-teal);"></i> Available Mon – Sat, 9:00 AM – 6:00 PM
+          </div>
+          <h2 style="font-size:clamp(1.5rem,2.4vw,2.1rem); font-weight:800; color:#fff; margin-bottom:1rem; line-height:1.25;">
+            Start your session in 3 simple steps.
+          </h2>
+          <p style="color:rgba(255,255,255,0.70); font-size:0.97rem; margin-bottom:2rem; max-width:520px; margin-left:auto; margin-right:auto; line-height:1.65;">
+            Book online → Upload your records → Join the call. Premium physiotherapy &amp; developmental care delivered securely to any device, anywhere in the world.
+          </p>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="contact.html#appointment" class="btn btn-large" style="background:var(--vc-teal); color:#ffffff; border:none; font-weight:700; box-shadow:0 8px 28px rgba(0,137,156,0.4);">
+              Book Video Session <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20a%20video%20consultation" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-large">
+              WhatsApp to Book
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -446,7 +816,6 @@
         <a href="mailto:aaravphysioclinics@gmail.com">aaravphysioclinics@gmail.com</a>
       </div>
     </div>
-
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
@@ -460,7 +829,6 @@
         <li><a href="video-consultation.html">Video Consultation</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4>Child Development</h4>
       <ul>
@@ -471,7 +839,6 @@
         <li><a href="autism-therapy.html">Autism Therapy</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul>
@@ -483,7 +850,6 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
-
     <div class="footer-col footer-col--hours">
       <h4>Clinic Hours</h4>
       <div class="footer-hours">
@@ -501,7 +867,6 @@
       </div>
     </div>
   </div>
-
   <div class="wrap footer-bottom">
     <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Hyderabad.</p>
     <div class="footer-legal-links">
@@ -509,7 +874,7 @@
       <a href="terms.html">Terms of Service</a>
     </div>
     <div class="footer-social">
-      <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
+      <a href="https://www.google.com/maps?cid=10521016619599487601" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       </a>
       <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
