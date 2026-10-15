@@ -18,16 +18,59 @@
       '.gsap-word-reveal',
       '.gsap-text-progress',
       '.split-word-inner',
-      '.split-word'
+      '.split-word',
+      '.reveal',
+      '.reveal-left',
+      '.reveal-right',
+      '.reveal-scale'
     ];
     selectors.forEach(sel => {
       document.querySelectorAll(sel).forEach(el => {
+        el.classList.add('is-visible');
         el.style.opacity = '1';
         el.style.transform = 'none';
         el.style.clipPath = 'none';
         el.style.visibility = 'visible';
       });
     });
+  }
+
+  // Native IntersectionObserver for CSS .reveal elements (works with or without GSAP)
+  function initRevealObserver() {
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    if (!reveals.length) return;
+
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '0px 0px -20px 0px',
+        threshold: 0.05
+      });
+
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0) {
+          el.classList.add('is-visible');
+        } else {
+          observer.observe(el);
+        }
+      });
+    } else {
+      reveals.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // Safety fallback: ensure nothing stays permanently hidden
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.is-visible), .reveal-left:not(.is-visible), .reveal-right:not(.is-visible), .reveal-scale:not(.is-visible)').forEach(el => {
+        el.classList.add('is-visible');
+      });
+    }, 600);
   }
 
   // Check prefers-reduced-motion
@@ -46,6 +89,9 @@
         setTimeout(() => loader.remove(), 400);
       }, 500);
     }
+
+    // Always run native reveal observer for CSS-based animations
+    initRevealObserver();
 
     // If reduced motion is requested or GSAP is unavailable, restore visibility and exit
     if (prefersReducedMotion || typeof window.gsap === 'undefined') {
@@ -98,7 +144,7 @@
       }
 
       /* ── Hero Load Animations ── */
-      const heroTl = gsap.timeline({ delay: 0.08 });
+      const heroTl = gsap.timeline({ delay: 0.5 });
 
       // Animate title lines smoothly without clipping risk
       const titleLines = document.querySelectorAll('.gsap-title-reveal');
@@ -117,7 +163,7 @@
       }
 
       // Hero supporting elements
-      const heroReveals = document.querySelectorAll('.cinematic-hero .gsap-reveal-up, .hero .gsap-reveal-up');
+      const heroReveals = document.querySelectorAll('.cinematic-hero .gsap-reveal-up, .hero .gsap-reveal-up, .about-cinematic-hero .gsap-reveal-up');
       if (heroReveals.length) {
         heroTl.fromTo(heroReveals,
           { opacity: 0, y: 30 },
@@ -134,8 +180,8 @@
       }
 
       /* ── Hero Parallax ── */
-      const heroBg = document.querySelector('.hero-parallax-img');
-      const heroContainer = document.querySelector('.cinematic-hero, .hero');
+      const heroBg = document.querySelector('.hero-parallax-img, .about-hero-bg');
+      const heroContainer = document.querySelector('.cinematic-hero, .hero, .about-cinematic-hero');
       if (heroBg && heroContainer && typeof ScrollTrigger !== 'undefined') {
         gsap.to(heroBg, {
           y: '15%',
@@ -185,7 +231,7 @@
       if (typeof ScrollTrigger !== 'undefined') {
         gsap.utils.toArray('.gsap-text-progress').forEach(el => {
           // If in hero, do NOT scrub fade — ensure it is 100% visible immediately
-          if (el.closest('.cinematic-hero, .hero')) {
+          if (el.closest('.cinematic-hero, .hero, .about-cinematic-hero')) {
             el.style.opacity = '1';
             el.style.transform = 'none';
             return;
@@ -239,7 +285,7 @@
       /* ── General Scroll Triggered Reveals ── */
       if (typeof ScrollTrigger !== 'undefined') {
         // Reveal Up (Outside hero)
-        gsap.utils.toArray('section:not(.cinematic-hero):not(.hero) .gsap-reveal-up').forEach(el => {
+        gsap.utils.toArray('section:not(.cinematic-hero):not(.hero):not(.about-cinematic-hero) .gsap-reveal-up').forEach(el => {
           gsap.fromTo(el,
             { opacity: 0, y: 35 },
             {

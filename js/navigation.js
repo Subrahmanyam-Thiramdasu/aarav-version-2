@@ -89,22 +89,72 @@
     });
   });
 
-  // ── Desktop dropdown keyboard ─────────────────────── //
+  // ── Desktop dropdown click & keyboard interaction ── //
   document.querySelectorAll('.nav-item').forEach(function (item) {
     const link = item.querySelector('.nav-link');
     const drop = item.querySelector('.nav-drop');
-    if (!drop) return;
+    if (!drop || !link) return;
 
+    // Toggle dropdown on click
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const isCurrentlyOpen = item.classList.contains('is-open');
+
+      // Close all other open dropdowns
+      document.querySelectorAll('.nav-item.is-open').forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove('is-open');
+          const otherLink = other.querySelector('.nav-link');
+          if (otherLink) otherLink.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      const willOpen = !isCurrentlyOpen;
+      item.classList.toggle('is-open', willOpen);
+      link.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+
+    // Keyboard support (Enter, Space, Escape)
     link.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        item.classList.toggle('is-open');
+        const isOpen = item.classList.toggle('is-open');
+        link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      } else if (e.key === 'Escape') {
+        item.classList.remove('is-open');
+        link.setAttribute('aria-expanded', 'false');
+        link.focus();
       }
     });
 
+    // Prevent clicks inside the dropdown from closing it prematurely
+    drop.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+
+    // Close when clicking any link inside the dropdown
+    drop.querySelectorAll('a').forEach(function (dropLink) {
+      dropLink.addEventListener('click', function () {
+        item.classList.remove('is-open');
+        link.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close on outside click
     document.addEventListener('click', function (e) {
       if (!item.contains(e.target)) {
         item.classList.remove('is-open');
+        link.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Global Escape key closes any open dropdown
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && item.classList.contains('is-open')) {
+        item.classList.remove('is-open');
+        link.setAttribute('aria-expanded', 'false');
       }
     });
   });

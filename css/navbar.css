@@ -175,31 +175,50 @@
 /* ── Dropdown ────────────────────────────────────── */
 .nav-drop {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   min-width: 220px;
   background: var(--white);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 16px 36px -6px rgba(13, 47, 66, 0.16), 0 4px 12px rgba(13, 47, 66, 0.06);
   padding: var(--space-3);
   opacity: 0;
   visibility: hidden;
   transition:
-    opacity var(--dur-normal) var(--ease-out),
-    transform var(--dur-normal) var(--ease-out),
-    visibility var(--dur-normal);
-  z-index: var(--z-nav);
+    opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.22s;
+  z-index: 1000;
   pointer-events: none;
+}
+
+/* Hover bridge to prevent unexpected closing when moving mouse from nav item to dropdown */
+.nav-drop::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.nav-item:hover .nav-caret,
+.nav-item.is-open .nav-caret {
+  transform: rotate(180deg);
 }
 
 .nav-item:hover .nav-drop,
 .nav-item.is-open .nav-drop {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
+}
+
+.nav-item:hover .nav-drop:not(.nav-drop--mega),
+.nav-item.is-open .nav-drop:not(.nav-drop--mega) {
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Dropdown arrow */
@@ -217,49 +236,111 @@
 
 .nav-drop-link {
   display: block;
-  padding: 0.6rem 0.875rem;
-  font-size: var(--text-sm);
+  padding: 0.38rem 0.65rem;
+  font-size: 0.835rem;
   font-weight: 500;
+  line-height: 1.35;
   color: var(--text-body);
   border-radius: var(--radius-sm);
   transition:
     background var(--dur-fast) var(--ease-out),
-    color var(--dur-fast) var(--ease-out);
+    color var(--dur-fast) var(--ease-out),
+    padding-left var(--dur-fast) var(--ease-out);
   text-decoration: none;
 }
 
 .nav-drop-link:hover {
-  background: var(--aqua-soft);
+  background: rgba(22, 138, 173, 0.08);
   color: var(--teal);
+  padding-left: 0.85rem;
 }
 
 /* Mega drop: Services */
 .nav-drop--mega {
-  min-width: 580px;
-  left: -120px;
-  transform: translateX(0) translateY(8px);
-  padding: var(--space-5);
+  width: 740px;
+  max-width: calc(100vw - 32px);
+  left: 50%;
+  transform: translateX(-38%) translateY(8px);
+  padding: 1.15rem 1.25rem 0.85rem;
+  border-radius: 14px;
+}
+
+.nav-drop--mega::before {
+  left: 18.5%;
 }
 
 .nav-item:hover .nav-drop--mega,
 .nav-item.is-open .nav-drop--mega {
-  transform: translateX(0) translateY(0);
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(-38%) translateY(0);
 }
 
 .mega-cols {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
 }
 
 .mega-group-title {
-  font-size: var(--text-xs);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--teal);
-  margin-bottom: var(--space-2);
-  padding: 0 0.875rem;
+  margin-bottom: 0.45rem;
+  padding: 0 0.65rem;
+  border-bottom: 1px solid rgba(22, 138, 173, 0.12);
+  padding-bottom: 0.35rem;
+}
+
+.mega-bottom-bar {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mega-all-services-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.835rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--dur-fast), gap var(--dur-fast), background var(--dur-fast);
+}
+
+.mega-all-services-link:hover {
+  color: var(--navy);
+  background: rgba(22, 138, 173, 0.08);
+  gap: 0.55rem;
+}
+
+.mega-tagline {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding-left: 0.65rem;
+}
+
+@media (max-width: 1200px) {
+  .nav-drop--mega {
+    width: 680px;
+    transform: translateX(-45%) translateY(8px);
+  }
+  .nav-drop--mega::before {
+    left: 45%;
+  }
+  .nav-item:hover .nav-drop--mega,
+  .nav-item.is-open .nav-drop--mega {
+    transform: translateX(-45%) translateY(0);
+  }
 }
 
 /* ── CTA nav button ──────────────────────────────── */
