@@ -328,6 +328,42 @@
       padding-bottom: 0;
       border-bottom: none;
     }
+
+    
+/* Doctor profile photograph */
+.profile-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #f5f7f7;
+  box-shadow: 0 32px 72px rgba(16, 47, 64, 0.12);
+}
+
+.profile-doctor-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: inherit;
+}
+
+/* Responsive profile image */
+@media (max-width: 959px) {
+  .profile-img-box {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-img-box {
+    border-radius: 18px;
+  }
+}
+
   </style>
   <link rel="stylesheet" href="css/bg-animations.css">
   <script src="js/particle-bg.js" defer></script>
@@ -384,14 +420,18 @@
         
         <!-- Left: Image Reveal -->
         <div class="profile-img-wrap gsap-clip-reveal">
-          <div class="profile-img-box">
-            <!-- PENDING VERIFIED PHOTO. Using a branded placeholder per instructions. -->
-            <div class="profile-placeholder-initials">SR</div>
-            <div class="profile-placeholder-text">
-              <i data-lucide="image" style="width:24px;height:24px; opacity:0.5; margin-bottom:0.5rem;"></i><br>
-              Photo pending verification
-            </div>
-          </div>
+
+<div class="profile-img-box">
+  <img
+    src="assets/images/doc-1.jpeg"
+    alt="Dr. Sneha Reddy, Lead Physiotherapist at Aarav Clinics"
+    class="profile-doctor-photo"
+    width="1200"
+    height="1600"
+    fetchpriority="high"
+  >
+</div>
+
           
           <div class="profile-badge gsap-reveal-left">
             <div class="profile-badge-icon">

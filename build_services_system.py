@@ -809,7 +809,7 @@ NAV_HEADER_HTML = """<header class="site-header theme-transparent theme-dark" id
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </a>
-            <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
+   <!-- <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
               <div class="mega-cols">
                 <div>
                   <p class="mega-group-title">Advanced Therapies</p>
@@ -841,7 +841,9 @@ NAV_HEADER_HTML = """<header class="site-header theme-transparent theme-dark" id
                   <a href="services.html" class="nav-drop-link" style="font-weight:700;color:var(--teal);">All 19 Services &rarr;</a>
                 </div>
               </div>
-            </div>
+            </div> -->
+          
+          
           </li>
           <li class="nav-item">
             <a href="child-development.html" class="nav-link">Child Development</a>
