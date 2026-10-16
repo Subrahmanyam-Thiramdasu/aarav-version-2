@@ -160,3 +160,130 @@
     text-align: center;
   }
 }
+
+
+
+/* Footer social media icons */
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+
+.footer-social-link {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #b9cbd7;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.footer-social-link svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
+
+.footer-social-link:hover {
+  color: #ffffff;
+  background: #009eaa;
+  border-color: #009eaa;
+  transform: translateY(-4px);
+}
+
+.footer-social-whatsapp:hover {
+  background: #25d366;
+  border-color: #25d366;
+  color: #ffffff;
+}
+
+.footer-social-link:focus-visible {
+  outline: 2px solid #25d366;
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .footer-social-links {
+    margin: 20px 0;
+    gap: 12px;
+  }
+
+  .footer-social-link {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+
+
+/* FIX: Footer social icons — actual HTML class names */
+.premium-footer .footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.premium-footer .social-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d5e6ee;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  line-height: 1;
+  visibility: visible;
+  opacity: 1;
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              transform 0.3s ease;
+}
+
+.premium-footer .social-btn svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+.premium-footer .social-btn:hover {
+  background: var(--color-champagne, #e5c99a);
+  color: var(--color-navy, #071d2c);
+  transform: translateY(-3px);
+}
+
+.premium-footer .footer-brand-col > img {
+  display: block;
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .premium-footer .footer-social {
+    gap: 12px;
+    margin-top: 20px;
+  }
+}

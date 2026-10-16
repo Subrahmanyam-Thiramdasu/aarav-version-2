@@ -19,7 +19,7 @@ SERVICES = [
         "slug": "shockwave-therapy",
         "category": "Advanced Technology",
         "meta_title": "Shockwave Therapy in Hyderabad | Extracorporeal Acoustic Care | Aarav Clinics",
-        "meta_desc": "Advanced radial and focused Shockwave Therapy in Ashok Nagar, Hyderabad. Non-invasive acoustic pulses accelerating tendon recovery and calcification breakdown.",
+        "meta_desc": "Advanced radial and focused Shockwave Therapy in Ashok Nagar, Near BHEL, Hyderabad. Non-invasive acoustic pulses accelerating tendon recovery and calcification breakdown.",
         "badge": "Advanced Acoustic Therapy",
         "hero_title": "Acoustic Wave Healing.",
         "hero_subtitle": "Targeted Deep Tissue Relief.",
@@ -58,7 +58,7 @@ SERVICES = [
         "slug": "advanced-decompression-therapy",
         "category": "Advanced Technology",
         "meta_title": "Advanced Spinal Decompression Therapy Hyderabad | Aarav Clinics",
-        "meta_desc": "Non-surgical computerized spinal decompression in Ashok Nagar, Hyderabad. Precise negative disc pressure for sciatica, disc bulges, herniations, and neck pain.",
+        "meta_desc": "Non-surgical computerized spinal decompression in Ashok Nagar, Near BHEL, Hyderabad. Precise negative disc pressure for sciatica, disc bulges, herniations, and neck pain.",
         "badge": "Spinal Care Innovation",
         "hero_title": "Spinal Decompression.",
         "hero_subtitle": "Non-Surgical Disc Relief.",
@@ -97,7 +97,7 @@ SERVICES = [
         "slug": "cage-therapy",
         "category": "Neuro-Rehabilitation",
         "meta_title": "Cage Therapy & Suspension Rehabilitation Hyderabad | Aarav Clinics",
-        "meta_desc": "Universal exercise cage therapy and suspension rehabilitation in Ashok Nagar, Hyderabad. Dynamic weight-eliminated balance and motor control training.",
+        "meta_desc": "Universal exercise cage therapy and suspension rehabilitation in Ashok Nagar, Near BHEL, Hyderabad. Dynamic weight-eliminated balance and motor control training.",
         "badge": "Suspension Rehabilitation",
         "hero_title": "Cage Therapy System.",
         "hero_subtitle": "Suspension & Balance Control.",
@@ -136,7 +136,7 @@ SERVICES = [
         "slug": "cupping-therapy",
         "category": "Musculoskeletal",
         "meta_title": "Clinical Cupping Therapy Hyderabad | Myofascial Decompression | Aarav Clinics",
-        "meta_desc": "Evidence-based clinical cupping and myofascial decompression in Ashok Nagar, Hyderabad. Alleviate muscular stiffness, release fascial restrictions, and enhance blood flow.",
+        "meta_desc": "Evidence-based clinical cupping and myofascial decompression in Ashok Nagar, Near BHEL, Hyderabad. Alleviate muscular stiffness, release fascial restrictions, and enhance blood flow.",
         "badge": "Myofascial Decompression",
         "hero_title": "Clinical Cupping Therapy.",
         "hero_subtitle": "Decompress Stiff Fascial Layers.",
@@ -175,7 +175,7 @@ SERVICES = [
         "slug": "dry-needling-therapy",
         "category": "Musculoskeletal",
         "meta_title": "Dry Needling Therapy in Hyderabad | Trigger Point Relief | Aarav Clinics",
-        "meta_desc": "Certified intramuscular Dry Needling in Ashok Nagar, Hyderabad. Precise trigger point release for chronic back pain, tension headaches, sciatica, and muscle knots.",
+        "meta_desc": "Certified intramuscular Dry Needling in Ashok Nagar, Near BHEL, Hyderabad. Precise trigger point release for chronic back pain, tension headaches, sciatica, and muscle knots.",
         "badge": "Intramuscular Therapy",
         "hero_title": "Precision Dry Needling.",
         "hero_subtitle": "Release Deep Trigger Points.",
@@ -214,7 +214,7 @@ SERVICES = [
         "slug": "prenatal-postnatal-exercise-therapy",
         "category": "Maternal Rehabilitation",
         "meta_title": "Prenatal and Postnatal Exercise Therapy Hyderabad | Aarav Clinics",
-        "meta_desc": "Expert Prenatal and Postnatal Exercise Therapy in Ashok Nagar, Hyderabad. Pelvic floor strengthening, diastasis recti recovery, and safe pregnancy fitness.",
+        "meta_desc": "Expert Prenatal and Postnatal Exercise Therapy in Ashok Nagar, Near BHEL, Hyderabad. Pelvic floor strengthening, diastasis recti recovery, and safe pregnancy fitness.",
         "badge": "Maternal Health Physiotherapy",
         "hero_title": "Maternal Wellness Care.",
         "hero_subtitle": "Prenatal & Postnatal Therapy.",
@@ -253,7 +253,7 @@ SERVICES = [
         "slug": "speech-therapy-paediatric-adult",
         "category": "Speech & Communication",
         "meta_title": "Speech Therapy for Paediatric and Adult Patients Hyderabad | Aarav Clinics",
-        "meta_desc": "Certified speech-language pathology in Ashok Nagar, Hyderabad. Expert care for child speech delay, stammering, adult stroke aphasia, and swallowing disorders.",
+        "meta_desc": "Certified speech-language pathology in Ashok Nagar, Near BHEL, Hyderabad. Expert care for child speech delay, stammering, adult stroke aphasia, and swallowing disorders.",
         "badge": "Speech & Language Pathology",
         "hero_title": "Clear Communication.",
         "hero_subtitle": "Paediatric & Adult Care.",
@@ -292,7 +292,7 @@ SERVICES = [
         "slug": "occupational-therapy",
         "category": "Developmental & Functional",
         "meta_title": "Occupational Therapy in Hyderabad | Sensory Integration | Aarav Clinics",
-        "meta_desc": "Certified Occupational Therapy and sensory integration in Ashok Nagar, Hyderabad. Fine motor skills, sensory processing, handwriting, and daily independence.",
+        "meta_desc": "Certified Occupational Therapy and sensory integration in Ashok Nagar, Near BHEL, Hyderabad. Fine motor skills, sensory processing, handwriting, and daily independence.",
         "badge": "Sensory & Functional Care",
         "hero_title": "Occupational Therapy.",
         "hero_subtitle": "Empowering Independence.",
@@ -331,7 +331,7 @@ SERVICES = [
         "slug": "vision-therapy",
         "category": "Neuro-Developmental",
         "meta_title": "Vision Therapy in Hyderabad | Visual Processing & Eye Tracking | Aarav Clinics",
-        "meta_desc": "Specialized Vision Therapy in Ashok Nagar, Hyderabad. Evidence-based care for convergence insufficiency, eye tracking delays, amblyopia, and visual-motor integration.",
+        "meta_desc": "Specialized Vision Therapy in Ashok Nagar, Near BHEL, Hyderabad. Evidence-based care for convergence insufficiency, eye tracking delays, amblyopia, and visual-motor integration.",
         "badge": "Visual-Motor Rehabilitation",
         "hero_title": "Clinical Vision Therapy.",
         "hero_subtitle": "Retraining the Visual Brain.",
@@ -370,7 +370,7 @@ SERVICES = [
         "slug": "behavioural-therapy",
         "category": "Child Development",
         "meta_title": "Behavioural Therapy for Children in Hyderabad | Aarav Clinics",
-        "meta_desc": "Empathetic, evidence-based Behavioural Therapy in Ashok Nagar, Hyderabad. Positive behavioral support, emotional regulation, and social skill development.",
+        "meta_desc": "Empathetic, evidence-based Behavioural Therapy in Ashok Nagar, Near BHEL, Hyderabad. Positive behavioral support, emotional regulation, and social skill development.",
         "badge": "Positive Behavior Support",
         "hero_title": "Behavioural Therapy.",
         "hero_subtitle": "Emotional Regulation & Growth.",
@@ -409,7 +409,7 @@ SERVICES = [
         "slug": "special-education-therapy",
         "category": "Child Development",
         "meta_title": "Special Education Therapy in Hyderabad | Remedial Learning | Aarav Clinics",
-        "meta_desc": "Individualized Special Education and remedial therapy in Ashok Nagar, Hyderabad. Structured academic support for dyslexia, learning differences, and developmental delays.",
+        "meta_desc": "Individualized Special Education and remedial therapy in Ashok Nagar, Near BHEL, Hyderabad. Structured academic support for dyslexia, learning differences, and developmental delays.",
         "badge": "Remedial & Developmental Learning",
         "hero_title": "Special Education.",
         "hero_subtitle": "Personalized Learning Pathways.",
@@ -448,7 +448,7 @@ SERVICES = [
         "slug": "parental-training",
         "category": "Child Development",
         "meta_title": "Parental Training & Coaching in Hyderabad | Aarav Clinics",
-        "meta_desc": "Compassionate, structured Parental Training in Ashok Nagar, Hyderabad. Equipping families with evidence-based home therapy routines, positive communication, and guidance.",
+        "meta_desc": "Compassionate, structured Parental Training in Ashok Nagar, Near BHEL, Hyderabad. Equipping families with evidence-based home therapy routines, positive communication, and guidance.",
         "badge": "Family Coaching & Guidance",
         "hero_title": "Parental Training.",
         "hero_subtitle": "Empowering Families to Lead.",
@@ -487,7 +487,7 @@ SERVICES = [
         "slug": "advanced-physiotherapy",
         "category": "Musculoskeletal",
         "meta_title": "Advanced Physiotherapy Clinic Hyderabad | Aarav Clinics",
-        "meta_desc": "Leading evidence-based Advanced Physiotherapy in Ashok Nagar, Hyderabad. Expert manual therapy, spinal rehab, joint mobilization, and long-term functional recovery.",
+        "meta_desc": "Leading evidence-based Advanced Physiotherapy in Ashok Nagar, Near BHEL, Hyderabad. Expert manual therapy, spinal rehab, joint mobilization, and long-term functional recovery.",
         "badge": "Musculoskeletal Clinical Excellence",
         "hero_title": "Advanced Physiotherapy.",
         "hero_subtitle": "Root-Cause Functional Recovery.",
@@ -526,7 +526,7 @@ SERVICES = [
         "slug": "stroke-rehabilitation",
         "category": "Neuro-Rehabilitation",
         "meta_title": "Stroke Rehabilitation in Hyderabad | Neuro Physiotherapy | Aarav Clinics",
-        "meta_desc": "Specialized Stroke & Neurological Rehabilitation in Ashok Nagar, Hyderabad. Neuroplasticity retraining, hemiplegia recovery, gait re-education, and functional independence.",
+        "meta_desc": "Specialized Stroke & Neurological Rehabilitation in Ashok Nagar, Near BHEL, Hyderabad. Neuroplasticity retraining, hemiplegia recovery, gait re-education, and functional independence.",
         "badge": "Neurological Excellence",
         "hero_title": "Stroke Rehabilitation.",
         "hero_subtitle": "Rewiring Neural Pathways.",
@@ -565,7 +565,7 @@ SERVICES = [
         "slug": "paediatric-adult-rehabilitation",
         "category": "Multidisciplinary",
         "meta_title": "Paediatric and Adult Rehabilitation in Hyderabad | Aarav Clinics",
-        "meta_desc": "Comprehensive Paediatric and Adult Rehabilitation in Ashok Nagar, Hyderabad. Lifelong restorative care for congenital delays, trauma, and neurological conditions.",
+        "meta_desc": "Comprehensive Paediatric and Adult Rehabilitation in Ashok Nagar, Near BHEL, Hyderabad. Lifelong restorative care for congenital delays, trauma, and neurological conditions.",
         "badge": "Continuum of Care",
         "hero_title": "Paediatric & Adult Care.",
         "hero_subtitle": "Restorative Therapy for All Ages.",
@@ -604,7 +604,7 @@ SERVICES = [
         "slug": "geriatric-rehabilitation",
         "category": "Senior Mobility",
         "meta_title": "Geriatric Rehabilitation in Hyderabad | Fall Prevention | Aarav Clinics",
-        "meta_desc": "Specialized Geriatric Rehabilitation in Ashok Nagar, Hyderabad. Safe balance training, fall prevention, arthritis management, and mobility support for senior citizens.",
+        "meta_desc": "Specialized Geriatric Rehabilitation in Ashok Nagar, Near BHEL, Hyderabad. Safe balance training, fall prevention, arthritis management, and mobility support for senior citizens.",
         "badge": "Senior Health & Longevity",
         "hero_title": "Geriatric Rehabilitation.",
         "hero_subtitle": "Safe, Confident Senior Mobility.",
@@ -643,7 +643,7 @@ SERVICES = [
         "slug": "sports-injury-physiotherapy",
         "category": "Sports Rehabilitation",
         "meta_title": "Sports Injury Physiotherapy in Hyderabad | Aarav Clinics",
-        "meta_desc": "Elite Sports Injury Physiotherapy in Ashok Nagar, Hyderabad. Accelerated recovery for ACL tears, rotator cuff injuries, ankle sprains, runner's knee, and return-to-sport training.",
+        "meta_desc": "Elite Sports Injury Physiotherapy in Ashok Nagar, Near BHEL, Hyderabad. Accelerated recovery for ACL tears, rotator cuff injuries, ankle sprains, runner's knee, and return-to-sport training.",
         "badge": "Athletic Performance Recovery",
         "hero_title": "Sports Injury Physiotherapy.",
         "hero_subtitle": "Accelerated Return to Play.",
@@ -682,7 +682,7 @@ SERVICES = [
         "slug": "tkr-thr-physiotherapy",
         "category": "Joint Replacement",
         "meta_title": "Pre- and Post-TKR and THR Physiotherapy Hyderabad | Aarav Clinics",
-        "meta_desc": "Specialized Pre- and Post-Total Knee Replacement (TKR) & Total Hip Replacement (THR) physiotherapy in Ashok Nagar, Hyderabad. Safe phased recovery and mobility.",
+        "meta_desc": "Specialized Pre- and Post-Total Knee Replacement (TKR) & Total Hip Replacement (THR) physiotherapy in Ashok Nagar, Near BHEL, Hyderabad. Safe phased recovery and mobility.",
         "badge": "Joint Replacement Rehabilitation",
         "hero_title": "TKR & THR Physiotherapy.",
         "hero_subtitle": "Pre- & Post-Surgical Recovery.",
@@ -721,7 +721,7 @@ SERVICES = [
         "slug": "laser-therapy",
         "category": "Advanced Technology",
         "meta_title": "Class IV Laser Therapy in Hyderabad | Aarav Clinics",
-        "meta_desc": "High-intensity Class IV Laser Therapy in Ashok Nagar, Hyderabad. Rapid non-invasive pain relief for osteoarthritis, plantar fasciitis, tendonitis, and sports injuries.",
+        "meta_desc": "High-intensity Class IV Laser Therapy in Ashok Nagar, Near BHEL, Hyderabad. Rapid non-invasive pain relief for osteoarthritis, plantar fasciitis, tendonitis, and sports injuries.",
         "badge": "Advanced Photobiomodulation",
         "hero_title": "Deep Tissue Laser.",
         "hero_subtitle": "Cellular-Level Phototherapy.",
@@ -804,10 +804,10 @@ NAV_HEADER_HTML = """<header class="site-header theme-transparent theme-dark" id
           <li class="nav-item">
             <a href="services.html" class="nav-link is-active" aria-haspopup="true">
               Services
-              <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                <!-- <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 aria-hidden="true">
                 <polyline points="6 9 12 15 18 9" />
-              </svg>
+              </svg> -->
             </a>
    <!-- <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
               <div class="mega-cols">
@@ -970,7 +970,7 @@ PREMIUM_FOOTER_HTML = """<footer class="premium-footer">
 
       <div class="footer-contact-col">
         <h4>Reach Us</h4>
-        <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Hyderabad - 502032</p>
+        <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Near BHEL, Hyderabad - 502032</p>
         <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
         <a href="mailto:aaravphysioclinics@gmail.com" class="footer-contact-link"><i data-lucide="mail"></i>
           aaravphysioclinics@gmail.com</a>
@@ -982,7 +982,7 @@ PREMIUM_FOOTER_HTML = """<footer class="premium-footer">
     </div>
 
     <div class="footer-bottom wrap">
-      <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Hyderabad.</p>
+      <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Near BHEL, Hyderabad.</p>
       <div style="display:flex;gap:1.5rem;">
         <a href="privacy-policy.html" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
         <a href="terms.html" style="color:var(--text-muted);text-decoration:none;">Terms of Service</a>
@@ -1450,7 +1450,7 @@ def build_services_listing_page():
   <meta property="og:url" content="https://aaravhealthcare.com/services.html">
   <meta property="og:title" content="19 Specialised Clinical Services – Aarav Clinics">
   <meta property="og:description"
-    content="Personalized physiotherapy, advanced technology therapies, stroke rehabilitation, and child development in Ashok Nagar, Hyderabad.">
+    content="Personalized physiotherapy, advanced technology therapies, stroke rehabilitation, and child development in Ashok Nagar, Near BHEL, Hyderabad.">
   <meta property="og:image" content="https://aaravhealthcare.com/assets/images/physiotherapy-session.jpg">
 
   <!-- Preconnect -->
@@ -1483,7 +1483,7 @@ def build_services_listing_page():
     "@type": "MedicalWebPage",
     "name": "Aarav Clinics Specialised Therapy Services",
     "url": "https://aaravhealthcare.com/services.html",
-    "description": "Complete catalog of 19 adult and paediatric clinical therapy services provided by Aarav Clinics in Ashok Nagar, Hyderabad."
+    "description": "Complete catalog of 19 adult and paediatric clinical therapy services provided by Aarav Clinics in Ashok Nagar, Near BHEL, Hyderabad."
   }}
   </script>
   <script src="js/particle-bg.js" defer></script>
@@ -1538,7 +1538,7 @@ def build_services_listing_page():
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M20 6L9 17l-5-5" />
             </svg>
-            Ashok Nagar, Hyderabad
+            Ashok Nagar, Near BHEL, Hyderabad
           </span>
           <span class="hero-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">

@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://aaravhealthcare.com/services.html">
   <meta property="og:title" content="19 Specialised Clinical Services – Aarav Clinics">
   <meta property="og:description"
-    content="Personalized physiotherapy, advanced technology therapies, stroke rehabilitation, and child development in Ashok Nagar, Hyderabad.">
+    content="Personalized physiotherapy, advanced technology therapies, stroke rehabilitation, and child development in Ashok Nagar, Near BHEL, Hyderabad.">
   <meta property="og:image" content="https://aaravhealthcare.com/assets/images/physiotherapy-session.jpg">
 
   <!-- Preconnect -->
@@ -47,10 +47,40 @@
     "@type": "MedicalWebPage",
     "name": "Aarav Clinics Specialised Therapy Services",
     "url": "https://aaravhealthcare.com/services.html",
-    "description": "Complete catalog of 19 adult and paediatric clinical therapy services provided by Aarav Clinics in Ashok Nagar, Hyderabad."
+    "description": "Complete catalog of 19 adult and paediatric clinical therapy services provided by Aarav Clinics in Ashok Nagar, Near BHEL, Hyderabad."
   }
   </script>
   <script src="js/particle-bg.js" defer></script>
+
+  <!-- Service card photography -->
+  <style>
+    #servicesGrid .svc-card { overflow: hidden; }
+    #servicesGrid .svc-card-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 14px;
+      margin: 0 0 1rem;
+      background: #eaf4f5;
+      isolation: isolate;
+    }
+    #servicesGrid .svc-card-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .55s cubic-bezier(.2,.7,.2,1);
+    }
+    #servicesGrid .svc-card:hover .svc-card-image img,
+    #servicesGrid .svc-card:focus-visible .svc-card-image img {
+      transform: scale(1.045);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #servicesGrid .svc-card-image img { transition: none; }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -77,12 +107,12 @@
           <li class="nav-item">
             <a href="services.html" class="nav-link is-active" aria-haspopup="true" aria-expanded="false">
               Services
-              <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              <!--    <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 aria-hidden="true">
                 <polyline points="6 9 12 15 18 9" />
-              </svg>
+              </svg> --> 
             </a>
-            <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
+            <!-- <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
               <div class="mega-cols">
                 <div>
                   <p class="mega-group-title">Advanced Therapies</p>
@@ -114,13 +144,13 @@
                 </div>
               </div>
               <div class="mega-bottom-bar">
-                <span class="mega-tagline">19 Specialised Clinical Services · Ashok Nagar, Hyderabad</span>
+                <span class="mega-tagline">19 Specialised Clinical Services · Ashok Nagar, Near BHEL, Hyderabad</span>
                 <a href="services.html" class="mega-all-services-link">
                   View All 19 Clinical Services
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
               </div>
-            </div>
+            </div> -->
           </li>
           <li class="nav-item">
             <a href="child-development.html" class="nav-link">Child Development</a>
@@ -243,13 +273,13 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M20 6L9 17l-5-5" />
             </svg>
-            Exactly 19 Clinical Services
+             Clinical Services
           </span>
           <span class="hero-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M20 6L9 17l-5-5" />
             </svg>
-            Ashok Nagar, Hyderabad
+            Ashok Nagar, Near BHEL, Hyderabad
           </span>
           <span class="hero-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -268,7 +298,7 @@
           <span class="eyebrow">Comprehensive Clinical Catalog</span>
           <h2 class="section-title">Specialised Medical, Rehabilitation &amp; Therapy Services</h2>
           <p class="lead">
-            Aarav Clinics brings together multidisciplinary physical therapy, cutting-edge pain relief technologies, and comprehensive developmental pediatric therapies under one roof in Ashok Nagar, Hyderabad. Every treatment plan is tailored by clinical specialists using proven protocols to restore mobility, alleviate pain, accelerate tissue healing, and support lasting health.
+            Aarav Clinics brings together multidisciplinary physical therapy, cutting-edge pain relief technologies, and comprehensive developmental pediatric therapies under one roof in Ashok Nagar, Near BHEL, Hyderabad. Every treatment plan is tailored by clinical specialists using proven protocols to restore mobility, alleviate pain, accelerate tissue healing, and support lasting health.
           </p>
         </div>
 
@@ -294,11 +324,8 @@
           <!-- 1. Shockwave Therapy -->
           <a href="shockwave-therapy.html" class="svc-card reveal" data-category="advanced-therapies">
             <span class="svc-card-tag svc-card-tag--advanced">Advanced Technology</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/shockwave-therapy.webp" alt="Shockwave Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Shockwave Therapy</h3>
             <p>Acoustic pressure waves stimulating cellular repair, microcirculation, and breakdown of stubborn calcifications for chronic plantar fasciitis and tendinopathy.</p>
@@ -313,11 +340,8 @@
           <!-- 2. Advanced Decompression Therapy -->
           <a href="advanced-decompression-therapy.html" class="svc-card reveal" data-category="advanced-therapies">
             <span class="svc-card-tag svc-card-tag--advanced">Advanced Technology</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="3" />
-                <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/advanced-decompression-therapy.webp" alt="Advanced Decompression Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Advanced Decompression Therapy</h3>
             <p>Computerized non-surgical spinal decompression gently relieving intervertebral disc pressure, sciatica, herniated discs, and persistent cervical radiculopathy.</p>
@@ -332,11 +356,8 @@
           <!-- 3. Cage Therapy -->
           <a href="cage-therapy.html" class="svc-card reveal" data-category="advanced-therapies">
             <span class="svc-card-tag svc-card-tag--advanced">Advanced Technology</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/cage-therapy.webp" alt="Cage Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Cage Therapy</h3>
             <p>Structured suspension and universal exercise cage therapy providing gravity-eliminated neuromuscular re-education, postural alignment, and balance stability.</p>
@@ -351,12 +372,8 @@
           <!-- 4. Cupping Therapy -->
           <a href="cupping-therapy.html" class="svc-card reveal" data-category="advanced-therapies">
             <span class="svc-card-tag svc-card-tag--advanced">Advanced Technology</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M7 6a5 5 0 0 1 10 0v5a5 5 0 0 1-10 0V6z" />
-                <ellipse cx="12" cy="17" rx="6" ry="2.5" />
-                <path d="M12 2v4" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/cupping-therapy.webp" alt="Cupping Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Cupping Therapy</h3>
             <p>Medical-grade myofascial cupping utilizing controlled decompression to improve localized blood flow, release fascial restrictions, and alleviate dense muscle stiffness.</p>
@@ -371,12 +388,8 @@
           <!-- 5. Dry Needling Therapy -->
           <a href="dry-needling-therapy.html" class="svc-card reveal" data-category="advanced-therapies">
             <span class="svc-card-tag svc-card-tag--advanced">Advanced Technology</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="12" y1="2" x2="12" y2="16" />
-                <polygon points="12 22 9 16 15 16 12 22" />
-                <circle cx="12" cy="12" r="8" stroke-dasharray="2 2" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/dry-needling-therapy.webp" alt="Dry Needling Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Dry Needling Therapy</h3>
             <p>Targeted fine-filament intramuscular needling releasing hyperirritable myofascial trigger points, resetting neuromuscular tension, and relieving referred pain.</p>
@@ -391,11 +404,8 @@
           <!-- 6. Prenatal and Postnatal Exercise Therapy -->
           <a href="prenatal-postnatal-exercise-therapy.html" class="svc-card reveal" data-category="child-development">
             <span class="svc-card-tag svc-card-tag--child">Specialist Care</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                <path d="M12 8a3 3 0 0 0-3 3c0 2 3 5 3 5s3-3 3-5a3 3 0 0 0-3-3z" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/prenatal-postnatal-exercise-therapy.webp" alt="Prenatal and Postnatal Exercise Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Prenatal and Postnatal Exercise Therapy</h3>
             <p>Specialized physical therapy guiding expectant and new mothers through safe pelvic floor conditioning, diastasis recti recovery, and spinal support.</p>
@@ -410,11 +420,8 @@
           <!-- 7. Speech Therapy for Paediatric and Adult Patients -->
           <a href="speech-therapy-paediatric-adult.html" class="svc-card reveal" data-category="child-development">
             <span class="svc-card-tag svc-card-tag--child">Pediatric &amp; Adult Care</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/speech-therapy-pediatric-adult.webp" alt="Speech Therapy for Paediatric and Adult Patients in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Speech Therapy for Paediatric and Adult Patients</h3>
             <p>Expert speech-language pathology addressing developmental speech delays, articulation, fluency, voice, and adult post-stroke swallowing or aphasia challenges.</p>
@@ -429,13 +436,8 @@
           <!-- 8. Occupational Therapy -->
           <a href="occupational-therapy.html" class="svc-card reveal" data-category="child-development">
             <span class="svc-card-tag svc-card-tag--child">Child Development</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
-                <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
-                <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/occupational-therapy.webp" alt="Occupational Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Occupational Therapy</h3>
             <p>Sensory integration, handwriting coordination, bilateral motor skills, and self-care independence helping children and adults excel in daily activities.</p>
@@ -450,12 +452,8 @@
           <!-- 9. Vision Therapy -->
           <a href="vision-therapy.html" class="svc-card reveal" data-category="child-development">
             <span class="svc-card-tag svc-card-tag--child">Neuro-Optometric</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
-                <circle cx="12" cy="12" r="3" />
-                <circle cx="12" cy="12" r="1" fill="currentColor" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/vision-therapy.webp" alt="Vision Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Vision Therapy</h3>
             <p>Clinical neuro-developmental visual exercises enhancing binocular convergence, ocular motor tracking, visual-spatial perception, and visual-motor integration.</p>
@@ -470,11 +468,8 @@
           <!-- 10. Behavioural Therapy -->
           <a href="behavioural-therapy.html" class="svc-card reveal" data-category="child-development">
             <span class="svc-card-tag svc-card-tag--child">Child Development</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M12 2a8 8 0 0 0-8 8c0 3 1.5 5.5 4 7v3h8v-3c2.5-1.5 4-4 4-7a8 8 0 0 0-8-8z" />
-                <path d="M9 10h.01M15 10h.01M9.5 14a3.5 3.5 0 0 0 5 0" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/behavioural-therapy.webp" alt="Behavioural Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Behavioural Therapy</h3>
             <p>Evidence-based behavioral support fostering emotional regulation, social-communication skills, routine adaptation, and positive behavioral milestones.</p>
@@ -489,12 +484,8 @@
           <!-- 11. Special Education Therapy -->
           <a href="special-education-therapy.html" class="svc-card reveal" data-category="child-development">
             <span class="svc-card-tag svc-card-tag--child">Child Development</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                <path d="M10 6h6M10 10h4" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/special-education-therapy.webp" alt="Special Education Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Special Education Therapy</h3>
             <p>Individualized educational interventions for children with learning differences, dyslexia, attention difficulties, and academic processing challenges.</p>
@@ -509,13 +500,8 @@
           <!-- 12. Parental Training -->
           <a href="parental-training.html" class="svc-card reveal" data-category="child-development">
             <span class="svc-card-tag svc-card-tag--child">Family Coaching</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="9" cy="7" r="4" />
-                <path d="M1 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" />
-                <circle cx="19" cy="11" r="3" />
-                <path d="M23 21v-1.5a3 3 0 0 0-3-3h-1" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/parental-training.webp" alt="Parental Training in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Parental Training</h3>
             <p>Empowering parents with hands-on therapeutic techniques, positive communication strategies, and home-based developmental guidance for lasting progress.</p>
@@ -530,11 +516,8 @@
           <!-- 13. Advanced Physiotherapy -->
           <a href="advanced-physiotherapy.html" class="svc-card reveal" data-category="rehabilitation">
             <span class="svc-card-tag svc-card-tag--rehab">Rehabilitation</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="18" cy="4" r="2" />
-                <path d="M14 8l3 3 3-3M16 11v6l3 4M13 15l-3 4M10 8l-4 4 2 4M9 5l3 3" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/advanced-physiotherapy.webp" alt="Advanced Physiotherapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Advanced Physiotherapy</h3>
             <p>Comprehensive clinical physiotherapy combining manual mobilization, postural re-education, and tailored exercise therapy for back, neck, and joint disorders.</p>
@@ -549,11 +532,8 @@
           <!-- 14. Stroke Rehabilitation -->
           <a href="stroke-rehabilitation.html" class="svc-card reveal" data-category="rehabilitation">
             <span class="svc-card-tag svc-card-tag--rehab">Neuro Rehabilitation</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z" />
-                <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/stroke-rehabilitation.webp" alt="Stroke Rehabilitation in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Stroke Rehabilitation</h3>
             <p>Specialized neuro-physiotherapy retraining motor pathways, restoring balance and gait coordination, managing spasticity, and fostering functional independence.</p>
@@ -568,13 +548,8 @@
           <!-- 15. Paediatric and Adult Rehabilitation -->
           <a href="paediatric-adult-rehabilitation.html" class="svc-card reveal" data-category="rehabilitation">
             <span class="svc-card-tag svc-card-tag--rehab">Rehabilitation</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="7" cy="6" r="3" />
-                <path d="M2 19v-2a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v2" />
-                <circle cx="17" cy="8" r="2.5" />
-                <path d="M13 19v-1.5a2.5 2.5 0 0 1 2.5-2.5h3a2.5 2.5 0 0 1 2.5 2.5V19" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/paediatric-adult-rehabilitation.webp" alt="Paediatric and Adult Rehabilitation in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Paediatric and Adult Rehabilitation</h3>
             <p>Integrated developmental and restorative rehabilitation addressing congenital conditions, motor milestone delays, adult trauma, and complex neuromuscular needs.</p>
@@ -589,11 +564,8 @@
           <!-- 16. Geriatric Rehabilitation -->
           <a href="geriatric-rehabilitation.html" class="svc-card reveal" data-category="rehabilitation">
             <span class="svc-card-tag svc-card-tag--rehab">Senior Care</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="10" cy="5" r="3" />
-                <path d="M6 21v-6l4-2 3 3v5M10 13l2-3 4 2v9M17 14v7" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/geriatric-rehabilitation.webp" alt="Geriatric Rehabilitation in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Geriatric Rehabilitation</h3>
             <p>Compassionate senior physical therapy improving balance confidence, joint flexibility, bone health, and fall prevention for active, safe living.</p>
@@ -608,11 +580,8 @@
           <!-- 17. Sports Injury Physiotherapy -->
           <a href="sports-injury-physiotherapy.html" class="svc-card reveal" data-category="rehabilitation">
             <span class="svc-card-tag svc-card-tag--rehab">Sports Medicine</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="12" cy="5" r="3" />
-                <path d="M7 21l3-7 2 2 4-5 4 2M4 14l4-3 3 2M11 14l-2 7" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/sports-injury-physiotherapy.webp" alt="Sports Injury Physiotherapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Sports Injury Physiotherapy</h3>
             <p>Biomechanical evaluation, ligament and tendon recovery protocols, and progressive return-to-sport physical conditioning for athletes.</p>
@@ -627,12 +596,8 @@
           <!-- 18. Pre- and Post-TKR and THR Physiotherapy -->
           <a href="tkr-thr-physiotherapy.html" class="svc-card reveal" data-category="rehabilitation">
             <span class="svc-card-tag svc-card-tag--rehab">Joint Replacement</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M12 2v20M8 7l4 2 4-2M8 17l4-2 4 2" />
-                <circle cx="12" cy="12" r="3.5" />
-                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/pre-post-tkr-thr-physiotherapy.webp" alt="Pre- and Post-TKR and THR Physiotherapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Pre- and Post-TKR and THR Physiotherapy</h3>
             <p>Phased pre-operative conditioning and post-surgical rehabilitation for Total Knee Replacement (TKR) and Total Hip Replacement (THR) procedures.</p>
@@ -647,11 +612,8 @@
           <!-- 19. Laser Therapy -->
           <a href="laser-therapy.html" class="svc-card reveal" data-category="advanced-therapies">
             <span class="svc-card-tag svc-card-tag--advanced">Advanced Technology</span>
-            <div class="svc-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.07-6.93l-2.12 2.12m-9.62 9.62l-2.12 2.12m0-13.86l2.12 2.12m9.62 9.62l2.12 2.12" />
-              </svg>
+            <div class="svc-card-image">
+              <img src="assets/images/services/laser-therapy.webp" alt="Laser Therapy in a modern rehabilitation clinic" width="800" height="600" loading="lazy" decoding="async">
             </div>
             <h3>Laser Therapy</h3>
             <p>Class IV deep-penetrating therapeutic laser delivering targeted light photons into deep tissues, rapidly resolving inflammation and stimulating mitochondrial repair.</p>
@@ -730,7 +692,7 @@
 
       <div class="footer-contact-col">
         <h4>Reach Us</h4>
-        <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Hyderabad - 502032</p>
+        <p>HIG, 2nd Floor, Sai Sadan Enclave, Ashok Nagar, Near BHEL, Hyderabad - 502032</p>
         <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
         <a href="mailto:aaravphysioclinics@gmail.com" class="footer-contact-link"><i data-lucide="mail"></i>
           aaravphysioclinics@gmail.com</a>
@@ -742,7 +704,7 @@
     </div>
 
     <div class="footer-bottom wrap">
-      <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Hyderabad.</p>
+      <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Near BHEL, Hyderabad.</p>
       <div style="display:flex;gap:1.5rem;">
         <a href="privacy-policy.html" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
         <a href="terms.html" style="color:var(--text-muted);text-decoration:none;">Terms of Service</a>
