@@ -953,7 +953,7 @@ PREMIUM_FOOTER_HTML = """<footer class="premium-footer">
         <a href="laser-therapy.html">Laser Therapy</a>
         <a href="sports-injury-physiotherapy.html">Sports Injury Physiotherapy</a>
         <a href="tkr-thr-physiotherapy.html">Pre- &amp; Post-TKR and THR</a>
-        <a href="services.html">All 19 Clinical Services</a>
+         
       </div>
 
       <div class="footer-links-col">

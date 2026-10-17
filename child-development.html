@@ -1,630 +1,1956 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Child Development Centre Hyderabad – Speech, OT &amp; Pediatric Care | Aarav Clinics</title>
+
   <meta name="description"
+
     content="Dedicated Child Development Centre in Ashok Nagar, Near BHEL, Hyderabad. Multidisciplinary pediatric physiotherapy, speech therapy, occupational therapy, and autism support.">
+
   <link rel="canonical" href="https://aaravhealthcare.com/child-development.html">
 
   <!-- Open Graph -->
+
   <meta property="og:type" content="website">
+
   <meta property="og:url" content="https://aaravhealthcare.com/child-development.html">
+
   <meta property="og:title" content="Child Development Centre – Aarav Clinics Hyderabad">
+
   <meta property="og:description"
+
     content="Integrated pediatric physiotherapy, speech therapy, sensory integration and autism care in a child-friendly environment.">
+
   <meta property="og:image" content="https://aaravhealthcare.com/assets/images/child-therapy.jpg">
 
   <!-- Twitter -->
+
   <meta name="twitter:card" content="summary_large_image">
+
   <meta name="twitter:title" content="Child Development Centre – Aarav Clinics">
+
   <meta name="twitter:description"
+
     content="Helping every child achieve their motor, speech, and developmental milestones in Hyderabad.">
+
   <meta name="twitter:image" content="https://aaravhealthcare.com/assets/images/child-therapy.jpg">
 
   <!-- Preconnect -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
+
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+
     rel="stylesheet">
 
   <!-- Favicon -->
+
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
   <!-- Lucide & GSAP -->
+
   <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <script src="js/particle-bg.js" defer></script>
 
   <!-- CSS -->
+
   <link rel="stylesheet" href="css/variables.css">
+
   <link rel="stylesheet" href="css/base.css">
+
   <link rel="stylesheet" href="css/layout.css">
+
   <link rel="stylesheet" href="css/buttons.css">
+
   <link rel="stylesheet" href="css/navbar.css">
+
   <link rel="stylesheet" href="css/hero.css">
+
   <link rel="stylesheet" href="css/sections.css">
+
   <link rel="stylesheet" href="css/inner.css">
+
   <link rel="stylesheet" href="css/footer.css">
+
   <link rel="stylesheet" href="css/animations.css">
+
   <link rel="stylesheet" href="css/bg-animations.css">
+
   <link rel="stylesheet" href="css/child-development.css">
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    "name": "Aarav Clinics Child Development Centre",
-    "url": "https://aaravhealthcare.com/child-development.html",
-    "description": "Comprehensive child development centre providing pediatric physical therapy, speech therapy, occupational therapy, and autism interventions in Hyderabad."
+  <style>
+
+/* =========================================================
+
+   CHILD DEVELOPMENT CINEMATIC HERO
+
+   Reuses the homepage hero design system
+
+   ========================================================= */
+
+.child-cinematic-hero {
+
+  min-height: 100vh;
+
+  min-height: 100svh;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background: #071d2c;
+
+}
+
+/* Full-screen background image */
+
+.child-cinematic-hero .cinematic-hero-bg {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+}
+
+.child-cinematic-hero .hero-parallax-img {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center 40%;
+
+}
+
+/* Consistent dark overlay for readable text */
+
+.child-cinematic-hero .cinematic-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+
+      90deg,
+
+      rgba(7, 29, 44, 0.91) 0%,
+
+      rgba(7, 29, 44, 0.77) 43%,
+
+      rgba(7, 29, 44, 0.37) 100%
+
+    );
+
+}
+
+.child-cinematic-hero .cinematic-gradient {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+
+    180deg,
+
+    rgba(7, 29, 44, 0.08) 45%,
+
+    rgba(7, 29, 44, 0.96) 100%
+
+  );
+
+  pointer-events: none;
+
+}
+
+/* Main content positioning */
+
+.child-cinematic-hero .cinematic-hero-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  padding-top: clamp(7rem, 12vh, 9rem);
+
+  padding-bottom: clamp(10rem, 18vh, 13rem);
+
+}
+
+.child-cinematic-hero .hero-text-block {
+
+  width: 100%;
+
+  max-width: 790px;
+
+}
+
+/* Badge */
+
+.child-cinematic-hero .hero-badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  margin-bottom: 1.7rem;
+
+  padding: 0.65rem 1.1rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.27);
+
+  border-radius: 100px;
+
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.10);
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+
+}
+
+.child-cinematic-hero .hero-badge i {
+
+  width: 18px;
+
+  height: 18px;
+
+  color: #d0a76a;
+
+}
+
+/* Typography */
+
+.child-cinematic-hero .hero-giant-title {
+
+  max-width: 780px;
+
+  margin: 0 0 1.5rem;
+
+  color: #fff;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  font-size: clamp(2.8rem, 5.4vw, 5rem);
+
+  font-weight: 800;
+
+  line-height: 1.12;
+
+  letter-spacing: -0.055em;
+
+}
+
+.child-cinematic-hero .hero-giant-title .mask-line {
+
+  display: block;
+
+  overflow: visible;
+
+}
+
+.child-cinematic-hero .hero-giant-title .gsap-title-reveal {
+
+  color: #fff;
+
+}
+
+.child-cinematic-hero .hero-giant-title .text-champagne {
+
+  color: #d0a76a;
+
+}
+
+.child-cinematic-hero .hero-editorial-desc {
+
+  max-width: 630px;
+
+  margin: 0 0 1.8rem;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+
+  font-weight: 400;
+
+  line-height: 1.85;
+
+}
+
+/* Specialisation pills */
+
+.child-cinematic-hero .child-hero-specialties {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.65rem;
+
+  max-width: 720px;
+
+  margin-bottom: 2rem;
+
+}
+
+.child-cinematic-hero .child-hero-specialties span {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  padding: 0.55rem 0.8rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.17);
+
+  border-radius: 100px;
+
+  color: rgba(255, 255, 255, 0.94);
+
+  background: rgba(255, 255, 255, 0.09);
+
+  font-size: 0.76rem;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(8px);
+
+}
+
+.child-cinematic-hero .child-hero-specialties i {
+
+  width: 15px;
+
+  height: 15px;
+
+  color: #d0a76a;
+
+}
+
+/* CTA buttons */
+
+.child-cinematic-hero .hero-cta-group {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+}
+
+.child-cinematic-hero .btn-premium-solid {
+
+  background: #d0a76a;
+
+  border-color: #d0a76a;
+
+  color: #102f40;
+
+}
+
+.child-cinematic-hero .btn-premium-solid:hover {
+
+  background: #e0bc88;
+
+  border-color: #e0bc88;
+
+}
+
+.child-cinematic-hero .btn-premium-outline {
+
+  color: #fff;
+
+  border-color: rgba(255, 255, 255, 0.55);
+
+  background: rgba(255, 255, 255, 0.04);
+
+}
+
+.child-cinematic-hero .btn-premium-outline:hover {
+
+  color: #102f40;
+
+  background: #fff;
+
+  border-color: #fff;
+
+}
+
+/* Bottom navigation: match homepage styling */
+
+.child-cinematic-hero .hero-floating-nav {
+
+  z-index: 5;
+
+  padding: 1.5rem 0 1.1rem;
+
+  background: linear-gradient(
+
+    to top,
+
+    rgba(7, 29, 44, 0.98),
+
+    rgba(7, 29, 44, 0.75) 65%,
+
+    transparent
+
+  );
+
+}
+
+.child-cinematic-hero .floating-nav-inner {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: stretch;
+
+  gap: 0.75rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.17);
+
+}
+
+.child-cinematic-hero .floating-nav-item {
+
+  min-width: 0;
+
+  padding: 0.8rem;
+
+  border-radius: 10px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  text-decoration: none;
+
+  transition: *background* 0.25s ease, color 0.25s ease;
+
+}
+
+.child-cinematic-hero .floating-nav-item:hover {
+
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.08);
+
+}
+
+.child-cinematic-hero .fn-icon {
+
+  flex-shrink: 0;
+
+  color: #d0a76a;
+
+  background: rgba(208, 167, 106, 0.14);
+
+}
+
+.child-cinematic-hero .fn-text {
+
+  font-size: 0.9rem;
+
+  line-height: 1.4;
+
+}
+
+/* Tablet */
+
+@media (max-width: 991px) {
+
+  .child-cinematic-hero {
+
+    min-height: 90vh;
+
+    min-height: 90svh;
+
   }
+
+  .child-cinematic-hero .cinematic-hero-content {
+
+    padding-top: 8rem;
+
+    padding-bottom: 12rem;
+
+  }
+
+  .child-cinematic-hero .hero-parallax-img {
+
+    object-position: 55% center;
+
+  }
+
+  .child-cinematic-hero .cinematic-overlay {
+
+    background: linear-gradient(
+
+      90deg,
+
+      rgba(7, 29, 44, 0.88),
+
+      rgba(7, 29, 44, 0.59)
+
+    );
+
+  }
+
+  .child-cinematic-hero .floating-nav-inner {
+
+    flex-wrap: wrap;
+
+  }
+
+  .child-cinematic-hero .floating-nav-item {
+
+    flex: 1 1 calc(50% - 0.75rem);
+
+  }
+
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+  .child-cinematic-hero {
+
+    min-height: auto;
+
+    min-height: 100svh;
+
+    align-items: flex-start;
+
+  }
+
+  .child-cinematic-hero .cinematic-hero-content {
+
+    padding-top: 7.5rem;
+
+    padding-bottom: 14rem;
+
+  }
+
+  .child-cinematic-hero .hero-parallax-img {
+
+    object-position: 60% center;
+
+  }
+
+  .child-cinematic-hero .cinematic-overlay {
+
+    background: linear-gradient(
+
+      90deg,
+
+      rgba(7, 29, 44, 0.91),
+
+      rgba(7, 29, 44, 0.72)
+
+    );
+
+  }
+
+  .child-cinematic-hero .hero-giant-title {
+
+    font-size: clamp(2.3rem, 9vw, 3.3rem);
+
+    line-height: 1.15;
+
+  }
+
+  .child-cinematic-hero .hero-editorial-desc {
+
+    font-size: 0.9rem;
+
+    line-height: 1.8;
+
+  }
+
+  .child-cinematic-hero .hero-badge {
+
+    font-size: 0.66rem;
+
+    letter-spacing: 0.04em;
+
+  }
+
+  .child-cinematic-hero .child-hero-specialties {
+
+    gap: 0.5rem;
+
+  }
+
+  .child-cinematic-hero .child-hero-specialties span {
+
+    padding: 0.5rem 0.65rem;
+
+    font-size: 0.7rem;
+
+  }
+
+  .child-cinematic-hero .hero-cta-group {
+
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 0.75rem;
+
+  }
+
+  .child-cinematic-hero .hero-cta-group .btn {
+
+    width: 100%;
+
+    justify-content: center;
+
+    text-align: center;
+
+  }
+
+  .child-cinematic-hero .hero-floating-nav {
+
+    padding-bottom: 1rem;
+
+  }
+
+  .child-cinematic-hero .floating-nav-inner {
+
+    gap: 0.4rem;
+
+    padding-top: 0.7rem;
+
+  }
+
+  .child-cinematic-hero .floating-nav-item {
+
+    flex: 1 1 calc(50% - 0.4rem);
+
+    gap: 0.55rem;
+
+    padding: 0.65rem 0.45rem;
+
+  }
+
+  .child-cinematic-hero .fn-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+  }
+
+  .child-cinematic-hero .fn-text {
+
+    font-size: 0.72rem;
+
+  }
+
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .child-cinematic-hero .floating-nav-item,
+
+  .child-cinematic-hero .btn {
+
+    transition: none !important;
+
+  }
+
+}
+
+/* ==========================================================
+   FINAL HERO FIX — MATCH THE HOMEPAGE HEADER + HERO GEOMETRY
+   All hero-specific fixes are embedded in this HTML file.
+   ========================================================== */
+
+/* Match the homepage's solid white navigation bar.
+   The previous transparent/light header made dark links sit
+   over the dark hero image. */
+body.child-dev-page > .site-header,
+body.child-dev-page .site-header,
+body.child-dev-page .site-header.theme-transparent,
+body.child-dev-page .site-header.theme-light {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  min-height: 86px;
+  background: #fff !important;
+  color: #243746 !important;
+  border-bottom: 1px solid rgba(16, 47, 64, 0.08) !important;
+  box-shadow: 0 3px 18px rgba(16, 47, 64, 0.045) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 1000;
+}
+
+.child-dev-page .site-header .header-inner {
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+}
+
+.child-dev-page .site-header .nav-link,
+.child-dev-page .site-header .main-nav a {
+  color: #344653 !important;
+}
+
+.child-dev-page .site-header .nav-link:hover,
+.child-dev-page .site-header .nav-link.is-active {
+  color: #009ba8 !important;
+}
+
+.child-dev-page .site-header .nav-toggle {
+  color: #102f40 !important;
+}
+
+/* Start the hero below the white header, as on index.html. */
+.child-dev-page .child-cinematic-hero {
+  min-height: calc(100vh - 86px);
+  min-height: calc(100svh - 86px);
+  align-items: center;
+}
+
+/* Keep the hero copy in the same scale and proportion as the homepage. */
+.child-dev-page .child-cinematic-hero .cinematic-hero-content {
+  padding-top: clamp(4rem, 7vh, 6rem);
+  padding-bottom: clamp(9rem, 15vh, 11rem);
+}
+
+.child-dev-page .child-cinematic-hero .hero-text-block {
+  max-width: 760px;
+}
+
+.child-dev-page .child-cinematic-hero .hero-giant-title {
+  max-width: 700px;
+  font-size: clamp(2.5rem, 3.5vw, 3.6rem);
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+}
+
+.child-dev-page .child-cinematic-hero .hero-editorial-desc {
+  max-width: 610px;
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.child-dev-page .child-cinematic-hero .hero-badge {
+  margin-bottom: 1.5rem;
+}
+
+.child-dev-page .child-cinematic-hero .child-hero-specialties {
+  margin-bottom: 1.6rem;
+}
+
+.child-dev-page .child-cinematic-hero .hero-cta-group {
+  gap: 1rem;
+}
+
+/* The index hero uses a dark image overlay with a readable left column. */
+.child-dev-page .child-cinematic-hero .cinematic-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 29, 44, 0.88) 0%,
+    rgba(7, 29, 44, 0.72) 48%,
+    rgba(7, 29, 44, 0.38) 100%
+  );
+}
+
+.child-dev-page .child-cinematic-hero .cinematic-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 29, 44, 0.02) 40%,
+    rgba(7, 29, 44, 0.92) 100%
+  );
+}
+
+/* Tablet and mobile: keep the white header, avoid text overflow. */
+@media (max-width: 991px) {
+  .child-dev-page .site-header,
+  .child-dev-page .site-header.theme-transparent,
+  .child-dev-page .site-header.theme-light {
+    min-height: 76px;
+  }
+
+  .child-dev-page .site-header .header-inner {
+    min-height: 76px;
+  }
+
+  .child-dev-page .child-cinematic-hero {
+    min-height: calc(100svh - 76px);
+  }
+
+  .child-dev-page .child-cinematic-hero .hero-giant-title {
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .child-dev-page .site-header,
+  .child-dev-page .site-header.theme-transparent,
+  .child-dev-page .site-header.theme-light {
+    min-height: 70px;
+  }
+
+  .child-dev-page .site-header .header-inner {
+    min-height: 70px;
+  }
+
+  .child-dev-page .child-cinematic-hero {
+    min-height: calc(100svh - 70px);
+    align-items: flex-start;
+  }
+
+  .child-dev-page .child-cinematic-hero .cinematic-hero-content {
+    padding-top: 4rem;
+    padding-bottom: 13rem;
+  }
+
+  .child-dev-page .child-cinematic-hero .hero-giant-title {
+    font-size: clamp(2.15rem, 9vw, 2.9rem);
+    letter-spacing: -0.04em;
+  }
+
+  .child-dev-page .child-cinematic-hero .hero-cta-group .btn {
+    min-height: 54px;
+  }
+}
+
+</style>
+
+  <!-- Schema.org -->
+
+  <script type="application/ld+json">
+
+  {
+
+    "@context": "https://schema.org",
+
+    "@type": "MedicalWebPage",
+
+    "name": "Aarav Clinics Child Development Centre",
+
+    "url": "https://aaravhealthcare.com/child-development.html",
+
+    "description": "Comprehensive child development centre providing pediatric physical therapy, speech therapy, occupational therapy, and autism interventions in Hyderabad."
+
+  }
+
   </script>
+
 </head>
 
 <body class="premium-theme child-dev-page" style="background:#faf9f6;">
 
   <!-- Skip link -->
+
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Announcement Bar -->
-  <!-- <!-- <div class="announce-bar" role="region" aria-label="Site announcement">
-  Video Consultations Now Available — Connect with our therapists from home.
-  <a href="video-consultation.html">Book Now &rarr;</a>
-</div> --> -->
+
+  <!-- Announcement bar intentionally disabled -->
 
   <!-- Header -->
+
   <header class="site-header theme-transparent theme-light" id="siteHeader">
+
     <div class="wrap header-inner">
+
       <a class="brand" href="index.html" aria-label="Aarav Clinics — Home">
+
         <img src="assets/images/logo.png" alt="Aarav Clinics — A Complete Family Therapy Care" class="brand-logo"
+
           width="200" height="60">
+
       </a>
 
       <!-- Desktop Nav -->
+
       <nav class="main-nav" aria-label="Primary navigation">
+
         <ul class="main-nav" style="display:flex;align-items:center;gap:var(--space-1);list-style:none;">
+
           <li class="nav-item">
+
             <a href="index.html" class="nav-link">Home</a>
+
           </li>
+
           <li class="nav-item">
+
             <a href="about.html" class="nav-link">About</a>
+
           </li>
+
           <li class="nav-item">
+
             <a href="services.html" class="nav-link" aria-haspopup="true">
+
               Services
+
                 <!-- <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+
                 aria-hidden="true">
+
                 <polyline points="6 9 12 15 18 9" />
+
               </svg> -->
+
             </a>
+
    <!-- <div class="nav-drop nav-drop--mega" role="region" aria-label="Services menu">
+
               <div class="mega-cols">
+
                 <div>
+
                   <p class="mega-group-title">Advanced Therapies</p>
+
                   <a href="shockwave-therapy.html" class="nav-drop-link">Shockwave Therapy</a>
+
                   <a href="advanced-decompression-therapy.html" class="nav-drop-link">Advanced Decompression</a>
+
                   <a href="cage-therapy.html" class="nav-drop-link">Cage Therapy</a>
+
                   <a href="cupping-therapy.html" class="nav-drop-link">Cupping Therapy</a>
+
                   <a href="dry-needling-therapy.html" class="nav-drop-link">Dry Needling Therapy</a>
+
                   <a href="laser-therapy.html" class="nav-drop-link">Laser Therapy</a>
+
                 </div>
+
                 <div>
+
                   <p class="mega-group-title">Rehabilitation Care</p>
+
                   <a href="advanced-physiotherapy.html" class="nav-drop-link">Advanced Physiotherapy</a>
+
                   <a href="stroke-rehabilitation.html" class="nav-drop-link">Stroke Rehabilitation</a>
+
                   <a href="paediatric-adult-rehabilitation.html" class="nav-drop-link">Paediatric &amp; Adult Rehab</a>
+
                   <a href="geriatric-rehabilitation.html" class="nav-drop-link">Geriatric Rehabilitation</a>
+
                   <a href="sports-injury-physiotherapy.html" class="nav-drop-link">Sports Injury Physiotherapy</a>
+
                   <a href="tkr-thr-physiotherapy.html" class="nav-drop-link">Pre- &amp; Post-TKR &amp; THR</a>
+
                   <a href="prenatal-postnatal-exercise-therapy.html" class="nav-drop-link">Prenatal &amp; Postnatal</a>
+
                 </div>
+
                 <div>
+
                   <p class="mega-group-title">Child Development</p>
+
                   <a href="speech-therapy-paediatric-adult.html" class="nav-drop-link">Speech Therapy</a>
+
                   <a href="occupational-therapy.html" class="nav-drop-link">Occupational Therapy</a>
+
                   <a href="vision-therapy.html" class="nav-drop-link">Vision Therapy</a>
+
                   <a href="behavioural-therapy.html" class="nav-drop-link">Behavioural Therapy</a>
+
                   <a href="special-education-therapy.html" class="nav-drop-link">Special Education Therapy</a>
+
                   <a href="parental-training.html" class="nav-drop-link">Parental Training</a>
+
                   <a href="services.html" class="nav-drop-link" style="font-weight:700;color:var(--teal);">All 19 Services &rarr;</a>
+
                 </div>
+
               </div>
+
             </div> -->
-          
-          
+
           </li>
+
           <li class="nav-item">
+
             <a href="child-development.html" class="nav-link is-active">Child Development</a>
+
           </li>
+
           <li class="nav-item">
+
             <a href="team.html" class="nav-link">Our Team</a>
+
           </li>
+
           <li class="nav-item">
+
             <a href="blog.html" class="nav-link">Blog</a>
+
           </li>
+
           <li class="nav-item">
+
             <a href="contact.html" class="nav-link">Contact</a>
+
           </li>
+
         </ul>
+
       </nav>
 
       <a href="contact.html#appointment" class="btn btn-primary nav-cta" style="margin-left:auto;">
+
         Book Appointment
+
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+
           class="btn-arrow" aria-hidden="true">
+
           <path d="M5 12h14M12 5l7 7-7 7" />
+
         </svg>
+
       </a>
 
       <!-- Mobile toggle -->
+
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+
         <span></span><span></span><span></span>
+
       </button>
+
     </div>
+
   </header>
 
   <!-- Mobile Menu -->
+
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+
     <div class="mobile-menu-inner">
+
       <a href="index.html" class="mobile-nav-link">Home</a>
+
       <a href="about.html" class="mobile-nav-link">About</a>
 
       <button class="mobile-nav-link" data-mobile-toggle="mobileServSub" aria-expanded="false"
+
         style="width:100%;text-align:left;border:none;background:none;cursor:pointer;font:inherit;font-size:var(--text-lg);font-weight:600;color:var(--text-heading);">
+
         Services
+
         <svg class="mobile-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+
           stroke-width="2.5" style="transition:transform 0.3s" aria-hidden="true">
+
           <polyline points="6 9 12 15 18 9" />
+
         </svg>
+
       </button>
+
       <div id="mobileServSub" class="mobile-nav-sub">
+
         <a href="services.html" style="font-weight:700;color:var(--teal);">All 19 Clinical Services</a>
+
         <a href="shockwave-therapy.html">Shockwave Therapy</a>
+
         <a href="advanced-decompression-therapy.html">Advanced Decompression Therapy</a>
+
         <a href="cage-therapy.html">Cage Therapy</a>
+
         <a href="cupping-therapy.html">Cupping Therapy</a>
+
         <a href="dry-needling-therapy.html">Dry Needling Therapy</a>
+
         <a href="prenatal-postnatal-exercise-therapy.html">Prenatal &amp; Postnatal Exercise</a>
+
         <a href="speech-therapy-paediatric-adult.html">Speech Therapy (Paediatric &amp; Adult)</a>
+
         <a href="occupational-therapy.html">Occupational Therapy</a>
+
         <a href="vision-therapy.html">Vision Therapy</a>
+
         <a href="behavioural-therapy.html">Behavioural Therapy</a>
+
         <a href="special-education-therapy.html">Special Education Therapy</a>
+
         <a href="parental-training.html">Parental Training</a>
+
         <a href="advanced-physiotherapy.html">Advanced Physiotherapy</a>
+
         <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
+
         <a href="paediatric-adult-rehabilitation.html">Paediatric &amp; Adult Rehabilitation</a>
+
         <a href="geriatric-rehabilitation.html">Geriatric Rehabilitation</a>
+
         <a href="sports-injury-physiotherapy.html">Sports Injury Physiotherapy</a>
+
         <a href="tkr-thr-physiotherapy.html">Pre- and Post-TKR &amp; THR</a>
+
         <a href="laser-therapy.html">Laser Therapy</a>
+
       </div>
 
       <a href="child-development.html" class="mobile-nav-link" style="color:var(--teal);">Child Development</a>
+
       <a href="team.html" class="mobile-nav-link">Our Team</a>
+
       <a href="blog.html" class="mobile-nav-link">Blog</a>
+
       <a href="contact.html" class="mobile-nav-link">Contact</a>
+
     </div>
+
     <div class="mobile-menu-ctas">
+
       <a href="contact.html#appointment" class="btn btn-primary btn--block">Book an Appointment</a>
+
       <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment"
+
         target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn--block">
+
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
           <path
+
             d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z" />
+
         </svg>
+
         WhatsApp Us
+
       </a>
+
     </div>
+
   </nav>
 
   <!-- Main -->
+
   <main id="main">
 
-    <!-- CINEMATIC HERO: Child Development (Pediatric Editorial Variant) -->
-    <section class="section editorial-about bg-organic-shape particle-canvas-container" id="hero"
-      style="padding-top:9rem; padding-bottom:5rem; position:relative; overflow:hidden; background:linear-gradient(to bottom, #FAF8F5, #ffffff);">
-      <div class="wrap editorial-about-grid">
+<!-- =====================================================
 
-        <!-- Left Column: Content Block -->
-        <div class="about-content" style="display:flex; flex-direction:column; justify-content:center;">
-          <div class="premium-eyebrow gsap-reveal-left"
-            style="background:rgba(255,255,255,0.95); border:1px solid rgba(124,58,237,0.25); color:var(--color-navy); box-shadow:0 2px 12px rgba(124,58,237,0.06); margin-bottom:1.5rem; display:inline-flex; align-items:center; width:fit-content; border-radius:50px; padding:0.4rem 1.25rem;">
-            <i data-lucide="baby" style="color:var(--color-purple); margin-right:0.5rem; width:18px; height:18px;"></i>
-            Child Development Centre Hyderabad
-          </div>
+     CHILD DEVELOPMENT — CINEMATIC HERO
 
-          <h1 class="hero-giant-title"
-            style="color:var(--color-navy); font-size:clamp(2.4rem, 4vw, 3.2rem); line-height:1.15; margin-bottom:1.5rem;">
-            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-navy);">Nurturing
-                Growth.</span></span><br>
-            <span class="mask-line"><span class="gsap-title-reveal" style="color:var(--color-purple);">Unlocking
-                Potential.</span></span>
-          </h1>
+     Matches the homepage hero structure
 
-          <p class="editorial-lead gsap-reveal-up" style="color:#475569; margin-bottom:2rem; max-width:540px;">
-            A compassionate, play-based therapeutic environment where licensed pediatric specialists guide your child
-            through critical speech, motor, sensory, and behavioral milestones with joy and clinically proven results.
-          </p>
+     ===================================================== -->
 
-          <!-- Pediatric Specialization Badges -->
-          <div class="gsap-reveal-up" style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:2.5rem;">
-            <span
-              style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.4rem 0.85rem; border-radius:50px; background:rgba(0,142,155,0.08); color:var(--color-teal); font-size:0.85rem; font-weight:600;">
-              <i data-lucide="check-circle" style="width:14px; height:14px;"></i> Speech Therapy
-            </span>
-            <span
-              style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.4rem 0.85rem; border-radius:50px; background:rgba(124,58,237,0.08); color:var(--color-purple); font-size:0.85rem; font-weight:600;">
-              <i data-lucide="check-circle" style="width:14px; height:14px;"></i> Occupational &amp; Sensory
-            </span>
-            <span
-              style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.4rem 0.85rem; border-radius:50px; background:rgba(16,47,64,0.07); color:var(--color-navy); font-size:0.85rem; font-weight:600;">
-              <i data-lucide="check-circle" style="width:14px; height:14px;"></i> Pediatric Physio
-            </span>
-            <span
-              style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.4rem 0.85rem; border-radius:50px; background:rgba(208,167,106,0.12); color:#926829; font-size:0.85rem; font-weight:600;">
-              <i data-lucide="check-circle" style="width:14px; height:14px;"></i> Autism Support
-            </span>
-          </div>
+<section class="cinematic-hero particle-canvas-container child-cinematic-hero"
 
-          <div class="hero-cta-group gsap-reveal-up" style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="contact.html#appointment" class="btn btn-premium-solid btn-large"
-              style="background:var(--color-purple); border-color:var(--color-purple); box-shadow:0 8px 24px rgba(124,58,237,0.28);">
-              Book Developmental Assessment <i data-lucide="arrow-right"></i>
-            </a>
-            <a href="#services" class="btn btn-premium-outline btn-large"
-              style="border-color:var(--color-navy); color:var(--color-navy);">
-              Explore Services
-            </a>
-          </div>
-        </div>
+         id="hero">
 
-        <!-- Right Column: Visual Block -->
-        <div class="about-visuals gsap-parallax-group" style="position:relative;">
-          <div class="img-frame img-primary gsap-clip-reveal"
-            style="border-radius:24px; box-shadow:0 30px 60px rgba(16,47,64,0.15);">
-            <img src="assets/images/child-therapy.jpg" alt="Child Development Therapy Session at Aarav Clinics"
-              style="aspect-ratio:4/5; object-fit:cover;">
-          </div>
+  <!-- Full-width background image -->
 
-          <!-- Floating Badges -->
-          <div class="experience-badge gsap-scale-up"
-            style="bottom:-20px; right:10%; background:white; color:var(--color-navy); padding:1rem 1.5rem; border-radius:16px; box-shadow:0 12px 30px rgba(16,47,64,0.15); display:flex; align-items:center; gap:0.75rem; border:1px solid #e2e8f0; width:auto; text-align:left;">
-            <div style="background:rgba(124,58,237,0.1); padding:0.5rem; border-radius:50%;">
-              <i data-lucide="sparkles" style="color:var(--color-purple); width:24px; height:24px;"></i>
-            </div>
-            <div>
-              <div style="font-weight:700; font-size:1rem;">Play-Based Pediatric Care</div>
-              <div style="font-size:0.85rem; color:#64748B;">Multidisciplinary Early Intervention</div>
-            </div>
-          </div>
+  <div class="cinematic-hero-bg">
 
-          <div class="gsap-reveal-right"
-            style="position:absolute; top:40px; left:-30px; background:white; padding:0.8rem 1.25rem; border-radius:14px; box-shadow:0 12px 28px rgba(16,47,64,0.12); display:flex; align-items:center; gap:0.6rem; border:1px solid rgba(0,142,155,0.15); z-index:3;">
-            <i data-lucide="award" style="color:var(--color-teal); width:20px; height:20px;"></i>
-            <span style="font-size:0.95rem; font-weight:700; color:var(--color-navy);">Certified Specialists</span>
-          </div>
-        </div>
+    <img
+
+      src="assets/images/child-therapy.jpg"
+
+      alt="Child development therapy session at Aarav Clinics"
+
+      class="hero-parallax-img"
+
+      fetchpriority="high"
+
+    >
+
+    <div class="cinematic-overlay"></div>
+
+    <div class="cinematic-gradient bg-ambient-gradient"></div>
+
+  </div>
+
+  <!-- Animated particles remain enabled -->
+
+  <div class="cinematic-hero-content wrap">
+
+    <div class="hero-text-block">
+
+      <div class="hero-badge gsap-reveal-up">
+
+        <i data-lucide="baby"></i>
+
+        Child Development Centre · Hyderabad
 
       </div>
-    </section>
+
+      <h1 class="hero-giant-title">
+
+        <span class="mask-line">
+
+          <span class="gsap-title-reveal">
+
+            Nurturing Growth.
+
+          </span>
+
+        </span>
+
+        <span class="mask-line">
+
+          <span class="gsap-title-reveal text-champagne">
+
+            Unlocking Potential.
+
+          </span>
+
+        </span>
+
+      </h1>
+
+      <p class="hero-editorial-desc gsap-reveal-up">
+
+        Compassionate, play-based developmental care supporting
+
+        children's speech, movement, sensory processing and
+
+        everyday skills through individualised therapy.
+
+      </p>
+
+      <!-- Child development specialisations -->
+
+      <div class="child-hero-specialties gsap-reveal-up">
+
+        <span><i data-lucide="message-circle"></i> Speech Therapy</span>
+
+        <span><i data-lucide="puzzle"></i> Occupational Therapy</span>
+
+        <span><i data-lucide="activity"></i> Pediatric Physiotherapy</span>
+
+        <span><i data-lucide="heart-handshake"></i> Family Support</span>
+
+      </div>
+
+      <!-- Hero actions -->
+
+      <div class="hero-cta-group gsap-reveal-up">
+
+        <a href="contact.html#appointment"
+
+           class="btn btn-premium-solid btn-large">
+
+          Book Developmental Assessment
+
+          <i data-lucide="arrow-right"></i>
+
+        </a>
+
+        <a href="#services"
+
+           class="btn btn-premium-outline btn-large">
+
+          Explore Our Services
+
+          <i data-lucide="arrow-down"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom navigation: same visual system as homepage -->
+
+  <div class="hero-floating-nav gsap-reveal-up">
+
+    <div class="wrap floating-nav-inner">
+
+      <a href="#approach" class="floating-nav-item">
+
+        <span class="fn-icon">
+
+          <i data-lucide="heart-handshake"></i>
+
+        </span>
+
+        <span class="fn-text">Our Approach</span>
+
+      </a>
+
+      <a href="#services" class="floating-nav-item">
+
+        <span class="fn-icon">
+
+          <i data-lucide="puzzle"></i>
+
+        </span>
+
+        <span class="fn-text">Therapy Services</span>
+
+      </a>
+
+      <a href="#journey" class="floating-nav-item">
+
+        <span class="fn-icon">
+
+          <i data-lucide="users"></i>
+
+        </span>
+
+        <span class="fn-text">Parent Partnership</span>
+
+      </a>
+
+      <a href="#faq" class="floating-nav-item">
+
+        <span class="fn-icon">
+
+          <i data-lucide="messages-square"></i>
+
+        </span>
+
+        <span class="fn-text">Common Questions</span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
     <!-- THE AARAV APPROACH -->
+
     <section class="editorial-about" style="background:white; padding:8rem 0;">
+
       <div class="wrap editorial-about-grid">
+
         <div class="about-content">
+
           <span class="premium-eyebrow accent-purple gsap-reveal-left">Our Philosophy</span>
+
           <h2 class="editorial-title gsap-word-reveal" style="color:var(--color-navy);">Early intervention in a setting
+
             that feels like play.</h2>
+
           <p class="editorial-lead gsap-text-progress">
+
             The first five years of life represent a profound window of neuroplasticity. We believe that therapy should
+
             never feel intimidating. By transforming clinical exercises into engaging play, we foster natural,
+
             sustainable progress in communication, mobility, and sensory regulation.
+
           </p>
 
           <ul class="editorial-benefits gsap-stagger-list">
+
             <li>
+
               <i data-lucide="heart-handshake" style="color:var(--color-purple);"></i>
+
               <div>
+
                 <strong style="color:var(--color-navy);">Collaborative Multidisciplinary Care</strong>
+
                 <span>Physiotherapists, occupational therapists, and speech pathologists working together under one
+
                   roof.</span>
+
               </div>
+
             </li>
+
             <li>
+
               <i data-lucide="puzzle" style="color:var(--color-purple);"></i>
+
               <div>
+
                 <strong style="color:var(--color-navy);">Neurodiversity-Affirming Practices</strong>
+
                 <span>Respecting each child's unique sensory profile and communication style.</span>
+
               </div>
+
             </li>
+
             <li>
+
               <i data-lucide="users" style="color:var(--color-purple);"></i>
+
               <div>
+
                 <strong style="color:var(--color-navy);">Active Parent Coaching</strong>
+
                 <span>Empowering families with tools to reinforce learning in the home environment.</span>
+
               </div>
+
             </li>
+
           </ul>
+
         </div>
 
         <div class="about-visuals gsap-clip-reveal">
+
           <div class="img-frame img-primary"
+
             style="box-shadow: -30px 30px 60px rgba(139,92,246, 0.08); border-radius:24px;">
+
             <img src="assets/images/clinic-interior.jpg" alt="Child-friendly therapy environment">
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
     <!-- PEDIATRIC SERVICES BENTO -->
+
     <section class="services-bento-section" id="services" style="background:#f8fafc; padding:8rem 0;">
+
       <div class="wrap">
+
         <div class="section-header-centered gsap-reveal-up" style="margin-bottom:4rem;">
+
           <span class="premium-eyebrow" style="color:var(--color-purple);">Specialized Care</span>
+
           <h2 class="editorial-title" style="color:var(--color-navy);">Comprehensive Developmental Services</h2>
+
         </div>
 
         <div class="services-bento gsap-stagger-group" style="grid-template-columns: repeat(2, 1fr);">
+
           <a href="pediatric-physiotherapy.html" class="bento-card bento-small gsap-item"
+
             style="background:white; border-bottom:4px solid var(--color-teal); text-decoration:none; display:flex; flex-direction:column; justify-content:space-between;">
+
             <div class="bento-content-solid" style="background:transparent; color:var(--color-navy); padding:2.5rem;">
+
               <i data-lucide="person-standing" class="bento-icon"
+
                 style="color:var(--color-teal); width:40px; height:40px; margin-bottom:1.5rem;"></i>
+
               <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--color-navy);">Pediatric Physiotherapy</h3>
+
               <p style="font-size:1rem; color:#475569; line-height:1.6; margin-bottom:1.5rem;">Addressing gross motor
+
                 delays, hypotonia, torticollis, and mobility challenges through movement-based play.</p>
+
               <span style="color:var(--color-teal); font-weight:600; display:flex; align-items:center; gap:0.5rem;">View
+
                 Details <i data-lucide="arrow-right" style="width:16px; height:16px;"></i></span>
+
             </div>
+
           </a>
 
           <a href="speech-therapy.html" class="bento-card bento-small gsap-item"
+
             style="background:white; border-bottom:4px solid var(--color-purple); text-decoration:none; display:flex; flex-direction:column; justify-content:space-between;">
+
             <div class="bento-content-solid" style="background:transparent; color:var(--color-navy); padding:2.5rem;">
+
               <i data-lucide="message-circle" class="bento-icon"
+
                 style="color:var(--color-purple); width:40px; height:40px; margin-bottom:1.5rem;"></i>
+
               <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--color-navy);">Speech & Language Therapy</h3>
+
               <p style="font-size:1rem; color:#475569; line-height:1.6; margin-bottom:1.5rem;">Fostering confident
+
                 communication, articulation clarity, and social language skills in a supportive setting.</p>
+
               <span
+
                 style="color:var(--color-purple); font-weight:600; display:flex; align-items:center; gap:0.5rem;">View
+
                 Details <i data-lucide="arrow-right" style="width:16px; height:16px;"></i></span>
+
             </div>
+
           </a>
 
           <a href="occupational-therapy.html" class="bento-card bento-small gsap-item"
+
             style="background:white; border-bottom:4px solid var(--color-champagne); text-decoration:none; display:flex; flex-direction:column; justify-content:space-between;">
+
             <div class="bento-content-solid" style="background:transparent; color:var(--color-navy); padding:2.5rem;">
+
               <i data-lucide="puzzle" class="bento-icon"
+
                 style="color:var(--color-champagne); width:40px; height:40px; margin-bottom:1.5rem;"></i>
+
               <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--color-navy);">Occupational Therapy</h3>
+
               <p style="font-size:1rem; color:#475569; line-height:1.6; margin-bottom:1.5rem;">Enhancing fine motor
+
                 dexterity, sensory integration, and daily living skills to build independence.</p>
+
               <span
+
                 style="color:var(--color-champagne); font-weight:600; display:flex; align-items:center; gap:0.5rem;">View
+
                 Details <i data-lucide="arrow-right" style="width:16px; height:16px;"></i></span>
+
             </div>
+
           </a>
 
           <a href="autism-therapy.html" class="bento-card bento-small gsap-item"
+
             style="background:white; border-bottom:4px solid var(--color-navy); text-decoration:none; display:flex; flex-direction:column; justify-content:space-between;">
+
             <div class="bento-content-solid" style="background:transparent; color:var(--color-navy); padding:2.5rem;">
+
               <i data-lucide="heart" class="bento-icon"
+
                 style="color:var(--color-navy); width:40px; height:40px; margin-bottom:1.5rem;"></i>
+
               <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--color-navy);">Autism Support</h3>
+
               <p style="font-size:1rem; color:#475569; line-height:1.6; margin-bottom:1.5rem;">Individualized
+
                 developmental programs focusing on social engagement, routine transitions, and emotional regulation.</p>
+
               <span style="color:var(--color-navy); font-weight:600; display:flex; align-items:center; gap:0.5rem;">View
+
                 Details <i data-lucide="arrow-right" style="width:16px; height:16px;"></i></span>
+
             </div>
+
           </a>
+
         </div>
+
       </div>
+
     </section>
 
     <!-- PARENT PARTNERSHIP JOURNEY -->
+
     <section class="patient-journey-section" style="background:white; padding:8rem 0;">
+
       <div class="wrap">
+
         <div class="section-header-centered gsap-reveal-up" style="margin-bottom:5rem;">
+
           <span class="premium-eyebrow accent-purple">Your Journey With Us</span>
+
           <h2 class="editorial-title" style="color:var(--color-navy);">Partnering with parents at every step</h2>
+
         </div>
 
         <div class="journey-timeline">
+
           <div class="journey-step gsap-reveal-up">
+
             <div class="journey-marker" style="background:var(--color-purple); color:white;">01</div>
+
             <div class="journey-content">
+
               <h3 style="color:var(--color-navy);">Compassionate Consultation</h3>
+
               <p style="color:#475569;">We begin by listening to your observations and concerns in a welcoming
+
                 environment, ensuring we understand your child's unique history.</p>
+
             </div>
+
           </div>
 
           <div class="journey-step gsap-reveal-up">
+
             <div class="journey-marker" style="background:var(--color-purple); color:white;">02</div>
+
             <div class="journey-content">
+
               <h3 style="color:var(--color-navy);">Play-Based Assessment</h3>
+
               <p style="color:#475569;">Our specialists observe your child's motor and communication skills through
+
                 guided play, avoiding stressful clinical testing.</p>
+
             </div>
+
           </div>
 
           <div class="journey-step gsap-reveal-up">
+
             <div class="journey-marker" style="background:var(--color-purple); color:white;">03</div>
+
             <div class="journey-content">
+
               <h3 style="color:var(--color-navy);">Customized Care Plan</h3>
+
               <p style="color:#475569;">We design a tailored therapy program that integrates seamlessly into your
+
                 child's routine, setting clear, achievable milestones.</p>
+
             </div>
+
           </div>
 
           <div class="journey-step gsap-reveal-up">
+
             <div class="journey-marker" style="background:var(--color-purple); color:white;">04</div>
+
             <div class="journey-content">
+
               <h3 style="color:var(--color-navy);">Ongoing Parent Coaching</h3>
+
               <p style="color:#475569;">You are actively involved in the process. We equip you with practical strategies
+
                 to reinforce progress confidently at home.</p>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
     <!-- FAQ -->
+
     <section class="faq-section" style="background:#f8fafc; padding:8rem 0;">
+
       <div class="wrap" style="max-width:800px;">
+
         <div class="section-header-centered gsap-reveal-up">
+
           <span class="premium-eyebrow accent-purple">Parent FAQ</span>
+
           <h2 class="editorial-title" style="color:var(--color-navy);">Common questions</h2>
+
         </div>
 
         <div class="faq-accordion gsap-stagger-group">
+
           <div class="faq-card gsap-item">
+
             <button class="faq-toggle" aria-expanded="false">
+
               <span style="font-weight:600; color:var(--color-navy);">At what age should I consult if my child isn't
+
                 speaking?</span>
+
               <i data-lucide="chevron-down" class="faq-icon" style="color:var(--color-purple);"></i>
+
             </button>
+
             <div class="faq-content">
+
               <p>If your child does not babble by 12 months, does not point or use single words by 15–18 months, or has
+
                 fewer than 50 words by 24 months, we recommend an early speech-language screening to prevent learning
+
                 gaps.</p>
+
             </div>
+
           </div>
 
           <div class="faq-card gsap-item">
+
             <button class="faq-toggle" aria-expanded="false">
+
               <span style="font-weight:600; color:var(--color-navy);">What is sensory integration therapy?</span>
+
               <i data-lucide="chevron-down" class="faq-icon" style="color:var(--color-purple);"></i>
+
             </button>
+
             <div class="faq-content">
+
               <p>Sensory integration helps children who have difficulty processing sensory information (sounds, touch,
+
                 textures). Our occupational therapists use specialized play activities to help them regulate their
+
                 responses.</p>
+
             </div>
+
           </div>
 
           <div class="faq-card gsap-item">
+
             <button class="faq-toggle" aria-expanded="false">
+
               <span style="font-weight:600; color:var(--color-navy);">Can parents stay in the room during
+
                 sessions?</span>
+
               <i data-lucide="chevron-down" class="faq-icon" style="color:var(--color-purple);"></i>
+
             </button>
+
             <div class="faq-content">
+
               <p>Yes, absolutely. We encourage parental observation and active participation. This helps your child feel
+
                 secure and allows you to learn exactly how to apply our techniques at home.</p>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
   </main>
 
   <!-- PREMIUM FOOTER -->
+
   <footer class="premium-footer">
+
     <div class="footer-ambient-glow"></div>
+
     <div class="wrap footer-grid">
+
       <div class="footer-brand-col">
+
         <img src="assets/images/logo.png" alt="Aarav Clinics" width="180">
+
         <p class="footer-desc">Complete family therapy care — physiotherapy, rehabilitation and child development
+
           services in Ashok Nagar, Near BHEL, Hyderabad.</p>
+
         <div class="footer-social">
+
           <a href="https://www.google.com/maps?cid=10521016619599487601&amp;g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&amp;hl=en-GB&amp;source=embed"
+
             target="_blank" rel="noopener noreferrer" class="social-btn"><i data-lucide="map-pin"></i></a>
+
           <a href="https://wa.me/916302882910" target="_blank" rel="noopener noreferrer" class="social-btn"><i
+
               data-lucide="message-circle"></i></a>
+
         </div>
+
       </div>
 
       <div class="footer-links-col">
+
         <h4>Services</h4>
+
         <a href="physiotherapy.html">Physiotherapy</a>
+
         <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
+
         <a href="laser-therapy.html">Laser Therapy</a>
+
         <a href="home-physiotherapy.html">Home Physiotherapy</a>
+
         <a href="video-consultation.html">Video Consultation</a>
+
       </div>
 
       <div class="footer-links-col">
+
         <h4>Child Development</h4>
+
         <a href="child-development.html">Child Development Centre</a>
+
         <a href="pediatric-physiotherapy.html">Pediatric Physiotherapy</a>
+
         <a href="speech-therapy.html">Speech Therapy</a>
+
         <a href="occupational-therapy.html">Occupational Therapy</a>
+
         <a href="autism-therapy.html">Autism Therapy</a>
+
       </div>
 
       <div class="footer-contact-col">
+
         <h4>Quick Links & Contact</h4>
+
         <a href="tel:+916302882910" class="footer-contact-link"><i data-lucide="phone"></i> +91 63028 82910</a>
+
         <a href="mailto:aaravphysioclinics@gmail.com" class="footer-contact-link"><i data-lucide="mail"></i>
+
           aaravphysioclinics@gmail.com</a>
+
         <div class="footer-hours">
+
           <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+
           <span>Sunday: By Appointment</span>
+
         </div>
+
         <div style="margin-top:var(--space-4);">
+
           <a href="contact.html#appointment" class="btn btn-primary btn--sm"
+
             style="width:100%; justify-content:center;">Book Appointment</a>
+
         </div>
+
       </div>
+
     </div>
 
     <div class="footer-bottom wrap">
+
       <p>&copy; 2026 Aarav Clinics. All rights reserved. Ashok Nagar, Near BHEL, Hyderabad.</p>
+
       <div style="display:flex; gap:1rem; align-items:center;">
+
         <a href="privacy-policy.html" style="color:var(--text-muted); text-decoration:none; font-size:0.9rem;">Privacy
+
           Policy</a>
+
         <a href="terms.html" style="color:var(--text-muted); text-decoration:none; font-size:0.9rem;">Terms of
+
           Service</a>
+
       </div>
+
     </div>
+
   </footer>
 
   <!-- Mobile FAB -->
+
   <div class="mobile-fab-bar" aria-label="Quick contact actions">
+
     <a href="tel:+916302882910" class="mobile-fab-btn mobile-fab-btn--call" aria-label="Call Aarav Clinics">
+
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+
         aria-hidden="true">
+
         <path
+
           d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+
       </svg>
+
       Call
+
     </a>
+
     <a href="https://wa.me/916302882910?text=Hi%20Aarav%20Clinics%2C%20I%20would%20like%20to%20book%20an%20appointment"
+
       target="_blank" rel="noopener noreferrer" class="mobile-fab-btn mobile-fab-btn--wa"
+
       aria-label="WhatsApp Aarav Clinics">
+
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
         <path
+
           d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.513 5.26l-.999 3.648 3.985-1.045zm6.11-3.336c-.29-.145-1.71-.845-1.975-.94-.265-.1-.46-.145-.65.145-.195.29-.745.94-.915 1.135-.165.195-.335.22-.625.075-.29-.145-1.225-.45-2.335-1.44-.86-.77-1.44-1.72-1.61-2.01-.165-.29-.018-.445.125-.59.128-.128.29-.335.435-.5.145-.165.193-.29.29-.485.1-.195.048-.365-.025-.51-.072-.145-.65-1.565-.89-2.145-.235-.565-.475-.49-.65-.5-.167-.008-.36-.01-.55-.01-.19 0-.5.072-.765.36-.265.29-1.01.985-1.01 2.4s1.035 2.785 1.18 2.98c.145.195 2.035 3.105 4.935 4.355.69.298 1.23.475 1.65.605.693.219 1.325.188 1.824.114.556-.082 1.71-.7 1.95-1.376.24-.676.24-1.255.168-1.376-.073-.12-.265-.193-.555-.336z" />
+
       </svg>
+
       WhatsApp
+
     </a>
+
     <a href="contact.html#appointment" class="mobile-fab-btn mobile-fab-btn--book" aria-label="Book appointment">
+
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+
         aria-hidden="true">
+
         <rect x="3" y="4" width="18" height="18" rx="2" />
+
         <line x1="16" y1="2" x2="16" y2="6" />
+
         <line x1="8" y1="2" x2="8" y2="6" />
+
         <line x1="3" y1="10" x2="21" y2="10" />
+
       </svg>
+
       Book
+
     </a>
+
   </div>
 
   <!-- Scripts -->
+
   <script src="js/navigation.js"></script>
+
   <script src="js/animations.js"></script>
+
   <script src="js/faq.js"></script>
 
   <script>lucide.createIcons();</script>
+
 </body>
 
 </html>
