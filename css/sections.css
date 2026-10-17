@@ -948,3 +948,809 @@
     gap: 0.75rem;
   }
 }
+
+
+
+
+/* =========================================================
+   HOME — MEET THE SPECIALISTS
+   Scoped styles: does not redesign other sections
+   ========================================================= */
+
+.home-specialists {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  background:
+    radial-gradient(
+      circle at 5% 15%,
+      rgba(0, 153, 166, 0.055),
+      transparent 28%
+    ),
+    #f7fafb;
+}
+
+.home-specialists-heading {
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.home-specialists-heading .premium-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  color: #008f9b;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.home-specialists-heading .editorial-title {
+  margin: 0;
+  color: #092536;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.home-specialists-heading > p {
+  max-width: 510px;
+  margin: 0.9rem auto 0;
+  color: #647783;
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.home-specialists-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(1.1rem, 2.2vw, 1.8rem);
+}
+
+.home-specialist-card {
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(11, 46, 62, 0.07);
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(9, 37, 54, 0.045);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.home-specialist-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(0, 143, 155, 0.24);
+  box-shadow: 0 20px 42px rgba(9, 37, 54, 0.11);
+}
+
+.home-specialist-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e9f0f2;
+}
+
+.home-specialist-photo::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(7, 29, 44, 0.16)
+  );
+}
+
+.home-specialist-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 0.65s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.home-specialist-card:hover .home-specialist-photo img {
+  transform: scale(1.045);
+}
+
+.home-specialist-number {
+  position: absolute;
+  z-index: 1;
+  right: 14px;
+  bottom: 14px;
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(7, 29, 44, 0.72);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.home-specialist-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.1rem, 2vw, 1.55rem);
+}
+
+.home-specialist-department {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  margin-bottom: 0.65rem;
+  padding: 0.32rem 0.55rem;
+  border-radius: 5px;
+  color: #007f8c;
+  background: #eaf8f8;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  line-height: 1.4;
+}
+
+.home-specialist-content h3 {
+  margin: 0;
+  color: #092536;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+
+.home-specialist-qualification {
+  margin: 0.35rem 0 0;
+  color: #758590;
+  font-size: 0.77rem;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.home-specialist-divider {
+  width: 36px;
+  height: 3px;
+  margin: 1rem 0;
+  border-radius: 5px;
+  background: #00a0a9;
+}
+
+.home-specialist-bio {
+  margin: 0;
+  color: #61717d;
+  font-size: 0.82rem;
+  line-height: 1.85;
+}
+
+.home-specialist-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 1.35rem;
+  color: #008d99;
+  font-size: 0.79rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.home-specialist-link i {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.25s ease;
+}
+
+.home-specialist-link:hover {
+  color: #07536b;
+}
+
+.home-specialist-link:hover i {
+  transform: translate(3px, -2px);
+}
+
+.home-specialists-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.6rem;
+}
+
+.home-specialists-all-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 46px;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid rgba(0, 143, 155, 0.3);
+  border-radius: 8px;
+  color: #087f8d;
+  background: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.home-specialists-all-link i {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.home-specialists-all-link:hover {
+  color: #fff;
+  background: #082536;
+  border-color: #082536;
+}
+
+.home-specialists-all-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .home-specialists-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .home-specialist-card:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.625rem);
+    justify-self: center;
+  }
+
+  .home-specialist-photo {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Mobile */
+@media (max-width: 580px) {
+  .home-specialists {
+    padding: 3.5rem 0;
+  }
+
+  .home-specialists-heading {
+    margin-bottom: 2rem;
+    padding: 0 0.25rem;
+  }
+
+  .home-specialists-heading > p {
+    font-size: 0.85rem;
+  }
+
+  .home-specialists-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.15rem;
+  }
+
+  .home-specialist-card:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .home-specialist-photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  .home-specialist-content {
+    padding: 1.25rem;
+  }
+
+  .home-specialist-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .home-specialist-bio {
+    font-size: 0.85rem;
+  }
+
+  .home-specialists-footer {
+    margin-top: 2rem;
+  }
+
+  .home-specialists-all-link {
+    width: 100%;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .home-specialist-card,
+  .home-specialist-photo img,
+  .home-specialist-link,
+  .home-specialist-link i,
+  .home-specialists-all-link,
+  .home-specialists-all-link i {
+    transition: none !important;
+  }
+
+  .home-specialist-card:hover,
+  .home-specialist-card:hover .home-specialist-photo img {
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   AARAV CLINICS — TRUST SECTION
+   Balanced editorial layout, clear logo, responsive cards
+   ========================================================= */
+
+.trust-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  background:
+    radial-gradient(
+      circle at 0% 10%,
+      rgba(0, 160, 169, 0.065),
+      transparent 30%
+    ),
+    #f6f9fb;
+}
+
+.trust-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -170px;
+  right: -130px;
+  width: 380px;
+  height: 380px;
+  border: 1px solid rgba(0, 143, 155, 0.09);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.trust-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+}
+
+/* LEFT INTRO */
+
+.trust-intro {
+  width: 100%;
+  max-width: 470px;
+}
+
+.trust-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.3rem;
+  color: #008a96;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  line-height: 1.6;
+}
+
+.trust-eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #00a0a9;
+  box-shadow: 0 0 0 4px rgba(0, 160, 169, 0.12);
+}
+
+.trust-heading {
+  margin: 0;
+  color: #092536;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(2.25rem, 4vw, 3.65rem);
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  line-height: 1.12;
+}
+
+.trust-heading span {
+  display: block;
+  color: #c99d5c;
+}
+
+.trust-description {
+  max-width: 440px;
+  margin: 1.3rem 0 1.7rem;
+  color: #627481;
+  font-size: 0.94rem;
+  line-height: 1.95;
+}
+
+/* LOGO CARD — FULL VISIBILITY */
+
+.trust-brand-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  min-height: 112px;
+  margin: 1.8rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(9, 37, 54, 0.075);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(9, 37, 54, 0.045);
+}
+
+.trust-brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 118px;
+  width: 118px;
+  height: 76px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.trust-brand-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  filter: none;
+}
+
+.trust-brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.trust-brand-name {
+  color: #092536;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.trust-brand-tagline {
+  color: #73828c;
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+/* SMALL SUPPORTING POINTS */
+
+.trust-highlights {
+  display: grid;
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.trust-highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.trust-highlight-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(0, 143, 155, 0.14);
+  border-radius: 11px;
+  color: #008f9b;
+  background: #eaf7f8;
+}
+
+.trust-highlight-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.trust-highlight > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.trust-highlight strong {
+  color: #153849;
+  font-size: 0.83rem;
+  font-weight: 800;
+}
+
+.trust-highlight > div span {
+  color: #778690;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+/* PRIMARY CTA */
+
+.trust-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-height: 49px;
+  margin-top: 0.4rem;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid #008f9b;
+  border-radius: 7px;
+  color: #fff;
+  background: #008f9b;
+  box-shadow: 0 7px 18px rgba(0, 143, 155, 0.16);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.trust-cta svg {
+  width: 17px;
+  height: 17px;
+}
+
+.trust-cta:hover {
+  transform: translateY(-2px);
+  background: #07677a;
+  box-shadow: 0 11px 24px rgba(0, 103, 122, 0.2);
+}
+
+/* RIGHT BENEFITS */
+
+.trust-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.trust-benefit {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 1.25rem;
+  padding: 1.55rem 1.6rem;
+  border: 1px solid rgba(9, 37, 54, 0.07);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 5px 20px rgba(9, 37, 54, 0.025);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.trust-benefit:hover {
+  transform: translateX(4px);
+  border-color: rgba(0, 143, 155, 0.23);
+  box-shadow: 0 12px 28px rgba(9, 37, 54, 0.065);
+}
+
+.trust-benefit-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.trust-benefit-number {
+  color: #c99d5c;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+
+.trust-benefit-icon {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  color: #008f9b;
+  background: #eaf7f8;
+}
+
+.trust-benefit-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.trust-benefit-content {
+  padding-top: 0.1rem;
+}
+
+.trust-benefit-content h3 {
+  margin: 0 0 0.55rem;
+  color: #102f40;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.5;
+}
+
+.trust-benefit-content p {
+  margin: 0;
+  color: #697b87;
+  font-size: 0.84rem;
+  line-height: 1.85;
+}
+
+/* SECONDARY LINK */
+
+.trust-more-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.6rem;
+  margin: 0.55rem 0 0 0.2rem;
+  padding: 0.6rem 0;
+  color: #008b97;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.trust-more-link svg {
+  width: 17px;
+  height: 17px;
+  transition: transform 0.25s ease;
+}
+
+.trust-more-link:hover svg {
+  transform: translateX(5px);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .trust-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.8rem;
+  }
+
+  .trust-intro {
+    max-width: 650px;
+  }
+
+  .trust-description {
+    max-width: 580px;
+  }
+
+  .trust-benefits {
+    width: 100%;
+  }
+
+  .trust-benefit {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 580px) {
+  .trust-section {
+    padding: 3.5rem 0;
+  }
+
+  .trust-layout {
+    gap: 2rem;
+  }
+
+  .trust-heading {
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
+  }
+
+  .trust-description {
+    margin-top: 1rem;
+    font-size: 0.87rem;
+  }
+
+  .trust-brand-card {
+    gap: 0.7rem;
+    min-height: 96px;
+    padding: 0.75rem;
+  }
+
+  .trust-brand-logo {
+    flex-basis: 94px;
+    width: 94px;
+    height: 65px;
+  }
+
+  .trust-brand-name {
+    font-size: 0.92rem;
+  }
+
+  .trust-brand-tagline {
+    font-size: 0.67rem;
+  }
+
+  .trust-highlights {
+    gap: 0.9rem;
+  }
+
+  .trust-benefits {
+    gap: 0.8rem;
+  }
+
+  .trust-benefit {
+    grid-template-columns: 45px minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 1.1rem;
+  }
+
+  .trust-benefit-number {
+    font-size: 1.7rem;
+  }
+
+  .trust-benefit-icon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .trust-benefit-content h3 {
+    font-size: 0.95rem;
+  }
+
+  .trust-benefit-content p {
+    font-size: 0.79rem;
+    line-height: 1.75;
+  }
+
+  .trust-cta {
+    width: 100%;
+  }
+
+  .trust-more-link {
+    margin-top: 0.25rem;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-benefit,
+  .trust-cta,
+  .trust-more-link svg {
+    transition: none !important;
+  }
+
+  .trust-benefit:hover,
+  .trust-cta:hover {
+    transform: none;
+  }
+}
